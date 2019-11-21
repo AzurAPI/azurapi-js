@@ -7,5 +7,22 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasperchua99/azur-json.git"
+  },
+  "keywords": [
+    "azurlane",
+    "azur",
+    "lane",
+    "api",
+    "azur-lane",
+    "shipgirls",
+    "waifu"
+  ],
+  "bugs": {
+    "url": "https://github.com/jasperchua99/azur-json/issues"
+  },
+  "homepage": "https://github.com/jasperchua99/azur-json#readme"
 }
