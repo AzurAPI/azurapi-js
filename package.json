@@ -4,7 +4,7 @@
     "description": "Open Source Azur Lane Local Database",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest --verbose"
     },
     "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
     "license": "MIT",
@@ -25,8 +25,18 @@
         "url": "https://github.com/jasperchua99/azur-json/issues"
     },
     "homepage": "https://github.com/jasperchua99/azur-json#readme",
+    "jest": {
+        "testEnvironment": "node",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    },
     "dependencies": {
         "request": ">=2.88.0",
         "jsdom": ">=15.2.1"
+    },
+    "devDependencies": {
+        "jest": "^24.9.0",
+        "supertest": "^4.0.2"
     }
 }
