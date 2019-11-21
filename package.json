@@ -1,11 +1,15 @@
 {
-  "name": "azur-json",
-  "version": "0.0.0",
-  "description": "Open Source Azur Lane Local Database",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
-  "license": "MIT"
+    "name": "azur-json",
+    "version": "0.0.0",
+    "description": "Open Source Azur Lane Local Database",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
+    "license": "MIT",
+    "dependencies": {
+        "request": ">=2.88.0",
+        "jsdom": ">=15.2.1"
+    }
 }
