@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest",
-        "babel": "babel src/ships -d ships"
+        "babel": "babel ships/src -d ships"
     },
     "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
     "license": "MIT",
