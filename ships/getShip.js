@@ -5,16 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getShip = exports.default = void 0;
 
-var _lodash = _interopRequireDefault(require("lodash"));
+var _lodash = require("lodash");
 
-var _ships = _interopRequireDefault(require("./ships.json"));
+var _getAllShipsFromJson = _interopRequireDefault(require("./getAllShipsFromJson"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const getShip = name => {
-  let shipId = _lodash.default.filter(Object.keys(_ships.default), index => _lodash.default.lowerCase(_ships.default[index].names.en) === _lodash.default.lowerCase(name));
-
-  return _ships.default[shipId] || false;
+  let shipId = (0, _lodash.findIndex)((0, _lodash.keys)(_getAllShipsFromJson.default), index => (0, _lodash.lowerCase)(_getAllShipsFromJson.default[index].names.en) === (0, _lodash.lowerCase)(name));
+  return _getAllShipsFromJson.default[(0, _lodash.keys)(_getAllShipsFromJson.default)[shipId]] ? _getAllShipsFromJson.default[(0, _lodash.keys)(_getAllShipsFromJson.default)[shipId]] : undefined;
 };
 
 exports.getShip = getShip;

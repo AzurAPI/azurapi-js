@@ -15,7 +15,15 @@ Object.defineProperty(exports, "getShipByName", {
     return _getShip.default;
   }
 });
+Object.defineProperty(exports, "getShipById", {
+  enumerable: true,
+  get: function () {
+    return _getShipById.default;
+  }
+});
 
 var _getShip = _interopRequireDefault(require("./getShip"));
+
+var _getShipById = _interopRequireDefault(require("./getShipById"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
