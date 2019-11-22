@@ -22,8 +22,8 @@ function init() {
 async function recursiveFetching(index, callback) {
     getShipByName(SHIPS[index].name).then(ship => {
         if (index + 1 >= SHIPS.length) callback();
-    })
-    if (index + 1 < SHIPS.length) recursiveFetching(index + 1);
+    });
+    if (index + 1 < SHIPS.length) recursiveFetching(index + 1, callback);
 }
 
 function save(SHIPS) {
@@ -119,12 +119,12 @@ function getShipByName(name) {
                         stats: Object.values(doc.querySelectorAll(".tabbertab:nth-child(1) > .wikitable tbody td")).map(cell => cell.textContent.trim()),
                         author: doc.querySelector(".nomobile:nth-child(1) tr:nth-child(2) a").textContent,
                     };
-                    console.log(`Ship Loaded: ${JSON.stringify(ship)}`);
+                    //console.log(`Ship Loaded: ${JSON.stringify(ship)}`);
                     SHIPS_CACHE[cacheShip.id] = ship;
                     resolve(ship);
                 } catch (err) {
                     console.log("Error " + "https://azurlane.koumakan.jp/" + cacheShip.name);
-                    reject(err);
+                    //reject(err);
                 }
             });
         } else {
