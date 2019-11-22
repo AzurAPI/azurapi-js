@@ -1,8 +1,9 @@
 import _ from 'lodash'
-import ships from './test/ships.json'
+import ships from './ships.json'
 
 const getShip = (name) => {
-    return _.filter(ships, (ship) => _.lowerCase(ship.names.en) === _.lowerCase(name))
+    let shipId = _.filter(Object.keys(ships), (index) => _.lowerCase(ships[index].names.en) === _.lowerCase(name))
+    return ships[shipId] || false
 }
 
 export default getShip
