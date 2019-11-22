@@ -4,7 +4,8 @@
     "description": "Open Source Azur Lane Local Database",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest --verbose",
+        "babel": "babel src -d build"
     },
     "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
     "license": "MIT",
@@ -25,8 +26,22 @@
         "url": "https://github.com/jasperchua99/azur-json/issues"
     },
     "homepage": "https://github.com/jasperchua99/azur-json#readme",
+    "jest": {
+        "testEnvironment": "node",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    },
     "dependencies": {
         "request": ">=2.88.0",
         "jsdom": ">=15.2.1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.7.0",
+        "@babel/core": "^7.7.2",
+        "@babel/preset-env": "^7.7.1",
+        "babel-jest": "^24.9.0",
+        "jest": "^24.9.0",
+        "supertest": "^4.0.2"
     }
 }
