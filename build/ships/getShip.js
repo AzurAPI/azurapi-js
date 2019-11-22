@@ -1,25 +1,20 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
-exports.getShip = undefined;
+exports.getShip = exports.default = void 0;
 
-var _lodash = require('lodash');
+var _lodash = _interopRequireDefault(require("lodash"));
 
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _ships = require('../../test/ships.json');
-
-var _ships2 = _interopRequireDefault(_ships);
+var _ships = _interopRequireDefault(require("../../test/ships.json"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var getShip = function getShip(name) {
-    return _lodash2.default.filter(_ships2.default, function (ship) {
-        return _lodash2.default.lowerCase(ship.names.en) === _lodash2.default.lowerCase(name);
-    });
+const getShip = name => {
+  return _lodash.default.filter(_ships.default, ship => _lodash.default.lowerCase(ship.names.en) === _lodash.default.lowerCase(name));
 };
 
-exports.default = getShip;
 exports.getShip = getShip;
+var _default = getShip;
+exports.default = _default;

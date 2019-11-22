@@ -1,7 +1,7 @@
-// Server IP
+// Wiki URL
 let server = 'https://azurlane.koumakan.jp';
 
-// require supertest
+// Setting supertest in order to test the URL
 let request = require("supertest")
 request = request(server)
 

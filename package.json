@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest --verbose",
-        "babel": "babel --presets es2015 src -d build"
+        "babel": "babel src -d build"
     },
     "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
     "license": "MIT",
@@ -37,9 +37,10 @@
         "jsdom": ">=15.2.1"
     },
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
-        "babel-preset-es2015": "^6.24.1",
+        "@babel/cli": "^7.7.0",
+        "@babel/core": "^7.7.2",
+        "@babel/preset-env": "^7.7.1",
+        "babel-jest": "^24.9.0",
         "jest": "^24.9.0",
         "supertest": "^4.0.2"
     }
