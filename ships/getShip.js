@@ -7,7 +7,7 @@ exports.getShip = exports.default = void 0;
 
 var _lodash = _interopRequireDefault(require("lodash"));
 
-var _ships = _interopRequireDefault(require("../../test/ships.json"));
+var _ships = _interopRequireDefault(require("./test/ships.json"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

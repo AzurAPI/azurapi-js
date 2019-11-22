@@ -4,8 +4,8 @@
     "description": "Open Source Azur Lane Local Database",
     "main": "index.js",
     "scripts": {
-        "test": "jest --verbose",
-        "babel": "babel src -d build"
+        "test": "jest",
+        "babel": "babel src/ships -d ships"
     },
     "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
     "license": "MIT",
@@ -30,7 +30,8 @@
         "testEnvironment": "node",
         "coveragePathIgnorePatterns": [
             "/node_modules/"
-        ]
+        ],
+        "verbose": true
     },
     "dependencies": {
         "request": ">=2.88.0",

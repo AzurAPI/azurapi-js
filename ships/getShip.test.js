@@ -1,11 +1,11 @@
-// import { getShip } from 'azur-json/build/ships/getShip'
-let { getShip } = require("../build/ships/getShip")
+// import { getShip } from 'azur-json/ships/getShip'
+let { getShip } = require("../ships/getShip")
 
-// const getShipApi = require('azur-json/build/ships/getShip')
-let getShipApi = require("../build/ships/getShip")
+// const getShipApi = require('azur-json/ships/getShip')
+let getShipApi = require("../ships/getShip")
 
-// const shipsAPI = require('azur-json/build/ships')
-let shipsAPI = require("../build/ships")
+// const shipsAPI = require('azur-json/ships')
+let shipsAPI = require("../ships")
 
 // const api = require('azur-json')
 let api = require("../index.js")

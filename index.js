@@ -1,4 +1,4 @@
-const ships = require('./build/ships')
+const ships = require('./ships')
 const equipment = require('./equipment')
 const setup = require('./setup')
 
