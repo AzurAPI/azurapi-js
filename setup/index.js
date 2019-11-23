@@ -2,14 +2,8 @@ const fs = require('fs');
 const request = require('request');
 const JSDOM = require('jsdom').JSDOM;
 
-module.exports = {
-    init: init,
-    getShipByName: getShipByName,
-    getShipGallery: getShipGallery
-}
-
-let SHIPS = [];
-const SHIPS_CACHE = require("../ships/ships.json");
+let SHIP_LIST = [];
+const SHIPS = require("../ships/ships.json");
 const HEADERS = {
     'user-agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -17,36 +11,45 @@ const HEADERS = {
 
 };
 
+module.exports = {
+    init: init,
+    getShipByName: getShipByName,
+    getShipGallery: getShipGallery,
+    ships: SHIPS
+}
+
+
 function init() {
-    loadShipList().then(ss => {
+    loadShipList().then(list => {
         //getShipByName("akagi").then(ship => console.log(JSON.stringify(ship)));
-        SHIPS = ss;
-        console.log("Total Progress: " + Object.keys(SHIPS_CACHE).length + "/" + SHIPS.length);
-        recursiveFetching(0, () => save(SHIPS_CACHE));
+        SHIP_LIST = list;
+        fs.writeFileSync('../ships/ship_list.json', JSON.stringify(SHIP_LIST));
+        console.log("Total Progress: " + Object.keys(SHIPS).length + "/" + SHIP_LIST.length);
+        recursiveFetching(0, () => save(SHIPS));
     });
 }
 
 async function recursiveFetching(index, callback) {
     if (index % 30 == 0) {
-        process.stdout.write("| Progress: " + Object.keys(SHIPS_CACHE).length + "/" + SHIPS.length + "\n");
+        process.stdout.write("| Progress: " + Object.keys(SHIPS).length + "/" + SHIP_LIST.length + "\n");
     }
-    if (SHIPS_CACHE.hasOwnProperty(SHIPS[index].id)) {
+    if (SHIPS.hasOwnProperty(SHIP_LIST[index].id)) {
         process.stdout.write("-");
-        if (index + 1 < SHIPS.length) recursiveFetching(index + 1, callback);
+        if (index + 1 < SHIP_LIST.length) recursiveFetching(index + 1, callback);
     } else {
-        getShipByName(SHIPS[index].name).then(ship => {
+        getShipByName(SHIP_LIST[index].name).then(ship => {
             callback();
             process.stdout.write("+");
-            if (index + 1 < SHIPS.length) recursiveFetching(index + 1, callback);
+            if (index + 1 < SHIP_LIST.length) recursiveFetching(index + 1, callback);
         }).catch(err => {
-            console.log("\nError for " + SHIPS[index].name + ". msg: " + err.message + "\n");
+            console.log("\nError for " + SHIP_LIST[index].name + ". msg: " + err.message + "\n");
             console.log(err.stack);
         });
     }
 }
 
-function save(SHIPS) {
-    fs.writeFileSync('../ships/ships.json', JSON.stringify(SHIPS));
+function save(SHIP_LIST) {
+    fs.writeFileSync('../ships/ships.json', JSON.stringify(SHIP_LIST));
 }
 
 function loadShipList() {
@@ -64,7 +67,7 @@ function loadShipList() {
             table_ships.forEach(table_ship => {
                 let columns = table_ship.childNodes;
                 if (columns[0].tagName === "TD") {
-                    SHIPS.push({
+                    SHIP_LIST.push({
                         id: columns[0].textContent,
                         name: columns[1].textContent,
                         rarity: columns[2].textContent,
@@ -73,18 +76,18 @@ function loadShipList() {
                     });
                 }
             });
-            console.log("Loaded " + SHIPS.length + " Ships");
-            resolve(SHIPS);
+            console.log("Loaded " + SHIP_LIST.length + " Ships");
+            resolve(SHIP_LIST);
         });
     });
 }
 
 function findExactShip(name) {
-    return SHIPS.find(ship => ship.name.toUpperCase() === name.toUpperCase());
+    return SHIP_LIST.find(ship => ship.name.toUpperCase() === name.toUpperCase());
 }
 
 function findShip(name) {
-    return SHIPS.find(ship => ship.name.toUpperCase().includes(name.toUpperCase()));
+    return SHIP_LIST.find(ship => ship.name.toUpperCase().includes(name.toUpperCase()));
 }
 
 function getShipByName(name) {
@@ -92,9 +95,9 @@ function getShipByName(name) {
         let cacheShip = findExactShip(name);
         if (!cacheShip) cacheShip = findShip(name);
         if (cacheShip) {
-            if (SHIPS_CACHE.hasOwnProperty(cacheShip.id)) {
+            if (SHIPS.hasOwnProperty(cacheShip.id)) {
                 //console.log("Found it in cache. Serving Cache Content");
-                resolve(SHIPS_CACHE[cacheShip.id]);
+                resolve(SHIPS[cacheShip.id]);
                 return;
             }
             request({
@@ -131,7 +134,7 @@ function getShipByName(name) {
                             nationality: cacheShip.nationality,
                             hullType: doc.querySelector(".wikitable tr:nth-child(3) a:nth-child(2)").textContent,
                         };
-                        SHIPS_CACHE[cacheShip.id] = ship
+                        SHIPS[cacheShip.id] = ship
                         resolve(ship);
                         return;
                     }
@@ -173,7 +176,7 @@ function getShipByName(name) {
                             voice: misc_selectors[4] ? misc_selectors[4].textContent : null
                         }
                     };
-                    SHIPS_CACHE[cacheShip.id] = ship;
+                    SHIPS[cacheShip.id] = ship;
                     resolve(ship);
                 } catch (err) {
                     reject(err);
