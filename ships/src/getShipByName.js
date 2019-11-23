@@ -1,14 +1,16 @@
-import { findIndex, toLower, replace } from 'lodash'
+import { findIndex, toLower, replace, deburr } from 'lodash'
 import ships from './getAllShips'
 import getAllShipsChineseNames from './getAllShipsChineseNames'
 import getAllShipsEnglishNames from './getAllShipsEnglishNames'
 import getAllShipsKoreanNames from './getAllShipsKoreanNames'
 import getAllShipsJapaneseNames from './getAllShipsJapaneseNames'
 
+const escapeLatinString = (string) => toLower(replace(deburr(string), /[!@#$%^&*(),.?":{}|<>' ]/g, ''))
+
 const getShipByName = (name) => {
     let shipId = findIndex(getAllShipsChineseNames, (shipNameCn) => toLower(shipNameCn) === toLower(name))
     if (ships[shipId]) return ships[shipId]
-    shipId = findIndex(getAllShipsEnglishNames, (shipNameEn) => toLower(replace(shipNameEn, '.', '')) === toLower(replace(name, '.', '')))
+    shipId = findIndex(getAllShipsEnglishNames, (shipNameEn) => escapeLatinString(shipNameEn) === escapeLatinString(name))
     if (ships[shipId]) return ships[shipId]
     shipId = findIndex(getAllShipsKoreanNames, (shipNameKr) => toLower(shipNameKr) === toLower(name))
     if (ships[shipId]) return ships[shipId]
