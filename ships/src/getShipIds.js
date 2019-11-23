@@ -1,7 +1,7 @@
 import { keys } from 'lodash'
-import ships from './getAllShipsFromJson'
+import getAllShipsFromJson from './getAllShipsFromJson'
 
-const getShipIds = keys(ships)
+const getShipIds = keys(getAllShipsFromJson)
 
 export default getShipIds
 export { getShipIds as getShipIds }
