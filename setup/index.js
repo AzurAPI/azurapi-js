@@ -19,6 +19,7 @@ const HEADERS = {
 
 function init() {
     loadShipList().then(ss => {
+        //getShipByName("akagi").then(ship => console.log(JSON.stringify(ship)));
         SHIPS = ss;
         console.log("Total Progress: " + Object.keys(SHIPS_CACHE).length + "/" + SHIPS.length);
         recursiveFetching(0, () => save(SHIPS_CACHE));
@@ -136,7 +137,6 @@ function getShipByName(name) {
                     }
 
                     const skins = await getShipGallery(cacheShip.name);
-                    const stats = await getShipStats(doc);
                     const misc_selectors = [2, 3, 4, 5, 6].map(i => doc.querySelector(`.nomobile:nth-child(1) tr:nth-child(${i}) a`));
                     let ship = {
                         wikiUrl: "https://azurlane.koumakan.jp/" + cacheShip.name.replace(/ +/g, "_"),
@@ -155,7 +155,7 @@ function getShipByName(name) {
                         class: doc.querySelector("div:nth-child(3) > .wikitable tr:nth-child(3) > td:nth-child(2) > a").textContent,
                         nationality: cacheShip.nationality,
                         hullType: doc.querySelector(".wikitable tr:nth-child(3) a:nth-child(2)").textContent,
-                        stats: stats,
+                        stats: getShipStats(doc),
                         misc: {
                             artist: misc_selectors[0] ? misc_selectors[0].textContent : null,
                             web: misc_selectors[1] ? {
@@ -224,13 +224,13 @@ function getShipStats(doc) {
     for (let i = 0; i < tabs.length; i++) {
         let stats = {};
         let tab = tabs[i];
-        let title = tab.getAttribute("title");
+        let title = tab.parentNode.parentNode.getAttribute("title");
         let names = tab.querySelectorAll("th");
         let bodies = tab.querySelectorAll("td");
         for (let j = 0; j < names.length; j++) {
             let name = names[j].firstChild.getAttribute("title");
             let value = bodies[j].textContent.trim();
-            let icon = "https://azurlane.koumakan.jp/" + names[j].firstChild.getAttribute("src");
+            let icon = names[j].firstChild.getAttribute("src") ? "https://azurlane.koumakan.jp" + names[j].firstChild.getAttribute("src") : null;
             stats[name] = {
                 value: value,
                 icon: icon
@@ -238,4 +238,5 @@ function getShipStats(doc) {
         }
         allStats[title] = stats;
     }
+    return allStats;
 }
