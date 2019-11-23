@@ -8,7 +8,7 @@ describe("Get ship by ID module", () => {
         expect(getShipById('144')).toBeTruthy()
     })
     test('should return undefined with an integer as a parameter that isn\'t registered as a ship ID', () => {
-        expect(getShipById(1)).toBeFalsy()
+        expect(getShipById(894919281874154848)).toBeFalsy()
     })
     test('should return undefined with a string with letters as a parameter', () => {
         expect(getShipById('abc')).toBeFalsy()
