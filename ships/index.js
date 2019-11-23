@@ -12,7 +12,7 @@ Object.defineProperty(exports, "getShip", {
 Object.defineProperty(exports, "getShipByName", {
   enumerable: true,
   get: function () {
-    return _getShip.default;
+    return _getShipByName.default;
   }
 });
 Object.defineProperty(exports, "getShipById", {
@@ -23,6 +23,8 @@ Object.defineProperty(exports, "getShipById", {
 });
 
 var _getShip = _interopRequireDefault(require("./getShip"));
+
+var _getShipByName = _interopRequireDefault(require("./getShipByName"));
 
 var _getShipById = _interopRequireDefault(require("./getShipById"));
 
