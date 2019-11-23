@@ -7,6 +7,9 @@ describe("Get ship by ID module", () => {
     test('should be able to retrieve Belfast with a stringified integer as a parameter', () => {
         expect(getShipById('144')).toBeTruthy()
     })
+    test('should be able to retrieve Gascogne with a string as a parameter', () => {
+        expect(getShipById('Plan012')).toBeTruthy()
+    })
     test('should return undefined with an integer as a parameter that isn\'t registered as a ship ID', () => {
         expect(getShipById(894919281874154848)).toBeFalsy()
     })

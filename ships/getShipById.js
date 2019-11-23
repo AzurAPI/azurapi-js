@@ -11,13 +11,10 @@ var _ships = _interopRequireDefault(require("./ships.json"));
 
 var _getShipIds = _interopRequireDefault(require("./getShipIds"));
 
-var _isPositiveIntegerNumber = _interopRequireDefault(require("./util/isPositiveIntegerNumber"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const getShipById = id => {
-  if (!(0, _isPositiveIntegerNumber.default)(id)) return undefined;
-  let shipIndex = (0, _lodash.findIndex)(_getShipIds.default, index => (0, _lodash.toNumber)(index) === (0, _lodash.toNumber)(id));
+  let shipIndex = (0, _lodash.findIndex)(_getShipIds.default, index => (0, _lodash.toNumber)(index) === (0, _lodash.toNumber)(id) || index === id);
   return _ships.default[_getShipIds.default[shipIndex]] ? _ships.default[_getShipIds.default[shipIndex]] : undefined;
 };
 
