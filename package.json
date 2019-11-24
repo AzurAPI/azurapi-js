@@ -33,7 +33,9 @@
         ],
         "verbose": true
     },
-    "dependencies": {},
+    "dependencies": {
+        "lodash": "^4.17.15"
+    },
     "devDependencies": {
         "@babel/cli": "^7.7.0",
         "@babel/core": "^7.7.2",
