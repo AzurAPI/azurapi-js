@@ -1,4 +1,4 @@
-let { getShipByName } = require("../index.js")
+let { getShipByName, getShipByEnglishName, getShipByChineseName, getShipByJapaneseName, getShipByKoreanName } = require("../index.js")
 
 describe("Get ship by name module", () => {
     test('should be able to retrieve Belfast with english name as input', () => {
@@ -45,5 +45,53 @@ describe("Get ship by name module", () => {
         expect(getShipByName(true)).toBeFalsy()
         expect(getShipByName(false)).toBeFalsy()
         expect(getShipByName([])).toBeFalsy()
+    })
+});
+
+describe("Get ship by japanese name module", () => {
+    test('should be able to retrieve Belfast with japanese name as input', () => {
+        expect(getShipByJapaneseName('ベルファスト')).toBeTruthy()
+        expect(getShipByJapaneseName('ベルファスト').id).toBe('115')
+    })
+    test('should not be able to retrieve Belfast with names in other languages as input', () => {
+        expect(getShipByJapaneseName('벨파스트')).toBeFalsy()
+        expect(getShipByJapaneseName('贝尔法斯特')).toBeFalsy()
+        expect(getShipByJapaneseName('Belfast')).toBeFalsy()
+    })
+});
+
+describe("Get ship by english name module", () => {
+    test('should be able to retrieve Belfast with english name as input', () => {
+        expect(getShipByEnglishName('Belfast')).toBeTruthy()
+        expect(getShipByEnglishName('Belfast').id).toBe('115')
+    })
+    test('should not be able to retrieve Belfast with names in other languages as input', () => {
+        expect(getShipByEnglishName('벨파스트')).toBeFalsy()
+        expect(getShipByEnglishName('贝尔法斯特')).toBeFalsy()
+        expect(getShipByEnglishName('ベルファスト')).toBeFalsy()
+    })
+});
+
+describe("Get ship by korean name module", () => {
+    test('should be able to retrieve Belfast with korean name as input', () => {
+        expect(getShipByKoreanName('벨파스트')).toBeTruthy()
+        expect(getShipByKoreanName('벨파스트').id).toBe('115')
+    })
+    test('should not be able to retrieve Belfast with names in other languages as input', () => {
+        expect(getShipByKoreanName('ベルファスト')).toBeFalsy()
+        expect(getShipByKoreanName('贝尔法斯特')).toBeFalsy()
+        expect(getShipByKoreanName('Belfast')).toBeFalsy()
+    })
+});
+
+describe("Get ship by chinese name module", () => {
+    test('should be able to retrieve Belfast with chinese name as input', () => {
+        expect(getShipByChineseName('贝尔法斯特')).toBeTruthy()
+        expect(getShipByChineseName('贝尔法斯特').id).toBe('115')
+    })
+    test('should not be able to retrieve Belfast with names in other languages as input', () => {
+        expect(getShipByChineseName('벨파스트')).toBeFalsy()
+        expect(getShipByChineseName('ベルファスト')).toBeFalsy()
+        expect(getShipByChineseName('Belfast')).toBeFalsy()
     })
 });

@@ -1,25 +1,18 @@
-import { findIndex, isNumber, isString, toLower, replace, deburr } from 'lodash'
-import ships from './getAllShips'
-import getAllShipsChineseNames from './getAllShipsChineseNames'
-import getAllShipsEnglishNames from './getAllShipsEnglishNames'
-import getAllShipsKoreanNames from './getAllShipsKoreanNames'
-import getAllShipsJapaneseNames from './getAllShipsJapaneseNames'
-
-const escapeLatinString = (string) => toLower(replace(deburr(string), /[!@#$%^&*(),.?":{}|<>' ]/g, ''))
+import { isNumber, isString } from 'lodash'
+import getShipByChineseName from './getShipByChineseName'
+import getShipByEnglishName from './getShipByEnglishName'
+import getShipByKoreanName from './getShipByKoreanName'
+import getShipByJapaneseName from './getShipByJapaneseName'
 
 const isValid = (input) => input && (isNumber(input) || (isString(input)))
 
 const getShipByName = (name) => {
     if (!isValid(name)) return undefined
-    let shipId = findIndex(getAllShipsChineseNames, (shipNameCn) => toLower(shipNameCn) === toLower(name))
-    if (ships[shipId]) return ships[shipId]
-    shipId = findIndex(getAllShipsEnglishNames, (shipNameEn) => escapeLatinString(shipNameEn) === escapeLatinString(name))
-    if (ships[shipId]) return ships[shipId]
-    shipId = findIndex(getAllShipsKoreanNames, (shipNameKr) => toLower(shipNameKr) === toLower(name))
-    if (ships[shipId]) return ships[shipId]
-    shipId = findIndex(getAllShipsJapaneseNames, (shipNameJp) => toLower(shipNameJp) === toLower(name))
-    if (ships[shipId]) return ships[shipId]
-    return undefined
+    return getShipByChineseName(name)
+        || getShipByEnglishName(name)
+        || getShipByKoreanName(name)
+        || getShipByJapaneseName(name)
+        || undefined
 }
 
 export default getShipByName
