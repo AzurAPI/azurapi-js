@@ -21,7 +21,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const escapeLatinString = string => (0, _lodash.toLower)((0, _lodash.replace)((0, _lodash.deburr)(string), /[!@#$%^&*(),.?":{}|<>' ]/g, ''));
 
+const isValid = input => input && ((0, _lodash.isNumber)(input) || (0, _lodash.isString)(input));
+
 const getShipByName = name => {
+  if (!isValid(name)) return undefined;
   let shipId = (0, _lodash.findIndex)(_getAllShipsChineseNames.default, shipNameCn => (0, _lodash.toLower)(shipNameCn) === (0, _lodash.toLower)(name));
   if (_getAllShips.default[shipId]) return _getAllShips.default[shipId];
   shipId = (0, _lodash.findIndex)(_getAllShipsEnglishNames.default, shipNameEn => escapeLatinString(shipNameEn) === escapeLatinString(name));

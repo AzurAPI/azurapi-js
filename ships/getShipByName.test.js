@@ -40,5 +40,10 @@ describe("Get ship by name module", () => {
     test('should return undefined with incorrect values as input', () => {
         expect(getShipByName(1)).toBeFalsy()
         expect(getShipByName('1')).toBeFalsy()
+        expect(getShipByName('')).toBeFalsy()
+        expect(getShipByName()).toBeFalsy()
+        expect(getShipByName(true)).toBeFalsy()
+        expect(getShipByName(false)).toBeFalsy()
+        expect(getShipByName([])).toBeFalsy()
     })
 });
