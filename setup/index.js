@@ -92,7 +92,7 @@ function getShipByName(name) {
             headers: HEADERS
         }, async (error, res, body) => {
             if (error) reject(error);
-            fs.writeFileSync('../ships/web/' + name + '.html', body);
+            fs.writeFileSync('../setup/web/' + name + '.html', body);
             const doc = new JSDOM(body).window.document;
             let ship = {
                 wikiUrl: "https://azurlane.koumakan.jp/" + name.replace(/ +/g, "_"),
