@@ -1,4 +1,4 @@
-let { getShipById } = require("../index.js")
+let { getShipById } = require("../../index.js")
 
 describe("Get ship by ID module", () => {
     test('should be able to retrieve Belfast with an integer as a parameter', () => {

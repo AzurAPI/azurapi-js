@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "npm run babel & jest",
-        "babel": "babel ships/src -d ships"
+        "babel": "babel ships/src -d ships",
+        "postinstall": "npm run babel"
     },
     "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
     "license": "MIT",
