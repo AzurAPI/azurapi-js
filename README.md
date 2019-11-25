@@ -57,4 +57,4 @@ The following npm script runs the Babel job :
 npm run babel
 ```
 
-Please contact XXXXXXXXXXXXXX for other information.
+Please contact XhacKX#0001,tommywalkie#2458, 彩雲#5778 for other information.
