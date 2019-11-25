@@ -23,6 +23,14 @@ describe("Get ship by name module", () => {
         expect(getShipByName('L\'Opiniatre')).toBeTruthy()
         expect(getShipByName('L Opiniâtre')).toBeTruthy()
     })
+    test('should be able to retrieve Jean Bart with \'jean\' as input', () => {
+        expect(getShipByName('jean')).toBeTruthy()
+        expect(getShipByName('jean').names.en).toBe('Jean Bart')
+    })
+    test('should be able to retrieve Jeanne d\'Arc with \'jeann\' as input', () => {
+        expect(getShipByName('jeann')).toBeTruthy()
+        expect(getShipByName('jeann').names.en).toBe('Jeanne d\'Arc')
+    })
     test('should be able to retrieve St. Louis with english name with or without punctuation as input', () => {
         expect(getShipByName('St. Louis')).toBeTruthy()
         expect(getShipByName('St Louis')).toBeTruthy()
@@ -44,8 +52,6 @@ describe("Get ship by name module", () => {
         expect(getShipByName('벨파스트').id).toBe('115')
     })
     test('should return undefined with incorrect values as input', () => {
-        expect(getShipByName(1)).toBeFalsy()
-        expect(getShipByName('1')).toBeFalsy()
         expect(getShipByName('')).toBeFalsy()
         expect(getShipByName()).toBeFalsy()
         expect(getShipByName(true)).toBeFalsy()

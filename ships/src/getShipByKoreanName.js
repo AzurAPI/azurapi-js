@@ -1,9 +1,9 @@
-import { findIndex, toLower } from 'lodash'
+import { findIndex, includes, toLower } from 'lodash'
 import ships from './getAllShips'
 import getAllShipsKoreanNames from './getAllShipsKoreanNames'
 
 const getShipByKoreanName = (name) => {
-    let shipId = findIndex(getAllShipsKoreanNames, (shipNameKr) => toLower(shipNameKr) === toLower(name))
+    let shipId = findIndex(getAllShipsKoreanNames, (item) => includes(toLower(item), toLower(name)))
     if (ships[shipId]) return ships[shipId]
     return undefined
 }
