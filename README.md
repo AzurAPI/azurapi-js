@@ -4,35 +4,12 @@
 ![Discord Banner 2](https://discordapp.com/api/guilds/648206344729526272/widget.png?style=banner2)
 
 ## Features
-
 **TODO**
 
-## Installation
+##Usage
+To use the Library, Please refer to the [Wiki](https://github.com/AzurAPI/azur-json/wiki)
 
-```bash
-npm install azur-json
-yarn add azur-json
-```
-
-## Usage
-
-API can be used by importing _azur-json_ in your JS script, or by importing the individual functions you need.
-
-```js
-import azurJson from 'azur-json'
-// or const azurJson = require('azur-json')
-
-console.log(azurJson.ships.getShip('z23'))
-// or console.log(azurJson.getShip('z23'))
-// => { ... }
-
-import { getShip, getShipByName } from 'azur-json'
-console.log(getShipByName('z23'))
-// => { ... }
-```
-
-## Update the data
-
+## Updating the data
 **TODO**
 
 ## Test
@@ -59,5 +36,3 @@ The following npm script runs the Babel job :
 ```bash
 npm run babel
 ```
-
-Please contact XhacKX#0001,tommywalkie#2458, 彩雲#5778 for other information.
