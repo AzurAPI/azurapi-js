@@ -1,5 +1,5 @@
 {
-    "name": "azur-json",
+    "name": "azurapi-js",
     "version": "0.0.0",
     "description": "Open Source Azur Lane Local Database",
     "main": "index.js",
