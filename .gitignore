@@ -3,3 +3,4 @@ test.js
 ships/*.js
 setup/web/
 setup/web.gallery/
+.DS_Store
