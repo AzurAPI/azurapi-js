@@ -4,6 +4,7 @@ const JSDOM = require('jsdom').JSDOM;
 
 let SHIP_LIST = [];
 const SHIPS = require("../ships/ships.json");
+const VERSION_INFO = require("../ships/version-info.json");
 const HEADERS = {
     'user-agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -28,14 +29,20 @@ function init() {
         recursiveFetching(0);
     });
 }
-let dot_per_line = 64;
+let dot_per_line = 32;
 
-function recursiveFetching(index) {
-    if (index >= SHIP_LIST.length) return console.log("\nProgram Finished");
+async function recursiveFetching(index) {
+    if (index >= SHIP_LIST.length) {
+        VERSION_INFO["version-number"] += 1;
+        VERSION_INFO["list-last-refresh-date"] = Date.now();
+        VERSION_INFO["number-of-ships"] = SHIP_LIST.length;
+        fs.writeFileSync('../ships/version-info.json', JSON.stringify(VERSION_INFO));
+        return console.log("\nProgram Finished");
+    }
     if (index % dot_per_line == 0) process.stdout.write(`| Progress: ${Object.keys(SHIPS).length}/${SHIP_LIST.length}\n`);
     if (SHIPS.hasOwnProperty(SHIP_LIST[index].id)) process.stdout.write("-");
     else {
-        let ship = getShipByNameLocal(SHIP_LIST[index].name);
+        let ship = await getShipByNameLocal(SHIP_LIST[index].name);
         SHIPS[SHIP_LIST[index].id] = ship;
         fs.writeFileSync('../ships/ships.json', JSON.stringify(SHIPS));
         process.stdout.write("+");
@@ -81,8 +88,7 @@ function findShip(name) {
     return SHIP_LIST.find(ship => ship.name.toUpperCase().includes(name.toUpperCase()));
 }
 
-function getShipByNameLocal(name) {
-    const body = fs.readFileSync('../setup/web/' + name + '.html', 'utf8');
+function getShipFromDoc(name, body) {
     const doc = new JSDOM(body).window.document;
     let ship = {
         wikiUrl: "https://azurlane.koumakan.jp/" + name.replace(/ +/g, "_"),
@@ -93,7 +99,7 @@ function getShipByNameLocal(name) {
             jp: doc.querySelector('[lang="ja"]') ? doc.querySelector('[lang="ja"]').textContent : null,
             kr: doc.querySelector('[lang="ko"]') ? doc.querySelector('[lang="ko"]').textContent : null
         },
-        class: doc.querySelector("div:nth-child(3) > .wikitable tr:nth-child(3) > td:nth-child(2) > a").textContent,
+        class: doc.querySelector("div:nth-child(3) > .wikitable tr:nth-child(3) > td:nth-child(2) > a") ? doc.querySelector("div:nth-child(3) > .wikitable tr:nth-child(3) > td:nth-child(2) > a").textContent : null,
         nationality: doc.querySelector("div:nth-child(4) > .wikitable tr:nth-child(2) a:nth-child(2)").textContent,
         hullType: doc.querySelector(".wikitable tr:nth-child(3) a:nth-child(2)").textContent
     }
@@ -119,9 +125,8 @@ function getShipByNameLocal(name) {
     }
     const misc_selectors = [2, 3, 4, 5, 6].map(i => doc.querySelector(`.nomobile:nth-child(1) tr:nth-child(${i}) a`));
     ship.thumbnail = "https://azurlane.koumakan.jp" + doc.getElementsByTagName("img")[0].getAttribute("src");
-    ship.skins = getShipGalleryLocal(name);
     ship.buildTime = doc.querySelector("tr:nth-child(1) > td:nth-child(2) > a").textContent;
-    ship.rarity = doc.querySelector("div:nth-child(1) > div:nth-child(3) > .wikitable td a").getAttribute("title");
+    ship.rarity = doc.querySelector("div:nth-child(3) > .wikitable td img").parentNode.getAttribute("title");
     let stars = doc.querySelector("div:nth-child(1) > div:nth-child(3) > .wikitable:nth-child(1) tr:nth-child(2) > td").textContent.trim();
     ship.stars = {
         stars: stars,
@@ -147,6 +152,20 @@ function getShipByNameLocal(name) {
     return ship;
 }
 
+async function getShipByNameLocal(name) {
+    if (!fs.existsSync('../setup/web/' + name + '.html')) return await getShipByName(name);
+    const body = fs.readFileSync('../setup/web/' + name + '.html', 'utf8');
+    try {
+        let ship = getShipFromDoc(name, body);
+        ship.skins = getShipGalleryLocal(name);
+        return ship;
+    } catch (err) {
+        console.log("** Error Happened for ship \"" + name + "\" msg: " + err.message);
+        console.log(err.stack);
+        return {};
+    }
+}
+
 function getShipGalleryLocal(name) {
     let skins = [];
     const body = fs.readFileSync('../setup/web.gallery/' + name + '.html', 'utf8');
@@ -157,84 +176,31 @@ function getShipGalleryLocal(name) {
             name: tab.getAttribute("title"),
             image: "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-image img").getAttribute("src"),
             background: "https://azurlane.koumakan.jp" + tab.querySelector(".res img").getAttribute("src"),
-            chibi: "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-chibi img").getAttribute("src"),
+            chibi: tab.querySelector(".ship-skin-chibi img") ? "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-chibi img").getAttribute("src") : null,
             info: info
         });
     });
     return skins;
 }
 
-function getShipByName(name) {
-    return new Promise((resolve, reject) => {
+async function getShipByName(name) {
+    return new Promise(async (resolve, reject) => {
         request({
             url: "https://azurlane.koumakan.jp/" + encodeURIComponent(name.replace(/ +/g, "_")) + "?useformat=desktop",
             headers: HEADERS
         }, async (error, res, body) => {
             if (error) reject(error);
             fs.writeFileSync('../setup/web/' + name + '.html', body);
-            const doc = new JSDOM(body).window.document;
-            let ship = {
-                wikiUrl: "https://azurlane.koumakan.jp/" + name.replace(/ +/g, "_"),
-                id: doc.querySelector('div:nth-child(4) > .wikitable:nth-child(1) tr:nth-child(1) > td').textContent.trim(),
-                names: {
-                    en: doc.querySelector('#firstHeading').textContent,
-                    cn: doc.querySelector('[lang="zh"]') ? doc.querySelector('[lang="zh"]').textContent : null,
-                    jp: doc.querySelector('[lang="ja"]') ? doc.querySelector('[lang="ja"]').textContent : null,
-                    kr: doc.querySelector('[lang="ko"]') ? doc.querySelector('[lang="ko"]').textContent : null
-                },
-                class: doc.querySelector("div:nth-child(3) > .wikitable tr:nth-child(3) > td:nth-child(2) > a").textContent,
-                nationality: doc.querySelector("div:nth-child(4) > .wikitable tr:nth-child(2) a:nth-child(2)").textContent,
-                hullType: doc.querySelector(".wikitable tr:nth-child(3) a:nth-child(2)").textContent
-            }
-            if (doc.querySelectorAll("#mw-content-text .mw-parser-output > div").length < 2) { // Unreleased
-                let images = doc.getElementsByTagName("img");
-                ship.unreleased = true,
-                    ship.names = {
-                        en: doc.querySelector('#firstHeading').textContent,
-                        cn: doc.querySelector('[lang="zh"]') ? doc.querySelector('[lang="zh"]').textContent : null,
-                        jp: doc.querySelector('[lang="ja"]') ? doc.querySelector('[lang="ja"]').textContent : null,
-                        kr: doc.querySelector('[lang="ko"]') ? doc.querySelector('[lang="ko"]').textContent : null
-                    };
-                ship.thumbnail = "https://azurlane.koumakan.jp" + images[1].getAttribute("src");
-                ship.skins = [{
-                    name: name,
-                    image: "https://azurlane.koumakan.jp" + doc.querySelector(".tabbertab .image > img").getAttribute("src"),
-                    background: null,
-                    chibi: doc.querySelector("td > div > div:nth-child(2) img") ? "https://azurlane.koumakan.jp" + doc.querySelector("td > div > div:nth-child(2) img").getAttribute("src") : null,
-                    info: null
-                }];
-                ship.rarity = "Unreleased";
+            try {
+                let ship = getShipFromDoc(name, body);
+                ship.skins = await getShipGallery(name);
+                VERSION_INFO["new-ships-last-added-date"] = Date.now();
+                console.log("\n + (" + name + ")");
                 resolve(ship);
-                return;
+            } catch (err) {
+                console.log("** Error Happened for ship \"" + name + "\" msg: " + err.message);
+                console.log(err.stack);
             }
-            const misc_selectors = [2, 3, 4, 5, 6].map(i => doc.querySelector(`.nomobile:nth-child(1) tr:nth-child(${i}) a`));
-            ship.thumbnail = "https://azurlane.koumakan.jp" + doc.getElementsByTagName("img")[0].getAttribute("src");
-            ship.skins = await getShipGallery(name);
-            ship.buildTime = doc.querySelector("tr:nth-child(1) > td:nth-child(2) > a").textContent;
-            ship.rarity = doc.querySelector("div:nth-child(1) > div:nth-child(3) > .wikitable td a").getAttribute("title");
-            let stars = doc.querySelector("div:nth-child(1) > div:nth-child(3) > .wikitable:nth-child(1) tr:nth-child(2) > td").textContent.trim();
-            ship.stars = {
-                stars: stars,
-                value: stars.split("★").length - 1
-            };
-            ship.stats = getShipStats(doc);
-            ship.misc = {
-                artist: misc_selectors[0] ? misc_selectors[0].textContent : null,
-                web: misc_selectors[1] ? {
-                    name: misc_selectors[1].textContent,
-                    url: misc_selectors[1].getAttribute("href")
-                } : null,
-                pixiv: misc_selectors[2] ? {
-                    name: misc_selectors[2].textContent,
-                    url: misc_selectors[2].getAttribute("href")
-                } : null,
-                twitter: misc_selectors[3] ? {
-                    name: misc_selectors[3].textContent,
-                    url: misc_selectors[3].getAttribute("href")
-                } : null,
-                voice: misc_selectors[4] ? misc_selectors[4].textContent : null
-            };
-            resolve(ship);
         });
     });
 }
@@ -245,21 +211,26 @@ function getShipGallery(name) {
             url: "https://azurlane.koumakan.jp/" + name.replace(/ +/g, "_") + "/Gallery",
             headers: HEADERS
         }, (error, res, body) => {
-            if (error) reject(error);
-            let skins = [];
-            fs.writeFileSync('../setup/web.gallery/' + name + '.html', body);
-            Array.from(new JSDOM(body).window.document.getElementsByClassName("tabbertab")).forEach(tab => {
-                let info = {};
-                tab.querySelectorAll(".ship-skin-infotable tr").forEach(row => info[row.getElementsByTagName("th")[0].textContent.trim()] = row.getElementsByTagName("td")[0].textContent.trim());
-                skins.push({
-                    name: tab.getAttribute("title"),
-                    image: "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-image img").getAttribute("src"),
-                    background: "https://azurlane.koumakan.jp" + tab.querySelector(".res img").getAttribute("src"),
-                    chibi: "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-chibi img").getAttribute("src"),
-                    info: info
+            try {
+                if (error) reject(error);
+                let skins = [];
+                fs.writeFileSync('../setup/web.gallery/' + name + '.html', body);
+                Array.from(new JSDOM(body).window.document.getElementsByClassName("tabbertab")).forEach(tab => {
+                    let info = {};
+                    tab.querySelectorAll(".ship-skin-infotable tr").forEach(row => info[row.getElementsByTagName("th")[0].textContent.trim()] = row.getElementsByTagName("td")[0].textContent.trim());
+                    skins.push({
+                        name: tab.getAttribute("title"),
+                        image: "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-image img").getAttribute("src"),
+                        background: "https://azurlane.koumakan.jp" + tab.querySelector(".res img").getAttribute("src"),
+                        chibi: tab.querySelector(".ship-skin-chibi img") ? "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-chibi img").getAttribute("src") : null,
+                        info: info
+                    });
                 });
-            });
-            resolve(skins);
+                resolve(skins);
+            } catch (err) {
+                console.log("** Error Happened for ship \"" + name + "\" msg: " + err.message);
+                console.log(err.stack);
+            }
         });
     });
 }

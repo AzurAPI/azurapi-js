@@ -1,3 +1,5 @@
 /.github
 /.npmignore
 ships/test/
+./setup/web/
+./setup/web.gallery/
