@@ -3,6 +3,7 @@
 const fs = require('fs');
 const request = require('request');
 const JSDOM = require('jsdom').JSDOM;
+const srcset = require('srcset');
 
 let SHIP_LIST = [];
 const SHIPS = require("../ships/ships.json");
@@ -162,6 +163,24 @@ function getShipFromDoc(name, body) {
     return ship;
 }
 
+function getShipGalleryFromDoc(name, body) {
+    let skins = [];
+    Array.from(new JSDOM(body).window.document.getElementsByClassName("tabbertab")).forEach(tab => {
+        let info = {};
+        tab.querySelectorAll(".ship-skin-infotable tr").forEach(row => info[row.getElementsByTagName("th")[0].textContent.trim()] = row.getElementsByTagName("td")[0].textContent.trim());
+        const parsedSet = srcset.parse(tab.querySelector(".ship-skin-image img").getAttribute("srcset"));
+        const maxDensity = Math.max(...parsedSet.map(set => set.density));
+        skins.push({
+            name: tab.getAttribute("title"),
+            image: "https://azurlane.koumakan.jp" + parsedSet.find(set => set.density == maxDensity).url,
+            background: "https://azurlane.koumakan.jp" + tab.querySelector(".res img").getAttribute("src"),
+            chibi: tab.querySelector(".ship-skin-chibi img") ? "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-chibi img").getAttribute("src") : null,
+            info: info
+        });
+    });
+    return skins;
+}
+
 async function getShipByNameLocal(name) {
     if (!fs.existsSync('../setup/web/' + name + '.html')) return await getShipByName(name);
     const body = fs.readFileSync('../setup/web/' + name + '.html', 'utf8');
@@ -177,20 +196,7 @@ async function getShipByNameLocal(name) {
 }
 
 function getShipGalleryLocal(name) {
-    let skins = [];
-    const body = fs.readFileSync('../setup/web.gallery/' + name + '.html', 'utf8');
-    Array.from(new JSDOM(body).window.document.getElementsByClassName("tabbertab")).forEach(tab => {
-        let info = {};
-        tab.querySelectorAll(".ship-skin-infotable tr").forEach(row => info[row.getElementsByTagName("th")[0].textContent.trim()] = row.getElementsByTagName("td")[0].textContent.trim());
-        skins.push({
-            name: tab.getAttribute("title"),
-            image: "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-image img").getAttribute("src"),
-            background: "https://azurlane.koumakan.jp" + tab.querySelector(".res img").getAttribute("src"),
-            chibi: tab.querySelector(".ship-skin-chibi img") ? "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-chibi img").getAttribute("src") : null,
-            info: info
-        });
-    });
-    return skins;
+    return getShipGalleryFromDoc(name, fs.readFileSync('../setup/web.gallery/' + name + '.html', 'utf8'));
 }
 
 async function getShipByName(name) {
@@ -223,20 +229,8 @@ function getShipGallery(name) {
         }, (error, res, body) => {
             try {
                 if (error) reject(error);
-                let skins = [];
                 fs.writeFileSync('../setup/web.gallery/' + name + '.html', body);
-                Array.from(new JSDOM(body).window.document.getElementsByClassName("tabbertab")).forEach(tab => {
-                    let info = {};
-                    tab.querySelectorAll(".ship-skin-infotable tr").forEach(row => info[row.getElementsByTagName("th")[0].textContent.trim()] = row.getElementsByTagName("td")[0].textContent.trim());
-                    skins.push({
-                        name: tab.getAttribute("title"),
-                        image: "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-image img").getAttribute("src"),
-                        background: "https://azurlane.koumakan.jp" + tab.querySelector(".res img").getAttribute("src"),
-                        chibi: tab.querySelector(".ship-skin-chibi img") ? "https://azurlane.koumakan.jp" + tab.querySelector(".ship-skin-chibi img").getAttribute("src") : null,
-                        info: info
-                    });
-                });
-                resolve(skins);
+                resolve(getShipGalleryFromDoc(name, body));
             } catch (err) {
                 console.log("** Error Happened for ship \"" + name + "\" msg: " + err.message);
                 console.log(err.stack);
