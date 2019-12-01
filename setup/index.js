@@ -1,3 +1,5 @@
+// This file is for fetching data from wiki, not meant for api users to use
+
 const fs = require('fs');
 const request = require('request');
 const JSDOM = require('jsdom').JSDOM;
@@ -16,9 +18,9 @@ module.exports = {
     init: init,
     getShipByName: getShipByName,
     getShipGallery: getShipGallery,
-    ships: SHIPS
+    ships: SHIPS,
+    removeAndSave: removeAndSave
 }
-
 
 function init() {
     getShips().then(LIST => {
@@ -29,7 +31,15 @@ function init() {
         recursiveFetching(0);
     });
 }
-let dot_per_line = 32;
+
+function removeAndSave(callback) {
+    Object.keys(SHIPS).forEach(key => {
+        if (callback(SHIPS[key]))
+            delete SHIPS[key]
+    });
+    fs.writeFileSync('../ships/ships.json', JSON.stringify(SHIPS));
+}
+let dot_per_line = 45;
 
 async function recursiveFetching(index) {
     if (index >= SHIP_LIST.length) {
@@ -242,7 +252,18 @@ function getShipStats(doc) {
         let title = tab.parentNode.parentNode.getAttribute("title");
         let names = tab.querySelectorAll("th"),
             bodies = tab.querySelectorAll("td");
-        for (let j = 0; j < names.length; j++) stats[names[j].firstChild.getAttribute("title")] = bodies[j].textContent.trim();
+        for (let j = 0; j < names.length; j++) {
+            let type = names[j].firstChild.getAttribute("title");
+            if (type === "Hunting range") {
+                let range = [];
+                doc.querySelectorAll(".tabbertab:nth-child(2) > .wikitable table tr").forEach(row => {
+                    let rangeRow = [];
+                    row.querySelectorAll("td").forEach(cell => rangeRow.push(cell.style.backgroundColor ? cell.style.backgroundColor === "PaleGreen" ? "S" : (cell.textContent.trim() ? cell.textContent.trim() : "*") : ""));
+                    range.push(rangeRow);
+                });
+                stats[type] = range;
+            } else stats[type] = bodies[j].textContent.trim();
+        }
         allStats[title] = stats;
     });
     return allStats;
