@@ -1,51 +1,51 @@
 {
-    "name": "azurapi-js",
-    "version": "0.0.0",
-    "description": "Open Source Azur Lane Local Database",
-    "main": "index.js",
-    "scripts": {
-        "test": "npm run babel & jest",
-        "babel": "babel ships/src -d ships",
-        "postinstall": "npm run babel"
-    },
-    "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/jasperchua99/azur-json.git"
-    },
-    "keywords": [
-        "azurlane",
-        "azur",
-        "lane",
-        "api",
-        "azur-lane",
-        "shipgirls",
-        "waifu"
+  "name": "azurapi-js",
+  "version": "0.0.0",
+  "description": "Open Source Azur Lane Local Database",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run babel & jest",
+    "babel": "babel ships/src -d ships",
+    "postinstall": "npm run babel"
+  },
+  "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzurAPI/azurapi-js.git"
+  },
+  "keywords": [
+    "azurlane",
+    "azur",
+    "lane",
+    "api",
+    "azur-lane",
+    "shipgirls",
+    "waifu"
+  ],
+  "bugs": {
+    "url": "https://github.com/AzurAPI/azurapi-js/issues"
+  },
+  "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
     ],
-    "bugs": {
-        "url": "https://github.com/jasperchua99/azur-json/issues"
-    },
-    "homepage": "https://github.com/jasperchua99/azur-json#readme",
-    "jest": {
-        "testEnvironment": "node",
-        "coveragePathIgnorePatterns": [
-            "/node_modules/"
-        ],
-        "verbose": true
-    },
-    "dependencies": {
-        "lodash": "^4.17.15"
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.7.0",
-        "@babel/core": "^7.7.2",
-        "@babel/preset-env": "^7.7.1",
-        "babel-jest": "^24.9.0",
-        "jest": "^24.9.0",
-        "supertest": "^4.0.2",
-        "request": ">=2.88.0",
-        "jsdom": ">=15.2.1",
-        "srcset": ">=2.0.1"
-    }
+    "verbose": true
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2",
+    "request": ">=2.88.0",
+    "jsdom": ">=15.2.1",
+    "srcset": ">=2.0.1"
+  }
 }
