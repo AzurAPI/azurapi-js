@@ -23,9 +23,6 @@ Open Source Library For Azur Lane
 ## Usage
 To use the Library, Please refer to the [Wiki](https://github.com/AzurAPI/azur-json/wiki)
 
-## Updating the data
-**TODO**
-
 ## Support Server
 
 ![discord](https://discordapp.com/api/guilds/648206344729526272/widget.png?style=banner2)
