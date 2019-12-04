@@ -11,9 +11,7 @@
   "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
   "license": "SEE LICENSE IN LICENSE",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/AzurAPI/azurapi-js.git"
+  "repository": "git://github.com/AzurAPI/azurapi-js.git"
   },
   "keywords": [
     "azurlane",
