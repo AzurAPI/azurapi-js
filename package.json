@@ -8,6 +8,7 @@
     "babel": "babel ships/src -d ships",
     "postinstall": "npm run babel"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
