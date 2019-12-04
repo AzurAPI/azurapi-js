@@ -1,5 +1,5 @@
 {
-  "name": "azurapi-js",
+  "name": "azurapi",
   "version": "0.0.0",
   "description": "Open Source Azur Lane Local Database",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "postinstall": "npm run babel"
   },
   "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AzurAPI/azurapi-js.git"
