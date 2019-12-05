@@ -1,5 +1,5 @@
 import { findIndex, toNumber } from 'lodash'
-import ships from './ships.json'
+import ships from './getAllShipsFromJson'
 import shipIds from './getShipIds'
 
 const getShipById = (id) => {

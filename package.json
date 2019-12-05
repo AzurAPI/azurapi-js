@@ -4,9 +4,11 @@
   "description": "Open Source Azur Lane Local Database",
   "main": "index.js",
   "scripts": {
-    "test": "npm run babel & jest",
+    "test": "node clear.js & npm run babel & node update.js & jest",
     "babel": "babel ships/src -d ships",
-    "postinstall": "npm run babel"
+    "postinstall": "node clear.js & npm run babel & node update.js",
+    "update": "node clear.js & node update.js",
+    "clear": "node clear.js"
   },
   "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
   "license": "SEE LICENSE IN LICENSE",
@@ -35,7 +37,8 @@
     "verbose": true
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
