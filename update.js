@@ -1,3 +1,3 @@
-const { updateShipsData } = require('./ships/updateShipsData')
+const { updateShipsData } = require('./ships/utils/updateShipsData')
 
 updateShipsData()
