@@ -1,4 +1,4 @@
-name: Testing azur-json on Node 12.x
+name: Testing azurapi-js on Node 12.x
 
 on: [push]
 

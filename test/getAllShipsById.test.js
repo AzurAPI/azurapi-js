@@ -1,4 +1,4 @@
-let { getAllShipsById } = require("../../index.js")
+let { getAllShipsById } = require("../index.js")
 
 describe("Get all ships sorted by ID module", () => {
     test('should return a sorted array, first ship\'s ID should be \'001\'', () => {

@@ -1,7 +1,3 @@
 node_modules/
-test.js
-ships/*.js
-ships/ships.json
-setup/web/
-setup/web.gallery/
+lib/ships.json
 .DS_Store

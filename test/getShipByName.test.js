@@ -4,7 +4,7 @@ let {
     getShipByChineseName,
     getShipByJapaneseName,
     getShipByKoreanName
-} = require("../../index.js")
+} = require("../index.js")
 
 describe("Get ship by name module", () => {
     test('should be able to retrieve Belfast with english name as input', () => {
