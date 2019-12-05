@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const updateShipsData = async () => {
   await (0, _nodeFetch.default)('https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json').then(resp => resp.json()).then(responseJSON => {
-    _fs.default.writeFile("./ships/ships.json", JSON.stringify(responseJSON), function (err) {
+    _fs.default.writeFile("./lib/ships.json", JSON.stringify(responseJSON), function (err) {
       if (err) {
         console.log(err);
       }

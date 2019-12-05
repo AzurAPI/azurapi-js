@@ -4,7 +4,7 @@ let {
     getAllShipsByEnglishName,
     getAllShipsByJapaneseName,
     getAllShipsByKoreanName
-} = require("../../index.js")
+} = require("../index.js")
 
 describe("Get all ships sorted by english name module", () => {
     test('should return a alphabetically sorted array, first ship\'s name should start with a number or a \'A\'', () => {

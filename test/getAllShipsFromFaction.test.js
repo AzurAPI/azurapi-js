@@ -1,4 +1,4 @@
-let { getAllShipsFromFaction } = require("../../index.js")
+let { getAllShipsFromFaction } = require("../index.js")
 let { findIndex } = require("lodash")
 
 describe("Get all ships from faction module", () => {

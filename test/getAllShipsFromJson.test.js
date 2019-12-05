@@ -1,4 +1,4 @@
-let { getAllShipsFromJson } = require("../getAllShipsFromJson.js")
+let { getAllShipsFromJson } = require("../index.js")
 
 describe("Get all ships from JSON module", () => {
     test('should be able to import ships.json file', () => {

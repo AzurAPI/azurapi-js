@@ -10,7 +10,7 @@ var _fs = _interopRequireDefault(require("fs"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const clearShipsData = () => {
-  _fs.default.writeFile("./ships/ships.json", JSON.stringify({}), function (err) {
+  _fs.default.writeFile("./lib/ships.json", JSON.stringify({}), function (err) {
     if (err) {
       console.log(err);
     }

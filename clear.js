@@ -1,3 +1,3 @@
-const { clearShipsData } = require('./ships/utils/clearShipsData')
+const { clearShipsData } = require('./utils/clearShipsData')
 
 clearShipsData()

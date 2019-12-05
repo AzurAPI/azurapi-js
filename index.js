@@ -1,10 +1,8 @@
-const ships = require('./ships')
-const { updateShipsData } = require('./ships/utils/updateShipsData')
-const { clearShipsData } = require('./ships/utils/clearShipsData')
+const ships = require('./lib')
+const { updateShipsData } = require('./utils/updateShipsData')
 
 module.exports = {
   ships,
   ...ships,
   updateShipsData,
-  clearShipsData
 }

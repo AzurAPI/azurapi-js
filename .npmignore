@@ -1,6 +1,4 @@
 /.github
 /.npmignore
-ships/test/
-ships/ships.json
-./setup/web/
-./setup/web.gallery/
+test/
+lib/ships.json
