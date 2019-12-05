@@ -1,4 +1,4 @@
-name: Testing azurapi-js on Node 12.x
+name: Testing azurapi-js from a npm package user
 
 on: [push]
 
@@ -19,5 +19,5 @@ jobs:
     - name: Making a sample Javascript project
       run: |
         echo -e "const { getShipById } = require('@azurapi/azurapi');\nconsole.log(getShipById(140));" >> sample.js
-        npm i @azurapi/azurapi
+        npm i @azurapi/azurapi @babel/cli @babel/core @babel/preset-env babel-jest jest
         node sample.js
