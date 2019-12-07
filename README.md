@@ -5,10 +5,18 @@
             <img src="https://discordapp.com/api/guilds/648206344729526272/embed.png" alt="Discord server" />
         </a>
         <a href="https://www.npmjs.com/package/@azurapi/azurapi">
+            <img src="https://img.shields.io/npm/dt/@azurapi/azurapi.svg?maxAge=3600" alt="NPM downloads" />
+        </a>
+        <a href="https://www.npmjs.com/package/@azurapi/azurapi">
             <img src="https://img.shields.io/npm/v/@azurapi/azurapi.svg?maxAge=3600" alt="NPM version" />
         </a>
         <a href="https://david-dm.org/AzurAPI/azur-json.svg">
             <img src="https://img.shields.io/david/AzurAPI/azur-json.svg?maxAge=3600" alt="Dependencies" />
+        </a>
+    </p>
+    <p>
+        <a href="https://nodei.co/npm/@azurapi/azurapi/">
+            <img src="https://nodei.co/npm/@azurapi/azurapi.png?downloads=true&stars=true" alt="NPM info" />
         </a>
     </p>
 </div>
