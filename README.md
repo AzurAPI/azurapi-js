@@ -26,4 +26,5 @@ To use the Library, Please refer to the [Wiki](https://github.com/AzurAPI/azur-j
 ## Support Server
 
 [![](https://discordapp.com/api/guilds/648206344729526272/widget.png?style=banner2)](https://discord.gg/aAEdys8)
+
 Discord Link: https://discord.gg/aAEdys8
