@@ -19,10 +19,11 @@ Open Source Library For Azur Lane
 ## Features
 - Hosted Locally in your machine, no more waiting for server downtime!!!
 - Ship Information and Specific Data Searching
-
+- More to come soon
 ## Usage
 To use the Library, Please refer to the [Wiki](https://github.com/AzurAPI/azur-json/wiki)
 
 ## Support Server
 
-![discord](https://discordapp.com/api/guilds/648206344729526272/widget.png?style=banner2)
+[![](https://discordapp.com/api/guilds/648206344729526272/widget.png?style=banner2)](https://discord.gg/aAEdys8)
+Discord Link: https://discord.gg/aAEdys8
