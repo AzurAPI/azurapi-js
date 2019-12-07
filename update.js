@@ -1,3 +1,3 @@
-const { updateShipsData } = require('./utils/updateShipsData')
+const { checkForNewUpdate } = require('./utils/checkForNewUpdate')
 
-updateShipsData()
+checkForNewUpdate()

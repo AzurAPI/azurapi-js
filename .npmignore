@@ -1,4 +1,6 @@
 /.github
 /.npmignore
 test/
+src/
 lib/ships.json
+lib/version-info.json

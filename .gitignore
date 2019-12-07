@@ -1,3 +1,4 @@
 node_modules/
 lib/ships.json
+lib/version-info.json
 .DS_Store
