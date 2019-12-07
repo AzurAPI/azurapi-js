@@ -1,6 +1,6 @@
 {
   "name": "@azurapi/azurapi",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Open Source Azur Lane Local Database",
   "main": "index.js",
   "scripts": {
