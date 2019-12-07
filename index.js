@@ -1,5 +1,5 @@
 const ships = require('./lib')
-const { updateShipsData } = require('./utils/updateShipsData')
+const { updateShipsData } = require('./lib/updateShipsData')
 
 module.exports = {
   ships,

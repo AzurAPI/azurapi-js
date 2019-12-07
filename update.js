@@ -1,3 +1,3 @@
-const { checkForNewUpdate } = require('./utils/checkForNewUpdate')
+const { checkForNewUpdate } = require('./lib/checkForNewUpdate')
 
 checkForNewUpdate()

@@ -1,3 +1,3 @@
-const { clearShipsData } = require('./utils/clearShipsData')
+const { clearShipsData } = require('./lib/clearShipsData')
 
 clearShipsData()

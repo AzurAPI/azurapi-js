@@ -1,20 +1,22 @@
 import fetch from 'node-fetch'
 import path from 'path'
 import fs from 'fs'
-import { updateShipsData } from '../index'
+import { updateShipsData } from './updateShipsData'
+import { clearShipsData } from './clearShipsData'
 
 const versionFile = path.join(__dirname, '../lib/version-info.json')
 
 const checkForNewUpdate = async () => {
     await fetch('https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/version-info.json')
         .then(resp => resp.json())
-        .then(responseJSON => {
+        .then(async (responseJSON) => {
             if (fs.existsSync(versionFile)) {
                 let lastDownloadedVersion = fs.readFileSync(versionFile)
                 let lastDownloadedVersionJson = JSON.parse(lastDownloadedVersion)
                 console.log('A version file was found, checking if the version is the same...');
                 if (responseJSON['version-number'] != lastDownloadedVersionJson['version-number'] || responseJSON['last-data-refresh-date'] != lastDownloadedVersionJson['last-data-refresh-date']) {
-                    updateShipsData()
+                    await clearShipsData()
+                    await updateShipsData()
                     console.log('New data detected, started updating ships data from source...');
                     fs.writeFile(versionFile, JSON.stringify(responseJSON), function (err) {
                         if (err) {
@@ -28,7 +30,8 @@ const checkForNewUpdate = async () => {
             }
             else {
                 console.log('No version file found, started downloading last ships data from source...');
-                updateShipsData()
+                await clearShipsData()
+                await updateShipsData()
                 fs.writeFile(versionFile, JSON.stringify(responseJSON), function (err) {
                     if (err) {
                     console.log(err);
