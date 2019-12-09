@@ -1,8 +1,9 @@
-import fetch from 'node-fetch'
 import fs from 'fs'
-import ships from './ships.json'
+import path from 'path'
 
-const getAllShipsFromJson = ships;
+const ships = path.join(__dirname, './ships.json')
+
+const getAllShipsFromJson = JSON.parse(fs.readFileSync(ships));
 
 export default getAllShipsFromJson
 export { getAllShipsFromJson as getAllShipsFromJson }
