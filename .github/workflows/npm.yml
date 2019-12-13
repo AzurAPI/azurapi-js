@@ -18,6 +18,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Making a sample Javascript project
       run: |
-        echo -e "const { getShipById, updateShipsData } = require('@azurapi/azurapi');\nvar testShip = getShipById(140);\nif (testShip.name !== '236') process.exit(1);" >> sample.js
+        echo -e "const { getShipById, updateShipsData } = require('@azurapi/azurapi');\nvar testShip = getShipById(140);\nif (!testShip) process.exit(1);\nif (testShip.name !== '236') process.exit(1);" >> sample.js
         npm i @azurapi/azurapi @babel/cli @babel/core @babel/preset-env babel-jest jest request jsdom srcset
         node sample.js
