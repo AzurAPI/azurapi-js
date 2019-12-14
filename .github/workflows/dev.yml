@@ -1,4 +1,4 @@
-name: Testing azurapi-js on Node 12.x
+name: Jest
 
 on: [push]
 
