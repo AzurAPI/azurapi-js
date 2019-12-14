@@ -1,10 +1,32 @@
-name: npm
+name: Github Actions
 
 on: [push]
 
 jobs:
-  build:
 
+  jest:
+    name: Running Jest tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install, build, and test
+        run: |
+        npm install
+        npm run test
+        env:
+        CI: true
+
+  npm-install:
+    name: Live testing the npm package
     runs-on: ubuntu-latest
 
     strategy:
