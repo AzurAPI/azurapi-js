@@ -3,4 +3,5 @@
 test/
 src/
 lib/ships.json
+lib/equipments.json
 lib/version-info.json
