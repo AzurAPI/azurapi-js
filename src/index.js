@@ -1,3 +1,4 @@
+// Ships related
 export { default as getShip } from './getShipByName'
 export { default as getShipByName } from './getShipByName'
 export { default as getShipById } from './getShipById'
@@ -19,3 +20,18 @@ export { default as getAllShipsByKoreanName } from './getAllShipsByKoreanName'
 export { default as getAllShipsFromFaction } from './getAllShipsFromFaction'
 export { default as getAllShipsFromNationality } from './getAllShipsFromFaction'
 export { default as getAllShipsFromNation } from './getAllShipsFromFaction'
+
+// Equipments related
+export { default as getEquipment } from './getEquipmentByName'
+export { default as getEquipmentByName } from './getEquipmentByName'
+export { default as getEquipmentByOfficialName } from './getEquipmentByOfficialName'
+export { default as getEquipmentByEnglishName } from './getEquipmentByEnglishName'
+export { default as getEquipmentByKoreanName } from './getEquipmentByKoreanName'
+export { default as getEquipmentByJapaneseName } from './getEquipmentByJapaneseName'
+export { default as getEquipmentByChineseName } from './getEquipmentByChineseName'
+export { default as getEquipmentByNameEn } from './getEquipmentByEnglishName'
+export { default as getEquipmentByNameKr } from './getEquipmentByKoreanName'
+export { default as getEquipmentByNameJp } from './getEquipmentByJapaneseName'
+export { default as getEquipmentByNameCn } from './getEquipmentByChineseName'
+export { default as getAllEquipments } from './getAllEquipments'
+export { default as getAllEquipmentsFromJson } from './getAllEquipmentsFromJson'
