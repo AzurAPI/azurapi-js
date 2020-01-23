@@ -1,13 +1,12 @@
 import path from 'path'
 import fs from 'fs'
+import { promisify } from 'util'
 
 const dataFile = path.join(__dirname, './ships.json')
 
-const clearShipsData = async () => {
-    fs.writeFile(dataFile, JSON.stringify({}), function (err) {
-        if (err) console.log(err)
-    })
-}
+const asyncWriteFile = promisify(fs.writeFile)
+
+const clearShipsData = () => asyncWriteFile(dataFile, JSON.stringify({}))
 
 export { clearShipsData }
 export default clearShipsData

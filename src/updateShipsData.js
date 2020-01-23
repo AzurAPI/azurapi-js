@@ -1,17 +1,15 @@
 import fetch from 'node-fetch'
 import path from 'path'
 import fs from 'fs'
+import { promisify } from 'util'
 
 const dataFile = path.join(__dirname, './ships.json')
 
+const asyncWriteFile = promisify(fs.writeFile)
+
 const updateShipsData = async () => {
-    await fetch('https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json')
-        .then(resp => resp.json())
-        .then(async (responseJSON) => {
-            fs.writeFile(dataFile, JSON.stringify(responseJSON), function (err) {
-                if (err) console.log(err)
-            })
-        })
+    const rawData = await fetch('https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json').then(res => res.text())
+    await asyncWriteFile(dataFile, rawData)
 }
 
 export { updateShipsData }
