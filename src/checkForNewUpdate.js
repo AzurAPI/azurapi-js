@@ -20,8 +20,8 @@ const isUpToDate = async (dataType) => !getLastDownloadedVersionJson[dataType] |
 const readFileAsync = promisify(fs.readFile)
 
 const existsAsync = (path) => {
-    return (promisify(fs.open))(path, 'r')
-        .then(fd => (promisify(fs.close))(fd).then(() => true))
+    return promisify(fs.access)(path, fs.constants.F_OK | fs.constants.W_OK)
+        .then(() => true)
         .catch(error => {
             if (error.code === 'ENOENT') return false
             throw error
