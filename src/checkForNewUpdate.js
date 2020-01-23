@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 import path from 'path'
 import fs from 'fs'
+import { promisify } from 'util'
 import { updateShipsData } from './updateShipsData'
 import { clearShipsData } from './clearShipsData'
 import { updateEquipmentsData } from './updateEquipmentsData'
@@ -16,9 +17,20 @@ const updateVersionFile = responseJSON => {
 
 const isUpToDate = async (dataType) => !getLastDownloadedVersionJson[dataType] || responseJSON[dataType]['version-number'] != getLastDownloadedVersionJson[dataType]['version-number'] || responseJSON[dataType]['last-data-refresh-date'] != getLastDownloadedVersionJson[dataType]['last-data-refresh-date']
 
+const readFileAsync = promisify(fs.readFile)
+
+const existsAsync = (path) => {
+    return (promisify(fs.open))(path, 'r')
+        .then(fd => (promisify(fs.close))(fd).then(() => true))
+        .catch(error => {
+            if (error.code === 'ENOENT') return false
+            throw error
+        })
+}
+
 const getLastDownloadedVersionJson = async () => {
     try {
-        let res = await JSON.parse(fs.readFileSync(versionFile))
+        let res = JSON.parse(await readFileAsync(versionFile));
         console.log('A version file was found, checking if the version is the same...')
         return res
     } catch (error) {
@@ -31,7 +43,7 @@ const checkForNewUpdate = async () => {
     await fetch('https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/version-info.json')
         .then(resp => resp.json())
         .then(async (responseJSON) => {
-            let fileExists = await fs.existsSync(versionFile, exists => exists)
+            let fileExists = await existsAsync(versionFile);
             if (fileExists) {
                 console.log('A version file was found, checking if the version is the same...')
                 if (isUpToDate("ships")) {
