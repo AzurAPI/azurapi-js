@@ -19,10 +19,7 @@
             <img src="https://github.com/AzurAPI/azurapi-js/workflows/Github%20Actions/badge.svg" alt="Github Actions" />
         </a>
     </p>
-    <p>
-        <a href="https://nodei.co/npm/@azurapi/azurapi/">
-            <img src="https://nodei.co/npm/@azurapi/azurapi.png?downloads=true&stars=true" alt="NPM info" />
-        </a>
+    <p><a href="https://npmjs.com/package/@azurapi/azurapi"><img src="https://nodeico.herokuapp.com/@azurapi/azurapi.svg"></a>
     </p>
 </div>
 
