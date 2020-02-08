@@ -1,2 +1,2 @@
-const { checkForNewUpdate } = require('./lib/checkForNewUpdate')
+const { checkForNewUpdate } = require('./dist/checkForNewUpdate')
 checkForNewUpdate()

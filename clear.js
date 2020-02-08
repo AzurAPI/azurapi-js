@@ -1,6 +1,6 @@
-const { clearShipsData } = require('./lib/clearShipsData')
-const { clearEquipmentsData } = require('./lib/clearEquipmentsData')
-const { clearVersionData } = require('./lib/clearVersionData')
+const { clearShipsData } = require('./dist/clearShipsData')
+const { clearEquipmentsData } = require('./dist/clearEquipmentsData')
+const { clearVersionData } = require('./dist/clearVersionData')
 
 clearShipsData()
 clearEquipmentsData()

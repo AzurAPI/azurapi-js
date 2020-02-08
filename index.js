@@ -1,7 +1,7 @@
-const ships = require('./lib')
-const { updateShipsData } = require('./lib/updateShipsData')
-const { updateEquipmentsData } = require('./lib/updateEquipmentsData')
-const { checkForNewUpdate } = require('./lib/checkForNewUpdate')
+const ships = require('./dist')
+const { updateShipsData } = require('./dist/updateShipsData')
+const { updateEquipmentsData } = require('./dist/updateEquipmentsData')
+const { checkForNewUpdate } = require('./dist/checkForNewUpdate')
 
 module.exports = {
   ships,

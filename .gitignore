@@ -4,3 +4,4 @@ lib/equipments.json
 lib/version-info.json
 .DS_Store
 dist/
+lib/
