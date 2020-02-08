@@ -4,11 +4,11 @@
   "description": "Open Source Azur Lane Local Database",
   "main": "index.js",
   "scripts": {
-    "test": "node clear.js & npm run babel & node update.js & jest",
+    "test": "node dist/clear.js & npm run babel & node dist/update.js & jest",
     "babel": "babel src -d dist",
-    "postinstall": "npm run babel",
-    "update": "node update.js",
-    "clear": "node clear.js",
+    "postinstall": "npm run babel & node dist/clear.js & node dist/update.js",
+    "update": "node dist/update.js",
+    "clear": "node dist/clear.js",
     "prepublishOnly": "npm run babel"
   },
   "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
