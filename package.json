@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node clear.js & npm run babel & node update.js & jest",
     "babel": "babel src -d dist",
-    "postinstall": "npm run babel & node clear.js & node update.js",
+    "postinstall": "npm run babel",
     "update": "node update.js",
     "clear": "node clear.js",
     "prepublishOnly": "npm run babel"
