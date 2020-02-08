@@ -2,13 +2,14 @@
   "name": "@azurapi/azurapi",
   "version": "0.2.1",
   "description": "Open Source Azur Lane Local Database",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "node clear.js & npm run babel & node update.js & jest",
-    "babel": "babel src -d lib",
+    "babel": "babel src -d dist",
     "postinstall": "node clear.js & node update.js",
     "update": "node update.js",
-    "clear": "node clear.js"
+    "clear": "node clear.js",
+    "prepublishOnly": "npm run babel"
   },
   "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
   "license": "SEE LICENSE IN LICENSE",
@@ -16,6 +17,9 @@
     "type": "git",
     "url": "git://github.com/AzurAPI/azurapi-js.git"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "keywords": [
     "azurlane",
     "azur",
