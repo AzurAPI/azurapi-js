@@ -19,6 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
+        npm run babel
         npm install
         npm run test
       env:
@@ -40,5 +41,5 @@ jobs:
     - name: Making a sample Javascript project
       run: |
         echo -e "const { getShipById, updateShipsData } = require('@azurapi/azurapi');\nvar testShip = getShipById(140);\nif (!testShip) process.exit(1);\nif (testShip.names.en !== 'Hermes') process.exit(1);" >> sample.js
-        npm i @azurapi/azurapi @babel/cli @babel/core @babel/preset-env babel-jest jest request jsdom srcset
+        npm i @azurapi/azurapi
         node sample.js
