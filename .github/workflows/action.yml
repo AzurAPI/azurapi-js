@@ -19,6 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
+        npm install @babel/cli @babel/core @babel/preset-env babel-jest jest request jsdom srcset
         npm run babel
         npm install
         npm run test
