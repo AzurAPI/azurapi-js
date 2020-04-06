@@ -6,3 +6,4 @@ lib/version-info.json
 dist/
 lib/
 package-lock.json
+yarn.lock

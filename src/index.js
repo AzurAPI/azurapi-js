@@ -1,3 +1,8 @@
+// Self-updating
+export { default as updateShipsData } from './updateShipsData'
+export { default as updateEquipmentsData } from './updateEquipmentsData'
+export { default as checkForNewUpdate } from './checkForNewUpdate'
+
 // Ships related
 export { default as getShip } from './getShipByName'
 export { default as getShipByName } from './getShipByName'
