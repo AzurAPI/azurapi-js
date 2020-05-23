@@ -4,4 +4,4 @@ const { clearVersionData } = require('./clearVersionData')
 
 clearShipsData()
 clearEquipmentsData()
-clearVersionData()
+clearVersionData() 
