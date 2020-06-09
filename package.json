@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run clear && npm run babel && npm run update && jest",
+    "test-fast": "npm run babel && jest",
     "babel": "babel src -d dist",
     "postinstall": "npm run clear && npm run update",
     "update": "node dist/update.js",

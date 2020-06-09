@@ -11,7 +11,7 @@ describe("Get all ships sorted by english name module", () => {
         expect(/^[?!^0-9A\s].*/g.test(getAllShipsByEnglishName[0].names.en)).toBeTruthy()
     })
     test('... while last ship\'s name should start with a \'Z\'', () => {
-        expect(getAllShipsByEnglishName[getAllShips.length - 1].names.en.charAt(0)).toBe('Z')
+        expect(getAllShipsByEnglishName[getAllShipsByEnglishName.length - 1].names.en.charAt(0)).toBe('Z')
     })
 })
 
