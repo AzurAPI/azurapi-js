@@ -3,8 +3,8 @@ export { default as updateShipsData } from './updateShipsData'
 export { default as updateEquipmentsData } from './updateEquipmentsData'
 export { default as checkForNewUpdate } from './checkForNewUpdate'
 
-// Ships related
-export { default as getShip } from './getShipByName'
+// Ships relateds
+export { default as getShip } from './getShip'
 export { default as getShipByName } from './getShipByName'
 export { default as getShipById } from './getShipById'
 export { default as getShipByEnglishName } from './getShipByEnglishName'

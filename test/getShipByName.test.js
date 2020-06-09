@@ -12,11 +12,15 @@ describe("Get ship by name module", () => {
         expect(getShipByName('Belfast').id).toBe('115')
     })
     test('should be able to retrieve Prinz Eugen with english name (messed up) as input', () => {
-        expect(getShipByName('pRinZ EUgeN')).toBeTruthy()
+        expect(getShipByName('pRinZ EUgëN')).toBeTruthy()
     })
-    test('should be able to retrieve Cleveland (Muse) with english name as input', () => {
-        expect(getShipByName('Cleveland (Muse)')).toBeTruthy()
-        expect(getShipByName('Cleveland Muse')).toBeTruthy()
+    test('should be able to retrieve Cleveland (Muse) with "μ" or "µ" as input', () => {
+        expect(getShipByName('Cleveland μ')).toBeTruthy()
+        expect(getShipByName('Cleveland µ')).toBeTruthy()
+    })
+    test('should be able to retrieve Emile Bertin with "E" or "É" as input', () => {
+        expect(getShipByName('Emile Bertin')).toBeTruthy()
+        expect(getShipByName('Émile Bertin')).toBeTruthy()
     })
     test('should be able to retrieve L\'Opiniâtre with french name with ou without accents as input', () => {
         expect(getShipByName('L\'Opiniâtre')).toBeTruthy()
