@@ -1,7 +1,11 @@
-import { sortBy } from 'lodash'
+import { sortBy, deburr } from 'lodash'
 import getAllShips from './getAllShips'
 
-const getAllShipsByEnglishName = sortBy(getAllShips, ['names.en'])
+const deburredShipsEnglishNames = getAllShips.map(el => {
+    el.names.en = deburr(el.names.en)
+    return el
+})
+const getAllShipsByEnglishName = sortBy(deburredShipsEnglishNames, ['names.en'])
 
 export default getAllShipsByEnglishName
 export { getAllShipsByEnglishName as getAllShipsByEnglishName }
