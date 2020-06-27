@@ -1,9 +1,5 @@
 node_modules/
-lib/ships.json
-lib/equipments.json
-lib/version-info.json
 .DS_Store
 dist/
-lib/
 package-lock.json
 yarn.lock

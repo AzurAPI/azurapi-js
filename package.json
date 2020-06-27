@@ -1,6 +1,6 @@
 {
   "name": "@azurapi/azurapi",
-  "version": "0.2.5",
+  "version": "0.2.9",
   "description": "Open Source Azur Lane Local Database",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "postinstall": "npm run clear && npm run update",
     "update": "node dist/update.js",
     "clear": "node dist/clear.js",
-    "prepublishOnly": "npm run babel"
+    "clear-json" : "rimraf dist/*.json",
+    "prepublishOnly": "npm run clear-json && npm run babel"
   },
   "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
   "license": "SEE LICENSE IN LICENSE",
@@ -50,6 +51,7 @@
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "babel-jest": "^24.9.0",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.2"
   }
 }
