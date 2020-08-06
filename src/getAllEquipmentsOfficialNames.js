@@ -1,4 +1,4 @@
-import { keys } from 'lodash'
+import keys from 'lodash.keys'
 import getAllEquipmentsFromJson from './getAllEquipmentsFromJson'
 
 const getEquipmentsOfficialNames = keys(getAllEquipmentsFromJson)

@@ -1,4 +1,4 @@
-import { toArray } from 'lodash'
+import toArray from 'lodash.toarray'
 import getAllEquipmentsFromJson from './getAllEquipmentsFromJson'
 
 const getAllEquipments = toArray(getAllEquipmentsFromJson)

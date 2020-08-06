@@ -1,4 +1,5 @@
-import { sortBy, deburr } from 'lodash'
+import sortBy from 'lodash.sortby'
+import deburr from 'lodash.deburr'
 import getAllShips from './getAllShips'
 
 const deburredShipsEnglishNames = getAllShips.map(el => {

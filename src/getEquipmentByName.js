@@ -1,4 +1,5 @@
-import { isNumber, isString } from 'lodash'
+import isNumber from 'lodash.isnumber'
+import isString from 'lodash.isstring'
 import getEquipmentByOfficialName from './getEquipmentByOfficialName'
 import getEquipmentByChineseName from './getEquipmentByChineseName'
 import getEquipmentByEnglishName from './getEquipmentByEnglishName'

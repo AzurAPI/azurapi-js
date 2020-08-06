@@ -1,4 +1,4 @@
-import { sortBy } from 'lodash'
+import sortBy from 'lodash.sortby'
 import getAllShips from './getAllShips'
 
 const getAllShipsByChineseName = sortBy(getAllShips, ['names.cn'])

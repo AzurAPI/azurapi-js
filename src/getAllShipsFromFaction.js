@@ -1,4 +1,7 @@
-import { filter, forEach, includes, isString, keys, replace, toLower, deburr } from 'lodash'
+import isString from 'lodash.isstring'
+import deburr from 'lodash.deburr'
+import keys from 'lodash.keys'
+import toLower from 'lodash.tolower'
 import getAllShips from './getAllShips'
 
 const FACTION_EAGLEUNION = ['USS', 'Eagle Union']
@@ -31,7 +34,7 @@ const getFactions = {
     'KizunaAI': FACTION_KISUNAAI
 }
 
-const toLowerTrimmed = (string) => toLower(replace(deburr(string), /[!@#$%^&*(),.?":{}|<>' ]/g, ''))
+const toLowerTrimmed = (string) => toLower(deburr(string).replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''))
 
 const isValid = (input) => input && isString(input) && input.length > 0
 
@@ -40,9 +43,9 @@ const getFactionFromInput = (input) => {
     let nation = false
     let factionKeys = keys(getFactions)
     let lowerTrimmedInput = toLowerTrimmed(input)
-    forEach(factionKeys, (faction) => {
-        forEach(getFactions[faction], (value) => {
-            if (includes(toLowerTrimmed(value), lowerTrimmedInput)) {
+    factionKeys.forEach(faction => {
+        getFactions[faction].forEach(value => {
+            if (toLowerTrimmed(value).includes(lowerTrimmedInput)) {
                 nation = faction
                 return true
             }
@@ -53,7 +56,7 @@ const getFactionFromInput = (input) => {
 
 const getAllShipsFromFaction = (input) => {
     let nation = toLowerTrimmed(getFactionFromInput(input))
-    return filter(getAllShips, (ship) => toLowerTrimmed(ship.nationality) === nation)
+    return getAllShips.filter(ship => toLowerTrimmed(ship.nationality) === nation)
 }
 
 export default getAllShipsFromFaction

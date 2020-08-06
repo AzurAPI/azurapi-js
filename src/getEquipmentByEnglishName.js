@@ -1,11 +1,12 @@
-import { findIndex, includes, toLower, replace, deburr } from 'lodash'
+import deburr from 'lodash.deburr'
+import toLower from 'lodash.tolower'
 import equipments from './getAllEquipments'
 import getAllEquipmentsEnglishNames from './getAllEquipmentsEnglishNames'
 
-const escapeLatinString = (string) => toLower(replace(deburr(string), /[!@#$%^&*(),.?":{}|<>' ]/g, ''))
+const escapeLatinString = (string) => toLower(deburr(string).replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''))
 
 const getEquipmentByEnglishName = (name) => {
-    let equipmentId = findIndex(getAllEquipmentsEnglishNames, (item) => includes(escapeLatinString(item), escapeLatinString(name)))
+    let equipmentId = getAllEquipmentsEnglishNames.findIndex((item) => escapeLatinString(item).includes(escapeLatinString(name)))
     if (equipments[equipmentId]) return equipments[equipmentId]
     return undefined
 }
