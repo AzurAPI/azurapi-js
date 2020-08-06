@@ -18,6 +18,12 @@ describe("Get ship by name module", () => {
         expect(getShipByName('Cleveland μ')).toBeTruthy()
         expect(getShipByName('Cleveland µ')).toBeTruthy()
     })
+    test('should be able to retrieve Cleveland and not Cleveland (Muse) with "Cleveland" as input', () => {
+        expect(getShipByName('Cleveland µ')).toBeTruthy()
+        expect(getShipByName('Cleveland µ').id).toBe("420")
+        expect(getShipByName('Cleveland')).toBeTruthy()
+        expect(getShipByName('Cleveland').id).toBe("037")
+    })
     test('should be able to retrieve Emile Bertin with "E" or "É" as input', () => {
         expect(getShipByName('Emile Bertin')).toBeTruthy()
         expect(getShipByName('Émile Bertin')).toBeTruthy()
