@@ -1,6 +1,4 @@
 src
-test
-.babelrc
 package-lock.json
 yarn.lock
-dist/*.json
+.github

@@ -30,6 +30,7 @@ Open Source Library For Azur Lane
 - Hosted Locally in your machine, no more waiting for server downtime!!!
 - Ship Information and Specific Data Searching
 - More to come soon
+
 ## Usage
 To use the Library, Please refer to the [Wiki](https://azurapi.github.io/)
 
