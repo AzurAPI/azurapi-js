@@ -2,6 +2,6 @@ const { AzurAPIClient } = require('../build/AzurAPIClient');
 const client = new AzurAPIClient();
 
 client
-  .getShip('Yamashiro')
-  .then((data) => console.log(data))
+  .getShipsByFaction('IJN')
+  .then((data) => console.log(data[0]))
   .catch(console.error);

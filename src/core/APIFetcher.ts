@@ -2,6 +2,30 @@ import UnserialisedError from '../errors/UnserialisableError';
 import UnknownShipError from '../errors/UnknownShipError';
 import { HttpClient } from '@augu/orchid';
 
+export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' | 'Sakura Empire'
+  | 'KMS' | 'Iron Blood' | 'ROC' | 'Eastern Radiance' | 'SN' | 'North Union' | 'FNFF' | 'Iris Libre'
+  | 'MNF' | 'Vichya Domination' | 'RN' | 'Sardenga Empire' | 'HDN' | 'Neptunia' | 'Bilibili' | 'Utawarerumono'
+  | 'KizunaAI' | 'Hololive';
+
+export const Nationalities: { 
+  [x in Exclude<Nationality, 'USS' | 'HMS' | 'IJN' | 'KMS' | 'ROC' | 'SN' | 'FNFF' | 'MNF' | 'RN' | 'HDN'>]: string[] 
+} = {
+  'Eagle Union': ['USS', 'Eagle Union'],
+  'Royal Navy': ['HMS', 'Royal Navy'],
+  'Sakura Empire': ['IJN', 'Sakura Empire'],
+  'Iron Blood': ['KMS', 'Iron Blood'],
+  'Eastern Radiance': ['ROC', 'Eastern Radiance'],
+  'North Union': ['SN', 'North Union'],
+  'Iris Libre': ['FFNF', 'Iris Libre'],
+  'Vichya Domination': ['MNF', 'Vichya Domination'],
+  'Sardenga Empire': ['RN', 'Sardegna Empire'],
+  Neptunia: ['HDN', 'Neptunia'],
+  Bilibili: ['Bilibili'],
+  Utawarerumono: ['Utawarerumono'],
+  KizunaAI: ['KizunaAI'],
+  Hololive: ['Hololive']
+};
+
 /**
  * Fetcher to grab anything from the database on GitHub
  */
@@ -26,10 +50,9 @@ export default class APIFetcher {
   }
 
   /**
-   * Grabs a ship from the database
-   * @param id The ship's ID or name
+   * Fetches all the ships
    */
-  async getShip(id: string) {
+  async getShips() {
     const res = await this.http.get('/ships.json');
     let data: any[] = [];
 
@@ -39,6 +62,15 @@ export default class APIFetcher {
       throw new UnserialisedError();
     }
 
+    return data;
+  }
+
+  /**
+   * Grabs a ship from the database
+   * @param id The ship's ID or name
+   */
+  async getShip(id: string) {
+    const data = await this.getShips();
     const ships = data.filter(ship => {
       if (ship.id === id) return true;
       for (const key of Object.keys(ship.names)) {
@@ -49,7 +81,24 @@ export default class APIFetcher {
     });
 
     if (!ships.length) throw new UnknownShipError(id);
-
     return ships[0];
+  }
+  
+  /**
+   * Grabs a ship from the database by it's faction name
+   * @param faction The faction to get from
+   */
+  async getShipsFromFaction(faction: Nationality) {
+    const data = await this.getShips();
+    const query = data.filter(ship => {
+      if (!Nationalities.hasOwnProperty(ship.nationality)) return false;
+      
+      const nationalities = Nationalities[ship.nationality];
+      return nationalities.includes(faction);
+    });
+
+    if (!query.length) throw new Error(`Couldn't find any ships with faction \`${faction}\``);
+    
+    return query;
   }
 }
