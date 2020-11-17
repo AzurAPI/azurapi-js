@@ -65,6 +65,124 @@ export default class APIFetcher {
     return data;
   }
 
+  async getShipsList() {
+    const res = await this.http.get('/ships-list.json');
+    let data: any[] = [];
+
+    try {
+      data = res.json();
+    } catch(ex) {
+      throw new UnserialisedError();
+    }
+
+    return data;
+  }
+
+
+  async getEquipments() {
+    const res = await this.http.get('/equipments.json');
+    let data: any[] = [];
+
+    try {
+      data = res.json();
+    } catch(ex) {
+      throw new UnserialisedError();
+    }
+
+    return data;
+  }
+
+  async getChapters() {
+    const res = await this.http.get('/chapters.json');
+    let data: any[] = [];
+
+    try {
+      data = res.json();
+    } catch(ex) {
+      throw new UnserialisedError();
+    }
+
+    return data;
+  }
+
+  async getMemories() {
+    const res = await this.http.get('/memories.json');
+    let data: any[] = [];
+
+    try {
+      data = res.json();
+    } catch(ex) {
+      throw new UnserialisedError();
+    }
+
+    return data;
+  }
+
+  async getBarrage() {
+    const res = await this.http.get('/barrage.json');
+    let data: any[] = [];
+
+    try {
+      data = res.json();
+    } catch(ex) {
+      throw new UnserialisedError();
+    }
+
+    return data;
+  }
+
+  async getEvents() {
+    const res = await this.http.get('/events.json');
+    let data: any[] = [];
+
+    try {
+      data = res.json();
+    } catch(ex) {
+      throw new UnserialisedError();
+    }
+
+    return data;
+  }
+
+  async getVoicelines() {
+    const res = await this.http.get('/voice_lines.json');
+    let data: any[] = [];
+
+    try {
+      data = res.json();
+    } catch(ex) {
+      throw new UnserialisedError();
+    }
+
+    return data;
+  }
+
+  async getIDMap() {
+    const res = await this.http.get('/id-map.json');
+    let data: any[] = [];
+
+    try {
+      data = res.json();
+    } catch(ex) {
+      throw new UnserialisedError();
+    }
+
+    return data;
+  }
+
+  async getPathSizes() {
+    const res = await this.http.get('/path-sizes.json');
+    let data: any[] = [];
+
+    try {
+      data = res.json();
+    } catch(ex) {
+      throw new UnserialisedError();
+    }
+
+    return data;
+  }
+
   /**
    * Grabs a ship from the database
    * @param id The ship's ID or name
