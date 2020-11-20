@@ -253,8 +253,6 @@ export default class APIFetcher {
     const data = await this.getDataEquipments();
     const escapeLatinString = (string: any) => string.toLowerCase(string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''));
     let find = Object.keys(data).findIndex(item => escapeLatinString(item).includes(escapeLatinString(id)));
-    //let find = data.indexOf((item: string) => escapeLatinString(item).includes(escapeLatinString(id)));
-    //let find = data.findIndex(item => escapeLatinString(item).includes(escapeLatinString(id)));
     if (data[find]) return (data[find]);
     throw new UnknownEquipmentError(id);
   }
