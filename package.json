@@ -32,7 +32,9 @@
   },
   "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
   "dependencies": {
-    "@augu/orchid": "1.6.5"
+    "@augu/orchid": "1.6.5",
+    "lodash.deburr": "^4.1.0",
+    "lodash.tolower": "^4.1.2"
   },
   "devDependencies": {
     "@augu/eslint-config": "1.8.2",
@@ -41,6 +43,7 @@
     "@typescript-eslint/eslint-plugin": "4.2.0",
     "@typescript-eslint/parser": "4.2.0",
     "eslint": "^7.9.0",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.10.0",
     "jest": "26.4.2",
     "ts-jest": "26.4.0",
     "typescript": "4.0.3"

@@ -64,8 +64,10 @@ export class AzurAPIClient extends EventEmitter {
    * Returns a list of ships available
    */
   getShips() {
-    return this.fetcher.getShips();
+    return this.fetcher.getDataShips();
   }
+
+  
 
   /**
    * Gets the ship by it's query
@@ -81,5 +83,12 @@ export class AzurAPIClient extends EventEmitter {
    */
   getShipsByFaction(faction: Nationality) {
     return this.fetcher.getShipsFromFaction(faction);
+  }
+  /**
+   * Gets the equipment by it's query
+   * @param query The query (id or name)
+   */
+  getEquipments(query: string) {
+    return this.fetcher.getEquipment(query);
   }
 }

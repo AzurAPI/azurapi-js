@@ -1,6 +1,7 @@
 import { HttpClient } from '@augu/orchid';
 import UnserialisedError from '../errors/UnserialisableError';
 const localv = require('../../_v.json');
+const cargs = process.argv.slice(2);
 
 export default class UpdateChecker {
     private http: HttpClient;
@@ -48,5 +49,15 @@ export default class UpdateChecker {
       console.log(dataver);
     }
 }
-const u:UpdateChecker = new UpdateChecker;
-u.logVersions();
+const u:UpdateChecker = new UpdateChecker();
+switch (cargs[0]) {
+  case 'log':
+    u.logVersions();
+    break;
+  case 'check':
+    //u.checkVersions()
+    break;
+  default:
+    //u.update()
+    console.log('Work In Progress (use log)');
+}
