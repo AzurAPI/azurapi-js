@@ -255,8 +255,8 @@ export default class APIFetcher {
     /*let find = Object.keys(data).findIndex(item => escapeLatinString(item).includes(escapeLatinString(id)));
     if (data[find]) return (data[find]);*/
     let find = Object.keys(data).filter(item => !~escapeLatinString(id).indexOf(id));
-    let result = data[find[0]]
+    let result = data[find[0]];
     if (!result) throw new UnknownEquipmentError(id);
-    return (result)
+    return (result);
   }
 }

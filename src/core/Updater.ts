@@ -49,15 +49,15 @@ export default class UpdateChecker {
       console.log(dataver);
     }
 }
+/*
 const u:UpdateChecker = new UpdateChecker();
 switch (cargs[0]) {
   case 'log':
     u.logVersions();
     break;
   case 'check':
-    //u.checkVersions()
+    u.checkVersions()
     break;
   default:
     //u.update()
-    console.log('Work In Progress (use log)');
-}
+}*/
