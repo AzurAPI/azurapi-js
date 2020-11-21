@@ -14,7 +14,7 @@
     "prepublishOnly": "npm run clear-json && npm run babel"
   },
   "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
-  "license": "mit",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/AzurAPI/azurapi-js.git"
