@@ -17,30 +17,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: npm install, compile, and test
       run: |
-        npm install @babel/cli @babel/core @babel/preset-env babel-jest jest request jsdom srcset
-        npm run babel
         npm install
+        npm run compile
         npm run test
       env:
         CI: true
-
-  npm-install:
-    name: Live testing the npm package
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
-    steps:
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Making a sample Javascript project
-      run: |
-        echo -e "const { getShipById, updateShipsData } = require('@azurapi/azurapi');\nvar testShip = getShipById(140);\nif (!testShip) process.exit(1);\nif (testShip.names.en !== 'Hermes') process.exit(1);" >> sample.js
-        npm i @azurapi/azurapi
-        node sample.js
