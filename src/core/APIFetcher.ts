@@ -8,8 +8,8 @@ export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' |
   | 'MNF' | 'Vichya Domination' | 'RN' | 'Sardenga Empire' | 'HDN' | 'Neptunia' | 'Bilibili' | 'Utawarerumono'
   | 'KizunaAI' | 'Hololive';
 
-export const Nationalities: { 
-  [x in Exclude<Nationality, 'USS' | 'HMS' | 'IJN' | 'KMS' | 'ROC' | 'SN' | 'FNFF' | 'MNF' | 'RN' | 'HDN'>]: string[] 
+export const Nationalities: {
+  [x in Exclude<Nationality, 'USS' | 'HMS' | 'IJN' | 'KMS' | 'ROC' | 'SN' | 'FNFF' | 'MNF' | 'RN' | 'HDN'>]: string[]
 } = {
   'Eagle Union': ['USS', 'Eagle Union'],
   'Royal Navy': ['HMS', 'Royal Navy'],
@@ -226,7 +226,7 @@ export default class APIFetcher {
     if (!ships.length) throw new UnknownShipError(id);
     return ships[0];
   }
-  
+
   /**
    * Grabs a ship from the database by it's faction name
    * @param faction The faction to get from
@@ -235,13 +235,13 @@ export default class APIFetcher {
     const data = await this.getDataShips();
     const query = data.filter(ship => {
       if (!Nationalities.hasOwnProperty(ship.nationality)) return false;
-      
+
       const nationalities = Nationalities[ship.nationality];
       return nationalities.includes(faction);
     });
 
     if (!query.length) throw new Error(`Couldn't find any ships with faction \`${faction}\``);
-    
+
     return query;
   }
 
@@ -254,7 +254,9 @@ export default class APIFetcher {
     const escapeLatinString = (string: any) => string.toLowerCase(/*string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').*/string.replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''));
     /*let find = Object.keys(data).findIndex(item => escapeLatinString(item).includes(escapeLatinString(id)));
     if (data[find]) return (data[find]);*/
-    Object.keys(data).filter(item => !~escapeLatinString(id).indexOf(item));
-    throw new UnknownEquipmentError(id);
+    let find = Object.keys(data).filter(item => !~escapeLatinString(id).indexOf(id));
+    let result = data[find[0]]
+    if (!result) throw new UnknownEquipmentError(id);
+    return (result)
   }
 }
