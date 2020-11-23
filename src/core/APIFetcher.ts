@@ -190,8 +190,6 @@ export default class APIFetcher {
   async getEquipment(id: string) {
     const data = await this.getDataEquipments();
     const escapeLatinString = (string: any) => string.toLowerCase(/*string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').*/string.replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''));
-    /*let find = Object.keys(data).findIndex(item => escapeLatinString(item).includes(escapeLatinString(id)));
-    if (data[find]) return (data[find]);*/
     let find = Object.keys(data).filter(item => !~escapeLatinString(id).indexOf(id));
     let result = data[find[0]];
     if (!result) throw new UnknownEquipmentError(id);

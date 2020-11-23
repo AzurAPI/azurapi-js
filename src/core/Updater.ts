@@ -1,63 +1,31 @@
-import { HttpClient } from '@augu/orchid';
-import UnserialisedError from '../errors/UnserialisableError';
-const localv = require('../../_v.json');
-const cargs = process.argv.slice(2);
+//WARNING: NOT TESTED, IDK IF THIS WORKS OR NOT. I'M AN IDIOT.
+import APIFetcher from './APIFetcher';
+import UpdateError from '../errors/UpdateError';
+const fs = require('fs').promises;
 
-export default class UpdateChecker {
-    private http: HttpClient;
-    constructor() {
-      this.http = new HttpClient({
-        defaults: {
-          headers: {
-            'Accept': 'application/json'
-          }
-        }
-      });
-    }
-    async getVersion() {
-      const res = await this.http.get('https://raw.githubusercontent.com/0t4u/azurapi-js/v2/_v.json');
-      let v: any[] = [];
+export default class Updater {
+  private fetcher: APIFetcher;
+  directory: string;
+
+  constructor(dir: string) {
+    this.fetcher = new APIFetcher();
+    this.directory = dir;
+
+    const shipsRaw = this.fetcher.getDataShips();
+    const equipmentsRaw = this.fetcher.getDataEquipments();
+    const chaptersRaw = this.fetcher.getDataChapters();
+    const voicelinesRaw = this.fetcher.getDataVoicelines();
+    const barragesRaw = this.fetcher.getDataBarrage();
+    (async() => {
       try {
-        v = res.json();
-      } catch(ex) {
-        throw new UnserialisedError();
+        await fs.writeFile(`${dir}/ships.json`, shipsRaw);
+        await fs.writeFile(`${dir}/equipments.json`, equipmentsRaw);
+        await fs.writeFile(`${dir}/chapters.json`, chaptersRaw);
+        await fs.writeFile(`${dir}/voice_lines.json`, voicelinesRaw);
+        await fs.writeFile(`${dir}/barrage.json`, barragesRaw);
+      } catch (error) {
+        throw new UpdateError();
       }
-      return v;
-    }
-    async getDataVersion() {
-      const res = await this.http.get('https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/version-info.json');
-      let v: any[] = [];
-      try {
-        v = res.json();
-      } catch(ex) {
-        throw new UnserialisedError();
-      }
-      return v;
-    }
-    async checkUpdate() {
-      const v = await this.getVersion();
-      if (v === localv) {
-        return false;
-      } else {
-        return true;
-      }
-    }
-    async logVersions() {
-      const ver = await this.getVersion();
-      const dataver = await this.getDataVersion();
-      console.log(ver);
-      console.log(dataver);
-    }
+    });
+  }
 }
-/*
-const u:UpdateChecker = new UpdateChecker();
-switch (cargs[0]) {
-  case 'log':
-    u.logVersions();
-    break;
-  case 'check':
-    u.checkVersions()
-    break;
-  default:
-    //u.update()
-}*/
