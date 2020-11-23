@@ -67,8 +67,34 @@ export class AzurAPIClient extends EventEmitter {
     return this.fetcher.getDataShips();
   }
 
-  
+  /**
+   * Returns a list of equipments avalible
+   */
+  getEquipments() {
+    return this.fetcher.getDataEquipments();
+  }
 
+  /**
+   * Returns a list of chapters
+   */
+  getChapters() {
+    return this.fetcher.getDataChapters();
+  }
+
+  /**
+   * Returns a list of voicelines
+   */
+  getVoicelines() {
+    return this.fetcher.getDataVoicelines();
+  }
+
+  /**
+   * Returns a list of barrages avalible
+   */
+  getBarrages() {
+    return this.fetcher.getDataBarrage();
+  }
+   
   /**
    * Gets the ship by it's query
    * @param query The query (id or name)
@@ -88,7 +114,7 @@ export class AzurAPIClient extends EventEmitter {
    * Gets the equipment by it's query
    * @param query The query (id or name)
    */
-  getEquipments(query: string) {
+  getEquipment(query: string) {
     return this.fetcher.getEquipment(query);
   }
 }

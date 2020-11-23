@@ -3,6 +3,7 @@ import UnknownShipError from '../errors/UnknownShipError';
 import UnknownEquipmentError from '../errors/UnknownEquipmentError';
 import { HttpClient } from '@augu/orchid';
 
+
 export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' | 'Sakura Empire'
   | 'KMS' | 'Iron Blood' | 'ROC' | 'Eastern Radiance' | 'SN' | 'North Union' | 'FNFF' | 'Iris Libre'
   | 'MNF' | 'Vichya Domination' | 'RN' | 'Sardenga Empire' | 'HDN' | 'Neptunia' | 'Bilibili' | 'Utawarerumono'
@@ -114,21 +115,6 @@ export default class APIFetcher {
   }
 
   /**
-   * Fetches all the memories
-   */
-  async getDataMemories() {
-    const res = await this.http.get('/memories.json');
-    let data: any[] = [];
-
-    try {
-      data = res.json();
-    } catch(ex) {
-      throw new UnserialisedError();
-    }
-
-    return data;
-  }
-  /**
    * Fetches all the barrages
    */
   async getDataBarrage() {
@@ -145,58 +131,10 @@ export default class APIFetcher {
   }
 
   /**
-   * Fetches all the events
-   */
-  async getDataEvents() {
-    const res = await this.http.get('/events.json');
-    let data: any[] = [];
-
-    try {
-      data = res.json();
-    } catch(ex) {
-      throw new UnserialisedError();
-    }
-
-    return data;
-  }
-
-  /**
    * Fetches all the voice lines
    */
   async getDataVoicelines() {
     const res = await this.http.get('/voice_lines.json');
-    let data: any[] = [];
-
-    try {
-      data = res.json();
-    } catch(ex) {
-      throw new UnserialisedError();
-    }
-
-    return data;
-  }
-
-  /**
-   * Fetches id map
-   */
-  async getDataIDMap() {
-    const res = await this.http.get('/id-map.json');
-    let data: any[] = [];
-
-    try {
-      data = res.json();
-    } catch(ex) {
-      throw new UnserialisedError();
-    }
-
-    return data;
-  }
-
-  /**
-   * Fetches path sizes
-   */
-  async getDataPathSizes() {
-    const res = await this.http.get('/path-sizes.json');
     let data: any[] = [];
 
     try {
