@@ -13,5 +13,6 @@ test('Ships by Faction', async () => {
 
 test('Get Equipment', async () => {
   let result = await client.getEquipments('Quadruple 130mm (Mle 1932)');
+  //remember to fix... F
   expect(result.names.en).toBe('四联装130mm副炮Mle1932');
 });

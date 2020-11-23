@@ -24,3 +24,8 @@ jobs:
         npm run test
       env:
         CI: true
+    - name: codecov
+      run: |
+        npm install codecov nyc
+        codecov
+        nyc report --reporter=json > coverage/coverage.json
