@@ -1,4 +1,4 @@
-import APIFetcher, { Nationality } from './core/APIFetcher';
+import APIFetcher, { Nationality, QueryLang } from './core/APIFetcher';
 import LocalFetcher from './core/LocalFetcher';
 import { EventEmitter } from 'events';
 import { merge } from './util/merge';
@@ -122,8 +122,8 @@ export class AzurAPIClient extends EventEmitter {
    * Gets the equipment by it's query
    * @param query The query (name)
    */
-  getEquipment(query: string) {
-    return this.fetcher.getEquipment(query);
+  getEquipment(query: string, type: QueryLang) {
+    return this.fetcher.getEquipment(query, type);
   }
   
   /**
@@ -133,5 +133,11 @@ export class AzurAPIClient extends EventEmitter {
   getVoiceline(query: string) {
     return this.fetcher.getVoiceline(query);
   }
+  /**
+   * Gets barrage from ID
+   * @param query The query (barrage ID)
+   */
+  getBarrage(query:string) {
+    return this.fetcher.getBarrage(query);
+  }
 }
-

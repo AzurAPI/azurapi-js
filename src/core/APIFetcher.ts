@@ -2,8 +2,10 @@ import UnserialisedError from '../errors/UnserialisableError';
 import UnknownShipError from '../errors/UnknownShipError';
 import UnknownEquipmentError from '../errors/UnknownEquipmentError';
 import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
+import UnknownBarrageError from '../errors/UnkonwnBarrageError';
 import { HttpClient } from '@augu/orchid';
 
+export type QueryLang = 'official' | 'jp' | 'en' | 'cn' | 'kr' | undefined;
 
 export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' | 'Sakura Empire'
   | 'KMS' | 'Iron Blood' | 'ROC' | 'Eastern Radiance' | 'SN' | 'North Union' | 'FNFF' | 'Iris Libre'
@@ -188,16 +190,16 @@ export default class APIFetcher {
    * Grabs a equiptment from database
    * @param id The equiptment's ID or name
    */
-  async getEquipment(id: string) {
+  async getEquipment(id: string, type?: QueryLang) {
     const data = await this.getDataEquipments();
-    const escapeLatinString = (string: any) => string.toLowerCase(/*string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').*/string.replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''));
-    let find = Object.keys(data).filter(item => item === escapeLatinString(id));
+    //const escapeLatinString = (string: any) => string.toLowerCase(/*string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').*/string.replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''));
+    let find = Object.keys(data).filter(item => item === /*escapeLatinString(*/id/*)*/);
     let result = data[find[0]];
     if (!result) throw new UnknownEquipmentError(id);
     return (result);
   }
   /**
-   * Grabs a equiptment from database
+   * Grabs a voice line from database
    * @param id The ships's ID to get voice lines from
    */
   async getVoiceline(id: string) {
@@ -205,6 +207,16 @@ export default class APIFetcher {
     let find = Object.keys(data).filter(item => item === id);
     let result = data[find[0]];
     if (!result) throw new UnkonwnShipVoicelinesError(id);
+    return result;
+  }
+  /**
+   * Grab barrage from database
+   * @param id The barrages name/id
+   */
+  async getBarrage(id: string) {
+    const data = await this.getDataBarrage();
+    let result = data.filter(obj => obj.id === id);
+    if (!result) throw new UnknownBarrageError(id);
     return result;
   }
 }

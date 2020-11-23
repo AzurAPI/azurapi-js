@@ -21,3 +21,8 @@ test('Get Voice lines', async () => {
   let result = await client.getVoiceline('101');
   expect(result.Default[0].en).toBe('J-class destroyer ー Javelin, Hull Number F61!');
 });
+
+test('Get Barrage', async () => {
+  let result = await client.getBarrage('Full_Barrage_-_Ayanami_II');
+  expect(result[0].name).toBe('Full Barrage - Ayanami II');
+});
