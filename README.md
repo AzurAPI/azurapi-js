@@ -26,7 +26,7 @@
 # AzurApi-JS
 Open Source Library For Azur Lane
 
-## Versions
+## Versions (internally i guess)
 Type-Main.Major.Minor.Patch (e.g. Dev-2.0.0.0)
 
 ## Features
