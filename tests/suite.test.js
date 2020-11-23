@@ -16,3 +16,8 @@ test('Get Equipment', async () => {
   //remember to fix... F
   expect(result.names.en).toBe('四联装130mm副炮Mle1932');
 });
+
+test('Get Voice lines', async () => {
+  let result = await client.getVoiceline('101');
+  expect(result.Default[0].en).toBe('J-class destroyer ー Javelin, Hull Number F61!');
+});

@@ -1,6 +1,7 @@
 import UnserialisedError from '../errors/UnserialisableError';
 import UnknownShipError from '../errors/UnknownShipError';
 import UnknownEquipmentError from '../errors/UnknownEquipmentError';
+import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
 import { HttpClient } from '@augu/orchid';
 
 
@@ -190,9 +191,20 @@ export default class APIFetcher {
   async getEquipment(id: string) {
     const data = await this.getDataEquipments();
     const escapeLatinString = (string: any) => string.toLowerCase(/*string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').*/string.replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''));
-    let find = Object.keys(data).filter(item => !~escapeLatinString(id).indexOf(id));
+    let find = Object.keys(data).filter(item => item === escapeLatinString(id));
     let result = data[find[0]];
     if (!result) throw new UnknownEquipmentError(id);
     return (result);
+  }
+  /**
+   * Grabs a equiptment from database
+   * @param id The ships's ID to get voice lines from
+   */
+  async getVoiceline(id: string) {
+    const data = await this.getDataVoicelines();
+    let find = Object.keys(data).filter(item => item === id);
+    let result = data[find[0]];
+    if (!result) throw new UnkonwnShipVoicelinesError(id);
+    return result;
   }
 }

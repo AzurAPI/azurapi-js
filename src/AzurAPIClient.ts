@@ -117,6 +117,7 @@ export class AzurAPIClient extends EventEmitter {
   getShipsByFaction(faction: Nationality) {
     return this.fetcher.getShipsFromFaction(faction);
   }
+
   /**
    * Gets the equipment by it's query
    * @param query The query (name)
@@ -124,4 +125,13 @@ export class AzurAPIClient extends EventEmitter {
   getEquipment(query: string) {
     return this.fetcher.getEquipment(query);
   }
+  
+  /**
+   * Gets the voice line for ship by it's query
+   * @param query The query (ship ID)
+   */
+  getVoiceline(query: string) {
+    return this.fetcher.getVoiceline(query);
+  }
 }
+
