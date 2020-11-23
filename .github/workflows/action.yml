@@ -26,6 +26,5 @@ jobs:
         CI: true
     - name: codecov
       run: |
-        npm install -g codecov nyc
+        npm install -g codecov
         codecov
-        nyc report --reporter=json > coverage/coverage.json
