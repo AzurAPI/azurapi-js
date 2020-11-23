@@ -26,6 +26,9 @@
 # AzurApi-JS
 Open Source Library For Azur Lane
 
+## Versions
+Type-Main.Major.Minor.Patch (e.g. Dev-2.0.0.0)
+
 ## Features
 - Hosted Locally in your machine, no more waiting for server downtime!!!
 - Ship Information and Specific Data Searching
