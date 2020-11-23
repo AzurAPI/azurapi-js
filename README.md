@@ -16,7 +16,7 @@
     </p>
     <p>
         <a href="https://github.com/AzurAPI/azurapi-js/actions">
-            <img src="https://github.com/AzurAPI/azurapi-js/workflows/Github%20Actions/badge.svg" alt="Github Actions" />
+            <img src="https://github.com/AzurAPI/azurapi-js/workflows/Github%20Actions/badge.svg?branch=v2" alt="Github Actions" />
         </a>
     </p>
     <p><a href="https://npmjs.com/package/@azurapi/azurapi"><img src="https://nodeico.herokuapp.com/@azurapi/azurapi.svg"></a>
