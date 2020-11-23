@@ -32,9 +32,7 @@
   },
   "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
   "dependencies": {
-    "@augu/orchid": "1.6.5",
-    "lodash.deburr": "^4.1.0",
-    "lodash.tolower": "^4.1.2"
+    "@augu/orchid": "1.6.5"
   },
   "devDependencies": {
     "@augu/eslint-config": "1.8.2",

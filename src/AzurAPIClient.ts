@@ -1,4 +1,5 @@
 import APIFetcher, { Nationality } from './core/APIFetcher';
+import LocalFetcher from './core/LocalFetcher';
 import { EventEmitter } from 'events';
 import { merge } from './util/merge';
 import { join } from 'path';
@@ -21,6 +22,11 @@ export class AzurAPIClient extends EventEmitter {
   private fetcher: APIFetcher;
 
   /**
+   * The API fetcher to grab items from the database
+   */
+  //private local: LocalFetcher;
+
+  /**
    * The updater to update the local database
    */
   //private updater: Updater;
@@ -38,6 +44,7 @@ export class AzurAPIClient extends EventEmitter {
     super();
 
     this.fetcher = new APIFetcher();
+    //this.local = new LocalFetcher();
     //this.updater = new Updater(directory || join(process.cwd(), '.azurapi'));
     this.options = merge<any, NonNulledClientOptions>(options, {
       directory: join(process.cwd(), '.azurapi'),
@@ -105,14 +112,14 @@ export class AzurAPIClient extends EventEmitter {
 
   /**
    * Gets the ship by the faction
-   * @param query The query to find the ship
+   * @param faction The faction to find ships from
    */
   getShipsByFaction(faction: Nationality) {
     return this.fetcher.getShipsFromFaction(faction);
   }
   /**
    * Gets the equipment by it's query
-   * @param query The query (id or name)
+   * @param query The query (name)
    */
   getEquipment(query: string) {
     return this.fetcher.getEquipment(query);
