@@ -192,7 +192,6 @@ export default class APIFetcher {
    */
   async getEquipment(id: string, type?: QueryLang) {
     const data = await this.getDataEquipments();
-    //const escapeLatinString = (string: any) => string.toLowerCase(/*string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').*/string.replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''));
     function omap(object: any, mapFn: any) {
       return Object.keys(object).reduce((result, key) => {
         result[key] = mapFn(object[key]);
@@ -200,10 +199,6 @@ export default class APIFetcher {
       }, {});
     }
     const map = omap(data, obj => obj.names.en) || omap(data, obj => obj.names.cn) || omap(data, obj => obj.names.jp) || omap(data, obj => obj.names.kr);
-    /*const find = Object.keys(data).filter(item => item === id)
-    || Object.keys(map).filter(item => map[item] === id);
-    
-    const result = data[find[0]];*/
     console.log(Object.keys(map).filter(item => map[item] === id));
     if (Object.keys(data).filter(item => item === id).length) return data[Object.keys(data).filter(item => item === id)[0]];
     if (Object.keys(map).filter(item => map[item] === id)) return data[Object.keys(map).filter(item => map[item] === id)[0]];
