@@ -123,7 +123,7 @@ export class AzurAPIClient extends EventEmitter {
    * @param query The query (name)
    */
   getEquipment(query: string, type?: QueryLang) {
-    return this.fetcher.getEquipment(query, type);
+    return this.fetcher.getEquipment(query/*, type*/);
   }
   
   /**
