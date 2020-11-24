@@ -1,4 +1,3 @@
 {
-  "plugins": ["you-dont-need-lodash-underscore"],
   "extends": "@augu/eslint-config/ts.js"
 }
