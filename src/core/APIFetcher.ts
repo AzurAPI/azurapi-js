@@ -209,10 +209,26 @@ export default class APIFetcher {
    * Grabs a voice line from database
    * @param id The ships's ID to get voice lines from
    */
-  async getVoiceline(id: string) {
+  async getVoicelineInternal(id: string) {
     const data = await this.getDataVoicelines();
     let find = Object.keys(data).filter(item => item === id);
     let result = data[find[0]];
+    if (!result) throw new UnkonwnShipVoicelinesError(id);
+    return result;
+  }
+  /**
+   * Grabs a voice line from database
+   * @param id The ships's name to get voice lines from
+   */
+  async getVoiceline(id: string) {
+    let result;
+    let idIsNum = /^\d+$/.test(id);
+    if (idIsNum) {
+      result = this.getVoicelineInternal(id);
+    } else {
+      const res = await this.getShip(id);
+      result = this.getVoicelineInternal(res.id);
+    }
     if (!result) throw new UnkonwnShipVoicelinesError(id);
     return result;
   }
