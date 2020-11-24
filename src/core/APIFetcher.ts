@@ -5,7 +5,7 @@ import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
 import UnknownBarrageError from '../errors/UnkonwnBarrageError';
 import { HttpClient } from '@augu/orchid';
 
-export type QueryLang = 'official' | 'jp' | 'en' | 'cn' | 'kr' | undefined;
+export type QueryLang = 'jp' | 'en' | 'cn' | 'kr' | undefined;
 
 export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' | 'Sakura Empire'
   | 'KMS' | 'Iron Blood' | 'ROC' | 'Eastern Radiance' | 'SN' | 'North Union' | 'FNFF' | 'Iris Libre'
@@ -193,8 +193,38 @@ export default class APIFetcher {
   async getEquipment(id: string, type?: QueryLang) {
     const data = await this.getDataEquipments();
     //const escapeLatinString = (string: any) => string.toLowerCase(/*string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').*/string.replace(/[!@#$%^&*(),.?":{}|<>' ]/g, ''));
-    let find = Object.keys(data).filter(item => item === /*escapeLatinString(*/id/*)*/);
-    let result = data[find[0]];
+    function omap(object: any, mapFn: any) {
+      return Object.keys(object).reduce(function(result, key) {
+        result[key] = mapFn(object[key]);
+        return result;
+      }, {});
+    }
+    let result;
+    switch (type) {
+      case ('en'):
+        const enMap = omap(data, obj => obj.names.en);
+        const enFind = Object.keys(enMap).filter(item => enMap[item] === id);
+        result = data[enFind[0]];
+        break;
+      case ('cn'):
+        const cnMap = omap(data, obj => obj.names.cn);
+        const cnFind = Object.keys(cnMap).filter(item => cnMap[item] === id);
+        result = data[cnFind[0]];
+        break;
+      case('jp'):
+        const jpMap = omap(data, obj => obj.names.jp);
+        const jpFind = Object.keys(jpMap).filter(item => jpMap[item] === id);
+        result = data[jpFind[0]];
+        break;
+      case('kr'):
+        const krMap = omap(data, obj => obj.names.kr);
+        const krFind = Object.keys(krMap).filter(item => krMap[item] === id);
+        result = data[krFind[0]];
+        break;
+      default:
+        const find = Object.keys(data).filter(item => item === /*escapeLatinString(*/id/*)*/);
+        result = data[find[0]];
+    }
     if (!result) throw new UnknownEquipmentError(id);
     return (result);
   }
