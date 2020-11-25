@@ -3,9 +3,8 @@ import UnknownShipError from '../errors/UnknownShipError';
 import UnknownEquipmentError from '../errors/UnknownEquipmentError';
 import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
 import UnknownBarrageError from '../errors/UnkonwnBarrageError';
+import UnknownChapterError from '../errors/UnknownChapterError'; 
 import { HttpClient } from '@augu/orchid';
-
-export type QueryLang = 'jp' | 'en' | 'cn' | 'kr' | undefined;
 
 export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' | 'Sakura Empire'
   | 'KMS' | 'Iron Blood' | 'ROC' | 'Eastern Radiance' | 'SN' | 'North Union' | 'FNFF' | 'Iris Libre'
@@ -190,7 +189,7 @@ export default class APIFetcher {
    * Grabs a equiptment from database
    * @param id The equiptment's ID or name
    */
-  async getEquipment(id: string, type?: QueryLang) {
+  async getEquipment(id: string) {
     const data = await this.getDataEquipments();
     function omap(object: any, mapFn: any) {
       return Object.keys(object).reduce((result, key) => {
@@ -204,6 +203,34 @@ export default class APIFetcher {
     if (Object.keys(map).filter(item => map[item] === id)) return data[Object.keys(map).filter(item => map[item] === id)[0]];
 
     throw new UnknownEquipmentError(id);
+  }
+  /**
+   * Grab chapter from database
+   * @param id The chapter to search for
+   * @param section (optional)The section/section name of the chapter to filter
+   */
+  async getChapter(id: string, section?: string) {
+    const data = await this.getDataChapters();
+
+    let find;
+    if (section) {
+      let first = Object.keys(data).filter(item => item === id);
+      console.log(first);
+      let second = data.filter(item => {
+        if (item === first) return true;
+        for (const key of Object.keys(data[first[0]])) {
+          if (Object.keys(data[first[0]])[key] === id) return true;
+        }
+
+        return false;
+      });
+      find = second[0];
+    } else {
+      find = Object.keys(data).filter(item => item === id)[0];
+    }
+    let result = data[find];
+    if (!result) throw new UnknownChapterError(id);
+    return result;
   }
   /**
    * Grabs a voice line from database

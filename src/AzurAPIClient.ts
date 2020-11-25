@@ -1,4 +1,4 @@
-import APIFetcher, { Nationality, QueryLang } from './core/APIFetcher';
+import APIFetcher, { Nationality } from './core/APIFetcher';
 import LocalFetcher from './core/LocalFetcher';
 import { EventEmitter } from 'events';
 import { merge } from './util/merge';
@@ -122,8 +122,17 @@ export class AzurAPIClient extends EventEmitter {
    * Gets the equipment by it's query
    * @param query The query (name)
    */
-  getEquipment(query: string, type?: QueryLang) {
+  getEquipment(query: string) {
     return this.fetcher.getEquipment(query/*, type*/);
+  }
+
+  /**
+   * Gets chapter by query
+   * @param chapter The chapter to search for
+   * @param section (Optional) The section to search for
+   */
+  getChapter(chapter: string, section?: string) {
+    return this.fetcher.getChapter(chapter, section);
   }
   
   /**
