@@ -30,6 +30,13 @@ export const Nationalities: {
   Hololive: ['Hololive']
 };
 
+function omap(object: any, mapFn: any) {
+  return Object.keys(object).reduce((result, key) => {
+    result[key] = mapFn(object[key]);
+    return result;
+  }, {});
+}
+
 /**
  * Fetcher to grab anything from the database on GitHub
  */
@@ -191,12 +198,6 @@ export default class APIFetcher {
    */
   async getEquipment(id: string) {
     const data = await this.getDataEquipments();
-    function omap(object: any, mapFn: any) {
-      return Object.keys(object).reduce((result, key) => {
-        result[key] = mapFn(object[key]);
-        return result;
-      }, {});
-    }
     const map = omap(data, obj => obj.names.en) || omap(data, obj => obj.names.cn) || omap(data, obj => obj.names.jp) || omap(data, obj => obj.names.kr);
     console.log(Object.keys(map).filter(item => map[item] === id));
     if (Object.keys(data).filter(item => item === id).length) return data[Object.keys(data).filter(item => item === id)[0]];
@@ -212,23 +213,22 @@ export default class APIFetcher {
   async getChapter(id: string, section?: string) {
     const data = await this.getDataChapters();
 
-    let find;
-    if (section) {
-      let first = Object.keys(data).filter(item => item === id);
-      console.log(first);
-      let second = data.filter(item => {
-        if (item === first) return true;
-        for (const key of Object.keys(data[first[0]])) {
-          if (Object.keys(data[first[0]])[key] === id) return true;
-        }
-
-        return false;
-      });
-      find = second[0];
-    } else {
-      find = Object.keys(data).filter(item => item === id)[0];
+    function ofilter(obj, predicate) {
+      Object.keys(obj).filter(key => predicate(obj[key])).reduce((res, key) => (res[key] = obj[key], res), {});
     }
-    let result = data[find];
+    let result;
+    //let find;
+    let find = Object.keys(data).filter(item => item === id);
+    if (section) {
+      result = data[find[0]][section];
+      //let first = Object.keys(data).filter(item => item === id);
+      //find = first[section];
+      //console.log(find);
+    } else {
+      //find = Object.keys(data).filter(item => item === id);
+      result = data[find[0]];
+    }
+    //let result = data[find[0]];
     if (!result) throw new UnknownChapterError(id);
     return result;
   }
