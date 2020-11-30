@@ -11,6 +11,7 @@ export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' |
   | 'MNF' | 'Vichya Domination' | 'RN' | 'Sardenga Empire' | 'HDN' | 'Neptunia' | 'Bilibili' | 'Utawarerumono'
   | 'KizunaAI' | 'Hololive';
 
+//Nationalities
 export const Nationalities: {
   [x in Exclude<Nationality, 'USS' | 'HMS' | 'IJN' | 'KMS' | 'ROC' | 'SN' | 'FNFF' | 'MNF' | 'RN' | 'HDN'>]: string[]
 } = {
@@ -30,11 +31,16 @@ export const Nationalities: {
   Hololive: ['Hololive']
 };
 
+//Internal functions because I smol brain
 function omap(object: any, mapFn: any) {
   return Object.keys(object).reduce((result, key) => {
     result[key] = mapFn(object[key]);
     return result;
   }, {});
+}
+
+function ofilter(obj, predicate) {
+  Object.keys(obj).filter(key => predicate(obj[key])).reduce((res, key) => (res[key] = obj[key], res), {});
 }
 
 /**
@@ -213,9 +219,6 @@ export default class APIFetcher {
   async getChapter(id: string, section?: string) {
     const data = await this.getDataChapters();
 
-    function ofilter(obj, predicate) {
-      Object.keys(obj).filter(key => predicate(obj[key])).reduce((res, key) => (res[key] = obj[key], res), {});
-    }
     let result;
     //let find;
     let find = Object.keys(data).filter(item => item === id);

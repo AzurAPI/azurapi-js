@@ -24,7 +24,3 @@ jobs:
         npm run test
       env:
         CI: true
-    - name: codecov
-      run: |
-        npm install -g codecov
-        codecov
