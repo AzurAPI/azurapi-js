@@ -205,7 +205,7 @@ export default class APIFetcher {
   async getEquipment(id: string) {
     const data = await this.getDataEquipments();
     const map = omap(data, obj => obj.names.en) || omap(data, obj => obj.names.cn) || omap(data, obj => obj.names.jp) || omap(data, obj => obj.names.kr);
-    console.log(Object.keys(map).filter(item => map[item] === id));
+    //console.log(Object.keys(map).filter(item => map[item] === id));
     if (Object.keys(data).filter(item => item === id).length) return data[Object.keys(data).filter(item => item === id)[0]];
     if (Object.keys(map).filter(item => map[item] === id)) return data[Object.keys(map).filter(item => map[item] === id)[0]];
 
