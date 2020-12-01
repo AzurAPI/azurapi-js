@@ -32,14 +32,19 @@ export const Nationalities: {
 };
 
 //Internal functions because I smol brain
-function omap(object: any, mapFn: any) {
+const mapObject = (obj, fn) => Object.keys(obj).reduce((result, key) => {
+  result[key] = fn(obj[key]);
+  return result;
+}, {});
+
+/* function mapObject(object: any, mapFn: any) {
   return Object.keys(object).reduce((result, key) => {
     result[key] = mapFn(object[key]);
     return result;
   }, {});
-}
+} */
 
-function ofilter(obj, predicate) {
+function filterObject(obj, predicate) {
   Object.keys(obj).filter(key => predicate(obj[key])).reduce((res, key) => (res[key] = obj[key], res), {});
 }
 
@@ -204,10 +209,14 @@ export default class APIFetcher {
    */
   async getEquipment(id: string) {
     const data = await this.getDataEquipments();
-    const map = omap(data, obj => obj.names.en) || omap(data, obj => obj.names.cn) || omap(data, obj => obj.names.jp) || omap(data, obj => obj.names.kr);
-    //console.log(Object.keys(map).filter(item => map[item] === id));
-    if (Object.keys(data).filter(item => item === id).length) return data[Object.keys(data).filter(item => item === id)[0]];
-    if (Object.keys(map).filter(item => map[item] === id)) return data[Object.keys(map).filter(item => map[item] === id)[0]];
+    const keys = Object.keys(data);
+    const map = Object.keys(mapObject(data, obj => obj.names));
+    const filter1 = keys.filter(item => item === id);
+    const filter2 = map.filter(item => data[item] === id);
+    console.log(filter1);
+    console.log(filter2);
+    if (filter1.length) return data[filter1[0]];
+    if (filter2.length) return data[filter2[0]];
 
     throw new UnknownEquipmentError(id);
   }
