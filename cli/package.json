@@ -4,6 +4,7 @@
   "description": "example implementation ",
   "main": "acli.js",
   "scripts": {
+    "postinstall": "npm link",
     "build": "npm i && npm i pkg && pkg acli.js && npm remove pkg",
     "removebuilt": "rm -rf acli-linux && rm -rf acli-macos && rm -rf acli-win.exe",
     "rebuild": "npm i && npm run removebuilt && npm run build"
@@ -14,5 +15,8 @@
     "chalk": "^4.1.0",
     "cli-highlight": "^2.1.9",
     "yargs": "^16.1.1"
+  },
+  "bin": {
+    "acli": "./acli.js"
   }
 }
