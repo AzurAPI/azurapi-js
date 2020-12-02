@@ -1,0 +1,18 @@
+{
+  "name": "cli-azurapiv2",
+  "version": "0.0.1",
+  "description": "example implementation ",
+  "main": "acli.js",
+  "scripts": {
+    "build": "npm i && npm i pkg && pkg acli.js && npm remove pkg",
+    "removebuilt": "rm -rf acli-linux && rm -rf acli-macos && rm -rf acli-win.exe",
+    "rebuild": "npm i && npm run removebuilt && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "cli-highlight": "^2.1.9",
+    "yargs": "^16.1.1"
+  }
+}
