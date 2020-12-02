@@ -5,9 +5,9 @@
   "main": "acli.js",
   "scripts": {
     "postinstall": "npm link",
-    "build": "npm i && npm i pkg && pkg acli.js && npm remove pkg",
-    "removebuilt": "rm -rf acli-linux && rm -rf acli-macos && rm -rf acli-win.exe",
-    "rebuild": "npm i && npm run removebuilt && npm run build"
+    "pkg": "npm i && npm i pkg && pkg acli.js && npm remove pkg",
+    "rmpkg": "rm -rf acli-linux && rm -rf acli-macos && rm -rf acli-win.exe",
+    "repkg": "npm i && npm run removebuilt && npm run build"
   },
   "author": "",
   "license": "ISC",
