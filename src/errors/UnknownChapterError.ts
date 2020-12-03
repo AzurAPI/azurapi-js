@@ -1,3 +1,9 @@
+// UnknownChapterError.ts
+/**
+ * Unknown Chapter Error
+ * @packageDocumentation
+ */
+
 /**
  * Error to throw when the chapter was not found
  */

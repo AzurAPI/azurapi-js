@@ -1,3 +1,9 @@
+// UnknownBarrageError.ts
+/**
+ * Unknown Barrage Error
+ * @packageDocumentation
+ */
+
 /**
  * Error to throw when the barrage is not found
  */

@@ -7,7 +7,8 @@
     "compile": "tsc",
     "test": "jest --config jest.config.js",
     "lint": "eslint src --ext .ts --fix",
-    "build": "npm run lint && npm run compile && npm run test"
+    "build": "npm run lint && npm run compile",
+    "build:types": "tsc -d --rootDir src --declarationDir build/types --declarationMap --emitDeclarationOnly"
   },
   "author": "XhacKX#0001, 彩雲#5778, August#5820",
   "license": "MIT",
@@ -17,7 +18,7 @@
   },
   "files": [
     "build",
-    "index.d.ts"
+    "types"
   ],
   "keywords": [
     "azurlane",

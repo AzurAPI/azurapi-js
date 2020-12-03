@@ -1,3 +1,9 @@
+// UnknownShipError.ts
+/**
+ * Unknown Ship Error
+ * @packageDocumentation
+ */
+
 /**
  * Error to throw when the ship's id or name was not found
  */

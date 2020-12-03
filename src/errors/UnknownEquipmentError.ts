@@ -1,3 +1,9 @@
+// UnknownEquipmentError.ts
+/**
+ * Unknown Equipment Error
+ * @packageDocumentation
+ */
+
 /**
  * Error to throw when the equipment's id or name was not found
  */

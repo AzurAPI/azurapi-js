@@ -1,3 +1,9 @@
+// merge.ts
+/**
+ * Merge Function
+ * @packageDocumentation
+ */
+
 /**
  * Merges mutiple objects into one if any keys don't exist
  * @param args The objects to merge

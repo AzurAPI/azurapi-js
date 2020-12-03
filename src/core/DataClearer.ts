@@ -1,3 +1,9 @@
+// DataClearer.ts
+/**
+ * Clear local data
+ * @packageDocumentation
+ */
+
 import ClearDataError from '../errors/ClearDataError';
 const fs = require('fs/promises');
 

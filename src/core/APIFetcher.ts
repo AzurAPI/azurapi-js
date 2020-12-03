@@ -1,3 +1,9 @@
+// APIFetcher.ts
+/**
+ * Functions to get data from github hosted JSON files
+ * @packageDocumentation
+ */
+
 import UnserialisedError from '../errors/UnserialisableError';
 import UnknownShipError from '../errors/UnknownShipError';
 import UnknownEquipmentError from '../errors/UnknownEquipmentError';
@@ -31,8 +37,13 @@ export const Nationalities: {
   Hololive: ['Hololive']
 };
 
-//Internal functions because I smol brain
-const mapObject = (obj, fn) => Object.keys(obj).reduce((result, key) => {
+/**
+ * Map objects like .map() but its for objects
+ * @param obj - The object
+ * @param fn - Callback
+ * @ignore
+ */
+export const mapObject = (obj, fn) => Object.keys(obj).reduce((result, key) => {
   result[key] = fn(obj[key]);
   return result;
 }, {});
@@ -44,9 +55,9 @@ const mapObject = (obj, fn) => Object.keys(obj).reduce((result, key) => {
   }, {});
 } */
 
-function filterObject(obj, predicate) {
+/* function filterObject(obj, predicate) {
   Object.keys(obj).filter(key => predicate(obj[key])).reduce((res, key) => (res[key] = obj[key], res), {});
-}
+} */
 
 /**
  * Fetcher to grab anything from the database on GitHub
@@ -76,21 +87,6 @@ export default class APIFetcher {
    */
   async getDataShips() {
     const res = await this.http.get('/ships.json');
-    let data: any[] = [];
-
-    try {
-      data = res.json();
-    } catch(ex) {
-      throw new UnserialisedError();
-    }
-
-    return data;
-  }
-  /**
-   * Fetches ships list
-   */
-  async getDataShipsList() {
-    const res = await this.http.get('/ships-list.json');
     let data: any[] = [];
 
     try {
