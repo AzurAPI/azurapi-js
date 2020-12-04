@@ -4,7 +4,7 @@ const yargs = require('yargs');
 const chalk = require('chalk');
 const pkg = require('./package.json');
 const highlight = require('cli-highlight').highlight;
-const { AzurAPIClient } = require('../build/AzurAPIClient');
+const { AzurAPIClient } = require('../../build/AzurAPIClient');
 const client = new AzurAPIClient();
 
 const argv = yargs

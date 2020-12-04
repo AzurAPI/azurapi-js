@@ -11,6 +11,8 @@ import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
 import UnknownBarrageError from '../errors/UnkonwnBarrageError';
 import UnknownChapterError from '../errors/UnknownChapterError'; 
 import { HttpClient } from '@augu/orchid';
+import flexsearch from 'flexsearch';
+// note for august: plz add fuzzy search using flexsearch kthx
 
 export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' | 'Sakura Empire'
   | 'KMS' | 'Iron Blood' | 'ROC' | 'Eastern Radiance' | 'SN' | 'North Union' | 'FNFF' | 'Iris Libre'
