@@ -3,5 +3,6 @@ module.exports = {
   verbose: true,
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testMatch: ['<rootDir>/tests/*.test.js']
+  testMatch: ['<rootDir>/tests/*.test.js'],
+  testTimeout: 5000
 };
