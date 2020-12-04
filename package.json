@@ -9,7 +9,7 @@
     "lint": "eslint src --ext .ts --fix",
     "build": "npm run lint && npm run compile",
     "build:types": "tsc -d --rootDir src --declarationDir build/types --declarationMap --emitDeclarationOnly",
-    "build:docs:t": "typedoc --theme typedoc/theme/tdt/theme --readme readme.md --out docs/other/dist:t --mode modules src/.",
+    "build:docs:t": "typedoc --theme typedoc/theme/tdt/theme --readme readme.md --out typedoc/other/dist:t --mode modules src/.",
     "build:docs": "typedoc --theme typedoc/theme/minami --readme readme.md --out docs/ --mode modules src/.",
     "build:docs:json": "typedoc --json typedoc/json/docs.json --mode modules src/."
   }, 
