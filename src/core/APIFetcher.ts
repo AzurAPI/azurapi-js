@@ -218,7 +218,7 @@ export default class APIFetcher {
   /**
    * Grab chapter from database
    * @param id The chapter to search for
-   * @param section (optional)The section/section name of the chapter to filter
+   * @param section The section/section name of the chapter to filter
    */
   async getChapter(id: string, section?: string) {
     const data = await this.getDataChapters();
