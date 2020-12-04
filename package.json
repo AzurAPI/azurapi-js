@@ -34,8 +34,7 @@
   },
   "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
   "dependencies": {
-    "@augu/orchid": "1.6.5",
-    "flexsearch": "github:nextapps-de/flexsearch#0.7.0"
+    "@augu/orchid": "1.6.5"
   },
   "devDependencies": {
     "@augu/eslint-config": "1.8.2",

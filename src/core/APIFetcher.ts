@@ -11,8 +11,6 @@ import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
 import UnknownBarrageError from '../errors/UnkonwnBarrageError';
 import UnknownChapterError from '../errors/UnknownChapterError'; 
 import { HttpClient } from '@augu/orchid';
-import flexsearch from 'flexsearch';
-// note for august: plz add fuzzy search using flexsearch kthx
 
 export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' | 'Sakura Empire'
   | 'KMS' | 'Iron Blood' | 'ROC' | 'Eastern Radiance' | 'SN' | 'North Union' | 'FNFF' | 'Iris Libre'
@@ -173,9 +171,8 @@ export default class APIFetcher {
     const ships = data.filter(ship => {
       if (ship.id === id) return true;
       for (const key of Object.keys(ship.names)) {
-        if (ship.names[key] === id) return true;
+        if (ship.names[key].includes(id)) return true;
       }
-
       return false;
     });
 
@@ -209,10 +206,10 @@ export default class APIFetcher {
     const data = await this.getDataEquipments();
     const keys = Object.keys(data);
     const map = Object.keys(mapObject(data, obj => obj.names));
-    const filter1 = keys.filter(item => item === id);
+    const filter1 = keys.filter(item => item.includes(id));
     const filter2 = map.filter(item => data[item] === id);
-    console.log(filter1);
-    console.log(filter2);
+    //console.log(filter1);
+    //console.log(filter2);
     if (filter1.length) return data[filter1[0]];
     if (filter2.length) return data[filter2[0]];
 
@@ -231,11 +228,11 @@ export default class APIFetcher {
     let find = Object.keys(data).filter(item => item === id);
     if (section) {
       result = data[find[0]][section];
-      //let first = Object.keys(data).filter(item => item === id);
+      //let first = Object.keys(data).filter(item => item.includes(id));
       //find = first[section];
       //console.log(find);
     } else {
-      //find = Object.keys(data).filter(item => item === id);
+      //find = Object.keys(data).filter(item => item.includes(id));
       result = data[find[0]];
     }
     //let result = data[find[0]];
@@ -248,7 +245,7 @@ export default class APIFetcher {
    */
   async getVoicelineInternal(id: string) {
     const data = await this.getDataVoicelines();
-    let find = Object.keys(data).filter(item => item === id);
+    let find = Object.keys(data).filter(item => item.includes(id));
     let result = data[find[0]];
     if (!result) throw new UnkonwnShipVoicelinesError(id);
     return result;
@@ -275,7 +272,7 @@ export default class APIFetcher {
    */
   async getBarrage(id: string) {
     const data = await this.getDataBarrage();
-    let result = data.filter(obj => obj.id === id);
+    let result = data.filter(obj => obj.id.includes(id));
     if (!result) throw new UnknownBarrageError(id);
     return result;
   }
