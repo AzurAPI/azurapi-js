@@ -11,8 +11,19 @@ import UnknownEquipmentError from '../errors/UnknownEquipmentError';
 import UnknownShipError from '../errors/UnknownShipError';
 import UnknownBarrageError from '../errors/UnkonwnBarrageError';
 import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
-import { Nationalities, Nationality, mapObject } from './APIFetcher';
+import { Nationalities, Nationality } from './APIFetcher';
 import Updater from './Updater';
+
+/**
+ * Map objects like Array.prototype.map() but its for objects
+ * @param obj - The object
+ * @param fn - Callback
+ * @ignore
+ */
+const mapObject = (obj, fn) => Object.keys(obj).reduce((result, key) => {
+  result[key] = fn(obj[key]);
+  return result;
+}, {});
 
 /**
  * Fetcher to grab anything from the local database

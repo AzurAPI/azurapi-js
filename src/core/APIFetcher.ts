@@ -11,6 +11,7 @@ import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
 import UnknownBarrageError from '../errors/UnkonwnBarrageError';
 import UnknownChapterError from '../errors/UnknownChapterError'; 
 import { HttpClient } from '@augu/orchid';
+import CacheService from './CacheService';
 
 export type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' | 'Sakura Empire'
   | 'KMS' | 'Iron Blood' | 'ROC' | 'Eastern Radiance' | 'SN' | 'North Union' | 'FNFF' | 'Iris Libre'
@@ -38,26 +39,15 @@ export const Nationalities: {
 };
 
 /**
- * Map objects like .map() but its for objects
+ * Map objects like Array.prototype.map() but its for objects
  * @param obj - The object
  * @param fn - Callback
  * @ignore
  */
-export const mapObject = (obj, fn) => Object.keys(obj).reduce((result, key) => {
+const mapObject = (obj, fn) => Object.keys(obj).reduce((result, key) => {
   result[key] = fn(obj[key]);
   return result;
 }, {});
-
-/* function mapObject(object: any, mapFn: any) {
-  return Object.keys(object).reduce((result, key) => {
-    result[key] = mapFn(object[key]);
-    return result;
-  }, {});
-} */
-
-/* function filterObject(obj, predicate) {
-  Object.keys(obj).filter(key => predicate(obj[key])).reduce((res, key) => (res[key] = obj[key], res), {});
-} */
 
 /**
  * Fetcher to grab anything from the database on GitHub
@@ -67,6 +57,11 @@ export default class APIFetcher {
    * The client to use to request
    */
   private http: HttpClient;
+
+  /**
+   * The client to use to cache data
+   */
+  private cache: CacheService;
 
   /**
    * Creates a new [APIFetcher] instance
@@ -80,12 +75,47 @@ export default class APIFetcher {
         }
       }
     });
+    this.cache = new CacheService(60 * 60 *1);
+  }
+  /**
+   * Fetches all the ships from cache
+   */
+  async getDataShips() {
+    return this.cache.get('ships', this.getRawShips());
+  }
+
+  /**
+   * Fetches all the equipments from cache
+   */
+  async getDataEquipments() {
+    return this.cache.get('equipments', this.getRawEquipments());
+  }
+
+  /**
+   * Fetches all the chapters from cache
+   */
+  async getDataChapters() {
+    return this.cache.get('chapters', this.getRawChapters());
+  }
+
+  /**
+   * Fetches all the barrages from cache
+   */
+  async getDataBarrage() {
+    return this.cache.get('barrage', this.getRawBarrage());
+  }
+
+  /**
+   * Fetches all the voice lines from cache
+   */
+  async getDataVoicelines() {
+    return this.cache.get('voicelines', this.getRawVoicelines());
   }
 
   /**
    * Fetches all the ships
    */
-  async getDataShips() {
+  async getRawShips() {
     const res = await this.http.get('/ships.json');
     let data: any[] = [];
 
@@ -101,7 +131,7 @@ export default class APIFetcher {
   /**
    * Fetches all the equipments
    */
-  async getDataEquipments() {
+  async getRawEquipments() {
     const res = await this.http.get('/equipments.json');
     let data: any[] = [];
 
@@ -117,7 +147,7 @@ export default class APIFetcher {
   /**
    * Fetches all the chapters
    */
-  async getDataChapters() {
+  async getRawChapters() {
     const res = await this.http.get('/chapters.json');
     let data: any[] = [];
 
@@ -133,7 +163,7 @@ export default class APIFetcher {
   /**
    * Fetches all the barrages
    */
-  async getDataBarrage() {
+  async getRawBarrage() {
     const res = await this.http.get('/barrage.json');
     let data: any[] = [];
 
@@ -149,7 +179,7 @@ export default class APIFetcher {
   /**
    * Fetches all the voice lines
    */
-  async getDataVoicelines() {
+  async getRawVoicelines() {
     const res = await this.http.get('/voice_lines.json');
     let data: any[] = [];
 
