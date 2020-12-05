@@ -97,6 +97,7 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_apifetcher_.apifetcher.html#cache" class="tsd-kind-icon">cache</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_core_apifetcher_.apifetcher.html#http" class="tsd-kind-icon">http</a></li>
 							</ul>
 						</section>
@@ -111,6 +112,11 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getdataships" class="tsd-kind-icon">get<wbr>Data<wbr>Ships</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getdatavoicelines" class="tsd-kind-icon">get<wbr>Data<wbr>Voicelines</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getequipment" class="tsd-kind-icon">get<wbr>Equipment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getrawbarrage" class="tsd-kind-icon">get<wbr>Raw<wbr>Barrage</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getrawchapters" class="tsd-kind-icon">get<wbr>Raw<wbr>Chapters</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getrawequipments" class="tsd-kind-icon">get<wbr>Raw<wbr>Equipments</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getrawships" class="tsd-kind-icon">get<wbr>Raw<wbr>Ships</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getrawvoicelines" class="tsd-kind-icon">get<wbr>Raw<wbr>Voicelines</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getship" class="tsd-kind-icon">get<wbr>Ship</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getshipsfromfaction" class="tsd-kind-icon">get<wbr>Ships<wbr>From<wbr>Faction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_core_apifetcher_.apifetcher.html#getvoiceline" class="tsd-kind-icon">get<wbr>Voiceline</a></li>
@@ -132,7 +138,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L69">src/core/APIFetcher.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L64">src/core/APIFetcher.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -148,12 +154,27 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="cache" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> cache</h3>
+					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="_core_cacheservice_.cacheservice.html" class="tsd-signature-type">CacheService</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L64">src/core/APIFetcher.ts:64</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The client to use to cache data</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="http" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> http</h3>
 					<div class="tsd-signature tsd-kind-icon">http<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HttpClient</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L69">src/core/APIFetcher.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L59">src/core/APIFetcher.ts:59</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -169,13 +190,13 @@
 					<a name="getbarrage" class="tsd-anchor"></a>
 					<h3>get<wbr>Barrage</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Barrage<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Barrage<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L273">src/core/APIFetcher.ts:273</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L303">src/core/APIFetcher.ts:303</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -192,7 +213,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -206,7 +227,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L223">src/core/APIFetcher.ts:223</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L253">src/core/APIFetcher.ts:253</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -225,7 +246,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> section: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>(optional)The section/section name of the chapter to filter</p>
+										<p>The section/section name of the chapter to filter</p>
 									</div>
 								</li>
 							</ul>
@@ -237,21 +258,21 @@
 					<a name="getdatabarrage" class="tsd-anchor"></a>
 					<h3>get<wbr>Data<wbr>Barrage</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Barrage<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Barrage<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L136">src/core/APIFetcher.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L104">src/core/APIFetcher.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Fetches all the barrages</p>
+									<p>Fetches all the barrages from cache</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -259,21 +280,21 @@
 					<a name="getdatachapters" class="tsd-anchor"></a>
 					<h3>get<wbr>Data<wbr>Chapters</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Chapters<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Chapters<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L120">src/core/APIFetcher.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L97">src/core/APIFetcher.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Fetches all the chapters</p>
+									<p>Fetches all the chapters from cache</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -281,21 +302,21 @@
 					<a name="getdataequipments" class="tsd-anchor"></a>
 					<h3>get<wbr>Data<wbr>Equipments</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Equipments<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Equipments<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L104">src/core/APIFetcher.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L90">src/core/APIFetcher.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Fetches all the equipments</p>
+									<p>Fetches all the equipments from cache</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -303,21 +324,21 @@
 					<a name="getdataships" class="tsd-anchor"></a>
 					<h3>get<wbr>Data<wbr>Ships</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Ships<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Ships<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L88">src/core/APIFetcher.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L83">src/core/APIFetcher.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Fetches all the ships</p>
+									<p>Fetches all the ships from cache</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -325,21 +346,21 @@
 					<a name="getdatavoicelines" class="tsd-anchor"></a>
 					<h3>get<wbr>Data<wbr>Voicelines</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Voicelines<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Voicelines<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L152">src/core/APIFetcher.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L111">src/core/APIFetcher.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Fetches all the voice lines</p>
+									<p>Fetches all the voice lines from cache</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -353,7 +374,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L205">src/core/APIFetcher.ts:205</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L235">src/core/APIFetcher.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -375,6 +396,116 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getrawbarrage" class="tsd-anchor"></a>
+					<h3>get<wbr>Raw<wbr>Barrage</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Raw<wbr>Barrage<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L166">src/core/APIFetcher.ts:166</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetches all the barrages</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getrawchapters" class="tsd-anchor"></a>
+					<h3>get<wbr>Raw<wbr>Chapters</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Raw<wbr>Chapters<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L150">src/core/APIFetcher.ts:150</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetches all the chapters</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getrawequipments" class="tsd-anchor"></a>
+					<h3>get<wbr>Raw<wbr>Equipments</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Raw<wbr>Equipments<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L134">src/core/APIFetcher.ts:134</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetches all the equipments</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getrawships" class="tsd-anchor"></a>
+					<h3>get<wbr>Raw<wbr>Ships</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Raw<wbr>Ships<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L118">src/core/APIFetcher.ts:118</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetches all the ships</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getrawvoicelines" class="tsd-anchor"></a>
+					<h3>get<wbr>Raw<wbr>Voicelines</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Raw<wbr>Voicelines<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L182">src/core/APIFetcher.ts:182</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fetches all the voice lines</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getship" class="tsd-anchor"></a>
 					<h3>get<wbr>Ship</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -384,7 +515,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L169">src/core/APIFetcher.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L199">src/core/APIFetcher.ts:199</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -409,13 +540,13 @@
 					<a name="getshipsfromfaction" class="tsd-anchor"></a>
 					<h3>get<wbr>Ships<wbr>From<wbr>Faction</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Ships<wbr>From<wbr>Faction<span class="tsd-signature-symbol">(</span>faction<span class="tsd-signature-symbol">: </span><a href="../modules/_core_apifetcher_.html#nationality" class="tsd-signature-type">Nationality</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Ships<wbr>From<wbr>Faction<span class="tsd-signature-symbol">(</span>faction<span class="tsd-signature-symbol">: </span><a href="../modules/_core_apifetcher_.html#nationality" class="tsd-signature-type">Nationality</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L187">src/core/APIFetcher.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L217">src/core/APIFetcher.ts:217</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -432,7 +563,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -446,7 +577,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L257">src/core/APIFetcher.ts:257</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L287">src/core/APIFetcher.ts:287</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -477,7 +608,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/0dd6d84/src/core/APIFetcher.ts#L246">src/core/APIFetcher.ts:246</a></li>
+									<li>Defined in <a href="https://github.com/AzurAPI/azurapi-js/blob/83c1e3d/src/core/APIFetcher.ts#L276">src/core/APIFetcher.ts:276</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -511,6 +642,9 @@
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_core_apifetcher_.html">&quot;core/APIFetcher&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_core_cacheservice_.html">&quot;core/<wbr>Cache<wbr>Service&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_core_dataclearer_.html">&quot;core/<wbr>Data<wbr>Clearer&quot;</a>
@@ -570,6 +704,9 @@
 								<a href="_core_apifetcher_.apifetcher.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_core_apifetcher_.apifetcher.html#cache" class="tsd-kind-icon">cache</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_core_apifetcher_.apifetcher.html#http" class="tsd-kind-icon">http</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -595,6 +732,21 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_core_apifetcher_.apifetcher.html#getequipment" class="tsd-kind-icon">get<wbr>Equipment</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_core_apifetcher_.apifetcher.html#getrawbarrage" class="tsd-kind-icon">get<wbr>Raw<wbr>Barrage</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_core_apifetcher_.apifetcher.html#getrawchapters" class="tsd-kind-icon">get<wbr>Raw<wbr>Chapters</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_core_apifetcher_.apifetcher.html#getrawequipments" class="tsd-kind-icon">get<wbr>Raw<wbr>Equipments</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_core_apifetcher_.apifetcher.html#getrawships" class="tsd-kind-icon">get<wbr>Raw<wbr>Ships</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_core_apifetcher_.apifetcher.html#getrawvoicelines" class="tsd-kind-icon">get<wbr>Raw<wbr>Voicelines</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_core_apifetcher_.apifetcher.html#getship" class="tsd-kind-icon">get<wbr>Ship</a>
