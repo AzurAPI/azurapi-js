@@ -5,7 +5,9 @@ const chalk = require('chalk');
 const pkg = require('./package.json');
 const highlight = require('cli-highlight').highlight;
 const { AzurAPIClient } = require('../../build/AzurAPIClient');
+const CacheService = require('../../build/core/CacheService');
 const client = new AzurAPIClient();
+const cache = new CacheService.default();
 
 const argv = yargs
   .command('ship', 'Get ship info in database', {
@@ -43,6 +45,7 @@ const argv = yargs
       type: 'string',
     }
   })
+  .command('fulshCache', 'Flush the cache in CacheService')
   .option('version', {
     alias: 'v',
     description: 'Check version',
@@ -129,4 +132,9 @@ if (argv._.includes('barrage')) {
   }).catch(ex => {
     console.log(chalk.red(ex));
   });
+}
+
+if (argv._.includes('flushCache')) {
+  cache.flush();
+  console.log('Cache Flushed');
 }

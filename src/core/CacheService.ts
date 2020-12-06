@@ -20,8 +20,8 @@ export default class CacheService {
    * @param ttlSec Time to live in seconds
    */
   constructor(ttlSec: number) {
-    this.cache = new NodeCache({ stdTTL: ttlSec, checkperiod: ttlSec * 0.2, useClones: false });
-    this.ttl = ttlSec;
+    this.ttl = ttlSec ? ttlSec : 24 * 60 * 1;
+    this.cache = new NodeCache({ stdTTL: this.ttl, checkperiod: ttlSec * 0.2, useClones: false });
   }
 
   /**

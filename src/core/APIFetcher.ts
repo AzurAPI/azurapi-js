@@ -75,7 +75,7 @@ export default class APIFetcher {
         }
       }
     });
-    this.cache = new CacheService(60 * 60 *1);
+    this.cache = new CacheService(7 * 24 * 60 *1);
   }
   /**
    * Fetches all the ships from cache
