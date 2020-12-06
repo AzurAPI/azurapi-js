@@ -35,7 +35,7 @@ export default class CacheService {
       return Promise.resolve(value);
     }
 
-    return f().then((r: any) => {
+    return f.then((r: any) => {
       this.cache.set(k, r);
       return r;
     });
