@@ -6,6 +6,7 @@
 
 import APIFetcher, { Nationality } from './core/APIFetcher';
 import LocalFetcher from './core/LocalFetcher';
+import HieiFetcher from './core/HieiFetcher';
 import { EventEmitter } from 'events';
 import { merge } from './util/merge';
 import { join } from 'path';
@@ -14,14 +15,18 @@ import Updater from './core/Updater';
 interface NulledClientOptions {
   directory?: string;
   update?: number | boolean;
-  customDataURL?: string;
+  url?: string;
+  auth?: string;
 }
 
 interface NonNulledClientOptions {
   directory: string;
   update: number | boolean;
-  customDataURL: string | undefined;
+  url: string;
+  auth: string;
 }
+
+type dataSource = 'hiei' | 'Local' | 'Cache'
 
 /**
  * Base AzurAPIClient Class
@@ -38,14 +43,29 @@ export class AzurAPIClient extends EventEmitter {
   private local: LocalFetcher;
 
   /**
+   * The Hiei fetcher to grab items from hiei
+   */
+  private hiei: HieiFetcher;
+
+  /**
    * The updater to update the local database
    */
   private updater: Updater;
 
   /**
-   * Custom data url
+   * Hiei data root url
    */
-  private dataURL: any;
+  private hieiURL: string;
+
+  /**
+   * Hiei auth
+   */
+  private hieiAuth: string;
+
+  /**
+   * Data source
+   */
+  public source: dataSource;
 
   /**
    * The options the user has set
@@ -56,7 +76,7 @@ export class AzurAPIClient extends EventEmitter {
    * Creates a new [AzurAPIClient] instance
    * @param directory The directory to host the database, defaults to `$CURRENT/.azurapi`
    */
-  constructor(options?: NulledClientOptions) {
+  constructor(source?: dataSource, options?: NulledClientOptions) {
     super();
 
     this.fetcher = new APIFetcher();
@@ -64,10 +84,14 @@ export class AzurAPIClient extends EventEmitter {
     this.options = merge<any, NonNulledClientOptions>(options, {
       directory: join(process.cwd(), '.azurapi'),
       update: false,
-      customDataURL: undefined
+      url: undefined,
+      auth: undefined
     });
     this.updater = new Updater(this.options.directory);
-    this.dataURL = this.options.customDataURL ? this.options.customDataURL : false;
+    this.hieiURL = this.options.url;
+    this.hieiAuth = this.options.auth;
+    this.hiei = new HieiFetcher(this.hieiURL, this.hieiAuth);
+    this.source = source ? source : 'Local';
 
     /**
      * Update if option update is true
@@ -177,14 +201,16 @@ export class AzurAPIClient extends EventEmitter {
   /**
    * Gets the ship by it's query
    * @param query The query (id or name)
-   * @param online Use online mode (defaults to true)
    * @example <client>.getShip('query');
    */
-  getShip(query: string, online?: boolean) {
+  getShip(query: string) {
     let r;
-    switch(online) {
-      case (false):
+    switch(this.source) {
+      case ('Local'):
         r = this.local.getShip(query);
+        break;
+      case ('hiei'):
+        r = this.hiei.getShip(query);
         break;
       default:
         r = this.fetcher.getShip(query);
@@ -194,16 +220,58 @@ export class AzurAPIClient extends EventEmitter {
   }
 
   /**
+   * [Hiei Only] Get ship by ID
+   * @param query Ship ID
+   */
+  getShipById(query: string) {
+    if (this.source === 'hiei') {
+      return this.hiei.getShipById(query);
+    }
+  }
+
+  /**
+   * [Hiei Only] Get ship by rarity
+   * @param query Ship Rarity
+   */
+  getShipByRarity(query: string) {
+    if (this.source === 'hiei') {
+      return this.hiei.getShipByRarity(query);
+    }
+  }
+
+  /**
+   * [Hiei Only] Get ship by Hull Type
+   * @param query Ship Hull Type
+   */
+  getShipByHullType(query: string) {
+    if (this.source === 'hiei') {
+      return this.hiei.getShipByHullType(query);
+    }
+  }
+
+  /**
+   * [Hiei Only] Get ship by Class
+   * @param query Ship Class
+   */
+  getShipByClass(query: string) {
+    if (this.source === 'hiei') {
+      return this.hiei.getShipByClass(query);
+    }
+  }
+
+  /**
    * Gets the ship by the faction
    * @param faction The faction to find ships from
-   * @param online Use online mode (defaults to true)
    * @example <client>.getShipByFaction('faction');
    */
-  getShipsByFaction(faction: Nationality, online?: boolean) {
+  getShipsByFaction(faction: Nationality) {
     let r;
-    switch(online) {
-      case (false):
+    switch(this.source) {
+      case ('Local'):
         r = this.local.getShipsFromFaction(faction);
+        break;
+      case ('hiei'):
+        r = this.hiei.getShipByNationality(faction);
         break;
       default:
         r = this.fetcher.getShipsFromFaction(faction);
@@ -215,14 +283,16 @@ export class AzurAPIClient extends EventEmitter {
   /**
    * Gets the equipment by it's query
    * @param query The query (name)
-   * @param online Use online mode (defaults to true)
    * @example <client>.getEquipment('query');
    */
-  getEquipment(query: string, online?: boolean) {
+  getEquipment(query: string) {
     let r;
-    switch(online) {
-      case (false):
+    switch(this.source) {
+      case ('Local'):
         r = this.local.getEquipment(query);
+        break;
+      case ('hiei'):
+        r = this.hiei.getEquipment(query);
         break;
       default:
         r = this.fetcher.getEquipment(query);
@@ -232,16 +302,36 @@ export class AzurAPIClient extends EventEmitter {
   }
 
   /**
+   * [Hiei Only] Get equipment by Nationality
+   * @param query Equipment Nationality
+   */
+  getEquipmentByNationality(query: string) {
+    if(this.source === 'hiei') {
+      return this.hiei.getEquipmentByNationality(query);
+    }
+  }
+
+  /**
+   * [Hiei Only] Get equipment by Category
+   * @param query Equipment Category
+   */
+  getEquipmentByCategory(query: string) {
+    if(this.source === 'hiei') {
+      return this.hiei.getEquipmentByCategory(query);
+    }
+  }
+
+  /**
    * Gets chapter by query
    * @param chapter The chapter to search for
    * @param section (Optional) The section to search for
    * @param online Use online mode (defaults to true)
    * @example <client>.getChapter('query', 'section');
    */
-  getChapter(chapter: string, section?: string, online?: boolean) {
+  getChapter(chapter: string, section?: string) {
     let r;
-    switch(online) {
-      case (false):
+    switch(this.source) {
+      case ('Local'):
         r = this.local.getChapter(chapter, section);
         break;
       default:
@@ -254,13 +344,12 @@ export class AzurAPIClient extends EventEmitter {
   /**
    * Gets the voice line for ship by it's query
    * @param query The query (ship ID)
-   * @param online Use online mode (defaults to true)
    * @example <client>.getVoiceline('query');
    */
-  getVoiceline(query: string, online?: boolean) {
+  getVoiceline(query: string) {
     let r;
-    switch(online) {
-      case (false):
+    switch(this.source) {
+      case ('Local'):
         r = this.local.getVoiceline(query);
         break;
       default:
@@ -272,13 +361,12 @@ export class AzurAPIClient extends EventEmitter {
   /**
    * Gets barrage from ID
    * @param query The query (barrage ID)
-   * @param online Use online mode (defaults to true)
    * @example <client>.getBarrage('query');
    */
-  getBarrage(query: string, online?: boolean) {
+  getBarrage(query: string) {
     let r;
-    switch(online) {
-      case (false):
+    switch(this.source) {
+      case ('Local'):
         r = this.local.getBarrage(query);
         break;
       default:
