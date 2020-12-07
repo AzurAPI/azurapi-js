@@ -6,6 +6,7 @@
 
 import { HttpClient } from '@augu/orchid';
 import { URLSearchParams } from 'url';
+import { Nationality } from './APIFetcher';
 
 /**
  * Fetcher to grab anything from hiei
@@ -94,7 +95,7 @@ export default class HieiFetcher {
    * Get ship from hiei by nationality
    * @param query Nationality
    */
-  async getShipByNationality(query: string) {
+  async getShipByNationality(query: Nationality) {
     return this.fetch('/ship/nationality', query);
   }
 
@@ -110,7 +111,7 @@ export default class HieiFetcher {
    * Get equipment from hiei by nationality
    * @param query Equipment Nationality
    */
-  async getEquipmentByNationality(query: string) {
+  async getEquipmentByNationality(query: Nationality) {
     return this.fetch('/equip/search', query);
   }
   
