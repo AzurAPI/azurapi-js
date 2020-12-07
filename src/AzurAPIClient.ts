@@ -305,7 +305,7 @@ export class AzurAPIClient extends EventEmitter {
    * [Hiei Only] Get equipment by Nationality
    * @param query Equipment Nationality
    */
-  getEquipmentByNationality(query: string) {
+  getEquipmentByNationality(query: Nationality) {
     if(this.source === 'hiei') {
       return this.hiei.getEquipmentByNationality(query);
     }
