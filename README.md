@@ -22,7 +22,7 @@
     <p><a href="https://npmjs.com/package/@azurapi/azurapi"><img src="https://nodeico.herokuapp.com/@azurapi/azurapi.svg"></a>
     </p>
 </div>
-[https://www.nekos.cloud/app/rest/builds/buildType:id:AzurapiJs_Build/statusIcon](https://www.nekos.cloud/buildConfiguration/AzurapiJs_Build?guest=1)
+(https://www.nekos.cloud/app/rest/builds/buildType:id:AzurapiJs_Build/statusIcon)[https://www.nekos.cloud/buildConfiguration/AzurapiJs_Build?guest=1]
 
 # AzurApi-JS
 Open Source Library For Azur Lane
