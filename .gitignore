@@ -1,6 +1,7 @@
 node_modules/
 .DS_Store
 build/
-typedoc/
+typedoc/other
+typedoc/theme/tdt
 package-lock.json
 yarn.lock
