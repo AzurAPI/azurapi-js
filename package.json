@@ -39,7 +39,7 @@
   "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
   "dependencies": {
     "@augu/orchid": "1.6.5",
-    "node-cache": "^5.1.2"
+    "fuse.js": "^6.4.3"
   },
   "devDependencies": {
     "@augu/eslint-config": "1.8.2",
