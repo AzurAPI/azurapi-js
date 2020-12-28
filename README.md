@@ -24,6 +24,9 @@
     </p>
 </div>
 
+Btw go check out the v2-array-cache branch
+
+
 # AzurApi-JS
 Open Source Library For Azur Lane
 
