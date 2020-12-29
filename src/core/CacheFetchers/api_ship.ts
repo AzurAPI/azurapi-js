@@ -22,7 +22,7 @@ export default class Ships {
   }
 
   async get(id: string) {
-    const data = this.data;
+    const data = this.raw;
     if (!data) return null;
     const ships = data.filter(ship => {
       if (ship.id === id) return true;

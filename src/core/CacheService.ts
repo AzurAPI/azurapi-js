@@ -1,9 +1,11 @@
 /* eslint-disable camelcase */
 // CacheService.ts
 import Fuse from 'fuse.js';
-import { HttpClient } from '@augu/orchid';
-import UnserialisedError from '../errors/UnserialisableError';
-import ship from './CacheFetchers/api_ship';
+import Barrage from './CacheFetchers/api_barrage';
+import Chapters from './CacheFetchers/api_chapters';
+import Equipments from './CacheFetchers/api_equipments';
+import Ships from './CacheFetchers/api_ship';
+import VoiceLines from './CacheFetchers/api_voicelines';
 import { defineProperty } from './CacheFetchers/defp';
 
 type DataSource = 'Online' | 'Hiei' | 'Local'
@@ -13,18 +15,14 @@ type DataSource = 'Online' | 'Hiei' | 'Local'
  * @packageDocumentation
  */
 export default class CacheService {
-  public client
+  //public client
   public source
+  public all
   public ship
-  public allships
   public equipments
-  public allequipments
   public chapters
-  public allchapters
   public voicelines
-  public allvoicelines
   public barrages
-  public allbarrages
   public _api_ship
   public _api_equipments
   public _api_chapters
@@ -38,19 +36,19 @@ export default class CacheService {
    * Cache client
    * @param client class/client that generated this cache
    */
-  constructor(client, src?: DataSource) {
-    this.client = client;
+  constructor(/*client, */src?: DataSource) {
+    //this.client = client;
     this.source = src ? src : 'Online';
-    this.ship = new ship(this);
-    //this.allships = 
-    //this.equipments = 
-    //this.allequipments = 
-    //this.chapters = 
-    //this.allchapters = 
-    //this.voicelines = 
-    //this.allvoicelines = 
-    //this.barrages = 
-    //this.allbarrages = 
+    this.ship = new Ships(this);
+    //this.all.ships = 
+    this.equipments = new Equipments(this);
+    //this.all.equipments = 
+    this.chapters = new Chapters(this);
+    //this.all.chapters = 
+    this.voicelines = new VoiceLines(this);
+    //this.all.voicelines = 
+    this.barrages = new Barrage(this);
+    //this.all.barrages = 
 
     defineProperty(this, '_api_ship', { value: null, writable: true });
     defineProperty(this, '_api_equipments', { value: null, writable: true });
@@ -62,7 +60,7 @@ export default class CacheService {
     defineProperty(this, '_api_barrages_raw', { value: null, writable: true }); 
   }
   //async loadOnStart() {}
-  loadShips(raw) {
+  loadShips(raw: any) {
     if (!raw) return;
     this.clear(this._api_ship_raw);
     this._api_ship_raw = raw;
@@ -72,7 +70,7 @@ export default class CacheService {
     this._api_ship = new Fuse(raw, { keys: ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id'], threshold: 0.4 });
   }
 
-  lodeEquipments(raw) {
+  lodeEquipments(raw: any) {
     if (!raw) return;
     this.clear(this._api_equipments_raw);
     this._api_equipments_raw = raw;
@@ -82,19 +80,19 @@ export default class CacheService {
     this._api_equipments = new Fuse(raw, { keys: ['names.en', 'names.cn', 'names.jp', 'names.kr', 'id'], threshold: 0.4 });
   }
 
-  loadChapters(raw) {
+  loadChapters(raw: any) {
     if (!raw) return;
     this.clear(this._api_chapters);
     this._api_chapters = raw;
   }
 
-  loadVoicelines(raw) {
+  loadVoicelines(raw: any) {
     if (!raw) return;
     this.clear(this._api_voicelines);
     this._api_voicelines = raw;
   }
 
-  loadBarrages(raw) {
+  loadBarrages(raw: any) {
     if (!raw) return;
     this.clear(this._api_barrages_raw);
     this._api_barrages_raw = raw;
@@ -104,7 +102,7 @@ export default class CacheService {
     this._api_barrages = new Fuse(raw, { keys: ['id', 'name'], threshold: 0.4 });
   }
 
-  clear(o) {
-    o = null;
+  clear(src: any) {
+    src = null;
   }
 }
