@@ -24,6 +24,8 @@
     </p>
 </div>
 
+## FYI if yall are annoyed about slow progress feel free to contribute (fork -> commit some changes -> pull request to v2-array-cache -> delete fork)
+
 # AzurApi-JS
 Open Source Library For Azur Lane
 
