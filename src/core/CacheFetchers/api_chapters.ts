@@ -1,6 +1,5 @@
 import UnknownChapterError from '../../errors/UnknownChapterError';
 import { defineProperty } from './defp';
-
 export default class Chapters {
   public _cache
   constructor(cache) {

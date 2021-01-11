@@ -2,10 +2,15 @@
 // CacheService.ts
 import Fuse from 'fuse.js';
 import Barrage from './CacheFetchers/api_barrage';
+import BarrageAll from './CacheFetchers/api_barrage.all';
 import Chapters from './CacheFetchers/api_chapters';
+import ChaptersAll from './CacheFetchers/api_chapters.all';
 import Equipments from './CacheFetchers/api_equipments';
+import EquipmentsAll from './CacheFetchers/api_equipments.all';
 import Ships from './CacheFetchers/api_ship';
+import ShipsAll from './CacheFetchers/api_ship.all';
 import VoiceLines from './CacheFetchers/api_voicelines';
+import VoiceLinesAll from './CacheFetchers/api_voicelines.all';
 import { defineProperty } from './CacheFetchers/defp';
 
 type DataSource = 'Online' | 'Hiei' | 'Local'
@@ -40,15 +45,15 @@ export default class CacheService {
     //this.client = client;
     this.source = src ? src : 'Online';
     this.ship = new Ships(this);
-    //this.all.ships = 
+    this.ship.all = new ShipsAll(this);
     this.equipments = new Equipments(this);
-    //this.all.equipments = 
+    this.equipments.all = new EquipmentsAll(this);
     this.chapters = new Chapters(this);
-    //this.all.chapters = 
+    this.chapters.all = new ChaptersAll(this);
     this.voicelines = new VoiceLines(this);
-    //this.all.voicelines = 
+    this.voicelines.all = new VoiceLinesAll(this);
     this.barrages = new Barrage(this);
-    //this.all.barrages = 
+    this.barrages.all = new BarrageAll(this);
 
     defineProperty(this, '_api_ship', { value: null, writable: true });
     defineProperty(this, '_api_equipments', { value: null, writable: true });
@@ -59,7 +64,7 @@ export default class CacheService {
     defineProperty(this, '_api_equipments_raw', { value: null, writable: true });
     defineProperty(this, '_api_barrages_raw', { value: null, writable: true }); 
   }
-  //async loadOnStart() {}
+  //async onStart() {}
   loadShips(raw: any) {
     if (!raw) return;
     this.clear(this._api_ship_raw);

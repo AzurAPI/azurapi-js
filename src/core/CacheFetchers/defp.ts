@@ -11,7 +11,12 @@ type DefineProperty<
     Desc extends { writable: false } ? Readonly<InferValue<Prop, Desc>> :
     Desc extends { writable: true } ? InferValue<Prop, Desc> :
     Readonly<InferValue<Prop, Desc>>
-
+/**
+ * Extention to the built in Object.defineProperty() method.
+ * @param obj Object on which to add or modify the property.
+ * @param prop The property name.
+ * @param val Object value and/or writable option.
+ */
 export function defineProperty<
   // eslint-disable-next-line @typescript-eslint/ban-types
   Obj extends object,
