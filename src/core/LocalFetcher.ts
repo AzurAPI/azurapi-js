@@ -12,7 +12,6 @@ import UnknownShipError from '../errors/UnknownShipError';
 import UnknownBarrageError from '../errors/UnkonwnBarrageError';
 import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
 import { Nationalities, Nationality } from './APIFetcher';
-import Updater from './Updater';
 
 /**
  * Map objects like Array.prototype.map() but its for objects

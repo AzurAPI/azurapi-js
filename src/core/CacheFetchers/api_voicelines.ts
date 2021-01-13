@@ -1,10 +1,19 @@
 import UnkonwnShipVoicelinesError from '../../errors/UnknownShipVoicelinesError';
 import { defineProperty } from './defp';
 import CacheService from '../CacheService';
+import UnknownShipError from '../../errors/UnknownShipError';
 export default class VoiceLines {
   public _cache
   constructor(cache) {
     defineProperty(this, '_cache', { value: cache, writable: false });
+  }
+
+  /**
+   * (Internal) Get raw data (ship)
+   */
+  private get shipraw() {
+    if (!this._cache._api_ship_raw) return null;
+    return this._cache._api_ship_raw;
   }
 
   get data() {
@@ -24,6 +33,24 @@ export default class VoiceLines {
     return result;
   }
   /**
+   * Getship lol
+   * @param id The ships id or name
+   */
+  private async ship(id: string) {
+    const data = this.shipraw;
+    if (!data) return null;
+    const ships = data.filter(ship => {
+      if (ship.id === id) return true;
+      for (const key of Object.keys(ship.names)) {
+        if (ship.names[key].includes(id)) return true;
+      }
+      return false;
+    });
+
+    if (!ships.length) throw new UnknownShipError(id);
+    return ships[0];
+  }
+  /**
    * Grabs a voice line from database
    * @param id The ships's name to get voice lines from
    */
@@ -33,7 +60,7 @@ export default class VoiceLines {
     if (idIsNum) {
       result = this.getInternal(id);
     } else {
-      const res = await new CacheService().ship.get(id);
+      const res = await this.ship(id);
       result = this.getInternal(res.id);
     }
     if (!result) throw new UnkonwnShipVoicelinesError(id);
