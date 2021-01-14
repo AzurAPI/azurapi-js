@@ -4,4 +4,4 @@
  * @packageDocumentation
  */
 
-export * from './AzurAPIClient';
+export * from './Client';

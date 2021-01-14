@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import UpdateChecker from './UpdateChecker';
 import { local, data } from './Data';
+import Utils from './Utils';
 export default class Updater {
   private cache;
   public ready;
@@ -14,7 +15,6 @@ export default class Updater {
     return this.cache.client;
   }
   startcron() {
-    if(!this.cache.client.options.autoupdate) return;
     if(!this.cron) this.instance.emit('debug', 'Notify for new data updates enabled. AzurAPI Client will check for data updates every hour.');
     if(this.cron) {
       clearInterval(this.cron);
@@ -27,7 +27,34 @@ export default class Updater {
     }, 3600000);
   }
 
-  // TODO: START UP CHECK
+  onStart() {
+    if(this.ready) return;
+    if(!Utils.existSync(local.folder)) Utils.createDirectorySync(local.folder);
+    this.filesExist();
+    this.loadAll();
+    this.ready = true;
+  }
+
+  filesExist() {
+    this.dirCheck(local.ships);
+    this.dirCheck(local.equipments);
+    this.dirCheck(local.chapters);
+    this.dirCheck(local.voicelines);
+    this.dirCheck(local.barrages);
+    this.dirCheck(local.version);
+  }
+
+  loadAll() {
+    this.cache.loadShips(JSON.parse(Utils.readFileSync(local.ships)));
+    this.cache.loadEquipments(JSON.parse(Utils.readFileSync(local.equipments)));
+    this.cache.loadChapters(JSON.parse(Utils.readFileSync(local.chapters)));
+    this.cache.loadVoicelines(JSON.parse(Utils.readFileSync(local.voicelines)));
+    this.cache.loadBarrages(JSON.parse(Utils.readFileSync(local.ships)));
+  }
+
+  dirCheck(dir: any) {
+    if(!Utils.existSync(dir)) Utils.writeFileSync(dir, JSON.stringify({}));
+  }
 
   async check() {
     const checker = new UpdateChecker();

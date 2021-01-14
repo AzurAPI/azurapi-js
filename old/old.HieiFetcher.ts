@@ -6,7 +6,7 @@
 
 import { HttpClient } from '@augu/orchid';
 import { URLSearchParams } from 'url';
-import { Nationality } from './APIFetcher';
+import { Nationality } from './old.APIFetcher';
 
 /**
  * Fetcher to grab anything from hiei

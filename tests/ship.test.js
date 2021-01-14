@@ -1,12 +1,18 @@
-const { AzurAPIClient } = require('../build/AzurAPIClient');
-const client = new AzurAPIClient();
+const { AzurAPI } = require('../build/Client');
+const client = new AzurAPI();
+
 
 test('Ship by Name/ID', async () => {
-  let result = await client.getShip('Abukuma');
-  expect(result.names.en).toBe('Abukuma');
+  client.on('ready', async () => {
+    let result = await client.cache.ship.get('Abukuma');
+    expect(result.names.en).toBe('Abukuma');
+  });
+});
+  
+test('Ships by Faction', async () => {
+  client.on('ready', async () => {
+    let result = await client.cache.ship.all.nationality('IJN');
+    expect(result[0].names.en).toBe('Abukuma');
+  });
 });
 
-test('Ships by Faction', async () => {
-  let result = await client.getShipsByFaction('IJN');
-  expect(result[0].names.en).toBe('Abukuma');
-});

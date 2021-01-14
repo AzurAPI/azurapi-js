@@ -4,13 +4,13 @@
  * @packageDocumentation
  */
 
-import APIFetcher, { Nationality } from './core/APIFetcher';
-import LocalFetcher from './core/LocalFetcher';
-import HieiFetcher from './core/HieiFetcher';
+import APIFetcher, { Nationality } from '../src/core/old.APIFetcher';
+import LocalFetcher from './old.LocalFetcher';
+import HieiFetcher from '../src/core/old.HieiFetcher';
 import { EventEmitter } from 'events';
 import { merge } from './util/merge';
 import { join } from 'path';
-import Updater from './core/Updater';
+//import Updater from './core/Updater';
 
 interface NulledClientOptions {
   directory?: string;
@@ -50,7 +50,7 @@ export class AzurAPIClient extends EventEmitter {
   /**
    * The updater to update the local database
    */
-  private updater: Updater;
+  //private updater: Updater;
 
   /**
    * Hiei data root url
@@ -87,7 +87,7 @@ export class AzurAPIClient extends EventEmitter {
       url: undefined,
       auth: undefined
     });
-    this.updater = new Updater(this.options.directory);
+    //this.updater = new Updater(this.options.directory);
     this.hieiURL = this.options.url;
     this.hieiAuth = this.options.auth;
     this.hiei = new HieiFetcher(this.hieiURL, this.hieiAuth);
@@ -97,7 +97,7 @@ export class AzurAPIClient extends EventEmitter {
      * Update if option update is true
      */
     if(this.options.update) {
-      this.updater;
+      //this.updater;
     }
 
     /** 

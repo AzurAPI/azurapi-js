@@ -18,7 +18,7 @@ import Updater from './CacheUpdater';
 
 type DataSource = 'Online' | 'Hiei' | 'Local'
 
-interface CacheOptions {
+export interface CacheOptions {
   source?: DataSource;
   autoupdate?: boolean;
 }
@@ -32,6 +32,7 @@ export default class CacheService {
   public options
   public ready
   public source
+  public autoupdate
   public updater
   public all
   public ship
@@ -51,12 +52,17 @@ export default class CacheService {
   /**
    * Cache client
    * @param client class/client that generated this cache
+   * @param options options for the cache
    */
   constructor(client, options?: CacheOptions) {
     this.client = client;
-    this.options = options;
+    this.options = options ? options : { 
+      source: null,
+      autoupdate: true
+    };
     this.ready = false;
-    this.source = this.options.source ? this.options.source : 'Online';
+    this.source = this.options.source ? this.options.source : 'Local';
+    this.autoupdate = this.options.autoupdate ? this.options.autoupdate : true;
     this.updater = new Updater(this);
     this.ship = new Ships(this);
     this.ship.all = new ShipsAll(this);
@@ -78,23 +84,34 @@ export default class CacheService {
     defineProperty(this, '_api_equipments_raw', { value: null, writable: true });
     defineProperty(this, '_api_barrages_raw', { value: null, writable: true }); 
 
-    // TODO: START UP CHECK
+    this.updater.onStart();
 
     this.onFirstStart().then(() => {
       if(this.ready) return;
-      this.updater.startcron();
+      if(this.autoupdate) this.updater.startcron();
       this.ready = true;
-      this.updater.instance.emit('ready');
+      this.client.emit('ready')/*.catch(ex => {
+        this.client.emit('error', ex);
+      })*/;
     });
   }
 
   async onFirstStart() {
-    if (this.ready) return;
-    let update = await this.updater.check();
-    update = update.shipsUpdate || update.equipmentsUpdate /*|| update.chaptersUpdate || update.voicelinesUpdate || update.barragesUpdate*/;
-    // this.updater.instance.emit('debug', `Loaded ${this._api_ship.list.length} stored ships from ${local.ships}`);
-    // TODO: MORE DEBUG EVENTS
+    if(this.ready) return;
+    // BUG: NOT UPDATING. HOTFIX: UPDATE ON FIRST START
+    await this.updater.update('both');
+    // let update = await this.updater.check();
+    // update = update.shipsUpdate || update.equipmentsUpdate /*|| update.chaptersUpdate || update.voicelinesUpdate || update.barragesUpdate*/;
+    this.client.emit('debug', `Loaded stored ships from ${local.ships}`);
+    this.client.emit('debug', `Loaded raw ships from ${local.ships}`);
+    this.client.emit('debug', `Loaded stored equipments from ${local.ships}`);
+    this.client.emit('debug', `Loaded raw equipments from ${local.equipments}`);
+    this.client.emit('debug', `Loaded raw chapters from ${local.chapters}`);
+    this.client.emit('debug', `Loaded raw voicelines from ${local.voicelines}`);
+    this.client.emit('debug', `Loaded stored barrages from ${local.ships}`);
+    this.client.emit('debug', `Loaded raw barrages from ${local.barrages}`);
   }
+  
   loadShips(raw: any) {
     if (!raw) return;
     this.clear(this._api_ship_raw);

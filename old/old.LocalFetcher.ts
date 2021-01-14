@@ -6,12 +6,12 @@
 
 // WARNING: IDK IF THIS WORKS OR NOT - Rattley
 import { readFileSync, stat } from 'fs';
-import UnknownChapterError from '../errors/UnknownChapterError';
-import UnknownEquipmentError from '../errors/UnknownEquipmentError';
-import UnknownShipError from '../errors/UnknownShipError';
-import UnknownBarrageError from '../errors/UnkonwnBarrageError';
-import UnkonwnShipVoicelinesError from '../errors/UnknownShipVoicelinesError';
-import { Nationalities, Nationality } from './APIFetcher';
+import UnknownChapterError from '../src/errors/UnknownChapterError';
+import UnknownEquipmentError from '../src/errors/UnknownEquipmentError';
+import UnknownShipError from '../src/errors/UnknownShipError';
+import UnknownBarrageError from '../src/errors/UnkonwnBarrageError';
+import UnkonwnShipVoicelinesError from '../src/errors/UnknownShipVoicelinesError';
+import { Nationalities, Nationality } from './old.APIFetcher';
 
 /**
  * Map objects like Array.prototype.map() but its for objects

@@ -4,10 +4,8 @@ const yargs = require('yargs');
 const chalk = require('chalk');
 const pkg = require('./package.json');
 const highlight = require('cli-highlight').highlight;
-const { AzurAPIClient } = require('../../build/AzurAPIClient');
-const CacheService = require('../../build/core/CacheService');
-const client = new AzurAPIClient();
-const cache = new CacheService.default();
+const AzurAPI = require('../../build/Client');
+const client = new AzurAPI();
 
 const argv = yargs
   .command('ship', 'Get ship info in database', {
@@ -76,65 +74,70 @@ if (argv.update) {
 
 if (argv._.includes('ship')) {
   if (!argv.query) console.log(chalk.red('No query provided. Please add a query following the -q option.'));
-  const fetch = client.getShip(argv.query);
-  fetch.then(get => {
-    console.log(chalk.green(`Data returned for query ${argv.query}`));
-    console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
-    //console.log(get);
-  }).catch(ex => {
-    console.log(chalk.red(ex));
+  client.on('ready', () => {
+    const fetch = client.cache.ship.get(argv.query);
+    fetch.then(get => {
+      console.log(chalk.green(`Data returned for query ${argv.query}`));
+      console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
+      //console.log(get);
+    }).catch(ex => {
+      console.log(chalk.red(ex));
+    });
   });
 }
 
 if (argv._.includes('equipment')) {
   if (!argv.query) console.log(chalk.red('No query provided. Please add a query following the -q option.'));
-  const fetch = client.getEquipment(argv.query);
-  fetch.then(get => {
-    console.log(chalk.green(`Data returned for query ${argv.query}`));
-    console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
-    //console.log(get);
-  }).catch(ex => {
-    console.log(chalk.red(ex));
+  client.on('ready', () => {
+    const fetch = client.cache.equipments.get(argv.query);
+    fetch.then(get => {
+      console.log(chalk.green(`Data returned for query ${argv.query}`));
+      console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
+      //console.log(get);
+    }).catch(ex => {
+      console.log(chalk.red(ex));
+    });
   });
 }
 
 if (argv._.includes('chapter')) {
   if (!argv.query) console.log(chalk.red('No query provided. Please add a query following the -q option.'));
-  const fetch = client.getChapter(argv.query);
-  fetch.then(get => {
-    console.log(chalk.green(`Data returned for query ${argv.query}`));
-    console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
-    //console.log(get);
-  }).catch(ex => {
-    console.log(chalk.red(ex));
+  client.on('ready', () => {
+    const fetch = client.cache.chapters.get(argv.query);
+    fetch.then(get => {
+      console.log(chalk.green(`Data returned for query ${argv.query}`));
+      console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
+      //console.log(get);
+    }).catch(ex => {
+      console.log(chalk.red(ex));
+    });
   });
 }
 
 if (argv._.includes('voiceline')) {
   if (!argv.query) console.log(chalk.red('No query provided. Please add a query following the -q option.'));
-  const fetch = client.getVoiceline(argv.query);
-  fetch.then(get => {
-    console.log(chalk.green(`Data returned for query ${argv.query}`));
-    console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
-    //console.log(get);
-  }).catch(ex => {
-    console.log(chalk.red(ex));
+  client.on('ready', () => {
+    const fetch = client.cache.voicelines.get(argv.query);
+    fetch.then(get => {
+      console.log(chalk.green(`Data returned for query ${argv.query}`));
+      console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
+      //console.log(get);
+    }).catch(ex => {
+      console.log(chalk.red(ex));
+    });
   });
 }
 
 if (argv._.includes('barrage')) {
   if (!argv.query) console.log(chalk.red('No query provided. Please add a query following the -q option.'));
-  const fetch = client.getBarrage(argv.query);
-  fetch.then(get => {
-    console.log(chalk.green(`Data returned for query ${argv.query}`));
-    console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
-    //console.log(get);
-  }).catch(ex => {
-    console.log(chalk.red(ex));
+  client.on('ready', () => {
+    const fetch = client.barrages.get(argv.query);
+    fetch.then(get => {
+      console.log(chalk.green(`Data returned for query ${argv.query}`));
+      console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
+      //console.log(get);
+    }).catch(ex => {
+      console.log(chalk.red(ex));
+    });
   });
-}
-
-if (argv._.includes('flushCache')) {
-  cache.flush();
-  console.log('Cache Flushed');
 }
