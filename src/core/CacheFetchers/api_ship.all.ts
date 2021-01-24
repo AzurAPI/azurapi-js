@@ -1,30 +1,5 @@
 import { defineProperty } from './defp';
-type shipLanguage = 'english' | 'English' | 'ENGLISH' | 'en' | 'chinese' | 'Chinese' | 'CHINESE' | 'cn' | 'japanese' | 'Japanese' | 'JAPANESE' | 'jp' | 'korean' | 'Korean' | 'KOREAN' | 'kr';
-type shipRarity = 'common' | 'Common' | 'rare' | 'Rare' | 'elite' | 'Elite' | 'super rare' | 'Super Rare';
-type shipHullType = /*'DD' | 'CL' | 'CA' | 'CB' | 'BB' | 'BC' | 'BM' | 'BBV' | 'CV' | 'CVL' | 'AR' | 'SS' | 'SSV' |*/ 'Destroyer' | 'Light Cruiser' | 'Heavy Cruiser' | ' Large Cruiser' | 'Battleship' | 'Battlecruiser' | 'Monitor' | 'Aviation Battleship' | 'Fleet Aircraft Carrier' | 'Light Aircraft Carrier' | 'Repair Ship' | 'Submarine' | 'Submarine Seaplane Carrier' 
-type Nationality = 'USS' | 'Eagle Union' | 'HMS' | 'Royal Navy' | 'IJN' | 'Sakura Empire'
-  | 'KMS' | 'Iron Blood' | 'ROC' | 'Eastern Radiance' | 'SN' | 'North Union' | 'FNFF' | 'Iris Libre'
-  | 'MNF' | 'Vichya Domination' | 'RN' | 'Sardenga Empire' | 'HDN' | 'Neptunia' | 'Bilibili' | 'Utawarerumono'
-  | 'KizunaAI' | 'Hololive';
-
-const Nationalities: {
-  [x in Exclude<Nationality, 'USS' | 'HMS' | 'IJN' | 'KMS' | 'ROC' | 'SN' | 'FNFF' | 'MNF' | 'RN' | 'HDN'>]: string[]
-} = {
-  'Eagle Union': ['USS', 'Eagle Union'],
-  'Royal Navy': ['HMS', 'Royal Navy'],
-  'Sakura Empire': ['IJN', 'Sakura Empire'],
-  'Iron Blood': ['KMS', 'Iron Blood'],
-  'Eastern Radiance': ['ROC', 'Eastern Radiance'],
-  'North Union': ['SN', 'North Union'],
-  'Iris Libre': ['FFNF', 'Iris Libre'],
-  'Vichya Domination': ['MNF', 'Vichya Domination'],
-  'Sardenga Empire': ['RN', 'Sardegna Empire'],
-  Neptunia: ['HDN', 'Neptunia'],
-  Bilibili: ['Bilibili'],
-  Utawarerumono: ['Utawarerumono'],
-  KizunaAI: ['KizunaAI'],
-  Hololive: ['Hololive']
-};
+type shipLanguage = 'english' | 'English' | 'ENGLISH' | 'en' | 'chinese' | 'Chinese' | 'CHINESE' | 'cn' | 'japanese' | 'Japanese' | 'JAPANESE' | 'jp' | 'korean' | 'Korean' | 'KOREAN' | 'kr' | 'code' | 'Code' | 'CODE';
 
 /**
  * The ships.all functions class
@@ -68,8 +43,8 @@ export default class ShipsAll {
   }
 
   /**
-   * Filter ship by name language
-   * @param language A language to filter by
+   * Sort ship by name language
+   * @param language A language to sort by
    */
   async name(language: shipLanguage) {
     const data = this.raw;
@@ -88,71 +63,18 @@ export default class ShipsAll {
       case 'kr' || 'Korean' || 'KOREAN' || 'korean':
         lang = data.names.kr;
         break;
+      case 'code' || 'Code' || 'CODE':
+        lang = data.names.code;
     }
     return lang;
   }
 
   /**
-   * Filter ship by nationality
-   * @param nationality A nationality to filter by
+   * Sort ship by id
    */
-  async nationality(nationality: Nationality) {
+  async id() {
     const data = this.raw;
     if (!data) return null;
-    const ships = data.filter(ship => {
-      if (!Nationalities.hasOwnProperty(ship.nationality)) return false;
-
-      const nationalities = Nationalities[ship.nationality];
-      return nationalities.includes(nationality);
-    });
-    return ships;
-  }
-
-  /**
-   * Filter ship by rarity
-   * @param rarity A rarity to filter by
-   */
-  async rarity(rarity: shipRarity) {
-    const data = this.raw;
-    if (!data) return null;
-    let r;
-    switch(rarity) {
-      case 'common' || 'Common':
-        r = 'Common';
-        break;
-      case 'rare' || 'Rare':
-        r = 'Rare';
-        break;
-      case 'elite' || 'Elite':
-        r = 'Elite';
-        break;
-      case 'super rare' || 'Super Rare':
-        r = 'Super Rare';
-        break;
-    }
-    const ships = data.filter(d => d.rarity === r);
-    return ships;
-  }
-
-  /**
-   * Filter ship by hull type
-   * @param type A hull type to filter by
-   */
-  async type(type: shipHullType) {
-    const data = this.raw;
-    if (!data) return null;
-    const ships = data.filter(d => d.hullType === type);
-    return ships;
-  }
-
-  /**
-   * Filter ship by class
-   * @param shipclass A ship class to filter by
-   */
-  async class(shipclass: string) {
-    const data = this.raw;
-    if (!data) return null;
-    const ships = data.filter(d => d.class === shipclass);
-    return ships;
+    return data.id;
   }
 }

@@ -9,6 +9,7 @@ import Equipments from './CacheFetchers/api_equipments';
 import EquipmentsAll from './CacheFetchers/api_equipments.all';
 import Ships from './CacheFetchers/api_ship';
 import ShipsAll from './CacheFetchers/api_ship.all';
+import ShipsFilter from './CacheFetchers/api_ship.filter';
 import VoiceLines from './CacheFetchers/api_voicelines';
 import VoiceLinesAll from './CacheFetchers/api_voicelines.all';
 import { defineProperty } from './CacheFetchers/defp';
@@ -66,6 +67,7 @@ export default class CacheService {
     this.updater = new Updater(this);
     this.ship = new Ships(this);
     this.ship.all = new ShipsAll(this);
+    this.ship.filter = new ShipsFilter(this);
     this.equipments = new Equipments(this);
     this.equipments.all = new EquipmentsAll(this);
     this.chapters = new Chapters(this);
