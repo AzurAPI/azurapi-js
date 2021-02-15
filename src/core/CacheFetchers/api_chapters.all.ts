@@ -1,12 +1,14 @@
 import { defineProperty } from './defp';
-export default class ChaptersAll {
-  public _cache
-  constructor(cache) {
-    defineProperty(this, '_cache', { value: cache, writable: false });
-  }
 
-  get data() {
-    if (!this._cache._api_chapters) return null;
-    return this._cache._api_chapters;
-  }
+export default class ChaptersAll {
+    public _cache
+
+    constructor(cache) {
+      defineProperty(this, '_cache', { value: cache, writable: false });
+    }
+
+    get data() {
+      if (!this._cache._api_chapters) return null;
+      return this._cache._api_chapters;
+    }
 }

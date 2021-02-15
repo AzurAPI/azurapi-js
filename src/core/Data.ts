@@ -8,7 +8,7 @@ export const data = {
   voicelines: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/voice_lines.json',
   barrages: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/barrage.json'
 };
-  
+
 export const local = {
   ships: join(__dirname, '../.azurlane', 'ship.json'),
   equipments: join(__dirname, '../.azurlane', 'equipment.json'),
@@ -18,3 +18,6 @@ export const local = {
   version: join(__dirname, '../.azurlane', 'version.json'),
   folder: join(__dirname, '../.azurlane')
 };
+
+Object.freeze(local);
+Object.freeze(data);
