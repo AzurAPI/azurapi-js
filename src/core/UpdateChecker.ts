@@ -46,7 +46,7 @@ export default class UpdateChecker {
   }
 
   needsupdate() {
-    return !this.local[this.datatype] || this.local[this.datatype]['version-number'] !== this.remote[this.datatype]['version-number'] || this.local[this.datatype]['last-data-refresh-date'] !== this.remote[this.datatype]['last-data-refresh-date'];
+    return !this.local[this.datatype] || this.local[this.datatype]['version-number'] !== this.remote[this.datatype]['version-number'] || this.local[this.datatype]['last-data-refresh-date'] !== this.remote[this.datatype]['last-data-refresh-date'] || this.remote !== this.local;
   }
 
   writeversion() {
