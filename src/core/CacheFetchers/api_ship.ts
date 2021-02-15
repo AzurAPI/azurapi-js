@@ -60,7 +60,6 @@ export default class Ships {
    * @param id The ship's name in all languages or one specific language
    * @param limit The limit to amount of responses (defaults to 10)
    * @param language A specific language to search by
-   * @returns Array
    */
   async name(id: string, language?: shipLanguage, limit?: number,) {
     if (language) {
