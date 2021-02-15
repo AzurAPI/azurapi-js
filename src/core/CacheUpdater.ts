@@ -140,32 +140,10 @@ export default class Updater {
   }
 
   async fetch(type: string) {
-    switch(type){
-      case 'ships':
-        return fetch(data.ships).then(d => d.text);
-      case 'equipments':
-        return fetch(data.equipments).then(d => d.text);
-      case 'chapters':
-        return fetch(data.chapters).then(d => d.text);
-      case 'voicelines':
-        return fetch(data.voicelines).then(d => d.text);
-      case 'barrages':
-        return fetch(data.barrages).then(d => d.text);
-    }
+    return await (await fetch(data[type])).text();
   }
 
   async fetchLocal(type: string) {
-    switch(type){
-      case 'ships':
-        return fetch(local.ships).then(d => JSON.parse(d));
-      case 'equipments':
-        return fetch(local.equipments).then(d => JSON.parse(d));
-      case 'chapters':
-        return fetch(local.chapters).then(d => JSON.parse(d));
-      case 'voicelines':
-        return fetch(local.voicelines).then(d => JSON.parse(d));
-      case 'barrages':
-        return fetch(local.barrages).then(d => JSON.parse(d));
-    }
+    return await JSON.parse(await Utils.readFileSync(local[type]));
   }
 }

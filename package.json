@@ -37,22 +37,22 @@
   },
   "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
   "dependencies": {
-    "@augu/orchid": "1.6.5",
+    "@augu/orchid": "^1.6.5",
     "fuse.js": "^6.4.6",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@augu/eslint-config": "1.8.2",
-    "@types/jest": "26.0.14",
-    "@types/node": "14.11.2",
-    "@typescript-eslint/eslint-plugin": "4.2.0",
-    "@typescript-eslint/parser": "4.2.0",
+    "@augu/eslint-config": "^1.8.2",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
     "eslint": "^7.17.0",
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.10.0",
-    "jest": "26.4.2",
+    "jest": "^26.4.2",
     "jest-teamcity": "^1.9.0",
-    "ts-jest": "26.4.0",
+    "ts-jest": "^26.4.0",
     "typedoc": "^0.19.2",
-    "typescript": "4.0.3"
+    "typescript": "^4.0.3"
   }
 }

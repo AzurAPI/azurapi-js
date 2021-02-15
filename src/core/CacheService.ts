@@ -160,18 +160,18 @@ export default class CacheService {
     src = null;
   }
 
-  updateData(src: string, data: any) {
+  async updateData(src: string, data: any) {
     switch(src){
       case('ships'):
-        return Utils.writeFile(local.ships, typeof data === 'string' ? data : JSON.stringify(data));
+        return await Utils.writeFileSync(local.ships, typeof data === 'string' ? data : JSON.stringify(data));
       case('equipments'):
-        return Utils.writeFile(local.equipments, typeof data === 'string' ? data : JSON.stringify(data));
+        return await Utils.writeFileSync(local.equipments, typeof data === 'string' ? data : JSON.stringify(data));
       case('chapters'):
-        return Utils.writeFile(local.chapters, typeof data === 'string' ? data : JSON.stringify(data));
+        return await Utils.writeFileSync(local.chapters, typeof data === 'string' ? data : JSON.stringify(data));
       case('voicelines'):
-        return Utils.writeFile(local.voicelines, typeof data === 'string' ? data : JSON.stringify(data));
+        return await Utils.writeFileSync(local.voicelines, typeof data === 'string' ? data : JSON.stringify(data));
       case('barrages'):
-        return Utils.writeFile(local.barrages, typeof data === 'string' ? data : JSON.stringify(data));
+        return await Utils.writeFileSync(local.barrages, typeof data === 'string' ? data : JSON.stringify(data));
     }
   }
 }
