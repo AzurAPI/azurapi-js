@@ -19,6 +19,12 @@ type shipLanguage =
     | 'KOREAN'
     | 'kr'
 
+interface shipAdvancedOptions {
+  nameOnly?: boolean,
+  idOnly?: boolean,
+  language?: shipLanguage
+}
+
 /**
  * The ships functions class
  */
@@ -56,21 +62,55 @@ export default class Ships {
     /**
      * Search from all ships
      * @param id The ship's name in all languages or id
+     * @param advanced Advanced options
      * @returns Object
      */
-    async get(id: string) {
-      const data = this.raw;
-      if (!data) return null;
-      const ships = data.filter(ship => {
-        if (ship.id === id) return true;
-        for (const key of Object.keys(ship.names)) {
-          if (ship.names[key].includes(id)) return true;
+    async get(id: string, advanced: shipAdvancedOptions) {
+      if (advanced) {
+        let language;
+        let idOnly = false;
+        let nameOnly = false;
+        if (advanced.idOnly) {
+          idOnly = true;
         }
-        return false;
-      });
+        if (advanced.nameOnly) {
+          nameOnly = true;
+        }
+        if (advanced.language) {
+          language = advanced.language;
+        } else {
+          language = undefined;
+        }
+        if (idOnly && nameOnly) {
+          throw new Error('The idOnly and nameOnly option cannot be both true');
+        }
+        if (idOnly && language !== 'false') {
+          throw new Error('The idOnly and language option cannot be both used');
+        }
+        if (idOnly) {
+          return this.id(parseInt(id));
+        }
+        if (nameOnly || nameOnly && !language) {
+          return this.name(id);
+        }
+        if (nameOnly && language) {
+          return this.name(id, language);
+        }
 
-      if (!ships.length) throw new UnknownShipError(id);
-      return ships[0];
+      } else {
+        const data = this.raw;
+        if (!data) return null;
+        const ships = data.filter(ship => {
+          if (ship.id === id) return true;
+          for (const key of Object.keys(ship.names)) {
+            if (ship.names[key].includes(id)) return true;
+          }
+          return false;
+        });
+  
+        if (!ships.length) throw new UnknownShipError(id);
+        return ships[0];
+      }
     }
 
     /**
@@ -111,11 +151,12 @@ export default class Ships {
 
     /**
      * Search by id from all ships
-     * @param id THe id of the ship
+     * @param id The id of the ship
      */
     async id(id: number) {
       const data = this.raw;
       if (!data) return null;
       const ships = data.find(d => d.id === id);
+      return ships;
     }
 }

@@ -3,7 +3,7 @@ const client = new AzurAPI();
 
 client.on('ready', async () => {
   console.log(' >>> Client Loaded!');
-  let result = await client.cache.ship.get('Abukuma');
+  let result = await client.cache.ship.get('Abukuma', { nameOnly: true, language: 'en' });
   console.log(` 
  >>  Test: Get Ship by Name
  >>  Expected Result: Abukuma
