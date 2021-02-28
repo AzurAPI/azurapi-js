@@ -10,14 +10,15 @@ export const data = {
 };
 
 export const local = {
-  ships: join(__dirname, '../.azurlane', 'ship.json'),
-  equipments: join(__dirname, '../.azurlane', 'equipment.json'),
-  chapters: join(__dirname, '../.azurlane', 'chapters.json'),
-  voicelines: join(__dirname, '../.azurlane', 'voice_lines.json'),
-  barrages: join(__dirname, '../.azurlane', 'barrage.json'),
-  version: join(__dirname, '../.azurlane', 'version.json'),
-  folder: join(__dirname, '../.azurlane')
+  ships: join(__dirname, '..', '.azurlane', 'ship.json'),
+  equipments: join(__dirname, '..', '.azurlane', 'equipment.json'),
+  chapters: join(__dirname, '..', '.azurlane', 'chapters.json'),
+  voicelines: join(__dirname, '..', '.azurlane', 'voice_lines.json'),
+  barrages: join(__dirname, '..', '.azurlane', 'barrage.json')
 };
+export type datatype = 'ships' | 'equipments' | 'voicelines' | 'chapters' | 'barrages';
+export let baseFolder = join(__dirname, '..', '.azurlane');
+export let versionInfo = join(__dirname, '..', '.azurlane', 'version.json');
 
 Object.freeze(local);
 Object.freeze(data);

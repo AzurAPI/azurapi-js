@@ -1,46 +1,50 @@
-import {data, local} from './Data';
+import { baseFolder, data, datatype, local } from './Data';
 import fs from 'fs';
-import {checkForUpdates, datatype, fetch} from './UpdateChecker';
-import CacheService from './CacheService';
+import { checkForUpdates, fetch } from './UpdateChecker';
+import { AzurAPI } from '../Client';
 
 export default class Updater {
     public cron?: NodeJS.Timeout;
-    private cache: CacheService;
+    private client: AzurAPI;
 
-    constructor(cache: CacheService) {
-        this.cache = cache;
-    }
-
-    get instance() {
-        return this.cache.client;
+    constructor(client: AzurAPI) {
+      this.client = client;
     }
 
     checkAndUpdate() {
-        checkForUpdates().then(updates => {
-            if (updates.length > 0) {
-                this.instance.emit('updateAvalible', updates);
-                updates.forEach(async type => this.cache.set(type, JSON.parse(await fetch(data[type])) || []));
-            }
-        });
+      return checkForUpdates().then(updates => {
+        if (updates.length > 0) {
+          this.client.emit('updateAvalible', updates);
+          return Promise.all(updates.map(async type => {
+            let raw = Object.values(JSON.parse(await fetch(data[type])) || []);
+            this.client.set(type, raw);
+            fs.writeFileSync(local[type], JSON.stringify(raw));
+          }));
+        }
+      });
     }
 
     start() {
-        if (!this.cron) this.instance.emit('debug', 'Notify for new data updates enabled. AzurAPI Client will check for data updates every hour.');
-        if (this.cron) clearInterval(this.cron);
-        this.cron = setInterval(() => this.checkAndUpdate(), 3600000);
+      if (!this.cron) this.client.emit('debug', 'Notify for new data updates enabled. AzurAPI Client will check for data updates every hour.');
+      if (this.cron) clearInterval(this.cron);
+      this.cron = setInterval(() => this.checkAndUpdate(), 3600000);
     }
 
     stop() {
-        if (this.cron) clearInterval(this.cron);
-        this.cron = undefined;
+      if (this.cron) clearInterval(this.cron);
+      this.cron = undefined;
     }
 
-    init() {
-        if (!fs.existsSync(local.folder)) fs.mkdirSync(local.folder);
-        this.loadAll();
+    async init() {
+      if (!fs.existsSync(baseFolder)) fs.mkdirSync(baseFolder);
+      await this.loadAll();
     }
 
     loadAll() {
-        Object.keys(local).forEach(key => this.cache.set(key as datatype, fs.existsSync(local[key]) ? JSON.parse(fs.readFileSync(local[key]).toString()) || [] : []));
+      for (let i = 0; i < Object.keys(local).length; i++) {
+        let key = Object.keys(local)[i];
+        if (!fs.existsSync(local[key])) return this.checkAndUpdate();
+        this.client.set(key as datatype, Object.values(JSON.parse(fs.readFileSync(local[key]).toString()) || []));
+      }
     }
 }

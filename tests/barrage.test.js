@@ -1,9 +1,7 @@
-const { AzurAPI } = require('../build/Client');
-const client = new AzurAPI();
+const {instance} = require('../build/Client');
+const client = instance;
 
-test('Get Barrage', async () => {
-  client.on('ready', async () => {
-    let result = await client.cache.barrages.get('Full_Barrage_-_Ayanami_II');
-    expect(result[0].name).toBe('Full Barrage - Ayanami II');
-  });
+test('Get Barrage', () => {
+    let result = client.barrages.get('Full_Barrage_-_22_II');
+    expect(result.name).toBe('Full Barrage - 22 II');
 });
