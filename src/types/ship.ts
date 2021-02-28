@@ -1,4 +1,15 @@
+// ship.ts
+/**
+ * Ship types
+ * @packageDocumentation
+ */
 import { Identifiable } from './identifiable';
+
+export interface shipAdvancedOptions {
+    nameOnly?: boolean,
+    idOnly?: boolean,
+    language?: string
+}
 
 type Url = string;
 type Stat = 'health' | 'armor' | 'reload' | 'luck' | 'firepower' | 'torpedo' | 'evasion' | 'speed' | 'antiwar'

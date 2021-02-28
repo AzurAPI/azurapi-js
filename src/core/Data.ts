@@ -1,3 +1,8 @@
+// Data.ts
+/**
+ * Static data paths information
+ * @packageDocumentation
+ */
 const { join } = require('path');
 
 export const data = {

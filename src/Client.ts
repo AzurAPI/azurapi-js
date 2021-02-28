@@ -8,17 +8,27 @@ import { Voiceline } from './types/voiceline';
 import { Barrage } from './types/barrage';
 import { datatype } from './core/Data';
 
+export type Source = 'uncached' | 'local' | 'hiei'
+
 export interface CacheOptions {
+    source?: Source;
     autoupdate?: boolean;
+    rate?: number;
 }
 
 export let instance: AzurAPI;
 
+/**
+ * The main class
+ */
 export class AzurAPI extends EventEmitter {
-    public options: CacheOptions
+    public options: CacheOptions;
+    public source: string;
+    public autoupdate: boolean;
+    public rate: number;
     public updater: Updater;
     public ships = new Ships(this);
-    public equipments = new API<Equipment>(this, ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id'])
+    public equipments = new API<Equipment>(this, ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id']);
     public chapters = new API<Chapter>(this);
     public voicelines = new API<Voiceline>(this);
     public barrages = new API<Barrage>(this, ['id', 'name']);
@@ -36,13 +46,21 @@ export class AzurAPI extends EventEmitter {
      */
     constructor(options?: CacheOptions) {
       super();
-      this.options = options ? options : { autoupdate: true };
+      this.options = options ? options : { source: 'local', autoupdate: true, rate: 3600000 };
+      this.source = this.options.source ? this.options.source : 'local';
+      this.autoupdate = this.options.autoupdate ? this.options.autoupdate : true;
+      this.rate = this.options.rate ? this.options.rate : 3600000;
       this.updater = new Updater(this);
-      this.updater.init().then(() => this.emit('ready'));
-      if (this.options.autoupdate) this.updater.start();
+      this.updater.init().then(() => this.emit('ready'))/* Bug Warning */.then(() => console.warn('WARN: Barrage Functions DO NOT WORK as of now'));
+      if (this.autoupdate) this.updater.start();
       instance = this;
     }
 
+    /**
+     * Set data in cache
+     * @param type A type of data (ship, equipment, voiceline, chapter, or barrage)
+     * @param raw Raw data in array
+     */
     set(type: datatype, raw: any[]) {
       if (!raw) return;
       let api = this.apis[type];
