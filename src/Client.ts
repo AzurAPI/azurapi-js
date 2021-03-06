@@ -19,7 +19,7 @@ export interface CacheOptions {
 export let instance: AzurAPI;
 
 /**
- * The main class
+ * The main AzurAPI class
  */
 export class AzurAPI extends EventEmitter {
     public options: CacheOptions;
@@ -51,7 +51,7 @@ export class AzurAPI extends EventEmitter {
       this.autoupdate = this.options.autoupdate ? this.options.autoupdate : true;
       this.rate = this.options.rate ? this.options.rate : 3600000;
       this.updater = new Updater(this);
-      this.updater.init().then(() => this.emit('ready'))/* Bug Warning */.then(() => console.warn('WARN: Barrage Functions DO NOT WORK as of now'));
+      this.updater.init().then(() => this.emit('ready'));
       if (this.autoupdate) this.updater.start();
       instance = this;
     }

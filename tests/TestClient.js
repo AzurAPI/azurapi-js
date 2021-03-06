@@ -11,5 +11,13 @@ client.on('ready', async () => {
 
  >   Result: ${result.names.en}
 `);
+  let result2 = await client.barrages.get('Full_Barrage_-_22_II');
+  console.log(` 
+ >>  Test: Get Barrage by Name
+ >>  Expected Result: Full Barrage - 22 II
+ >>  Method: <AzurAPI>.barrages.get('Abukuma');
+
+ >   Result: ${result2.name}
+`);
   process.exit(0);
 });

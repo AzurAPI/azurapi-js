@@ -7,7 +7,7 @@ import { data, datatype, versionInfo } from './Data';
 import fs from 'fs';
 import https from 'https';
 
-const supported = ['ships', 'equipments', 'chapters'];
+const supported = ['ships', 'equipments', 'chapters', 'barrages', 'voicelines'];
 
 let version;
 let remote;
