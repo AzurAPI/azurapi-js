@@ -24,8 +24,6 @@
     </p>
 </div>
 
-## WARN: Barrage Functions DO NOT WORK as of now
-
 # AzurApi-JS
 Open Source Library For Azur Lane
 
