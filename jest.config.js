@@ -6,5 +6,6 @@ module.exports = {
   testEnvironment: 'node',
   testMatch: ['<rootDir>/tests/*.test.js'],
   testTimeout: 5000,
-  reporters: ['default', 'jest-teamcity']
+  reporters: ['default', 'jest-teamcity'],
+  forceExit: true
 };

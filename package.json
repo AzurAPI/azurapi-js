@@ -2,13 +2,13 @@
     "name": "@azurapi/azurapi",
     "version": "1.0.0",
     "description": "Open Source Azur Lane Local Database",
-    "main": "index.js",
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
     "scripts": {
         "compile": "tsc",
         "test": "tsc && jest --config jest.config.js",
         "lint": "eslint src --ext .ts --fix",
-        "build": "npm run lint && npm run compile && npm run build:types && npm run build:docs && npm run build:docs.json && npm run test",
-        "build:types": "tsc -d --rootDir src --declarationDir build/types --declarationMap --emitDeclarationOnly",
+        "build": "npm run lint && npm run compile && npm run build:docs && npm run build:docs.json && npm run test",
         "build:docs": "npx typedoc --theme typedoc/theme/minami --readme readme.md --out docs/ src/.",
         "build:docs.json": "typedoc --json typedoc/docs.json src/."
     },
