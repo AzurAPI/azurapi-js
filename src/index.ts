@@ -5,3 +5,4 @@
  */
 
 export * from './Client';
+export * from './http/server';

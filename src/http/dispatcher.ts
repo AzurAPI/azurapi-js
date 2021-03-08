@@ -158,14 +158,14 @@ export default class HTTPDispatcher {
 	  // eslint-disable-next-line @typescript-eslint/no-this-alias
 	  const dispatcher = this;
 	  const doDispatch = () => {
-	    const httpChain = new this.HttpChain();
+	    const httpChain = this.HttpChain();
 	    const beforeFilters = this.getFilters(url.pathname, 'before');
-	    httpChain.addAll(beforeFilters);
+	    this.addAll(beforeFilters);
 	    const listenerCb = this.getListener(url.pathname, method) ? this.getListener(url.pathname, method) : this.errorListener;
-	    httpChain.add(httpChain.getWrapped(listenerCb));
+	    this.add(this.getWrapped(listenerCb));
 	    const afterFilters = this.getFilters(url.pathname, 'after');
-	    httpChain.addAll(afterFilters);
-	    httpChain.next(request, response);
+	    this.addAll(afterFilters);
+	    this.next(request, response);
 	  };
 	  if(method?.match(/(post|put|patch)/i)) {
 	    let body;
