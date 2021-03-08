@@ -6,7 +6,7 @@
     "types": "./build/index.d.ts",
     "scripts": {
         "compile": "tsc",
-        "test": "tsc && jest --config jest.config.js",
+        "test": "jest --config jest.config.js",
         "lint": "eslint src --ext .ts --fix",
         "build": "npm run lint && npm run compile && npm run build:docs && npm run build:docs.json && npm run test",
         "build:docs": "npx typedoc --theme typedoc/theme/minami --readme readme.md --out docs/ src/.",
