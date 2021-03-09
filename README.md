@@ -27,6 +27,9 @@
 # AzurApi-JS
 Open Source Library For Azur Lane
 
+## Notice
+This package needs Node version `14.0.0` or newer.
+
 ## Versions (internally i guess)
 Type-Main.Major.Minor.Patch (e.g. Dev-2.0.0.0)
 
