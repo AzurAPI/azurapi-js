@@ -21,7 +21,7 @@ export default class Updater {
     }
 
     /**
-     * Check for updates then update
+     * Check for updates then update and load cache
      */
     update() {
       return check().then(updates => {
@@ -54,11 +54,12 @@ export default class Updater {
     }
 
     /**
-     * Check if folder exists and if not create it
+     * Check if folder and JSON files exist then load cache
      */
     async init() {
       if (!fs.existsSync(baseFolder)) fs.mkdirSync(baseFolder);
       await this.load();
+      this.client.emit('ready');
     }
 
     /**

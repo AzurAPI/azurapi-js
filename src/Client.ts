@@ -51,7 +51,7 @@ export class AzurAPI extends EventEmitter {
       this.autoupdate = this.options.autoupdate ? this.options.autoupdate : true;
       this.rate = this.options.rate ? this.options.rate : 3600000;
       this.updater = new Updater(this);
-      this.updater.init().then(() => this.emit('ready'));
+      this.updater.init();
       if (this.autoupdate) this.updater.start();
       instance = this;
     }
