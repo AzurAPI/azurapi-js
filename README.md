@@ -49,9 +49,6 @@ Get nightly builds from the [CI server](https://ci.nekos.cloud/buildConfiguratio
 ## Usage / Documentation
 To use the Library, Please refer to the [Docs](https://azurapi.github.io/v2/)
 
-Quick examples
-![Example Usage](./carbon.png?raw=true "Example Usage")
-
 ## Support Server
 
 [![](https://discordapp.com/api/guilds/648206344729526272/widget.png?style=banner2)](https://discord.gg/aAEdys8)
