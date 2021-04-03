@@ -1,6 +1,10 @@
 src
-test
-.babelrc
+examples
+typedoc
+.eslintrc.json
+jest.config.js
+tsconfig.json
+tests
 package-lock.json
 yarn.lock
-dist/*.json
+.github

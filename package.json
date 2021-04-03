@@ -1,65 +1,55 @@
 {
-  "name": "@azurapi/azurapi",
-  "version": "0.2.13",
-  "description": "Open Source Azur Lane Local Database",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm run clear && npm run babel && npm run update && jest",
-    "test-fast": "npm run babel && jest",
-    "babel": "babel src -d dist",
-    "postinstall": "npm run clear && npm run update",
-    "update": "node dist/update.js",
-    "clear": "node dist/clear.js",
-    "clear-json" : "rimraf dist/*.json",
-    "prepublishOnly": "npm run clear-json && npm run babel"
-  },
-  "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/AzurAPI/azurapi-js.git"
-  },
-  "files": [
-    "dist/**/*"
-  ],
-  "keywords": [
-    "azurlane",
-    "azur",
-    "lane",
-    "api",
-    "azur-lane",
-    "shipgirls",
-    "waifu"
-  ],
-  "bugs": {
-    "url": "https://github.com/AzurAPI/azurapi-js/issues"
-  },
-  "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
+    "name": "@azurapi/azurapi",
+    "version": "1.0.0",
+    "description": "Open Source Azur Lane Local Database",
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "scripts": {
+        "compile": "tsc",
+        "test": "jest --config jest.config.js",
+        "lint": "eslint src --ext .ts --fix",
+        "build": "npm run lint && npm run compile && npm run build:docs && npm run build:docs.json && npm run test",
+        "build:docs": "npx typedoc --theme typedoc/theme/minami --readme readme.md --out docs/ src/.",
+        "build:docs.json": "typedoc --json typedoc/docs.json src/."
+        },
+    "author": "XhacKX#0001, 彩雲#5778, August#5820",
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/AzurAPI/azurapi-js.git"
+    },
+    "files": [
+        "build",
+        "types"
     ],
-    "verbose": true
-  },
-  "dependencies": {
-    "lodash.deburr": "^4.1.0",
-    "lodash.isnumber": "^3.0.3",
-    "lodash.isstring": "^4.0.1",
-    "lodash.keys": "^4.2.0",
-    "lodash.map": "^4.6.0",
-    "lodash.sortby": "^4.7.0",
-    "lodash.toarray": "^4.4.0",
-    "lodash.tolower": "^4.1.2",
-    "lodash.tonumber": "^4.0.3",
-    "node-fetch": "^2.6.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0",
-    "rimraf": "^3.0.2"
-  }
+    "keywords": [
+        "azurlane",
+        "azur",
+        "lane",
+        "api",
+        "azur-lane",
+        "shipgirls",
+        "waifu"
+    ],
+    "bugs": {
+        "url": "https://github.com/AzurAPI/azurapi-js/issues"
+    },
+    "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
+    "dependencies": {
+        "fuse.js": "^6.4.6"
+    },
+    "devDependencies": {
+        "@augu/eslint-config": "^1.8.2",
+        "@types/jest": "^26.0.14",
+        "@types/node": "^14.11.2",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.17.0",
+        "eslint-plugin-you-dont-need-lodash-underscore": "^6.10.0",
+        "jest": "^26.4.2",
+        "jest-teamcity": "^1.9.0",
+        "ts-jest": "^26.4.0",
+        "typedoc": "^0.20.25",
+        "typescript": "^4.1.5"
+    }
 }

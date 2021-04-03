@@ -16,8 +16,9 @@
     </p>
     <p>
         <a href="https://github.com/AzurAPI/azurapi-js/actions">
-            <img src="https://github.com/AzurAPI/azurapi-js/workflows/Github%20Actions/badge.svg" alt="Github Actions" />
+            <img src="https://github.com/AzurAPI/azurapi-js/workflows/Github%20Actions/badge.svg?branch=v2-array-cache" alt="Github Actions" />
         </a>
+        <a href="https://ci.nekos.cloud/buildConfiguration/AzurapiJs_Build?guest=1"><img src="https://ci.nekos.cloud/app/rest/builds/buildType:id:AzurapiJs_Build/statusIcon.svg"></a>
     </p>
     <p><a href="https://npmjs.com/package/@azurapi/azurapi"><img src="https://nodeico.herokuapp.com/@azurapi/azurapi.svg"></a>
     </p>
@@ -26,12 +27,27 @@
 # AzurApi-JS
 Open Source Library For Azur Lane
 
+## Notice
+This package needs Node version `14.0.0` or newer.
+
+## Versions
+Type-Main.Major.Minor.Patch (e.g. Dev-2.0.0.0)
+or
+Nightly-Main#Build (e.g. Nightly-2#1222)
+
+## Install
+Get stable package from npm by running `npm install --save @azurapi/azurapi` in the command line.
+
+## Nightly
+Get nightly builds from the [CI server](https://ci.nekos.cloud/buildConfiguration/AzurapiJs_Build?guest=1). Read nightly docs 
+[here](https://ci.nekos.cloud/app/rest/builds/buildType:(id:AzurapiJs_Build),status:SUCCESS/artifacts/content/docs/index.html?guest=1)(Latest successful build) or [here](https://ci.nekos.cloud/app/rest/builds/buildType:(id:AzurapiJs_Build)/artifacts/content/docs/index.html?guest=1)(Latest build).
 ## Features
 - Hosted Locally in your machine, no more waiting for server downtime!!!
 - Ship Information and Specific Data Searching
 - More to come soon
-## Usage
-To use the Library, Please refer to the [Wiki](https://azurapi.github.io/)
+
+## Usage / Documentation
+To use the Library, Please refer to the [Docs](https://azurapi.github.io/v2/)
 
 ## Support Server
 
