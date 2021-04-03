@@ -1,5 +1,3 @@
-## just use saratoga godamnit
-
 <div align="center">
     <br />
     <p>
@@ -25,9 +23,6 @@
     <p><a href="https://npmjs.com/package/@azurapi/azurapi"><img src="https://nodeico.herokuapp.com/@azurapi/azurapi.svg"></a>
     </p>
 </div>
-
-Btw go check out the v2-array-cache branch
-
 
 # AzurApi-JS
 Open Source Library For Azur Lane
