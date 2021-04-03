@@ -1,4 +1,10 @@
 src
+examples
+typedoc
+.eslintrc.json
+jest.config.js
+tsconfig.json
+tests
 package-lock.json
 yarn.lock
 .github
