@@ -1,6 +1,6 @@
 {
     "name": "@azurapi/azurapi",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Open Source Azur Lane Local Database",
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
@@ -10,8 +10,9 @@
         "lint": "eslint src --ext .ts --fix",
         "build": "npm run lint && npm run compile && npm run build:docs && npm run build:docs.json && npm run test",
         "build:docs": "npx typedoc --theme typedoc/theme/minami --readme readme.md --out docs/ src/.",
-        "build:docs.json": "typedoc --json typedoc/docs.json src/."
-        },
+        "build:docs.json": "typedoc --json typedoc/docs.json src/.",
+        "prepare": "npm run build"
+    },
     "author": "XhacKX#0001, 彩雲#5778, August#5820",
     "license": "GPL-3.0",
     "repository": {
