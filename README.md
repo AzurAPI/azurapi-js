@@ -24,7 +24,7 @@
     </p>
 </div>
 
-# AzurApi-JS
+# AzurApi-~~JS~~TS
 Open Source Library For Azur Lane
 
 ## Features
