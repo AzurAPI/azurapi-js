@@ -28,12 +28,17 @@ export class Server extends EventEmitter {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         if(!req.params.type) return res.end('{ status: 400, response: \'Missing param \"type"\' }');
         if(req.params.type !== 'ships' && req.params.type !== 'equipments' && req.params.type !== 'chapters' && req.params.type !== 'voicelines' && req.params.type !== 'barrages') return res.end('{ status: 400, response: \'Invalid value for param \"type"\' }');
+        // eslint-disable-next-line brace-style, @typescript-eslint/brace-style
+        if (req.params.method === 'raw') return res.end(`{ status: 200, response: ${JSON.stringify(this.client[`${req.params.type}`].raw).replace(/[\u007F-\uFFFF]/g, (chr) => { return `\\u${('0000' + chr.charCodeAt(0).toString(16)).substr(-4)}`; })}`);
         if(!req.params.method) return res.end('{ status: 400, response: \'Missing param \"method\"\' }');
         const q = req.params.q ? req.params.q : '';
-        const fn = this.client[`${req.params.type}`][`${req.params.method}`](`${q}`);
-        // eslint-disable-next-line brace-style, @typescript-eslint/brace-style
-        if(fn) return res.end(`{ status: 200, response: ${JSON.stringify(fn).replace(/[\u007F-\uFFFF]/g, (chr) => { return `\\u${('0000' + chr.charCodeAt(0).toString(16)).substr(-4)}`; })}`);
-        res.end('{ status: 400, response: \'Not a function or missing param \"q\"\' }');
+        try {
+          const fn = this.client[`${req.params.type}`][`${req.params.method}`](`${q}`);
+          // eslint-disable-next-line brace-style, @typescript-eslint/brace-style
+          return res.end(`{ status: 200, response: ${JSON.stringify(fn).replace(/[\u007F-\uFFFF]/g, (chr) => { return `\\u${('0000' + chr.charCodeAt(0).toString(16)).substr(-4)}`; })}`);
+        } catch {
+          res.end('{ status: 400, response: \'Not a function or missing param \"q\"\' }');
+        }
       });
 
       dispatcher.onError((req, res) => {
