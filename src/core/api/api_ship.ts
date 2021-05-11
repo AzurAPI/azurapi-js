@@ -4,34 +4,8 @@
  * @packageDocumentation
  */
 import { Ship } from '../../types/ship';
-import API, { Language, normalize } from './api';
+import API, { Language, normalize, NATIONS, advancedOptions } from './api';
 import { AzurAPI } from '../../Client';
-
-const NATIONS = {
-  'Eagle Union': ['uss', 'eagle union'],
-  'Royal Navy': ['hms', 'royal navy'],
-  'Sakura Empire': ['ijn', 'sakura empire'],
-  'Iron Blood': ['kms', 'iron blood'],
-  'Dragon Empery': ['pran', 'dragon empery'],
-  'Northern Parliament': ['sn', 'northern parliament'],
-  'Iris Libre': ['ffnf', 'iris libre'],
-  'Vichya Domination': ['mnf', 'vichya domination'],
-  'Sardenga Empire': ['rn', 'sardegna empire'],
-  'Neptunia': ['hdn', 'neptunia'],
-  'Bilibili': ['bili', 'bilibili'],
-  'Venus Vacation': ['venus', 'venus vacation'],
-  'Utawarerumono': ['utawarerumono'],
-  'Kizuna AI': ['kizunaai', 'kizuna ai'],
-  'Hololive': ['hololive'],
-  'META': ['meta'],
-  'Universal': ['universal', 'univ']
-};
-
-interface shipAdvancedOptions {
-  nameOnly?: boolean,
-  idOnly?: boolean,
-  language?: Language
-}
 
 /**
  * Special ships class for extended functionality
@@ -85,7 +59,7 @@ class Ships extends API<Ship> {
    * Get ship using name in any language or id
    * @param query Ship name in any language or ship id
    */
-  get(query: string, adv?: shipAdvancedOptions): Ship | undefined {
+  get(query: string, adv?: advancedOptions): Ship | undefined {
     if (adv) {
       if (adv.idOnly) {
         return this.id(query);
@@ -104,7 +78,7 @@ class Ships extends API<Ship> {
    * Get ship using everything
    * @param query basically anyting i guess
    */
-  getAll(query: string): Ship[] {
+  all(query: string): Ship[] {
     let results: (Ship | undefined)[] = [];
     results.push(this.id(query));
     results.push(...this._nameAll(query).filter(i => i));

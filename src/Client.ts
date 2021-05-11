@@ -1,6 +1,8 @@
 import { EventEmitter } from 'events';
 import Updater from './core/CacheUpdater';
 import { Ships } from './core/api/api_ship';
+import { Equipments } from './core/api/api_equipment';
+import { Barrages } from './core/api/api_barrage';
 import API from './core/api/api';
 import { Equipment } from './types/equipment';
 import { Chapter } from './types/chapter';
@@ -28,10 +30,10 @@ export class AzurAPI extends EventEmitter {
     public rate: number;
     public updater: Updater;
     public ships = new Ships(this);
-    public equipments = new API<Equipment>(this, ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id']);
+    public equipments = new Equipments(this);
     public chapters = new API<Chapter>(this);
     public voicelines = new API<Voiceline>(this);
-    public barrages = new API<Barrage>(this, ['id', 'name']);
+    public barrages = new Barrages(this);
     public apis = {
       ships: this.ships,
       equipments: this.equipments,
