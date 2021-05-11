@@ -4,4 +4,5 @@ node_modules/
 build/
 typedoc/other
 typedoc/theme/tdt
+docs/
 yarn.lock
