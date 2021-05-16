@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "@azurapi/azurapi",
     "version": "1.0.0",
     "description": "Open Source Azur Lane Local Database",
@@ -21,6 +22,48 @@
     "files": [
         "build",
         "types"
+=======
+  "name": "@azurapi/azurapi",
+  "version": "0.2.12",
+  "description": "Open Source Azur Lane Local Database",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run clear && npm run babel && npm run update && jest",
+    "test-fast": "npm run babel && jest",
+    "babel": "babel src -d dist",
+    "postinstall": "npm run clear && npm run update",
+    "update": "node dist/update.js",
+    "clear": "node dist/clear.js",
+    "clear-json" : "rimraf dist/*.json",
+    "prepublishOnly": "npm run clear-json && npm run babel"
+  },
+  "author": "XhacKX#0001, 彩雲#5778, tommywalkie#2458",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AzurAPI/azurapi-js.git"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "keywords": [
+    "azurlane",
+    "azur",
+    "lane",
+    "api",
+    "azur-lane",
+    "shipgirls",
+    "waifu"
+  ],
+  "bugs": {
+    "url": "https://github.com/AzurAPI/azurapi-js/issues"
+  },
+  "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+>>>>>>> parent of 6759df7 (Bumped version)
     ],
     "keywords": [
         "azurlane",
