@@ -1,7 +1,12 @@
 node_modules/
 .idea
 .DS_Store
+<<<<<<< HEAD
 build/
 typedoc/other
 typedoc/theme/tdt
+=======
+dist/
+package-lock.json
+>>>>>>> parent of 97f81f2 (Work on v2)
 yarn.lock
