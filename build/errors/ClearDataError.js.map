@@ -1,0 +1,1 @@
+{"version":3,"file":"ClearDataError.js","sourceRoot":"","sources":["../../src/errors/ClearDataError.ts"],"names":[],"mappings":";AAAA,oBAAoB;AACpB;;;GAGG;;AAEH;;GAEG;AACH,MAAqB,cAAe,SAAQ,KAAK;IAC/C;QACE,KAAK,CAAC,kDAAkD,CAAC,CAAC;QAE1D,IAAI,CAAC,IAAI,GAAI,gBAAgB,CAAC;IAChC,CAAC;CACF;AAND,iCAMC"}

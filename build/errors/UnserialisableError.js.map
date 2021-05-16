@@ -1,0 +1,1 @@
+{"version":3,"file":"UnserialisableError.js","sourceRoot":"","sources":["../../src/errors/UnserialisableError.ts"],"names":[],"mappings":";AAAA,yBAAyB;AACzB;;;GAGG;;AAEH;;GAEG;AACH,MAAqB,oBAAqB,SAAQ,KAAK;IACrD;QACE,KAAK,CAAC,+DAA+D,CAAC,CAAC;QAEvE,IAAI,CAAC,IAAI,GAAG,sBAAsB,CAAC;IACrC,CAAC;CACF;AAND,uCAMC"}

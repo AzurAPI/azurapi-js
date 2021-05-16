@@ -1,0 +1,1 @@
+{"version":3,"file":"UnkonwnBarrageError.js","sourceRoot":"","sources":["../../src/errors/UnkonwnBarrageError.ts"],"names":[],"mappings":";AAAA,yBAAyB;AACzB;;;GAGG;;AAEH;;GAEG;AACH,MAAqB,mBAAoB,SAAQ,KAAK;IAMlD,YAAY,EAAU;QACpB,KAAK,CAAC,oCAAoC,EAAE,GAAG,CAAC,CAAC;QAEjD,IAAI,CAAC,KAAK,GAAG,EAAE,CAAC;QAChB,IAAI,CAAC,IAAI,GAAI,qBAAqB,CAAC;IACrC,CAAC;CACJ;AAZD,sCAYC"}
