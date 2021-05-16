@@ -1,0 +1,26 @@
+{
+  "name": "cli-azurapiv2",
+  "version": "0.1.1",
+  "description": "example implementation ",
+  "main": "acli.js",
+  "scripts": {
+    "build": "echo 'build has been depreciated in favor of pkg' && npm run pkg",
+    "removebuilt": "echo 'removebuilt has been depreciated in favor of rmpkg' && npm run rmpkg",
+    "rebuild": "echo 'rebuild has been depreciated in favor of repkg' && npm run repkg",
+    "link": "echo 'Please use npm link instead' && npm link",
+    "postinstall": "echo 'If you would like this CLI tool to be globally avalible, please run npm link.'",
+    "pkg": "npm i && npm i pkg && pkg acli.js && npm remove pkg",
+    "rmpkg": "rm -rf acli-linux && rm -rf acli-macos && rm -rf acli-win.exe",
+    "repkg": "npm i && npm run removebuilt && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "cli-highlight": "^2.1.9",
+    "yargs": "^16.1.1"
+  },
+  "bin": {
+    "acli": "./acli.js"
+  }
+}

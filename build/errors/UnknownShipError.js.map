@@ -1,1 +1,0 @@
-{"version":3,"file":"UnknownShipError.js","sourceRoot":"","sources":["../../src/errors/UnknownShipError.ts"],"names":[],"mappings":";AAAA,sBAAsB;AACtB;;;GAGG;;AAEH;;GAEG;AACH,MAAqB,gBAAiB,SAAQ,KAAK;IAMjD,YAAY,EAAU;QACpB,KAAK,CAAC,iCAAiC,EAAE,GAAG,CAAC,CAAC;QAE9C,IAAI,CAAC,KAAK,GAAG,EAAE,CAAC;QAChB,IAAI,CAAC,IAAI,GAAI,kBAAkB,CAAC;IAClC,CAAC;CACF;AAZD,mCAYC"}
