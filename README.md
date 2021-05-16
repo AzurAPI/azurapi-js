@@ -45,14 +45,9 @@ Get nightly builds from the [CI server](https://ci.nekos.cloud/buildConfiguratio
 - Hosted Locally in your machine, no more waiting for server downtime!!!
 - Ship Information and Specific Data Searching
 - More to come soon
-<<<<<<< HEAD
 
 ## Usage / Documentation
 To use the Library, Please refer to the [Docs](https://azurapi.github.io/v2/)
-=======
-## Usage
-To use the Library, Please refer to the [Wiki](https://azurapi.github.io/)
->>>>>>> parent of 97f81f2 (Work on v2)
 
 ## Support Server
 

@@ -1,15 +1,10 @@
 src
-<<<<<<< HEAD
 examples
 typedoc
 .eslintrc.json
 jest.config.js
 tsconfig.json
 tests
-=======
-test
-.babelrc
->>>>>>> parent of 97f81f2 (Work on v2)
 package-lock.json
 yarn.lock
-dist/*.json
+.github
