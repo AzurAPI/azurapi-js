@@ -4,6 +4,8 @@
  * @packageDocumentation
  */
 
+// TODO/WIP: Document usage and add input types
+
 import { AzurAPI } from '../../Client';
 import { URL, URLSearchParams } from 'url';
 import http from 'http';
@@ -54,6 +56,11 @@ export class HieiAPI {
     this.client = client;
   }
 
+  /**
+   * Internal-ish fetch function to get data from Hiei API(s)
+   * @param endpoint Hiei Endpoint
+   * @param q Query
+   */
   _fetch(endpoint: string, q: string) {
     const url = new URL(endpoint, this.client.options.hieiUrl);
     url.search = new URLSearchParams({ q }).toString();
@@ -92,30 +99,57 @@ export class Ships extends HieiAPI {
     super(client);
   }
 
+  /**
+   * Search Ships
+   * @param query Ship name, ID, etc.
+   */
   search(query) {
     return this._fetch(endpoint.ship.search, query);
   }
 
-  random(query) {
+  /**
+   * Get a random ship
+   */
+  random(query = '') {
     return this._fetch(endpoint.ship.search, query);
   }
 
+  /**
+   * Get ship by id
+   * @param query id
+   */
   id(query) {
     return this._fetch(endpoint.ship.id, query);
   }
 
+  /**
+   * Get ship by rarity
+   * @param query Rarity
+   */
   rarity(query) {
     return this._fetch(endpoint.ship.rarity, query);
   }
 
+  /**
+   * Get ship by hull
+   * @param query Hulltype
+   */
   hull(query) {
     return this._fetch(endpoint.ship.hullType, query);
   }
 
+  /**
+   * Get ship by class
+   * @param query Class
+   */
   class(query) {
     return this._fetch(endpoint.ship.shipClass, query);
   }
 
+  /**
+   * Get ship by nationality
+   * @param query Nationality
+   */
   nationality(query) {
     return this._fetch(endpoint.ship.nationality, query);
   }
