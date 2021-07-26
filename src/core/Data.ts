@@ -3,15 +3,17 @@
  * Static data paths information
  * @packageDocumentation
  */
-const { join } = require('path');
+import { join } from 'path';
 
 export const data = {
-  version: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/version-info.json',
-  ships: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/ships.json',
-  equipments: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/equipments.json',
-  chapters: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/chapters.json',
+  version: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/version.json',
+  ships: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/ships.json',
+  equipments: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/equipments.json',
+  chapters: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/chapters.min.json',
   voicelines: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/voice_lines.json',
-  barrages: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/barrage.json'
+  barrages: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/barrage.json',
+  shipList: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/ship-list.json',
+  idMap: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/id-map.json'
 };
 
 export const local = {
@@ -19,7 +21,9 @@ export const local = {
   equipments: join(__dirname, '..', '.azurlane', 'equipment.json'),
   chapters: join(__dirname, '..', '.azurlane', 'chapters.json'),
   voicelines: join(__dirname, '..', '.azurlane', 'voice_lines.json'),
-  barrages: join(__dirname, '..', '.azurlane', 'barrage.json')
+  barrages: join(__dirname, '..', '.azurlane', 'barrage.json'),
+  shipList: join(__dirname, '..', '.azurlane', 'ship-list.json'),
+  idMap: join(__dirname, '..', '.azurlane', 'id-map.json')
 };
 export type datatype = 'ships' | 'equipments' | 'voicelines' | 'chapters' | 'barrages';
 export let baseFolder = join(__dirname, '..', '.azurlane');

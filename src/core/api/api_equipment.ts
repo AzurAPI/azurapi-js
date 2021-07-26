@@ -5,12 +5,12 @@
  */
 import { Equipment } from '../../types/equipment';
 import API, { Language, normalize, NATIONS, advancedOptions } from './api';
-import { AzurAPI } from '../../Client';
+import { AzurAPI } from '../Client';
 
 /**
  * Special equipments class for extended functionality
  */
-class Equipments extends API<Equipment> {
+export class Equipments extends API<Equipment> {
   /**
    * Constructor
    * @param client An AzurAPI instance
@@ -87,5 +87,3 @@ class Equipments extends API<Equipment> {
       .filter((elem, index, self) => index === self.findIndex(el => el.id === elem.id));
   }
 }
-
-export { Equipments };

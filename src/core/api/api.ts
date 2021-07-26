@@ -5,7 +5,7 @@
  */
 import Fuse from 'fuse.js';
 import { Identifiable } from '../../types/identifiable';
-import { AzurAPI } from '../../Client';
+import { AzurAPI } from '../Client';
 import FuseResult = Fuse.FuseResult;
 
 export type Language = 'en' | 'cn' | 'jp' | 'kr';

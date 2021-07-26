@@ -4,5 +4,5 @@
  * @packageDocumentation
  */
 
-export * from './Client';
-export * from './http/server';
+export * from './core/Client';
+export * from './http/server_v2';

@@ -5,12 +5,12 @@
  */
 import { Ship } from '../../types/ship';
 import API, { Language, normalize, NATIONS, advancedOptions } from './api';
-import { AzurAPI } from '../../Client';
+import { AzurAPI } from '../Client';
 
 /**
  * Special ships class for extended functionality
  */
-class Ships extends API<Ship> {
+export class Ships extends API<Ship> {
   /**
    * Constructor
    * @param client An AzurAPI instance
@@ -88,5 +88,3 @@ class Ships extends API<Ship> {
       .filter((elem, index, self) => index === self.findIndex(el => el.id === elem.id));
   }
 }
-
-export { Ships, NATIONS };

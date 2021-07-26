@@ -6,7 +6,7 @@
 
 // TODO/WIP: Document usage and add input types
 
-import { AzurAPI } from '../../Client';
+import { AzurAPI } from '../Client';
 import { URL, URLSearchParams } from 'url';
 import http from 'http';
 

@@ -18,6 +18,18 @@ interface Node {
 }
 
 export interface Chapter extends Identifiable {
+    1: SubChapter;
+    2: SubChapter;
+    3: SubChapter;
+    4: SubChapter;
+    names: {
+        en: string,
+        cn: string,
+        jp: string
+    };
+}
+
+export interface SubChapter extends Identifiable {
     names: {
         en: string,
         cn: string,

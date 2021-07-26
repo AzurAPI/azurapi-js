@@ -17,7 +17,7 @@ export class Server extends EventEmitter {
     private server: http.Server = http.createServer(this.handle);
     constructor(port?: number) {
       super();
-      this.port = port ? port : 8080;
+      this.port = port ? port : 80;
 
       dispatcher.onGet('/', (req, res) => {
         res.writeHead(200, { 'Content-Type': 'application/json' });

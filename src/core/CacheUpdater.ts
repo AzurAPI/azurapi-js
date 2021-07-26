@@ -6,7 +6,7 @@
 import { baseFolder, data, datatype, local } from './Data';
 import fs from 'fs';
 import { check, fetch } from './UpdateChecker';
-import { AzurAPI } from '../Client';
+import { AzurAPI } from './Client';
 
 export default class Updater {
     public cron?: NodeJS.Timeout;

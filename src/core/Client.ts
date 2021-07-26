@@ -1,12 +1,12 @@
 import { EventEmitter } from 'events';
-import Updater from './core/CacheUpdater';
-import { Ships } from './core/api/api_ship';
-import { Equipments } from './core/api/api_equipment';
-import { Barrages } from './core/api/api_barrage';
-import { Chapters } from './core/api/api_chapter';
-import { Voicelines } from './core/api/api_voiceline';
-import * as Hiei from './core/api/hiei';
-import { datatype } from './core/Data';
+import Updater from './CacheUpdater';
+import { Ships } from './api/api_ship';
+import { Equipments } from './api/api_equipment';
+import { Barrages } from './api/api_barrage';
+import { Chapters } from './api/api_chapter';
+import { Voicelines } from './api/api_voiceline';
+import * as Hiei from './api/hiei';
+import { datatype } from './Data';
 
 export type Source = 'uncached' | 'local' | 'hiei'
 
@@ -48,7 +48,7 @@ export class AzurAPI extends EventEmitter {
    */
   constructor(options?: CacheOptions) {
     super();
-    //Make sure people are using Node 14
+    //Make sure people are using Node <=14
     if (parseFloat(process.version.replace('v', '')) <= 14) throw new Error('AzurAPI requires Node v14 or above, if you would like to use an older Node version, please use any version of this package below v0.2.13 (Not Recommended)');
     this.options = options ? options : { source: 'local', autoupdate: true, rate: 3600000 };
     this.source = this.options.source ? this.options.source : 'local';

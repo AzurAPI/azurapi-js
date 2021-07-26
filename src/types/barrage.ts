@@ -14,7 +14,6 @@ export interface Rounds {
     dmgL: number;
     dmgM: number;
     note?: string | null;
-
 }
 
 export interface Barrage extends Identifiable {

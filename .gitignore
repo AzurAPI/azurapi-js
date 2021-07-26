@@ -5,4 +5,4 @@ build/
 typedoc/other
 typedoc/theme/tdt
 docs/
-yarn.lock
+examples/cli/node_modules/

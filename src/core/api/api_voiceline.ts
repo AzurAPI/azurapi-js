@@ -5,12 +5,12 @@
  */
 import { Voiceline } from '../../types/voiceline';
 import API, { Language, normalize, NATIONS, advancedOptions } from './api';
-import { AzurAPI } from '../../Client';
+import { AzurAPI } from '../Client';
 
 /**
  * Special chapter class for extended functionality
  */
-class Voicelines extends API<Voiceline> {
+export class Voicelines extends API<Voiceline> {
   /**
    * Constructor
    * @param client An AzurAPI instance
@@ -20,4 +20,3 @@ class Voicelines extends API<Voiceline> {
   }
 
 }
-export { Voicelines };
