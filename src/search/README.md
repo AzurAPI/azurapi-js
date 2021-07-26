@@ -20,12 +20,12 @@ const search = new AOSearch(<Dataset>, <SearchOptions>);
 
 ## Types
 
-`Dataset`:
+### `Dataset`:
 ```ts
 interface Dataset = any[] | Record<string, unknown>;
 ```
 
-`SearchOptions`:
+### `SearchOptions`:
 ```ts
 interface SearchOptions {
     keys: string[] | null,
