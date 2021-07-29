@@ -11,6 +11,8 @@ search
 ```
 
 ## Documentation
+Please note that a type/option is marked with `<>`, and that the documentation also assumes that you are using [Typescript](https://www.typescriptlang.org).
+
 Create a new AOSearch Instance
 ```ts
 import { AOSearch } from './search';
