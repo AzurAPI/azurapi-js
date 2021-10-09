@@ -6,6 +6,7 @@ export class Server {
   private client: AzurAPI = new AzurAPI();
   private server: http.Server;
   constructor(port?: number) {
+    console.log('[NOTICE] AzurAPI-TS server mode has been deprecated. Please use Formidable (https://github.com/Deivu/Formidable) where possible.');
     this.port = port ? port : 80;
     this.server = http.createServer(this.listener);
     this.client.on('ready', () => {
