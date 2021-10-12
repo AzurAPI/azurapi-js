@@ -1,4 +1,4 @@
-const { instance } = require('../build/Client.js');
+const { instance } = require('../build/core/Client.js');
 const client = instance;
 
 test('Get Barrage', () => {
