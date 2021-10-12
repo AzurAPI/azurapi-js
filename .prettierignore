@@ -1,0 +1,8 @@
+# Ignore artifacts:
+node_modules/
+.idea
+.DS_Store
+build/
+typedoc
+docs/
+examples/cli/node_modules/
