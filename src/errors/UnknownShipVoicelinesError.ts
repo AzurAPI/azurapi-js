@@ -17,6 +17,6 @@ export default class UnknownShipVoicelinesError extends Error {
     super(`Unable to find voice lines for ship by query "${id}"`);
 
     this.query = id;
-    this.name  = 'UnknownShipVoicelinesError';
+    this.name = 'UnknownShipVoicelinesError';
   }
 }

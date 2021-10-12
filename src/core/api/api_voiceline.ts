@@ -18,5 +18,4 @@ export class Voicelines extends API<Voiceline> {
   constructor(client: AzurAPI) {
     super(client);
   }
-
 }

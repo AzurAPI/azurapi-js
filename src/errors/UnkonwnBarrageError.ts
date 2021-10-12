@@ -17,6 +17,6 @@ export default class UnknownBarrageError extends Error {
     super(`Unable to find barrage by query "${id}"`);
 
     this.query = id;
-    this.name  = 'UnknownBarrageError';
+    this.name = 'UnknownBarrageError';
   }
 }

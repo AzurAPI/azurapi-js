@@ -1,14 +1,14 @@
 export interface SearchOptions extends QueryOptions {
-  keys: string[] | null,
-  noMatch?: 'all' | 'none',
-  algorithm?: /* 'dice' | 'distance' | */ 'distance2' | ((a: string, b: string) => number),
-  initialize?: boolean,
-  light?: boolean,
+  keys: string[] | null;
+  noMatch?: 'all' | 'none';
+  algorithm?: /* 'dice' | 'distance' | */ 'distance2' | ((a: string, b: string) => number);
+  initialize?: boolean;
+  light?: boolean;
 }
 
 export interface QueryOptions {
-  limit?: number,
-  accuracy?: number,
+  limit?: number;
+  accuracy?: number;
 }
 
 export const SearchOptionsDefault: SearchOptions = {
@@ -31,9 +31,9 @@ export type ObjLike = Record<string, unknown>;
 export type MapLike = Map<string | number, unknown>;
 
 export type Mutable<T> = {
-  -readonly [P in keyof T]: T[P]
-}
+  -readonly [P in keyof T]: T[P];
+};
 
 export type Immutable<T> = {
-  +readonly [P in keyof T]: T[P]
-}
+  +readonly [P in keyof T]: T[P];
+};

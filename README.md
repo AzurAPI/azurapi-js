@@ -25,25 +25,31 @@
 </div>
 
 # AzurApi-~~JS~~TS
+
 Open Source Library For Azur Lane
 
 ## Features
+
 - Hosted Locally in your machine, no more waiting for server downtime!!!
 - Ship Information and Specific Data Searching
 - More to come soon
 
 ## Requirement
+
 This package needs Node version `14.0.0` or newer.
 
 ## Install
+
 Get stable package from npm by running `npm install --save @azurapi/azurapi` in the command line.
 
 ## Usage / Documentation
+
 To use the Library, Please refer to the [Docs](https://azurapi.github.io/v2/)
 
 ## Nightly
+
 Get nightly builds from the [CI server](https://ci.nekos.cloud/buildConfiguration/AzurapiJs_Build?guest=1). Read nightly docs
-[here](https://ci.nekos.cloud/app/rest/builds/buildType:(id:AzurapiJs_Build),status:SUCCESS/artifacts/content/docs/index.html?guest=1)(Latest successful build) or [here](https://ci.nekos.cloud/app/rest/builds/buildType:(id:AzurapiJs_Build)/artifacts/content/docs/index.html?guest=1)(Latest build).
+[here](<https://ci.nekos.cloud/app/rest/builds/buildType:(id:AzurapiJs_Build),status:SUCCESS/artifacts/content/docs/index.html?guest=1>)(Latest successful build) or [here](<https://ci.nekos.cloud/app/rest/builds/buildType:(id:AzurapiJs_Build)/artifacts/content/docs/index.html?guest=1>)(Latest build).
 
 ## Support Server
 

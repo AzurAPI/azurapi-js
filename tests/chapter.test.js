@@ -1,7 +1,6 @@
 const { AzurAPI } = require('../build/core/Client.js');
 const client = new AzurAPI();
 
-
 test('Whole chapter', async () => {
   client.on('ready', async () => {
     let result = await client.chapters.get('1');

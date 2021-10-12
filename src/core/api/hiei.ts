@@ -18,28 +18,28 @@ const endpoint = {
     rarity: '/ship/rarity',
     hullType: '/ship/hullType',
     shipClass: '/ship/shipClass',
-    nationality: '/ship/nationality'
+    nationality: '/ship/nationality',
   },
   equipment: {
     search: '/equip/search',
     random: '/equip/random',
     nationality: '/equip/nationality',
-    category: '/equip/category'
+    category: '/equip/category',
   },
   barrage: {
     name: '/barrage/searchBarrageByName',
-    ship: '/barrage/searchBarrageByShip'
+    ship: '/barrage/searchBarrageByShip',
   },
   event: {
-    search: '/event/search'
+    search: '/event/search',
   },
   chapter: {
     code: '/chapter/code',
-    search: '/chapter/search'
+    search: '/chapter/search',
   },
   voice: {
-    id: '/voice/id'
-  }
+    id: '/voice/id',
+  },
 };
 
 /**
@@ -64,12 +64,16 @@ export class HieiAPI {
   _fetch(endpoint: string, q: string) {
     const url = new URL(endpoint, this.client.options.hieiUrl);
     url.search = new URLSearchParams({ q }).toString();
-    http.get(url.toString(), { headers: { 'authorization': this.client.options.hieiAuth }}, (res) => {
+    http.get(url.toString(), { headers: { authorization: this.client.options.hieiAuth } }, res => {
       let error: Error | undefined;
       if (res.statusCode !== 200) {
         error = new Error(`Request Failed with Status Code: ${res.statusCode}`);
       } else if (!/^application\/json/.test(res.headers['content-type'] ? res.headers['content-type'] : '')) {
-        error = new Error(`Invalid content-type. Expeceted "application/json" but received ${res.headers['content-type'] ? res.headers['content-type'] : 'undefined'}`);
+        error = new Error(
+          `Invalid content-type. Expeceted "application/json" but received ${
+            res.headers['content-type'] ? res.headers['content-type'] : 'undefined'
+          }`
+        );
       }
 
       if (error) {
@@ -80,7 +84,7 @@ export class HieiAPI {
 
       res.setEncoding('utf-8');
       let raw: string = '';
-      res.on('data', c => raw += c);
+      res.on('data', c => (raw += c));
       res.on('end', () => {
         try {
           const data = JSON.parse(raw);

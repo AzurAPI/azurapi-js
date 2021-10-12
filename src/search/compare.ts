@@ -45,8 +45,7 @@ export function distance2(a: string, b: string): number {
   const DP = new Array(2);
   for (let i = 0; i < 2; i++) {
     DP[i] = new Array(len1 + 1);
-    for (let j = 0; j < len1 + 1; j++)
-      DP[i][j] = 0;
+    for (let j = 0; j < len1 + 1; j++) DP[i][j] = 0;
   }
   for (let i = 0; i <= len1; i++) DP[0][i] = i;
   for (let i = 1; i <= len2; i++) {
@@ -98,7 +97,7 @@ export function levenshteinDistance(a: string, b: string): number {
  * @returns array
  */
 function bigramGen(s: string): string[] {
-/*  const a: string[] = s.split(/\s/g);
+  /*  const a: string[] = s.split(/\s/g);
   const g: string[] = [];
   for (let i: number = 0; i < s.length - 1; i++) {
     const w: string = a[i];

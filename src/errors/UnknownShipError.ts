@@ -17,6 +17,6 @@ export default class UnknownShipError extends Error {
     super(`Unable to find ship by query "${id}"`);
 
     this.query = id;
-    this.name  = 'UnknownShipError';
+    this.name = 'UnknownShipError';
   }
 }

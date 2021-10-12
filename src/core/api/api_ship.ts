@@ -25,7 +25,13 @@ export class Ships extends API<Ship> {
    * @param languages Language to search
    */
   name(name: string, languages: Language[] = ['en', 'cn', 'jp', 'kr']): Ship | undefined {
-    for (let ship of this.raw) if (languages.some(lang => ship.names[lang] && normalize(ship.names[lang].toUpperCase()) === normalize(name.toUpperCase()))) return ship;
+    for (let ship of this.raw)
+      if (
+        languages.some(
+          lang => ship.names[lang] && normalize(ship.names[lang].toUpperCase()) === normalize(name.toUpperCase())
+        )
+      )
+        return ship;
     return undefined;
   }
 
@@ -34,9 +40,10 @@ export class Ships extends API<Ship> {
    * @param hull Hull name
    */
   hull(hull: string): Ship[] {
-    return this.raw.filter(ship =>
-      (ship.hullType && normalize(ship.hullType.toUpperCase()) === normalize(hull.toUpperCase())) ||
-            (ship.retrofitHullType && normalize(ship.retrofitHullType.toUpperCase()) === normalize(hull.toUpperCase()))
+    return this.raw.filter(
+      ship =>
+        (ship.hullType && normalize(ship.hullType.toUpperCase()) === normalize(hull.toUpperCase())) ||
+        (ship.retrofitHullType && normalize(ship.retrofitHullType.toUpperCase()) === normalize(hull.toUpperCase()))
     );
   }
 
@@ -47,12 +54,17 @@ export class Ships extends API<Ship> {
   nationality(nationality: string): Ship[] {
     let results: Ship[] = [];
     nationality = Object.keys(NATIONS).find(key => NATIONS[key].includes(nationality.toLowerCase())) || nationality;
-    for (let ship of this.raw) if (normalize(ship.nationality.toUpperCase()) === normalize(nationality.toUpperCase())) results.push(ship);
+    for (let ship of this.raw)
+      if (normalize(ship.nationality.toUpperCase()) === normalize(nationality.toUpperCase())) results.push(ship);
     return results;
   }
 
   private _nameAll(name: string, languages: Language[] = ['en', 'cn', 'jp', 'kr']): Ship[] {
-    return this.raw.filter(ship => languages.some(lang => ship.names[lang] && normalize(ship.names[lang].toUpperCase()) === normalize(name.toUpperCase())));
+    return this.raw.filter(ship =>
+      languages.some(
+        lang => ship.names[lang] && normalize(ship.names[lang].toUpperCase()) === normalize(name.toUpperCase())
+      )
+    );
   }
 
   /**
@@ -63,7 +75,7 @@ export class Ships extends API<Ship> {
     if (adv) {
       if (adv.idOnly) {
         return this.id(query);
-      } else if (adv.nameOnly || adv.nameOnly && !adv.language) {
+      } else if (adv.nameOnly || (adv.nameOnly && !adv.language)) {
         return this.name(query);
       } else if (adv.nameOnly && adv.language) {
         return this.name(query, [adv.language]);

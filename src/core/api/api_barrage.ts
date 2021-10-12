@@ -8,13 +8,13 @@ import API, { Language, normalize, NATIONS, advancedOptions } from './api';
 import { AzurAPI } from '../Client';
 
 /**
-  * Special barrage class for extended functionality
-  */
+ * Special barrage class for extended functionality
+ */
 export class Barrages extends API<Barrage> {
   /**
-    * Constructor
-    * @param client An AzurAPI instance
-    */
+   * Constructor
+   * @param client An AzurAPI instance
+   */
   constructor(client: AzurAPI) {
     super(client, ['id', 'name']);
   }
@@ -23,7 +23,8 @@ export class Barrages extends API<Barrage> {
    * @param name Barrage name
    */
   name(name: string): Barrage | undefined {
-    for (let barrage of this.raw) if (normalize(barrage.name.toUpperCase()) === normalize(name.toUpperCase())) return barrage;
+    for (let barrage of this.raw)
+      if (normalize(barrage.name.toUpperCase()) === normalize(name.toUpperCase())) return barrage;
     return undefined;
   }
 
@@ -48,6 +49,8 @@ export class Barrages extends API<Barrage> {
    * @param ship A ship name
    */
   ships(ship: Ships): Barrage[] | void[] {
-    return this.raw.filter(barrage => barrage.ships.map(ship => normalize(ship.toUpperCase())).includes(normalize(ship.toUpperCase())));
+    return this.raw.filter(barrage =>
+      barrage.ships.map(ship => normalize(ship.toUpperCase())).includes(normalize(ship.toUpperCase()))
+    );
   }
 }

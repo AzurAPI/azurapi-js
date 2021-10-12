@@ -13,35 +13,35 @@ const argv = yargs
       description: 'Ship id or name to check for',
       alias: 'q',
       type: 'string',
-    }
+    },
   })
   .command('equipments', 'Get ship info in database', {
     query: {
       description: 'Equipment id or name to check for',
       alias: 'q',
       type: 'string',
-    }
+    },
   })
   .command('chapters', 'Get chapter info in database', {
     query: {
       description: 'Chapter id or name to check for',
       alias: 'q',
       type: 'string',
-    }
+    },
   })
   .command('voicelines', 'Get voiceline info in database', {
     query: {
       description: 'Voice line id or name to check for',
       alias: 'q',
       type: 'string',
-    }
+    },
   })
   .command('barrages', 'Get barrage info in database', {
     query: {
       description: 'Barrage id to check for',
       alias: 'q',
       type: 'string',
-    }
+    },
   })
   .option('version', {
     alias: 'v',
@@ -52,8 +52,7 @@ const argv = yargs
     description: 'Update local API Data',
   })
   .help()
-  .alias('help', 'h')
-  .argv;
+  .alias('help', 'h').argv;
 
 if (argv.version) {
   console.log(chalk`$ {yellow AzurApi-JS v2 CLI}
@@ -81,7 +80,13 @@ function promise(func) {
   });
 }
 
-if (argv._.includes('ships') || argv._.includes('equipments') || argv._.includes('chapters') || argv._.includes('voicelines') || argv._.includes('barrages')) {
+if (
+  argv._.includes('ships') ||
+  argv._.includes('equipments') ||
+  argv._.includes('chapters') ||
+  argv._.includes('voicelines') ||
+  argv._.includes('barrages')
+) {
   if (!argv.query || argv.query === '') {
     console.log(chalk.red('No query provided. Please add a query following the -q option.'));
     process.exit(0);
@@ -99,14 +104,21 @@ if (argv._.includes('ships') || argv._.includes('equipments') || argv._.includes
     fetch = promise(client.barrages.get(argv.query));
   }
   client.on('ready', async () => {
-    fetch.then(get => {
-      console.log(chalk.green(`Data returned for query ${argv.query}`));
-      console.log(highlight(JSON.stringify(get, null, 2), { language: 'json', theme: { string: chalk.green, number: chalk.yellow }}));
-      process.exit(0);
-    }).catch(ex => {
-      console.log(chalk.red(ex));
-      process.exit(0);
-    });
+    fetch
+      .then(get => {
+        console.log(chalk.green(`Data returned for query ${argv.query}`));
+        console.log(
+          highlight(JSON.stringify(get, null, 2), {
+            language: 'json',
+            theme: { string: chalk.green, number: chalk.yellow },
+          })
+        );
+        process.exit(0);
+      })
+      .catch(ex => {
+        console.log(chalk.red(ex));
+        process.exit(0);
+      });
   });
 } else {
   console.log(chalk.red('Command not recognised, use flag -h, --help for more information'));

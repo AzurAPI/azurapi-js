@@ -13,7 +13,7 @@ export const data = {
   voicelines: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/voice_lines.json',
   barrages: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/barrage.json',
   shipList: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/ship-list.json',
-  idMap: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/id-map.json'
+  idMap: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/id-map.json',
 };
 
 export const local = {
@@ -23,7 +23,7 @@ export const local = {
   voicelines: join(__dirname, '..', '.azurlane', 'voice_lines.json'),
   barrages: join(__dirname, '..', '.azurlane', 'barrage.json'),
   shipList: join(__dirname, '..', '.azurlane', 'ship-list.json'),
-  idMap: join(__dirname, '..', '.azurlane', 'id-map.json')
+  idMap: join(__dirname, '..', '.azurlane', 'id-map.json'),
 };
 export type datatype = 'ships' | 'equipments' | 'voicelines' | 'chapters' | 'barrages';
 export let baseFolder = join(__dirname, '..', '.azurlane');

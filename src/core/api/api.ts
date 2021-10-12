@@ -11,9 +11,9 @@ import FuseResult = Fuse.FuseResult;
 export type Language = 'en' | 'cn' | 'jp' | 'kr';
 
 export interface advancedOptions {
-  nameOnly?: boolean,
-  idOnly?: boolean,
-  language?: Language
+  nameOnly?: boolean;
+  idOnly?: boolean;
+  language?: Language;
 }
 
 export const NATIONS = {
@@ -26,14 +26,14 @@ export const NATIONS = {
   'Iris Libre': ['ffnf', 'iris libre'],
   'Vichya Domination': ['mnf', 'vichya domination'],
   'Sardenga Empire': ['rn', 'sardegna empire'],
-  'Neptunia': ['hdn', 'neptunia'],
-  'Bilibili': ['bili', 'bilibili'],
+  Neptunia: ['hdn', 'neptunia'],
+  Bilibili: ['bili', 'bilibili'],
   'Venus Vacation': ['venus', 'venus vacation'],
-  'Utawarerumono': ['utawarerumono'],
+  Utawarerumono: ['utawarerumono'],
   'Kizuna AI': ['kizunaai', 'kizuna ai'],
-  'Hololive': ['hololive'],
-  'META': ['meta'],
-  'Universal': ['universal', 'univ']
+  Hololive: ['hololive'],
+  META: ['meta'],
+  Universal: ['universal', 'univ'],
 };
 
 /**

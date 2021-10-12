@@ -17,6 +17,6 @@ export default class UnknownEquipmentError extends Error {
     super(`Unable to find equipment by query "${id}"`);
 
     this.query = id;
-    this.name  = 'UnknownEquipmentError';
+    this.name = 'UnknownEquipmentError';
   }
 }
