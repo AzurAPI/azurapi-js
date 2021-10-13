@@ -75,7 +75,7 @@
 								{
 									"fileName": "src/core/CacheUpdater.ts",
 									"line": 13,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -97,7 +97,7 @@
 								{
 									"fileName": "src/core/CacheUpdater.ts",
 									"line": 12,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -123,8 +123,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/CacheUpdater.ts",
-									"line": 61,
-									"character": 14
+									"line": 65,
+									"character": 12
 								}
 							],
 							"signatures": [
@@ -159,8 +159,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/CacheUpdater.ts",
-									"line": 70,
-									"character": 8
+									"line": 74,
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -217,7 +217,7 @@
 								{
 									"fileName": "src/core/CacheUpdater.ts",
 									"line": 44,
-									"character": 9
+									"character": 7
 								}
 							],
 							"signatures": [
@@ -246,8 +246,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/CacheUpdater.ts",
-									"line": 53,
-									"character": 8
+									"line": 57,
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -277,7 +277,7 @@
 								{
 									"fileName": "src/core/CacheUpdater.ts",
 									"line": 26,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -442,7 +442,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 37,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -462,7 +462,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 29,
-									"character": 21
+									"character": 19
 								}
 							],
 							"type": {
@@ -482,7 +482,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 36,
-									"character": 19
+									"character": 17
 								}
 							],
 							"type": {
@@ -513,7 +513,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 34,
-									"character": 19
+									"character": 17
 								}
 							],
 							"type": {
@@ -544,7 +544,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 33,
-									"character": 21
+									"character": 19
 								}
 							],
 							"type": {
@@ -575,7 +575,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 27,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -596,7 +596,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 30,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -616,7 +616,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 32,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -647,7 +647,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 28,
-									"character": 17
+									"character": 15
 								}
 							],
 							"type": {
@@ -667,7 +667,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 31,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -688,7 +688,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 35,
-									"character": 21
+									"character": 19
 								}
 							],
 							"type": {
@@ -1870,8 +1870,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/Client.ts",
-									"line": 92,
-									"character": 7
+									"line": 93,
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -2325,7 +2325,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 15,
-									"character": 14
+									"character": 12
 								}
 							],
 							"type": {
@@ -2354,7 +2354,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 18,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -2383,7 +2383,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 17,
-									"character": 11
+									"character": 9
 								}
 							],
 							"type": {
@@ -2412,7 +2412,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 16,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -2441,7 +2441,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 14,
-									"character": 10
+									"character": 8
 								}
 							],
 							"type": {
@@ -3026,7 +3026,7 @@
 					"sources": [
 						{
 							"fileName": "src/core/UpdateChecker.ts",
-							"line": 38,
+							"line": 39,
 							"character": 21
 						}
 					],
@@ -3078,7 +3078,7 @@
 					"sources": [
 						{
 							"fileName": "src/core/UpdateChecker.ts",
-							"line": 30,
+							"line": 31,
 							"character": 20
 						}
 					],
@@ -3231,7 +3231,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 45,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -3252,7 +3252,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 44,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -3285,7 +3285,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 43,
-									"character": 7
+									"character": 5
 								}
 							],
 							"type": {
@@ -3306,7 +3306,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 121,
-									"character": 9
+									"character": 7
 								}
 							],
 							"signatures": [
@@ -3409,7 +3409,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 97,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -3515,7 +3515,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 113,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -3618,7 +3618,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 71,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -3673,7 +3673,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 89,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -3728,7 +3728,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 80,
-									"character": 6
+									"character": 4
 								}
 							],
 							"signatures": [
@@ -3783,7 +3783,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 105,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -3898,7 +3898,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 62,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -3947,7 +3947,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 129,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -4142,7 +4142,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 15,
-									"character": 10
+									"character": 8
 								}
 							],
 							"type": {
@@ -4171,7 +4171,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 16,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -4212,7 +4212,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 14,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -4768,7 +4768,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 44,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -4807,7 +4807,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 43,
-									"character": 7
+									"character": 5
 								}
 							],
 							"type": {
@@ -4834,7 +4834,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 121,
-									"character": 9
+									"character": 7
 								}
 							],
 							"signatures": [
@@ -4949,7 +4949,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 97,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -5068,7 +5068,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 113,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -5183,7 +5183,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 71,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -5249,7 +5249,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 89,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -5314,8 +5314,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_barrage.ts",
-									"line": 42,
-									"character": 8
+									"line": 43,
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -5378,7 +5378,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 80,
-									"character": 6
+									"character": 4
 								}
 							],
 							"signatures": [
@@ -5444,7 +5444,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 105,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -5571,7 +5571,7 @@
 								{
 									"fileName": "src/core/api/api_barrage.ts",
 									"line": 25,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -5627,7 +5627,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 62,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -5686,8 +5686,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_barrage.ts",
-									"line": 50,
-									"character": 9
+									"line": 51,
+									"character": 7
 								}
 							],
 							"signatures": [
@@ -5750,7 +5750,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 129,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -5864,8 +5864,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_barrage.ts",
-									"line": 34,
-									"character": 8
+									"line": 35,
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -6090,7 +6090,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 44,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -6129,7 +6129,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 43,
-									"character": 7
+									"character": 5
 								}
 							],
 							"type": {
@@ -6156,7 +6156,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 121,
-									"character": 9
+									"character": 7
 								}
 							],
 							"signatures": [
@@ -6271,7 +6271,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 97,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -6390,7 +6390,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 113,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -6505,7 +6505,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 71,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -6571,7 +6571,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 89,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -6637,7 +6637,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 80,
-									"character": 6
+									"character": 4
 								}
 							],
 							"signatures": [
@@ -6703,7 +6703,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 105,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -6830,7 +6830,7 @@
 								{
 									"fileName": "src/core/api/api_chapter.ts",
 									"line": 27,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -6910,7 +6910,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 62,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -6970,7 +6970,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 129,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -7232,7 +7232,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 44,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -7271,7 +7271,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 43,
-									"character": 7
+									"character": 5
 								}
 							],
 							"type": {
@@ -7299,8 +7299,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_equipment.ts",
-									"line": 57,
-									"character": 20
+									"line": 63,
+									"character": 18
 								}
 							],
 							"signatures": [
@@ -7359,8 +7359,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_equipment.ts",
-									"line": 86,
-									"character": 7
+									"line": 95,
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -7409,8 +7409,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_equipment.ts",
-									"line": 38,
-									"character": 12
+									"line": 43,
+									"character": 10
 								}
 							],
 							"signatures": [
@@ -7460,7 +7460,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 121,
-									"character": 9
+									"character": 7
 								}
 							],
 							"signatures": [
@@ -7575,7 +7575,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 97,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -7694,7 +7694,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 113,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -7809,7 +7809,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 71,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -7874,8 +7874,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_equipment.ts",
-									"line": 67,
-									"character": 7
+									"line": 76,
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -7955,7 +7955,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 80,
-									"character": 6
+									"character": 4
 								}
 							],
 							"signatures": [
@@ -8021,7 +8021,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 105,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -8148,7 +8148,7 @@
 								{
 									"fileName": "src/core/api/api_equipment.ts",
 									"line": 27,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -8222,8 +8222,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_equipment.ts",
-									"line": 49,
-									"character": 15
+									"line": 54,
+									"character": 13
 								}
 							],
 							"signatures": [
@@ -8273,7 +8273,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 62,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -8333,7 +8333,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 129,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -8599,7 +8599,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 44,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -8638,7 +8638,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 43,
-									"character": 7
+									"character": 5
 								}
 							],
 							"type": {
@@ -8666,8 +8666,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_ship.ts",
-									"line": 56,
-									"character": 20
+									"line": 62,
+									"character": 18
 								}
 							],
 							"signatures": [
@@ -8726,8 +8726,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_ship.ts",
-									"line": 85,
-									"character": 7
+									"line": 93,
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -8777,7 +8777,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 121,
-									"character": 9
+									"character": 7
 								}
 							],
 							"signatures": [
@@ -8892,7 +8892,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 97,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -9011,7 +9011,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 113,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -9126,7 +9126,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 71,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -9191,8 +9191,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_ship.ts",
-									"line": 66,
-									"character": 7
+									"line": 74,
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -9271,8 +9271,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_ship.ts",
-									"line": 37,
-									"character": 8
+									"line": 42,
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -9322,7 +9322,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 80,
-									"character": 6
+									"character": 4
 								}
 							],
 							"signatures": [
@@ -9388,7 +9388,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 105,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -9515,7 +9515,7 @@
 								{
 									"fileName": "src/core/api/api_ship.ts",
 									"line": 27,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -9589,8 +9589,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/api/api_ship.ts",
-									"line": 49,
-									"character": 15
+									"line": 54,
+									"character": 13
 								}
 							],
 							"signatures": [
@@ -9640,7 +9640,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 62,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -9700,7 +9700,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 129,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -9966,7 +9966,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 44,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -10005,7 +10005,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 43,
-									"character": 7
+									"character": 5
 								}
 							],
 							"type": {
@@ -10032,7 +10032,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 121,
-									"character": 9
+									"character": 7
 								}
 							],
 							"signatures": [
@@ -10147,7 +10147,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 97,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -10266,7 +10266,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 113,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -10381,7 +10381,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 71,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -10447,7 +10447,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 89,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -10513,7 +10513,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 80,
-									"character": 6
+									"character": 4
 								}
 							],
 							"signatures": [
@@ -10579,7 +10579,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 105,
-									"character": 7
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -10706,7 +10706,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 62,
-									"character": 11
+									"character": 9
 								}
 							],
 							"signatures": [
@@ -10766,7 +10766,7 @@
 								{
 									"fileName": "src/core/api/api.ts",
 									"line": 129,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -11015,7 +11015,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 64,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -11085,7 +11085,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 189,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -11125,7 +11125,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 193,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -11250,7 +11250,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 64,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -11320,7 +11320,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 213,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -11360,7 +11360,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 217,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -11485,7 +11485,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 64,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -11555,7 +11555,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 179,
-									"character": 12
+									"character": 10
 								}
 							],
 							"signatures": [
@@ -11595,7 +11595,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 175,
-									"character": 15
+									"character": 13
 								}
 							],
 							"signatures": [
@@ -11635,7 +11635,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 171,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -11675,7 +11675,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 167,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -11802,7 +11802,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 64,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -11872,7 +11872,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 203,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -11997,7 +11997,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 49,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -12016,7 +12016,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 64,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -12191,7 +12191,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 64,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -12261,7 +12261,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 149,
-									"character": 9
+									"character": 7
 								}
 							],
 							"signatures": [
@@ -12307,7 +12307,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 141,
-									"character": 8
+									"character": 6
 								}
 							],
 							"signatures": [
@@ -12353,7 +12353,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 125,
-									"character": 6
+									"character": 4
 								}
 							],
 							"signatures": [
@@ -12399,7 +12399,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 157,
-									"character": 15
+									"character": 13
 								}
 							],
 							"signatures": [
@@ -12445,7 +12445,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 117,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -12489,7 +12489,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 133,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -12535,7 +12535,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 110,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -12671,7 +12671,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 64,
-									"character": 10
+									"character": 8
 								}
 							],
 							"signatures": [
@@ -12741,7 +12741,7 @@
 								{
 									"fileName": "src/core/api/hiei.ts",
 									"line": 227,
-									"character": 6
+									"character": 4
 								}
 							],
 							"signatures": [
@@ -13357,7 +13357,7 @@
 								{
 									"fileName": "src/errors/UnknownChapterError.ts",
 									"line": 14,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -13726,7 +13726,7 @@
 								{
 									"fileName": "src/errors/UnknownEquipmentError.ts",
 									"line": 14,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -14095,7 +14095,7 @@
 								{
 									"fileName": "src/errors/UnknownShipError.ts",
 									"line": 14,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -14464,7 +14464,7 @@
 								{
 									"fileName": "src/errors/UnknownShipVoicelinesError.ts",
 									"line": 14,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -14833,7 +14833,7 @@
 								{
 									"fileName": "src/errors/UnkonwnBarrageError.ts",
 									"line": 14,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -15734,7 +15734,7 @@
 								{
 									"fileName": "src/http/server_v2.ts",
 									"line": 6,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -15756,7 +15756,7 @@
 								{
 									"fileName": "src/http/server_v2.ts",
 									"line": 5,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -15776,7 +15776,7 @@
 								{
 									"fileName": "src/http/server_v2.ts",
 									"line": 7,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -15796,7 +15796,7 @@
 								{
 									"fileName": "src/http/server_v2.ts",
 									"line": 20,
-									"character": 20
+									"character": 18
 								}
 							],
 							"signatures": [
@@ -15964,7 +15964,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 37,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -15984,7 +15984,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 29,
-									"character": 21
+									"character": 19
 								}
 							],
 							"type": {
@@ -16004,7 +16004,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 36,
-									"character": 19
+									"character": 17
 								}
 							],
 							"type": {
@@ -16035,7 +16035,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 34,
-									"character": 19
+									"character": 17
 								}
 							],
 							"type": {
@@ -16066,7 +16066,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 33,
-									"character": 21
+									"character": 19
 								}
 							],
 							"type": {
@@ -16097,7 +16097,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 27,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -16118,7 +16118,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 30,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -16138,7 +16138,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 32,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -16169,7 +16169,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 28,
-									"character": 17
+									"character": 15
 								}
 							],
 							"type": {
@@ -16189,7 +16189,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 31,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -16210,7 +16210,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 35,
-									"character": 21
+									"character": 19
 								}
 							],
 							"type": {
@@ -17392,8 +17392,8 @@
 							"sources": [
 								{
 									"fileName": "src/core/Client.ts",
-									"line": 92,
-									"character": 7
+									"line": 93,
+									"character": 5
 								}
 							],
 							"signatures": [
@@ -17883,7 +17883,7 @@
 								{
 									"fileName": "src/http/server_v2.ts",
 									"line": 6,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -17905,7 +17905,7 @@
 								{
 									"fileName": "src/http/server_v2.ts",
 									"line": 5,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -17925,7 +17925,7 @@
 								{
 									"fileName": "src/http/server_v2.ts",
 									"line": 7,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -17945,7 +17945,7 @@
 								{
 									"fileName": "src/http/server_v2.ts",
 									"line": 20,
-									"character": 20
+									"character": 18
 								}
 							],
 							"signatures": [
@@ -18039,7 +18039,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 15,
-									"character": 14
+									"character": 12
 								}
 							],
 							"type": {
@@ -18068,7 +18068,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 18,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -18097,7 +18097,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 17,
-									"character": 11
+									"character": 9
 								}
 							],
 							"type": {
@@ -18126,7 +18126,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 16,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -18155,7 +18155,7 @@
 								{
 									"fileName": "src/core/Client.ts",
 									"line": 14,
-									"character": 10
+									"character": 8
 								}
 							],
 							"type": {
@@ -18341,7 +18341,7 @@
 								{
 									"fileName": "src/plugin/Hook.ts",
 									"line": 4,
-									"character": 17
+									"character": 15
 								}
 							],
 							"type": {
@@ -18364,7 +18364,7 @@
 								{
 									"fileName": "src/plugin/Hook.ts",
 									"line": 15,
-									"character": 15
+									"character": 13
 								}
 							],
 							"signatures": [
@@ -18420,7 +18420,7 @@
 								{
 									"fileName": "src/plugin/Hook.ts",
 									"line": 9,
-									"character": 19
+									"character": 17
 								}
 							],
 							"signatures": [
@@ -18568,7 +18568,7 @@
 								{
 									"fileName": "src/plugin/Source.ts",
 									"line": 17,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -18591,7 +18591,7 @@
 								{
 									"fileName": "src/plugin/Source.ts",
 									"line": 30,
-									"character": 14
+									"character": 12
 								}
 							],
 							"signatures": [
@@ -18633,7 +18633,7 @@
 								{
 									"fileName": "src/plugin/Source.ts",
 									"line": 22,
-									"character": 19
+									"character": 17
 								}
 							],
 							"signatures": [
@@ -18714,7 +18714,7 @@
 								{
 									"fileName": "src/plugin/Source.ts",
 									"line": 4,
-									"character": 13
+									"character": 11
 								}
 							],
 							"type": {
@@ -18738,7 +18738,7 @@
 												{
 													"fileName": "src/plugin/Source.ts",
 													"line": 6,
-													"character": 15
+													"character": 11
 												}
 											],
 											"type": {
@@ -18767,7 +18767,7 @@
 																		{
 																			"fileName": "src/plugin/Source.ts",
 																			"line": 11,
-																			"character": 19
+																			"character": 13
 																		}
 																	],
 																	"type": {
@@ -18785,7 +18785,7 @@
 																		{
 																			"fileName": "src/plugin/Source.ts",
 																			"line": 9,
-																			"character": 20
+																			"character": 14
 																		}
 																	],
 																	"type": {
@@ -18803,7 +18803,7 @@
 																		{
 																			"fileName": "src/plugin/Source.ts",
 																			"line": 8,
-																			"character": 22
+																			"character": 16
 																		}
 																	],
 																	"type": {
@@ -18821,7 +18821,7 @@
 																		{
 																			"fileName": "src/plugin/Source.ts",
 																			"line": 7,
-																			"character": 16
+																			"character": 10
 																		}
 																	],
 																	"type": {
@@ -18839,7 +18839,7 @@
 																		{
 																			"fileName": "src/plugin/Source.ts",
 																			"line": 10,
-																			"character": 22
+																			"character": 16
 																		}
 																	],
 																	"type": {
@@ -18876,7 +18876,7 @@
 												{
 													"fileName": "src/plugin/Source.ts",
 													"line": 5,
-													"character": 14
+													"character": 10
 												}
 											],
 											"type": {
@@ -18908,7 +18908,7 @@
 								{
 									"fileName": "src/plugin/Source.ts",
 									"line": 2,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -18926,7 +18926,7 @@
 								{
 									"fileName": "src/plugin/Source.ts",
 									"line": 3,
-									"character": 11
+									"character": 9
 								}
 							],
 							"type": {
@@ -19368,8 +19368,8 @@
 							"sources": [
 								{
 									"fileName": "src/search/search.ts",
-									"line": 11,
-									"character": 21
+									"line": 19,
+									"character": 19
 								}
 							],
 							"type": {
@@ -19388,8 +19388,8 @@
 							"sources": [
 								{
 									"fileName": "src/search/search.ts",
-									"line": 8,
-									"character": 19
+									"line": 16,
+									"character": 17
 								}
 							],
 							"type": {
@@ -19434,8 +19434,8 @@
 							"sources": [
 								{
 									"fileName": "src/search/search.ts",
-									"line": 7,
-									"character": 15
+									"line": 15,
+									"character": 13
 								}
 							],
 							"type": {
@@ -19465,8 +19465,8 @@
 							"sources": [
 								{
 									"fileName": "src/search/search.ts",
-									"line": 10,
-									"character": 19
+									"line": 18,
+									"character": 17
 								}
 							],
 							"type": {
@@ -19494,8 +19494,8 @@
 							"sources": [
 								{
 									"fileName": "src/search/search.ts",
-									"line": 9,
-									"character": 19
+									"line": 17,
+									"character": 17
 								}
 							],
 							"type": {
@@ -19514,8 +19514,8 @@
 							"sources": [
 								{
 									"fileName": "src/search/search.ts",
-									"line": 64,
-									"character": 22
+									"line": 78,
+									"character": 20
 								}
 							],
 							"signatures": [
@@ -19571,8 +19571,8 @@
 							"sources": [
 								{
 									"fileName": "src/search/search.ts",
-									"line": 48,
-									"character": 21
+									"line": 62,
+									"character": 19
 								}
 							],
 							"signatures": [
@@ -19636,8 +19636,8 @@
 							"sources": [
 								{
 									"fileName": "src/search/search.ts",
-									"line": 32,
-									"character": 24
+									"line": 40,
+									"character": 22
 								}
 							],
 							"signatures": [
@@ -19691,8 +19691,8 @@
 							"sources": [
 								{
 									"fileName": "src/search/search.ts",
-									"line": 87,
-									"character": 17
+									"line": 101,
+									"character": 15
 								}
 							],
 							"signatures": [
@@ -19790,7 +19790,7 @@
 					"sources": [
 						{
 							"fileName": "src/search/search.ts",
-							"line": 6,
+							"line": 14,
 							"character": 29
 						}
 					]
@@ -19839,7 +19839,7 @@
 								{
 									"fileName": "src/search/search_typings.ts",
 									"line": 11,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -19868,7 +19868,7 @@
 								{
 									"fileName": "src/search/search_typings.ts",
 									"line": 10,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -19930,7 +19930,7 @@
 								{
 									"fileName": "src/search/search_typings.ts",
 									"line": 11,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -19964,7 +19964,7 @@
 								{
 									"fileName": "src/search/search_typings.ts",
 									"line": 4,
-									"character": 13
+									"character": 11
 								}
 							],
 							"type": {
@@ -20040,7 +20040,7 @@
 								{
 									"fileName": "src/search/search_typings.ts",
 									"line": 5,
-									"character": 14
+									"character": 12
 								}
 							],
 							"type": {
@@ -20067,7 +20067,7 @@
 								{
 									"fileName": "src/search/search_typings.ts",
 									"line": 2,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -20099,7 +20099,7 @@
 								{
 									"fileName": "src/search/search_typings.ts",
 									"line": 6,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -20128,7 +20128,7 @@
 								{
 									"fileName": "src/search/search_typings.ts",
 									"line": 10,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -20162,7 +20162,7 @@
 								{
 									"fileName": "src/search/search_typings.ts",
 									"line": 3,
-									"character": 11
+									"character": 9
 								}
 							],
 							"type": {
@@ -20521,8 +20521,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 482,
-									"character": 8
+									"line": 491,
+									"character": 6
 								}
 							],
 							"type": {
@@ -20540,8 +20540,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 479,
-									"character": 8
+									"line": 488,
+									"character": 6
 								}
 							],
 							"type": {
@@ -20559,7 +20559,7 @@
 								{
 									"fileName": "src/types/identifiable.ts",
 									"line": 7,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
@@ -20581,8 +20581,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 480,
-									"character": 8
+									"line": 489,
+									"character": 6
 								}
 							],
 							"type": {
@@ -20599,8 +20599,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 483,
-									"character": 10
+									"line": 492,
+									"character": 8
 								}
 							],
 							"type": {
@@ -20621,8 +20621,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 481,
-									"character": 9
+									"line": 490,
+									"character": 7
 								}
 							],
 							"type": {
@@ -20643,8 +20643,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 478,
-									"character": 8
+									"line": 487,
+									"character": 6
 								}
 							],
 							"type": {
@@ -20671,7 +20671,7 @@
 					"sources": [
 						{
 							"fileName": "src/types/barrage.ts",
-							"line": 477,
+							"line": 486,
 							"character": 24
 						}
 					],
@@ -20699,8 +20699,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 472,
-									"character": 8
+									"line": 481,
+									"character": 6
 								}
 							],
 							"type": {
@@ -20717,8 +20717,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 473,
-									"character": 8
+									"line": 482,
+									"character": 6
 								}
 							],
 							"type": {
@@ -20737,8 +20737,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 474,
-									"character": 8
+									"line": 483,
+									"character": 6
 								}
 							],
 							"type": {
@@ -20768,8 +20768,8 @@
 							"sources": [
 								{
 									"fileName": "src/types/barrage.ts",
-									"line": 471,
-									"character": 8
+									"line": 480,
+									"character": 6
 								}
 							],
 							"type": {
@@ -20794,7 +20794,7 @@
 					"sources": [
 						{
 							"fileName": "src/types/barrage.ts",
-							"line": 470,
+							"line": 479,
 							"character": 23
 						}
 					]
@@ -22869,7 +22869,7 @@
 								{
 									"fileName": "src/types/chapter.ts",
 									"line": 21,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -22888,7 +22888,7 @@
 								{
 									"fileName": "src/types/chapter.ts",
 									"line": 22,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -22907,7 +22907,7 @@
 								{
 									"fileName": "src/types/chapter.ts",
 									"line": 23,
-									"character": 18
+									"character": 16
 								}
 							],
 							"type": {
@@ -22926,7 +22926,7 @@
 								{
 									"fileName": "src/types/identifiable.ts",
 									"line": 7,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
@@ -22949,7 +22949,7 @@
 								{
 									"fileName": "src/types/chapter.ts",
 									"line": 25,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -22971,7 +22971,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 27,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -22989,7 +22989,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 26,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -23007,7 +23007,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 28,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -23077,7 +23077,7 @@
 								{
 									"fileName": "src/types/chapter.ts",
 									"line": 81,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -23099,7 +23099,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 104,
-													"character": 20
+													"character": 16
 												}
 											],
 											"type": {
@@ -23121,7 +23121,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 105,
-																	"character": 18
+																	"character": 12
 																}
 															],
 															"type": {
@@ -23139,7 +23139,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 106,
-																	"character": 23
+																	"character": 17
 																}
 															],
 															"type": {
@@ -23157,7 +23157,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 107,
-																	"character": 21
+																	"character": 15
 																}
 															],
 															"type": {
@@ -23190,7 +23190,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 95,
-													"character": 14
+													"character": 10
 												}
 											],
 											"type": {
@@ -23212,7 +23212,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 99,
-																	"character": 21
+																	"character": 15
 																}
 															],
 															"type": {
@@ -23230,7 +23230,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 98,
-																	"character": 22
+																	"character": 16
 																}
 															],
 															"type": {
@@ -23248,7 +23248,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 97,
-																	"character": 23
+																	"character": 17
 																}
 															],
 															"type": {
@@ -23266,7 +23266,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 96,
-																	"character": 22
+																	"character": 16
 																}
 															],
 															"type": {
@@ -23300,7 +23300,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 102,
-													"character": 24
+													"character": 20
 												}
 											],
 											"type": {
@@ -23318,7 +23318,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 83,
-													"character": 12
+													"character": 8
 												}
 											],
 											"type": {
@@ -23336,7 +23336,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 90,
-													"character": 18
+													"character": 14
 												}
 											],
 											"type": {
@@ -23358,7 +23358,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 93,
-																	"character": 16
+																	"character": 10
 																}
 															],
 															"type": {
@@ -23376,7 +23376,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 92,
-																	"character": 21
+																	"character": 15
 																}
 															],
 															"type": {
@@ -23394,7 +23394,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 91,
-																	"character": 20
+																	"character": 14
 																}
 															],
 															"type": {
@@ -23427,7 +23427,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 119,
-													"character": 31
+													"character": 27
 												}
 											],
 											"type": {
@@ -23448,7 +23448,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 109,
-													"character": 25
+													"character": 21
 												}
 											],
 											"type": {
@@ -23470,7 +23470,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 110,
-																	"character": 18
+																	"character": 12
 																}
 															],
 															"type": {
@@ -23488,7 +23488,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 111,
-																	"character": 18
+																	"character": 12
 																}
 															],
 															"type": {
@@ -23520,7 +23520,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 84,
-													"character": 20
+													"character": 16
 												}
 											],
 											"type": {
@@ -23538,7 +23538,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 118,
-													"character": 16
+													"character": 12
 												}
 											],
 											"type": {
@@ -23559,7 +23559,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 121,
-													"character": 15
+													"character": 11
 												}
 											],
 											"type": {
@@ -23581,7 +23581,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 123,
-																	"character": 18
+																	"character": 12
 																}
 															],
 															"type": {
@@ -23599,7 +23599,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 124,
-																	"character": 15
+																	"character": 9
 																}
 															],
 															"type": {
@@ -23620,7 +23620,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 125,
-																	"character": 17
+																	"character": 11
 																}
 															],
 															"type": {
@@ -23641,7 +23641,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 122,
-																	"character": 17
+																	"character": 11
 																}
 															],
 															"type": {
@@ -23675,7 +23675,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 101,
-													"character": 23
+													"character": 19
 												}
 											],
 											"type": {
@@ -23693,7 +23693,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 120,
-													"character": 17
+													"character": 13
 												}
 											],
 											"type": {
@@ -23714,7 +23714,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 103,
-													"character": 22
+													"character": 18
 												}
 											],
 											"type": {
@@ -23735,7 +23735,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 113,
-													"character": 24
+													"character": 20
 												}
 											],
 											"type": {
@@ -23757,7 +23757,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 114,
-																	"character": 24
+																	"character": 18
 																}
 															],
 															"type": {
@@ -23775,7 +23775,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 116,
-																	"character": 20
+																	"character": 14
 																}
 															],
 															"type": {
@@ -23793,7 +23793,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 115,
-																	"character": 21
+																	"character": 15
 																}
 															],
 															"type": {
@@ -23826,7 +23826,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 89,
-													"character": 24
+													"character": 20
 												}
 											],
 											"type": {
@@ -23847,7 +23847,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 82,
-													"character": 13
+													"character": 9
 												}
 											],
 											"type": {
@@ -23865,7 +23865,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 85,
-													"character": 26
+													"character": 22
 												}
 											],
 											"type": {
@@ -23887,7 +23887,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 87,
-																	"character": 25
+																	"character": 19
 																}
 															],
 															"type": {
@@ -23905,7 +23905,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 86,
-																	"character": 16
+																	"character": 10
 																}
 															],
 															"type": {
@@ -23966,7 +23966,7 @@
 								{
 									"fileName": "src/types/identifiable.ts",
 									"line": 7,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
@@ -23989,7 +23989,7 @@
 								{
 									"fileName": "src/types/chapter.ts",
 									"line": 33,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -24011,7 +24011,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 35,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -24029,7 +24029,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 34,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -24047,7 +24047,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 36,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -24080,7 +24080,7 @@
 								{
 									"fileName": "src/types/chapter.ts",
 									"line": 38,
-									"character": 10
+									"character": 8
 								}
 							],
 							"type": {
@@ -24102,7 +24102,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 66,
-													"character": 20
+													"character": 16
 												}
 											],
 											"type": {
@@ -24124,7 +24124,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 67,
-																	"character": 18
+																	"character": 12
 																}
 															],
 															"type": {
@@ -24142,7 +24142,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 68,
-																	"character": 23
+																	"character": 17
 																}
 															],
 															"type": {
@@ -24160,7 +24160,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 69,
-																	"character": 21
+																	"character": 15
 																}
 															],
 															"type": {
@@ -24193,7 +24193,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 57,
-													"character": 14
+													"character": 10
 												}
 											],
 											"type": {
@@ -24215,7 +24215,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 61,
-																	"character": 21
+																	"character": 15
 																}
 															],
 															"type": {
@@ -24233,7 +24233,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 60,
-																	"character": 22
+																	"character": 16
 																}
 															],
 															"type": {
@@ -24251,7 +24251,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 59,
-																	"character": 23
+																	"character": 17
 																}
 															],
 															"type": {
@@ -24269,7 +24269,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 58,
-																	"character": 22
+																	"character": 16
 																}
 															],
 															"type": {
@@ -24303,7 +24303,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 64,
-													"character": 24
+													"character": 20
 												}
 											],
 											"type": {
@@ -24321,7 +24321,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 46,
-													"character": 20
+													"character": 16
 												}
 											],
 											"type": {
@@ -24343,7 +24343,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 48,
-																	"character": 16
+																	"character": 10
 																}
 															],
 															"type": {
@@ -24361,7 +24361,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 47,
-																	"character": 16
+																	"character": 10
 																}
 															],
 															"type": {
@@ -24379,7 +24379,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 49,
-																	"character": 16
+																	"character": 10
 																}
 															],
 															"type": {
@@ -24412,7 +24412,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 40,
-													"character": 12
+													"character": 8
 												}
 											],
 											"type": {
@@ -24430,7 +24430,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 52,
-													"character": 18
+													"character": 14
 												}
 											],
 											"type": {
@@ -24452,7 +24452,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 55,
-																	"character": 16
+																	"character": 10
 																}
 															],
 															"type": {
@@ -24470,7 +24470,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 54,
-																	"character": 21
+																	"character": 15
 																}
 															],
 															"type": {
@@ -24488,7 +24488,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 53,
-																	"character": 20
+																	"character": 14
 																}
 															],
 															"type": {
@@ -24521,7 +24521,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 72,
-													"character": 31
+													"character": 27
 												}
 											],
 											"type": {
@@ -24542,7 +24542,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 41,
-													"character": 20
+													"character": 16
 												}
 											],
 											"type": {
@@ -24560,7 +24560,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 71,
-													"character": 16
+													"character": 12
 												}
 											],
 											"type": {
@@ -24581,7 +24581,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 74,
-													"character": 15
+													"character": 11
 												}
 											],
 											"type": {
@@ -24603,7 +24603,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 76,
-																	"character": 18
+																	"character": 12
 																}
 															],
 															"type": {
@@ -24621,7 +24621,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 77,
-																	"character": 15
+																	"character": 9
 																}
 															],
 															"type": {
@@ -24642,7 +24642,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 78,
-																	"character": 17
+																	"character": 11
 																}
 															],
 															"type": {
@@ -24663,7 +24663,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 75,
-																	"character": 17
+																	"character": 11
 																}
 															],
 															"type": {
@@ -24697,7 +24697,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 63,
-													"character": 23
+													"character": 19
 												}
 											],
 											"type": {
@@ -24715,7 +24715,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 73,
-													"character": 17
+													"character": 13
 												}
 											],
 											"type": {
@@ -24736,7 +24736,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 65,
-													"character": 22
+													"character": 18
 												}
 											],
 											"type": {
@@ -24757,7 +24757,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 51,
-													"character": 24
+													"character": 20
 												}
 											],
 											"type": {
@@ -24778,7 +24778,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 39,
-													"character": 13
+													"character": 9
 												}
 											],
 											"type": {
@@ -24796,7 +24796,7 @@
 												{
 													"fileName": "src/types/chapter.ts",
 													"line": 42,
-													"character": 26
+													"character": 22
 												}
 											],
 											"type": {
@@ -24818,7 +24818,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 44,
-																	"character": 25
+																	"character": 19
 																}
 															],
 															"type": {
@@ -24836,7 +24836,7 @@
 																{
 																	"fileName": "src/types/chapter.ts",
 																	"line": 43,
-																	"character": 16
+																	"character": 10
 																}
 															],
 															"type": {
@@ -24960,7 +24960,7 @@
 								{
 									"fileName": "src/types/equipment.ts",
 									"line": 133,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -24978,7 +24978,7 @@
 								{
 									"fileName": "src/types/equipment.ts",
 									"line": 146,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -24996,7 +24996,7 @@
 								{
 									"fileName": "src/types/identifiable.ts",
 									"line": 7,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
@@ -25019,7 +25019,7 @@
 								{
 									"fileName": "src/types/equipment.ts",
 									"line": 145,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -25037,7 +25037,7 @@
 								{
 									"fileName": "src/types/equipment.ts",
 									"line": 147,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -25059,7 +25059,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 149,
-													"character": 17
+													"character": 13
 												}
 											],
 											"type": {
@@ -25077,7 +25077,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 148,
-													"character": 20
+													"character": 16
 												}
 											],
 											"type": {
@@ -25109,7 +25109,7 @@
 								{
 									"fileName": "src/types/equipment.ts",
 									"line": 134,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -25131,7 +25131,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 136,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -25149,7 +25149,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 135,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -25167,7 +25167,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 137,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -25185,7 +25185,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 138,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -25219,7 +25219,7 @@
 								{
 									"fileName": "src/types/equipment.ts",
 									"line": 144,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -25237,7 +25237,7 @@
 								{
 									"fileName": "src/types/equipment.ts",
 									"line": 151,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -25261,7 +25261,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 152,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -25290,7 +25290,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 153,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -25319,7 +25319,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 154,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -25348,7 +25348,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 155,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -25391,7 +25391,7 @@
 								{
 									"fileName": "src/types/equipment.ts",
 									"line": 140,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -25413,7 +25413,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 141,
-													"character": 13
+													"character": 9
 												}
 											],
 											"type": {
@@ -25431,7 +25431,7 @@
 												{
 													"fileName": "src/types/equipment.ts",
 													"line": 142,
-													"character": 12
+													"character": 8
 												}
 											],
 											"type": {
@@ -25463,7 +25463,7 @@
 								{
 									"fileName": "src/types/equipment.ts",
 									"line": 132,
-									"character": 11
+									"character": 9
 								}
 							],
 							"type": {
@@ -25550,7 +25550,7 @@
 								{
 									"fileName": "src/types/identifiable.ts",
 									"line": 7,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
@@ -25653,7 +25653,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 47,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -25671,7 +25671,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 90,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -25693,7 +25693,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 92,
-													"character": 19
+													"character": 15
 												}
 											],
 											"type": {
@@ -25715,7 +25715,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 95,
-																	"character": 20
+																	"character": 14
 																}
 															],
 															"type": {
@@ -25733,7 +25733,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 97,
-																	"character": 20
+																	"character": 14
 																}
 															],
 															"type": {
@@ -25751,7 +25751,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 94,
-																	"character": 17
+																	"character": 11
 																}
 															],
 															"type": {
@@ -25769,7 +25769,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 93,
-																	"character": 17
+																	"character": 11
 																}
 															],
 															"type": {
@@ -25787,7 +25787,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 96,
-																	"character": 19
+																	"character": 13
 																}
 															],
 															"type": {
@@ -25822,7 +25822,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 91,
-													"character": 24
+													"character": 20
 												}
 											],
 											"type": {
@@ -25854,7 +25854,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 63,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -25882,7 +25882,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 73,
-									"character": 13
+									"character": 11
 								}
 							],
 							"type": {
@@ -25904,7 +25904,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 75,
-													"character": 18
+													"character": 14
 												}
 											],
 											"type": {
@@ -25928,7 +25928,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 76,
-																	"character": 22
+																	"character": 16
 																}
 															],
 															"type": {
@@ -25957,7 +25957,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 77,
-																	"character": 20
+																	"character": 14
 																}
 															],
 															"type": {
@@ -25998,7 +25998,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 79,
-													"character": 18
+													"character": 14
 												}
 											],
 											"type": {
@@ -26020,7 +26020,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 80,
-																	"character": 22
+																	"character": 16
 																}
 															],
 															"type": {
@@ -26038,7 +26038,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 82,
-																	"character": 20
+																	"character": 14
 																}
 															],
 															"type": {
@@ -26056,7 +26056,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 81,
-																	"character": 25
+																	"character": 19
 																}
 															],
 															"type": {
@@ -26074,7 +26074,7 @@
 																{
 																	"fileName": "src/types/ship.ts",
 																	"line": 83,
-																	"character": 17
+																	"character": 11
 																}
 															],
 															"type": {
@@ -26122,7 +26122,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 71,
-									"character": 11
+									"character": 9
 								}
 							],
 							"type": {
@@ -26143,7 +26143,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 46,
-									"character": 11
+									"character": 9
 								}
 							],
 							"type": {
@@ -26186,7 +26186,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 49,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -26204,7 +26204,7 @@
 								{
 									"fileName": "src/types/identifiable.ts",
 									"line": 7,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
@@ -26227,7 +26227,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 72,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -26248,7 +26248,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 104,
-									"character": 8
+									"character": 6
 								}
 							],
 							"type": {
@@ -26272,7 +26272,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 105,
-													"character": 14
+													"character": 10
 												}
 											],
 											"type": {
@@ -26301,7 +26301,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 107,
-													"character": 13
+													"character": 9
 												}
 											],
 											"type": {
@@ -26330,7 +26330,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 108,
-													"character": 15
+													"character": 11
 												}
 											],
 											"type": {
@@ -26359,7 +26359,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 109,
-													"character": 13
+													"character": 9
 												}
 											],
 											"type": {
@@ -26388,7 +26388,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 106,
-													"character": 11
+													"character": 7
 												}
 											],
 											"type": {
@@ -26432,7 +26432,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 37,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -26454,7 +26454,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 41,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -26472,7 +26472,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 39,
-													"character": 12
+													"character": 8
 												}
 											],
 											"type": {
@@ -26490,7 +26490,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 40,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -26508,7 +26508,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 42,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -26526,7 +26526,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 43,
-													"character": 10
+													"character": 6
 												}
 											],
 											"type": {
@@ -26561,7 +26561,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 48,
-									"character": 15
+									"character": 13
 								}
 							],
 							"type": {
@@ -26579,7 +26579,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 100,
-									"character": 16
+									"character": 14
 								}
 							],
 							"type": {
@@ -26601,7 +26601,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 102,
-													"character": 16
+													"character": 12
 												}
 											],
 											"type": {
@@ -26622,7 +26622,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 101,
-													"character": 20
+													"character": 16
 												}
 											],
 											"type": {
@@ -26654,7 +26654,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 50,
-									"character": 10
+									"character": 8
 								}
 							],
 							"type": {
@@ -26672,7 +26672,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 86,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -26690,7 +26690,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 88,
-									"character": 20
+									"character": 18
 								}
 							],
 							"type": {
@@ -26708,7 +26708,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 87,
-									"character": 14
+									"character": 12
 								}
 							],
 							"type": {
@@ -26726,7 +26726,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 89,
-									"character": 20
+									"character": 18
 								}
 							],
 							"type": {
@@ -26754,7 +26754,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 64,
-									"character": 14
+									"character": 12
 								}
 							],
 							"type": {
@@ -26776,7 +26776,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 65,
-													"character": 12
+													"character": 8
 												}
 											],
 											"type": {
@@ -26794,7 +26794,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 67,
-													"character": 13
+													"character": 9
 												}
 											],
 											"type": {
@@ -26812,7 +26812,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 66,
-													"character": 11
+													"character": 7
 												}
 											],
 											"type": {
@@ -26845,7 +26845,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 69,
-									"character": 10
+									"character": 8
 								}
 							],
 							"type": {
@@ -26866,7 +26866,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 70,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -26887,7 +26887,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 62,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -26918,7 +26918,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 51,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -26940,7 +26940,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 52,
-													"character": 13
+													"character": 9
 												}
 											],
 											"type": {
@@ -26958,7 +26958,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 53,
-													"character": 13
+													"character": 9
 												}
 											],
 											"type": {
@@ -26990,7 +26990,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 55,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -27012,7 +27012,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 56,
-													"character": 17
+													"character": 13
 												}
 											],
 											"type": {
@@ -27030,7 +27030,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 57,
-													"character": 16
+													"character": 12
 												}
 											],
 											"type": {
@@ -27050,7 +27050,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 59,
-													"character": 24
+													"character": 20
 												}
 											],
 											"type": {
@@ -27077,7 +27077,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 58,
-													"character": 16
+													"character": 12
 												}
 											],
 											"type": {
@@ -27097,7 +27097,7 @@
 												{
 													"fileName": "src/types/ship.ts",
 													"line": 60,
-													"character": 24
+													"character": 20
 												}
 											],
 											"type": {
@@ -27141,7 +27141,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 45,
-									"character": 13
+									"character": 11
 								}
 							],
 							"type": {
@@ -27159,7 +27159,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 36,
-									"character": 11
+									"character": 9
 								}
 							],
 							"type": {
@@ -27236,7 +27236,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 10,
-									"character": 10
+									"character": 8
 								}
 							],
 							"type": {
@@ -27265,7 +27265,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 11,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -27294,7 +27294,7 @@
 								{
 									"fileName": "src/types/ship.ts",
 									"line": 9,
-									"character": 12
+									"character": 10
 								}
 							],
 							"type": {
@@ -27379,7 +27379,7 @@
 								{
 									"fileName": "src/types/voiceline.ts",
 									"line": 14,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -27408,7 +27408,7 @@
 								{
 									"fileName": "src/types/voiceline.ts",
 									"line": 11,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
@@ -27435,7 +27435,7 @@
 								{
 									"fileName": "src/types/voiceline.ts",
 									"line": 10,
-									"character": 9
+									"character": 7
 								}
 							],
 							"type": {
@@ -27453,7 +27453,7 @@
 								{
 									"fileName": "src/types/identifiable.ts",
 									"line": 7,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
@@ -27478,7 +27478,7 @@
 								{
 									"fileName": "src/types/voiceline.ts",
 									"line": 13,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
@@ -27507,7 +27507,7 @@
 								{
 									"fileName": "src/types/voiceline.ts",
 									"line": 12,
-									"character": 6
+									"character": 4
 								}
 							],
 							"type": {
