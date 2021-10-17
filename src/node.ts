@@ -13,7 +13,7 @@ import { AzurAPI } from './core/client/class';
 checkSupportedNodeVersion();
 
 const events: EventsTemplate = new EventEmitter();
-export const AzurAPIClient = new AzurAPI({ events }).withUpdater(createUpdater);
+export const AzurAPIInstance = new AzurAPI({ events }).withUpdater(createUpdater);
 
 export { createUpdater, UpdaterProps };
 export { EventsTemplate, UpdaterTemplate };

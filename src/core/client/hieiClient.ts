@@ -34,7 +34,7 @@ export const createHieiClient = (options: HieiClientOptions = defaultOptions) =>
     beforeCreate: () => checkHiei(options),
   };
 
-  return createClientFactory(clientOptions);
+  return createClientFactory(clientOptions)(options);
 };
 
 const checkHiei = ({ hiei: { url } }: HieiClientOptions): boolean => {

@@ -6,9 +6,6 @@
   "exports": {
     ".": {
       "require": "./build/index.js"
-    },
-    "./build/node": {
-      "require": "./build/node.js"
     }
   },
   "types": "./build/index.d.ts",

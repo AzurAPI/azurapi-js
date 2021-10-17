@@ -1,5 +1,5 @@
-const { AzurAPIClient } = require('../build/node.js');
-const { events, api } = AzurAPIClient;
+const { AzurAPIInstance } = require('../build/index.js');
+const { events, api } = AzurAPIInstance;
 
 test('Whole chapter', async () => {
   events.on('ready', async () => {

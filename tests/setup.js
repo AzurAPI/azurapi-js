@@ -1,3 +1,3 @@
-const { AzurAPIClient } = require('../build/node.js');
-const { events } = AzurAPIClient;
+const { AzurAPIInstance } = require('../build/index.js');
+const { events } = AzurAPIInstance;
 events.on('ready', () => console.log(''));

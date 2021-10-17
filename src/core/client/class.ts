@@ -4,7 +4,7 @@ import { ChaptersAPI } from '../api/chapter';
 import { EquipmentsAPI } from '../api/equipment';
 import { ShipsAPI } from '../api/ship';
 import { VoicelinesAPI } from '../api/voiceline';
-import { AzurAPIState } from '../state';
+import { AzurAPIState, ClientStateDispatcher } from '../state';
 import { CoreAPI, createClient, LocalAzurAPIClient } from './client';
 import { ClientOptions, GeneratedClientProps } from './clientFactory';
 
@@ -13,9 +13,6 @@ import { ClientOptions, GeneratedClientProps } from './clientFactory';
  */
 export class AzurAPI {
   public options: ClientOptions;
-  public source: string;
-  public autoupdate: boolean;
-  public rate: number;
   public ships: ShipsAPI;
   public equipments: EquipmentsAPI;
   public chapters: ChaptersAPI;
@@ -25,19 +22,20 @@ export class AzurAPI {
   public events: EventsTemplate;
   public updater: UpdaterTemplate;
   public state: AzurAPIState;
-
-  public client: LocalAzurAPIClient;
+  public dispatch: ClientStateDispatcher;
 
   constructor(options: GeneratedClientProps = {}) {
-    this.client = createClient(options);
-    this.options = this.client.options;
-    this.events = this.client.events;
-    this.ships = this.client.api.ships;
-    this.equipments = this.client.api.equipments;
-    this.chapters = this.client.api.chapters;
-    this.voicelines = this.client.api.voicelines;
-    this.barrages = this.client.api.barrages;
-    this.state = this.client.state;
+    const client = createClient(options);
+    this.options = client.options;
+    this.events = client.events;
+    this.ships = client.api.ships;
+    this.api = client.api;
+    this.equipments = client.api.equipments;
+    this.chapters = client.api.chapters;
+    this.voicelines = client.api.voicelines;
+    this.barrages = client.api.barrages;
+    this.state = client.state;
+    this.dispatch = client.dispatch;
   }
 
   public withUpdater(create: (client: AzurAPI) => UpdaterTemplate) {

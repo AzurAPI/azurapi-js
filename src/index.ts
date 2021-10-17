@@ -4,7 +4,5 @@
  * @packageDocumentation
  */
 
-export { AzurAPI } from './core/client/class';
-export { AzurAPIClient, GeneratedClientProps } from './core/client/clientFactory';
-export { createClient, CoreAPI } from './core/client/client';
-export { createHieiClient, CoreHieiAPI } from './core/client/hieiClient';
+export * from './node';
+export * from './browser';
