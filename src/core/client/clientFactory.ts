@@ -7,7 +7,6 @@ export interface ClientOptions {
 }
 
 export interface ClientLifecycleProps {
-  updater: UpdaterTemplate;
   events: EventsTemplate;
 }
 
@@ -40,7 +39,6 @@ export const createClientFactory = <Options extends ClientOptions, Api>(props: C
     };
 
     if (localProps.events) client.events = localProps.events;
-    if (localProps.updater) client.updater = localProps.updater;
 
     onCreate(client);
     return client;

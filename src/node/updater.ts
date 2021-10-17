@@ -6,28 +6,46 @@
 import fs from 'fs';
 import { data } from '../core/data';
 import { check, fetch } from './updateChecker';
-import { EventsTemplate } from '../types/client';
+import { EventsTemplate, UpdaterTemplate } from '../types/client';
 import { baseFolder, local } from './data';
+import { AzurAPIState, Datatype } from '../core/state';
+import { ClientOptions } from '../core/client/clientFactory';
+import { Ship } from '../types/ship';
 
 export type ClientUpdater = ReturnType<typeof createUpdater>;
-export const createUpdater = (events: EventsTemplate) => {
+
+const areObjects: Datatype[] = ['voicelines'];
+export interface UpdaterProps {
+  events: EventsTemplate;
+  state: AzurAPIState;
+  options: ClientOptions;
+}
+
+const JSONUtils = (source: string) => {
+  const getArray = <T>(): T[] => Object.values(JSON.parse(source) || []);
+  const getObject = <T>(): T => JSON.parse(source) || {};
+  return { getArray, getObject };
+};
+
+const getRawData = <T>(source: string, type: Datatype): T[] | T =>
+  areObjects.includes(type) ? JSONUtils(source).getObject() : JSONUtils(source).getArray();
+
+export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
+  const { events, state, options } = props;
   let cron: NodeJS.Timeout;
   /**
    * Check for updates then update and load cache
    */
-  const update = () => {
-    return check().then(updates => {
-      if (updates.length > 0) {
-        events.emit('updateAvalible', updates);
-        return Promise.all(
-          updates.map(async type => {
-            let raw = Object.values(JSON.parse(await fetch(data[type])) || []);
-            //       client.set(type, raw); Set to state
-            fs.writeFileSync(local[type], JSON.stringify(raw));
-          })
-        );
-      }
-    });
+  const update = async (type: Datatype) => {
+    const needsUpdate = await check(type);
+    if (needsUpdate) return;
+
+    events.emit('updateAvailable', type);
+
+    const strData = await fetch(data[type]);
+    const raw = getRawData<Ship>(strData, type);
+    state[type].dispatch(`set`, raw);
+    fs.writeFileSync(local[type], JSON.stringify(raw));
   };
 
   /**
@@ -40,7 +58,7 @@ export const createUpdater = (events: EventsTemplate) => {
         'Notify for new data updates enabled. AzurAPI Client will check for data updates every hour.'
       );
     if (cron) clearInterval(cron);
-    //cron = setInterval(() => update(), client.rate);
+    cron = setInterval(() => Object.keys(local).forEach((type: Datatype) => update(type)), options.rate);
   };
 
   /**
@@ -64,23 +82,14 @@ export const createUpdater = (events: EventsTemplate) => {
    * Load the cache
    */
   const load = () => {
-    for (let i = 0; i < Object.keys(local).length; i++) {
-      let key = Object.keys(local)[i];
-      if (!fs.existsSync(local[key])) return update();
-
-      //events.set(key as datatype, Object.values(JSON.parse(fs.readFileSync(local[key]).toString()) || []));
-    }
+    Object.keys(local).forEach((type: Datatype) =>
+      fs.existsSync(type)
+        ? state[type].dispatch('set', getRawData(fs.readFileSync(type).toString(), type))
+        : update(type)
+    );
   };
 
+  init().then(start);
+
   return { update, start, stop, init, load };
-};
-
-export const initUpdater = (events: EventsTemplate) => {
-  const updater = createUpdater(events);
-
-  updater.init();
-
-  updater.start();
-
-  return updater;
 };

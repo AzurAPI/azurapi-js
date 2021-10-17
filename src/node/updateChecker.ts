@@ -3,12 +3,11 @@
  * Check for updates and functions relating to updates
  * @packageDocumentation
  */
-import { data } from '../core/data';
 import fs from 'fs';
 import https from 'https';
-import { Datatype, versionInfo } from './data';
-
-const supported = ['ships', 'equipments', 'chapters', 'barrages', 'voicelines'];
+import { data } from '../core/data';
+import { Datatype } from '../core/state';
+import { versionInfo } from './data';
 
 let version;
 let remote;
@@ -16,14 +15,11 @@ let remote;
 /**
  * Check for updates
  */
-export async function check(): Promise<Datatype[]> {
+export async function check(type: Datatype): Promise<boolean> {
   if (!version && fs.existsSync(versionInfo)) version = JSON.parse(fs.readFileSync(versionInfo).toString());
   remote = JSON.parse(await fetch(data.version));
-  let needUpdate: Datatype[] = [];
-  for (let type of supported)
-    if (!(version && version[type] && remote[type]['version-number'] === version[type]['version-number']))
-      needUpdate.push(type as Datatype);
-  return needUpdate;
+
+  return !(version && version[type] && remote[type]['version-number'] === version[type]['version-number']);
 }
 
 /**

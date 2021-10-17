@@ -1,4 +1,5 @@
 import { join } from 'path';
+import { AzurAPIState } from '../core/state';
 
 export const local = {
   ships: join(__dirname, '..', '.azurlane', 'ship.json'),
@@ -9,7 +10,7 @@ export const local = {
   shipList: join(__dirname, '..', '.azurlane', 'ship-list.json'),
   idMap: join(__dirname, '..', '.azurlane', 'id-map.json'),
 };
-export type Datatype = 'ships' | 'equipments' | 'voicelines' | 'chapters' | 'barrages';
+
 export let baseFolder = join(__dirname, '..', '.azurlane');
 export let versionInfo = join(__dirname, '..', '.azurlane', 'version.json');
 

@@ -4,7 +4,13 @@ import { BarragesAPI, createBarragesAPI } from '../api/barrage';
 import { ChaptersAPI, createChaptersAPI } from '../api/chapter';
 import { createVoicelinesAPI, VoicelinesAPI } from '../api/voiceline';
 import { AzurAPIState, createDispatcher, createStateManager } from '../state';
-import { ClientFactoryProps, ClientOptions, createClientFactory, GeneratedClientProps } from './clientFactory';
+import {
+  AzurAPIClient,
+  ClientFactoryProps,
+  ClientOptions,
+  createClientFactory,
+  GeneratedClientProps,
+} from './clientFactory';
 
 export interface CoreAPI {
   ships: ShipsAPI;
@@ -22,11 +28,16 @@ const getLocalAPI = (state: AzurAPIState): CoreAPI => ({
   barrages: createBarragesAPI(state),
 });
 
+export interface LocalAzurAPIClient extends AzurAPIClient<ClientOptions, CoreAPI> {
+  state: AzurAPIState;
+  dispatch: ReturnType<typeof createDispatcher>;
+}
+
 /**
  * Local client
  * @param props Configuration options
  */
-export const createClient = (options: GeneratedClientProps) => {
+export const createClient = (options: GeneratedClientProps): LocalAzurAPIClient => {
   const state: AzurAPIState = createStateManager();
   const dispatch = createDispatcher(state);
   const defaultOptions: ClientOptions = {

@@ -4,14 +4,15 @@ import { ChaptersAPI } from '../api/chapter';
 import { EquipmentsAPI } from '../api/equipment';
 import { ShipsAPI } from '../api/ship';
 import { VoicelinesAPI } from '../api/voiceline';
-import { CoreAPI, createClient } from './client';
-import { AzurAPIClient, GeneratedClientProps } from './clientFactory';
+import { AzurAPIState } from '../state';
+import { CoreAPI, createClient, LocalAzurAPIClient } from './client';
+import { ClientOptions, GeneratedClientProps } from './clientFactory';
 
 /**
  * Legacy class, similar as v2
  */
 export class AzurAPI {
-  public options: GeneratedClientProps;
+  public options: ClientOptions;
   public source: string;
   public autoupdate: boolean;
   public rate: number;
@@ -21,20 +22,26 @@ export class AzurAPI {
   public voicelines: VoicelinesAPI;
   public barrages: BarragesAPI;
   public api: CoreAPI;
-  public updater: UpdaterTemplate;
   public events: EventsTemplate;
+  public updater: UpdaterTemplate;
+  public state: AzurAPIState;
 
-  public client: AzurAPIClient<GeneratedClientProps, CoreAPI>;
+  public client: LocalAzurAPIClient;
 
   constructor(options: GeneratedClientProps = {}) {
     this.client = createClient(options);
     this.options = this.client.options;
-    this.updater = this.client.updater;
     this.events = this.client.events;
     this.ships = this.client.api.ships;
     this.equipments = this.client.api.equipments;
     this.chapters = this.client.api.chapters;
     this.voicelines = this.client.api.voicelines;
     this.barrages = this.client.api.barrages;
+    this.state = this.client.state;
+  }
+
+  public withUpdater(create: (client: AzurAPI) => UpdaterTemplate) {
+    this.updater = create(this);
+    return this;
   }
 }

@@ -4,7 +4,7 @@ type Action<State, Payload> = (payload?: Payload, state?: State) => void;
 
 export interface Section<T> {
   state: T;
-  dispatch: <P>(actionName: string, payload: P) => void;
+  dispatch: <P, A extends string>(actionName: A, payload: P) => void;
 }
 
 export const createSection = <SectionState>(section: {

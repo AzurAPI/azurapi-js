@@ -14,13 +14,13 @@ export type EquipmentsAPI = ReturnType<typeof createEquipmentsAPI>;
 /**
  * Special equipments class for extended functionality
  */
-export const createEquipmentsAPI = ({ equipment }: AzurAPIState) => {
+export const createEquipmentsAPI = ({ equipments }: AzurAPIState) => {
   const keys = ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id'];
-  const fuze = (query: string) => fuse<Equipment>(query, equipment.state.array, keys);
-  const id = searchAPI(equipment.state.array).id;
+  const fuze = (query: string) => fuse<Equipment>(query, equipments.state.array, keys);
+  const id = searchAPI(equipments.state.array).id;
 
-  const getName = SharedAPI.getByNames(equipment.state.array);
-  const getNationality = SharedAPI.getByNationality(equipment.state.array);
+  const getName = SharedAPI.getByNames(equipments.state.array);
+  const getNationality = SharedAPI.getByNationality(equipments.state.array);
 
   /**
    * Get equipment by name
@@ -34,7 +34,7 @@ export const createEquipmentsAPI = ({ equipment }: AzurAPIState) => {
    * @param category name of the category you want to search for
    */
   const category = (category: string): Equipment[] => {
-    return equipment.state.array.filter(equip => SharedAPI.matchNormalized(equip.category, category));
+    return equipments.state.array.filter(equip => SharedAPI.matchNormalized(equip.category, category));
   };
 
   /**
@@ -48,7 +48,7 @@ export const createEquipmentsAPI = ({ equipment }: AzurAPIState) => {
    * @param query Equipment name in any language or equipment id
    */
   const get = (query: string, adv?: advancedOptions): Equipment | undefined =>
-    SharedAPI.search(query, equipment.state.array, fuze, adv);
+    SharedAPI.search(query, equipments.state.array, fuze, adv);
 
   /**
    * Get equipment using everything
