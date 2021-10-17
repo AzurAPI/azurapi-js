@@ -24,7 +24,7 @@
     </p>
 </div>
 
-# AzurApi-~~JS~~TS
+# AzurApi-TS
 
 Open Source Library For Azur Lane
 
@@ -32,6 +32,7 @@ Open Source Library For Azur Lane
 
 - Hosted Locally in your machine, no more waiting for server downtime!!!
 - Ship Information and Specific Data Searching
+- Node and Browser compatibility
 - More to come soon
 
 ## Requirement

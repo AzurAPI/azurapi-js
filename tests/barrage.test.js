@@ -1,9 +1,9 @@
-const { instance } = require('../build/core/Client.js');
-const client = instance;
+const { AzurAPIClient } = require('../build/node.js');
+const { events } = AzurAPIClient;
 
 test('Get Barrage', () => {
-  client.on('ready', async () => {
-    let result = client.barrages.get('Full_Barrage_-_22_II');
+  events.on('ready', async () => {
+    let result = api.barrages.get('Full_Barrage_-_22_II');
     expect(result.name).toBe('Full Barrage - 22 II');
   });
 });

@@ -1,9 +1,9 @@
-const { AzurAPI } = require('../build/core/Client.js');
-const client = new AzurAPI();
+const { AzurAPIClient } = require('../build/node.js');
+const { events, api } = AzurAPIClient;
 
-client.on('ready', async () => {
+events.on('ready', async () => {
   console.log(' >>> Client Loaded!');
-  let result = await client.ships.get('Abukuma', {
+  let result = await api.ships.get('Abukuma', {
     nameOnly: true,
     language: 'en',
   });
@@ -14,7 +14,7 @@ client.on('ready', async () => {
 
  >   Result: ${result.names.en}
 `);
-  let result2 = await client.barrages.get('Full_Barrage_-_22_II');
+  let result2 = await api.barrages.get('Full_Barrage_-_22_II');
   console.log(` 
  >>  Test: Get Barrage by Name
  >>  Expected Result: Full Barrage - 22 II

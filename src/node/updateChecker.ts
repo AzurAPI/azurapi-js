@@ -3,9 +3,10 @@
  * Check for updates and functions relating to updates
  * @packageDocumentation
  */
-import { data, datatype, versionInfo } from './Data';
+import { data } from '../core/data';
 import fs from 'fs';
 import https from 'https';
+import { Datatype, versionInfo } from './data';
 
 const supported = ['ships', 'equipments', 'chapters', 'barrages', 'voicelines'];
 
@@ -15,13 +16,13 @@ let remote;
 /**
  * Check for updates
  */
-export async function check(): Promise<datatype[]> {
+export async function check(): Promise<Datatype[]> {
   if (!version && fs.existsSync(versionInfo)) version = JSON.parse(fs.readFileSync(versionInfo).toString());
   remote = JSON.parse(await fetch(data.version));
-  let needUpdate: datatype[] = [];
+  let needUpdate: Datatype[] = [];
   for (let type of supported)
     if (!(version && version[type] && remote[type]['version-number'] === version[type]['version-number']))
-      needUpdate.push(type as datatype);
+      needUpdate.push(type as Datatype);
   return needUpdate;
 }
 

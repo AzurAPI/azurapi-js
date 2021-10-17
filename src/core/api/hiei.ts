@@ -6,9 +6,9 @@
 
 // TODO/WIP: Document usage and add input types
 
-import { AzurAPI } from '../Client';
+import { HieiClientOptions } from '../client/hieiClient';
 import { URL, URLSearchParams } from 'url';
-import http from 'http';
+import http, { IncomingMessage } from 'http';
 
 const endpoint = {
   ship: {
@@ -42,189 +42,229 @@ const endpoint = {
   },
 };
 
+export interface CoreHieiAPI {
+  request: <T>(endpoint: string, query: string) => Promise<T>;
+}
+
 /**
  * The Hiei API class
  */
-export class HieiAPI {
-  private client: AzurAPI;
-
+const createCoreHieiAPI = (options: HieiClientOptions): CoreHieiAPI => {
   /**
-   * Constructor
-   * @param client AzurAPI instance
-   */
-  constructor(client) {
-    this.client = client;
-  }
-
-  /**
-   * Internal-ish fetch function to get data from Hiei API(s)
+   * Internal-ish request function to get data from Hiei API(s)
    * @param endpoint Hiei Endpoint
    * @param q Query
    */
-  _fetch(endpoint: string, q: string) {
-    const url = new URL(endpoint, this.client.options.hieiUrl);
-    url.search = new URLSearchParams({ q }).toString();
-    http.get(url.toString(), { headers: { authorization: this.client.options.hieiAuth } }, res => {
-      let error: Error | undefined;
-      if (res.statusCode !== 200) {
-        error = new Error(`Request Failed with Status Code: ${res.statusCode}`);
-      } else if (!/^application\/json/.test(res.headers['content-type'] ? res.headers['content-type'] : '')) {
-        error = new Error(
-          `Invalid content-type. Expeceted "application/json" but received ${
-            res.headers['content-type'] ? res.headers['content-type'] : 'undefined'
-          }`
-        );
-      }
+  const request = <T>(endpoint: string, query: string): Promise<T> => {
+    const url = new URL(endpoint, options.hiei.url);
+    url.search = new URLSearchParams({ q: query }).toString();
 
-      if (error) {
-        console.error(error.message);
-        res.resume();
-        return {};
-      }
-
-      res.setEncoding('utf-8');
-      let raw: string = '';
-      res.on('data', c => (raw += c));
-      res.on('end', () => {
-        try {
-          const data = JSON.parse(raw);
-          return data;
-        } catch (ex) {
-          console.error(ex.message);
-          return {};
+    return new Promise((resolve, reject) => {
+      const onResponse = (res: IncomingMessage) => {
+        let error: Error | undefined;
+        if (res.statusCode !== 200) {
+          error = new Error(`Request Failed with Status Code: ${res.statusCode}`);
+        } else if (!/^application\/json/.test(res.headers['content-type'] ? res.headers['content-type'] : '')) {
+          error = new Error(
+            `Invalid content-type. Expeceted "application/json" but received ${
+              res.headers['content-type'] ? res.headers['content-type'] : 'undefined'
+            }`
+          );
         }
-      });
-    });
-  }
-}
 
-export class Ships extends HieiAPI {
-  constructor(client) {
-    super(client);
-  }
+        if (error) {
+          console.error(error.message);
+          res.resume();
+          reject(error);
+        }
+
+        res.setEncoding('utf-8');
+        let raw: string = '';
+        res.on('data', (c: string) => (raw += c));
+        res.on('end', () => {
+          try {
+            const data: T = JSON.parse(raw);
+            resolve(data);
+          } catch (ex: any) {
+            if (ex?.message) console.error(ex.message);
+            reject();
+          }
+        });
+      };
+      http.get(url.toString(), { headers: { authorization: options.hiei.auth } }, onResponse);
+    });
+  };
+
+  return { request };
+};
+
+const createShipsAPI = (core: CoreHieiAPI) => {
+  const { request } = core;
 
   /**
    * Search Ships
    * @param query Ship name, ID, etc.
    */
-  search(query) {
-    return this._fetch(endpoint.ship.search, query);
-  }
+  const search = <T>(query: string): Promise<T> => {
+    return request(endpoint.ship.search, query);
+  };
 
   /**
    * Get a random ship
    */
-  random(query = '') {
-    return this._fetch(endpoint.ship.search, query);
-  }
+  const random = (query: string = '') => {
+    return request(endpoint.ship.search, query);
+  };
 
   /**
    * Get ship by id
    * @param query id
    */
-  id(query) {
-    return this._fetch(endpoint.ship.id, query);
-  }
+  const id = <T>(query: string): Promise<T> => {
+    return request(endpoint.ship.id, query);
+  };
 
   /**
    * Get ship by rarity
    * @param query Rarity
    */
-  rarity(query) {
-    return this._fetch(endpoint.ship.rarity, query);
-  }
+  const rarity = <T>(query: string): Promise<T> => {
+    return request(endpoint.ship.rarity, query);
+  };
 
   /**
    * Get ship by hull
    * @param query Hulltype
    */
-  hull(query) {
-    return this._fetch(endpoint.ship.hullType, query);
-  }
+  const hull = <T>(query: string): Promise<T> => {
+    return request(endpoint.ship.hullType, query);
+  };
 
   /**
    * Get ship by class
    * @param query Class
    */
-  class(query) {
-    return this._fetch(endpoint.ship.shipClass, query);
-  }
+  const classType = <T>(query: string): Promise<T> => {
+    return request(endpoint.ship.shipClass, query);
+  };
 
   /**
    * Get ship by nationality
    * @param query Nationality
    */
-  nationality(query) {
-    return this._fetch(endpoint.ship.nationality, query);
-  }
-}
+  const nationality = <T>(query: string): Promise<T> => {
+    return request(endpoint.ship.nationality, query);
+  };
 
-export class Equipments extends HieiAPI {
-  constructor(client) {
-    super(client);
-  }
+  return {
+    search,
+    random,
+    id,
+    rarity,
+    hull,
+    classType,
+    nationality,
+  };
+};
 
-  search(query) {
-    return this._fetch(endpoint.equipment.search, query);
-  }
+const createEquipmentsAPI = (core: CoreHieiAPI) => {
+  const { request } = core;
 
-  random(query) {
-    return this._fetch(endpoint.equipment.random, query);
-  }
+  const search = <T>(query: string): Promise<T> => {
+    return request(endpoint.equipment.search, query);
+  };
 
-  nationality(query) {
-    return this._fetch(endpoint.equipment.nationality, query);
-  }
+  const random = <T>(query: string): Promise<T> => {
+    return request(endpoint.equipment.random, query);
+  };
 
-  category(query) {
-    return this._fetch(endpoint.equipment.category, query);
-  }
-}
+  const nationality = <T>(query: string): Promise<T> => {
+    return request(endpoint.equipment.nationality, query);
+  };
 
-export class Barrages extends HieiAPI {
-  constructor(client) {
-    super(client);
-  }
+  const category = <T>(query: string): Promise<T> => {
+    return request(endpoint.equipment.category, query);
+  };
 
-  name(query) {
-    return this._fetch(endpoint.barrage.name, query);
-  }
+  return {
+    search,
+    random,
+    nationality,
+    category,
+  };
+};
 
-  ship(query) {
-    return this._fetch(endpoint.barrage.ship, query);
-  }
-}
+const createBarragesAPI = (core: CoreHieiAPI) => {
+  const { request } = core;
 
-export class Events extends HieiAPI {
-  constructor(client) {
-    super(client);
-  }
+  const name = <T>(query: string): Promise<T> => {
+    return request(endpoint.barrage.name, query);
+  };
 
-  search(query) {
-    return this._fetch(endpoint.event.search, query);
-  }
-}
+  const ship = <T>(query: string): Promise<T> => {
+    return request(endpoint.barrage.ship, query);
+  };
 
-export class Chapters extends HieiAPI {
-  constructor(client) {
-    super(client);
-  }
+  return {
+    name,
+    ship,
+  };
+};
 
-  code(query) {
-    return this._fetch(endpoint.chapter.code, query);
-  }
+const createEventsAPI = (core: CoreHieiAPI) => {
+  const { request } = core;
 
-  search(query) {
-    return this._fetch(endpoint.chapter.search, query);
-  }
-}
+  const search = <T>(query: string): Promise<T> => {
+    return request(endpoint.event.search, query);
+  };
 
-export class Voicelines extends HieiAPI {
-  constructor(client) {
-    super(client);
-  }
+  return {
+    search,
+  };
+};
 
-  id(query) {
-    return this._fetch(endpoint.voice.id, query);
-  }
+const createChaptersAPI = (core: CoreHieiAPI) => {
+  const { request } = core;
+
+  const code = <T>(query: string): Promise<T> => {
+    return request(endpoint.chapter.code, query);
+  };
+
+  const search = <T>(query: string): Promise<T> => {
+    return request(endpoint.chapter.search, query);
+  };
+
+  return {
+    code,
+    search,
+  };
+};
+
+const createVoicelinesAPI = (core: CoreHieiAPI) => {
+  const { request } = core;
+
+  const id = <T>(query: string): Promise<T> => {
+    return request(endpoint.voice.id, query);
+  };
+
+  return { id };
+};
+
+export const HieiAPI = {
+  createCoreHieiAPI,
+  createShipsAPI,
+  createEquipmentsAPI,
+  createBarragesAPI,
+  createEventsAPI,
+  createChaptersAPI,
+  createVoicelinesAPI,
+};
+
+export declare module Hiei {
+  export type ShipsAPI = ReturnType<typeof createShipsAPI>;
+  export type EquipmentsAPI = ReturnType<typeof createEquipmentsAPI>;
+  export type BarragesAPI = ReturnType<typeof createBarragesAPI>;
+  export type EventsAPI = ReturnType<typeof createEventsAPI>;
+  export type ChaptersAPI = ReturnType<typeof createChaptersAPI>;
+  export type VoicelinesAPI = ReturnType<typeof createVoicelinesAPI>;
 }

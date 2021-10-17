@@ -1,8 +1,11 @@
 node_modules/
-.idea
-.DS_Store
-build/
-typedoc/other
-typedoc/theme/tdt
+typedoc/
 docs/
 examples/cli/node_modules/
+build/
+
+.azurlane
+.vscode
+.idea
+.DS_Store
+*.tgz
