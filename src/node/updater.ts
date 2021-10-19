@@ -114,7 +114,7 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
     state[type].dispatch('set', raw);
   };
 
-  init().then(startUpdateInterval);
+  init().then(() => options.autoupdate && startUpdateInterval());
 
   return { updateModule, updateAllModules, startUpdateInterval, stopUpdateInterval, loadModuleIntoStore };
 };

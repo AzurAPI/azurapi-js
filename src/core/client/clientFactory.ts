@@ -1,5 +1,4 @@
-import { EventsTemplate, UpdaterTemplate } from '../../types/client';
-import { fnTemplate } from '../utils/defaults';
+import { EventsTemplate } from '../../types/client';
 
 export interface ClientOptions {
   autoupdate: boolean;
@@ -26,7 +25,7 @@ export interface AzurAPIClient<Options, Api> extends Partial<ClientLifecycleProp
 }
 
 export const createClientFactory = <Options extends ClientOptions, Api>(props: ClientFactoryProps<Options, Api>) => {
-  const { onCreate = fnTemplate, beforeCreate = fnTemplate } = props;
+  const { onCreate = () => undefined, beforeCreate = () => undefined } = props;
 
   const clientTemplate = (localProps: GeneratedClientProps): AzurAPIClient<Options, Api> => {
     let options: Options = { ...props.defaultOptions, ...localProps };
