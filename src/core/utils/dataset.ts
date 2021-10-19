@@ -11,5 +11,6 @@ export const DataSetUtils = {
     return dict;
   },
 
-  createArray: <T>(dictionary: Dictionary<T>): T[] => Object.keys(dictionary).map((key: string): T => dictionary[key]),
+  createArray: <T>(dictionary: Dictionary<T>, mappingFn = (key: string): T => dictionary[key]): T[] =>
+    Object.keys(dictionary).map(mappingFn),
 };

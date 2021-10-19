@@ -4,7 +4,7 @@
  * @packageDocumentation
  */
 import fs from 'fs';
-import { DatabaseURLs } from '../core/data';
+import { DatabaseURLs } from '../core/database';
 import { Datatype } from '../core/state';
 import { versionInfoFile } from './data';
 import { fetch } from './http';

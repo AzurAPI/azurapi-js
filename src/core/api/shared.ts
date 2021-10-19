@@ -44,30 +44,43 @@ const getByNationality = <T extends { nationality: string }>(array: T[]) => {
   return { matchFilter };
 };
 
-const search = <T extends SearchItem>(
-  query: string,
-  array: T[],
-  fuse: (query: string) => Fuse.FuseResult<T>[],
-  adv?: advancedOptions
-): T | undefined => {
-  if (adv) {
-    if (adv.idOnly && isIdentifiable(array)) return searchAPI(array).id(query) as T;
-    else if (adv.nameOnly && hasNames(array)) {
-      if (adv.language) {
-        return getByNames(array).match(query, [adv.language]) as T;
-      } else {
-        return getByNames(array).match(query) as T;
+const search = <T extends SearchItem>(array: T[], fuse: FuseInstance<T>) => {
+  const findItem = (query: string, adv?: advancedOptions): T | undefined => {
+    if (adv) {
+      if (adv.idOnly && isIdentifiable(array)) return searchAPI(array).id(query) as T;
+      else if (adv.nameOnly && hasNames(array)) {
+        if (adv.language) {
+          return getByNames(array).match(query, [adv.language]) as T;
+        } else {
+          return getByNames(array).match(query) as T;
+        }
+      }
+    } else {
+      if (isIdentifiable(array)) return searchAPI(array).id(query) as T;
+      else if (hasNames(array)) return getByNames(array).match(query) as T;
+      else {
+        let fuzeResult = fuse(query).sort((a, b) => (b.score || 0) - (a.score || 0))[0];
+
+        return fuzeResult ? fuzeResult.item : undefined;
       }
     }
-  } else {
-    if (isIdentifiable(array)) return searchAPI(array).id(query) as T;
-    else if (hasNames(array)) return getByNames(array).match(query) as T;
-    else {
-      let fuzeResult = fuse(query).sort((a, b) => (b.score || 0) - (a.score || 0))[0];
+  };
 
-      return fuzeResult ? fuzeResult.item : undefined;
-    }
-  }
+  const findAll = (query: string): T[] => {
+    let results: (T | undefined)[] = [];
+
+    if (isIdentifiable(array)) results.push(searchAPI(array).id(query) as T);
+    if (hasNames(array)) results.push(...(getByNames(array).matchAll(query) as T[]));
+    results.push(...fuse(query).map(i => i.item));
+
+    /*return results
+      .filter((value: T | undefined): value is T => value !== null && value !== undefined)
+      .filter((elem, index, self) => index === self.findIndex(el => el.id === elem.id));*/
+
+    return results;
+  };
+
+  return { findAll, findItem };
 };
 
 export const SharedAPI = {
@@ -87,3 +100,5 @@ const hasNames = (arr: SearchItem[]): arr is WithNames[] => {
   if (Array.isArray(arr)) return false;
   return !!(arr[0] as WithNames).names;
 };
+
+export type FuseInstance<T> = (query: string) => Fuse.FuseResult<T>[];

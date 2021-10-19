@@ -5,22 +5,19 @@
  */
 
 import { Voiceline } from '../../types/voiceline';
-import { advancedOptions } from '../search/definitions';
+import { searchAPI } from '../search';
 import { fuse } from '../search/fuse';
 import { AzurAPIState } from '../state';
-import { SharedAPI } from './shared';
+import { FuseInstance, SharedAPI } from './shared';
 
 export type VoicelinesAPI = ReturnType<typeof createVoicelinesAPI>;
 export const createVoicelinesAPI = ({ voicelines }: AzurAPIState) => {
   const keys = ['event', 'en', 'zh', 'jp', 'audio'];
-  const fuze = (query: string) => fuse<Voiceline>(query, voicelines.state.array, keys);
+  const fuze: FuseInstance<Voiceline> = (query: string) => fuse(query, voicelines.state.array, keys);
 
-  /**
-   * Get ship using name in any language or id
-   * @param query Ship name in any language or ship id
-   */
-  const get = (query: string, adv?: advancedOptions): Voiceline | undefined =>
-    SharedAPI.search(query, voicelines.state.array, fuze, adv);
+  const { findAll, findItem } = SharedAPI.search(voicelines.state.array, fuze);
 
-  return { get };
+  const id = searchAPI(voicelines.state.array).id;
+
+  return { id, findAll, findItem };
 };

@@ -7,7 +7,7 @@
 import { Barrage, Hull, Ships } from '../../types/barrage';
 import { fuse } from '../search/fuse';
 import { AzurAPIState } from '../state';
-import { SharedAPI } from './shared';
+import { FuseInstance, SharedAPI } from './shared';
 
 export type BarragesAPI = ReturnType<typeof createBarragesAPI>;
 /**
@@ -16,7 +16,7 @@ export type BarragesAPI = ReturnType<typeof createBarragesAPI>;
 
 export const createBarragesAPI = ({ barrages }: AzurAPIState) => {
   const keys = ['id', 'name'];
-  const fuze = (query: string) => fuse<Barrage>(query, barrages.state.array, keys);
+  const fuze: FuseInstance<Barrage> = (query: string) => fuse(query, barrages.state.array, keys);
   const getGeneric = SharedAPI.getGeneric(barrages.state.array);
 
   /**
@@ -44,5 +44,7 @@ export const createBarragesAPI = ({ barrages }: AzurAPIState) => {
   const ships = (ship: Ships): Barrage[] =>
     barrages.state.array.filter(barrage => barrage.ships.map(bShip => SharedAPI.matchNormalized(ship, bShip)));
 
-  return { name, type, hull, ships };
+  const { findAll, findItem } = SharedAPI.search(barrages.state.array, fuze);
+
+  return { name, type, hull, ships, findAll, findItem };
 };

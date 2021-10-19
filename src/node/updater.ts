@@ -4,7 +4,7 @@
  * @packageDocumentation
  */
 import fs from 'fs';
-import { DatabaseURLs } from '../core/data';
+import { DatabaseURLs } from '../core/database';
 import { EventsTemplate, UpdaterTemplate } from '../types/client';
 import { baseFolder, Events, localDatabase } from './data';
 import { AzurAPIState, Datatype } from '../core/state';
