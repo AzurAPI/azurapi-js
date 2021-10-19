@@ -4,13 +4,14 @@
  * @packageDocumentation
  */
 import fs from 'fs';
-import { data } from '../core/data';
-import { check, fetch } from './updateChecker';
+import { DatabaseURLs } from '../core/data';
 import { EventsTemplate, UpdaterTemplate } from '../types/client';
-import { baseFolder, local } from './data';
+import { baseFolder, Events, localDatabase } from './data';
 import { AzurAPIState, Datatype } from '../core/state';
 import { ClientOptions } from '../core/client/clientFactory';
-import { Ship } from '../types/ship';
+import { fetch } from './http';
+import { createToolsStore } from './state';
+import { createVersionHandler } from './versionHandler';
 
 export type ClientUpdater = ReturnType<typeof createUpdater>;
 
@@ -32,39 +33,57 @@ const getRawData = <T>(source: string, type: Datatype): T[] | T =>
 
 export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
   const { events, state, options } = props;
+  const toolsStore = createToolsStore();
+  const versionHandler = createVersionHandler(toolsStore);
   let cron: NodeJS.Timeout;
+
+  const updateAllModules = async () => {
+    const modulesToUpdate = await versionHandler.getModulesToUpdate();
+
+    await Promise.all(
+      versionHandler.supportedModules.map(async (type: Datatype) => {
+        const fileExists = fs.existsSync(localDatabase[type]);
+        !fileExists && events.emit(Events.debug, `No local database for ${type} found, updating.`);
+        if (modulesToUpdate.includes(type) || !fileExists) await updateModule(type);
+        else loadModuleIntoStore(type);
+      })
+    );
+
+    modulesToUpdate.length > 0 && (await versionHandler.updateLocalVersion());
+  };
+
   /**
    * Check for updates then update and load cache
    */
-  const update = async (type: Datatype) => {
-    const needsUpdate = await check(type);
-    if (needsUpdate) return;
+  const updateModule = async (type: Datatype) => {
+    events.emit(Events.updateAvailable, type);
+    events.emit(Events.debug, `Downloading updated ${type} data`);
 
-    events.emit('updateAvailable', type);
+    const strData = await fetch(DatabaseURLs[type]);
+    const raw = getRawData(strData, type);
 
-    const strData = await fetch(data[type]);
-    const raw = getRawData<Ship>(strData, type);
     state[type].dispatch(`set`, raw);
-    fs.writeFileSync(local[type], JSON.stringify(raw));
+    fs.writeFileSync(localDatabase[type], JSON.stringify(raw));
   };
 
   /**
    * Start cron job
    */
-  const start = () => {
-    if (!cron)
-      events.emit(
-        'debug',
-        'Notify for new data updates enabled. AzurAPI Client will check for data updates every hour.'
-      );
-    if (cron) clearInterval(cron);
-    cron = setInterval(() => Object.keys(local).forEach((type: Datatype) => update(type)), options.rate);
+  const startUpdateInterval = () => {
+    if (cron) {
+      clearInterval(cron);
+    } else {
+      const msg = `Notify for new data updates enabled. 
+        AzurAPI Updater will try to update every ${options.rate / 60000} mins.`;
+      events.emit(Events.debug, msg);
+    }
+    cron = setInterval(updateAllModules, options.rate);
   };
 
   /**
    * Stop cron job
    */
-  const stop = () => {
+  const stopUpdateInterval = () => {
     if (cron) clearInterval(cron);
     cron = undefined;
   };
@@ -74,22 +93,28 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
    */
   const init = async () => {
     if (!fs.existsSync(baseFolder)) fs.mkdirSync(baseFolder);
-    await load();
-    events.emit('ready');
+    const isLatestVersion = await versionHandler.isLatestVersion();
+    const versionStateMsg = isLatestVersion
+      ? 'Latest version on local!'
+      : `New version detected, updating to new version`;
+    isLatestVersion && events.emit(Events.debug, versionStateMsg);
+    if (!isLatestVersion) await versionHandler.updateLocalVersion();
+
+    await updateAllModules();
+    events.emit(Events.ready);
+    events.emit(Events.debug, 'AzurAPIUpdater is ready!');
   };
 
   /**
-   * Load the cache
+   * Load the state fron json database
    */
-  const load = () => {
-    Object.keys(local).forEach((type: Datatype) =>
-      fs.existsSync(type)
-        ? state[type].dispatch('set', getRawData(fs.readFileSync(type).toString(), type))
-        : update(type)
-    );
+  const loadModuleIntoStore = (type: Datatype) => {
+    events.emit(Events.debug, `Loading store of ${type}`);
+    const raw = getRawData(fs.readFileSync(localDatabase[type]).toString(), type);
+    state[type].dispatch('set', raw);
   };
 
-  init().then(start);
+  init().then(startUpdateInterval);
 
-  return { update, start, stop, init, load };
+  return { updateModule, updateAllModules, startUpdateInterval, stopUpdateInterval, loadModuleIntoStore };
 };

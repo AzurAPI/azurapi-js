@@ -1,11 +1,11 @@
 import { Datatype } from '../../core/state';
 
 export interface UpdaterTemplate {
-  update: (type: Datatype) => Promise<void>;
-  start: () => void;
-  stop: () => void;
-  init: () => Promise<void>;
-  load: () => void;
+  updateAllModules: () => Promise<void>;
+  updateModule: (type: Datatype) => Promise<void>;
+  startUpdateInterval: () => void;
+  stopUpdateInterval: () => void;
+  loadModuleIntoStore: (type: Datatype) => void;
 }
 
 export interface EventsTemplate {

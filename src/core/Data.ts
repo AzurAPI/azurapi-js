@@ -4,7 +4,7 @@
  * @packageDocumentation
  */
 
-export const data = {
+export const DatabaseURLs = {
   version: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/version.json',
   ships: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/ships.json',
   equipments: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/equipments.json',
@@ -15,4 +15,4 @@ export const data = {
   idMap: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/id-map.json',
 };
 
-Object.freeze(data);
+Object.freeze(DatabaseURLs);

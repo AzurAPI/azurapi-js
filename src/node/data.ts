@@ -1,7 +1,6 @@
 import { join } from 'path';
-import { AzurAPIState } from '../core/state';
 
-export const local = {
+export const localDatabase = {
   ships: join(__dirname, '..', '.azurlane', 'ship.json'),
   equipments: join(__dirname, '..', '.azurlane', 'equipment.json'),
   chapters: join(__dirname, '..', '.azurlane', 'chapters.json'),
@@ -12,6 +11,12 @@ export const local = {
 };
 
 export let baseFolder = join(__dirname, '..', '.azurlane');
-export let versionInfo = join(__dirname, '..', '.azurlane', 'version.json');
+export let versionInfoFile = join(__dirname, '..', '.azurlane', 'version.json');
 
-Object.freeze(local);
+export enum Events {
+  debug = 'debug',
+  updateAvailable = 'updateAvailable',
+  ready = 'ready',
+}
+
+Object.freeze(localDatabase);

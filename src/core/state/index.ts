@@ -42,8 +42,8 @@ export const createStateManager = (): AzurAPIState => ({
 export type ClientStateDispatcher = ReturnType<typeof createDispatcher>;
 export const createDispatcher = (state: AzurAPIState) => ({
   setShips: (ships: Ship[]) => state.ships.dispatch('set', ships),
-  setBarrages: (barrage: Barrage[]) => state.ships.dispatch('set', barrage),
-  setEquipments: (equipment: Equipment[]) => state.ships.dispatch('set', equipment),
-  setVoicelines: (voiceline: Voiceline) => state.ships.dispatch('set', voiceline),
-  setChapters: (chapters: Chapter[]) => state.ships.dispatch('set', chapters),
+  setBarrages: (barrage: Barrage[]) => state.barrages.dispatch('set', barrage),
+  setEquipments: (equipment: Equipment[]) => state.equipments.dispatch('set', equipment),
+  setVoicelines: (voiceline: Voiceline) => state.voicelines.dispatch('set', voiceline),
+  setChapters: (chapters: Chapter[]) => state.chapters.dispatch('set', chapters),
 });
