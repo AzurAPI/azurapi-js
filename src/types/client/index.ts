@@ -1,3 +1,5 @@
+import { LocalFiles } from '../../core/database';
+import { Events } from '../../core/events';
 import { Datatype } from '../../core/state';
 
 export interface UpdaterTemplate {
@@ -8,9 +10,26 @@ export interface UpdaterTemplate {
   loadModuleIntoStore: (type: Datatype) => void;
 }
 
+export type EventHandler = (event: Events, listener: any) => EventsTemplate;
 export interface EventsTemplate {
-  emit: <T>(event: string, action?: T) => boolean;
-  on: (event: string | symbol, listener: (...args: any[]) => void) => this;
-  off: (event: string | symbol, listener: (...args: any[]) => void) => this;
-  once: (event: string | symbol, listener: (...args: any[]) => void) => this;
+  emit: <Action>(event: Events, action?: Action) => boolean;
+  on: EventHandler;
+  off: EventHandler;
+}
+
+export interface FileManager {
+  read: <T>(path: string) => T;
+  write: <T>(path: string, data: T) => void;
+  exists: (path: string) => boolean;
+  mkdir: (path: string) => void;
+}
+
+export type Fetch = <T = Record<string | number | symbol, unknown>>(url: string) => Promise<T>;
+
+export interface ClientTools {
+  fetch: Fetch;
+  fileManager: FileManager;
+  events: EventsTemplate;
+  updater: UpdaterTemplate;
+  localFiles: LocalFiles;
 }

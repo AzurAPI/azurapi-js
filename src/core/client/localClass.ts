@@ -1,33 +1,31 @@
-import { EventsTemplate, UpdaterTemplate } from '../../types/client';
 import { BarragesAPI } from '../api/barrage';
 import { ChaptersAPI } from '../api/chapter';
 import { EquipmentsAPI } from '../api/equipment';
 import { ShipsAPI } from '../api/ship';
 import { VoicelinesAPI } from '../api/voiceline';
 import { AzurAPIState, ClientStateDispatcher } from '../state';
-import { CoreAPI, createClient, LocalAzurAPIClient } from './client';
-import { ClientOptions, GeneratedClientProps } from './clientFactory';
+import { CoreAPI, createLocalClient } from './localClient';
+import { GeneratedClientProps } from './clientFactory';
+import { ClientTools } from '../../types/client';
 
 /**
  * Legacy class, similar as v2
  */
 export class AzurAPI {
-  public options: ClientOptions;
+  public options: Required<GeneratedClientProps>;
   public ships: ShipsAPI;
   public equipments: EquipmentsAPI;
   public chapters: ChaptersAPI;
   public voicelines: VoicelinesAPI;
   public barrages: BarragesAPI;
   public api: CoreAPI;
-  public events: EventsTemplate;
-  public updater: UpdaterTemplate;
   public state: AzurAPIState;
   public dispatch: ClientStateDispatcher;
+  public tools: ClientTools;
 
-  constructor(options: GeneratedClientProps = {}) {
-    const client = createClient(options);
+  constructor(options: Partial<GeneratedClientProps> = {}) {
+    const client = createLocalClient(options);
     this.options = client.options;
-    this.events = client.events;
     this.ships = client.api.ships;
     this.api = client.api;
     this.equipments = client.api.equipments;
@@ -36,10 +34,6 @@ export class AzurAPI {
     this.barrages = client.api.barrages;
     this.state = client.state;
     this.dispatch = client.dispatch;
-  }
-
-  public withUpdater(create: (client: AzurAPI) => UpdaterTemplate) {
-    this.updater = create(this);
-    return this;
+    this.tools = client.tools;
   }
 }

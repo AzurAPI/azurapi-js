@@ -54,10 +54,10 @@ const getConfigTemplate = config => {
   return mergedConfig;
 };
 
-const getOutput = ({ type }) => ({
+const getOutput = ({ type, name }) => ({
   path: path.resolve(__dirname, 'build'),
-  filename: `azurapi.${type}.bundle.js`,
-  library: { name: `azurapi.${type}`, type },
+  filename: `azurapi.${name || type}.bundle.js`,
+  library: { name: `azurapi.${name || type}`, type },
 });
 
 const getResolveFallback = () => ({

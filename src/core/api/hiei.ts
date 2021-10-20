@@ -56,7 +56,7 @@ const createCoreHieiAPI = (options: HieiClientOptions): CoreHieiAPI => {
    * @param q Query
    */
   const request = <T>(endpoint: string, query: string): Promise<T> => {
-    const url = new URL(endpoint, options.hiei.url);
+    const url = new URL(endpoint, options.url);
     url.search = new URLSearchParams({ q: query }).toString();
 
     return new Promise((resolve, reject) => {
@@ -91,7 +91,7 @@ const createCoreHieiAPI = (options: HieiClientOptions): CoreHieiAPI => {
           }
         });
       };
-      http.get(url.toString(), { headers: { authorization: options.hiei.auth } }, onResponse);
+      http.get(url.toString(), { headers: { authorization: options.auth } }, onResponse);
     });
   };
 

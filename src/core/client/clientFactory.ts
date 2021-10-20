@@ -1,12 +1,14 @@
-import { EventsTemplate } from '../../types/client';
+import { ClientTools } from '../../types/client';
 
 export interface ClientOptions {
   autoupdate: boolean;
   rate: number;
 }
 
-export interface ClientLifecycleProps {
-  events: EventsTemplate;
+export interface ClientToolsProps {
+  localPath: string;
+  useTools: boolean;
+  customToolsImpl: ClientTools;
 }
 
 export interface ClientFactoryProps<Options, Api> {
@@ -17,9 +19,9 @@ export interface ClientFactoryProps<Options, Api> {
   onCreate?: (client: AzurAPIClient<Options, Api>) => void;
 }
 
-export type GeneratedClientProps = Partial<ClientOptions> & Partial<ClientLifecycleProps>;
+export type GeneratedClientProps = Partial<ClientOptions & ClientToolsProps>;
 
-export interface AzurAPIClient<Options, Api> extends Partial<ClientLifecycleProps> {
+export interface AzurAPIClient<Options, Api> {
   options: Options;
   api: Api;
 }
@@ -36,8 +38,6 @@ export const createClientFactory = <Options extends ClientOptions, Api>(props: C
       options,
       api: props.api,
     };
-
-    if (localProps.events) client.events = localProps.events;
 
     onCreate(client);
     return client;

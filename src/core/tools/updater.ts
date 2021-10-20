@@ -3,46 +3,45 @@
  * Functions relating to updating the cache
  * @packageDocumentation
  */
-import fs from 'fs';
-import { DatabaseURLs } from '../core/database';
-import { EventsTemplate, UpdaterTemplate } from '../types/client';
-import { baseFolder, Events, localDatabase } from './data';
-import { AzurAPIState, Datatype } from '../core/state';
-import { ClientOptions } from '../core/client/clientFactory';
-import { fetch } from './http';
-import { createToolsStore } from './state';
+import { DatabaseURLs } from '../database';
+import { ClientTools, UpdaterTemplate } from '../../types/client';
+import { AzurAPIState, Datatype } from '../state';
+import { ClientOptions } from '../client/clientFactory';
+import { createToolsStore } from '../state/tools';
 import { createVersionHandler } from './versionHandler';
+import { Events } from '../events';
 
 export type ClientUpdater = ReturnType<typeof createUpdater>;
 
 const areObjects: Datatype[] = ['voicelines'];
 export interface UpdaterProps {
-  events: EventsTemplate;
   state: AzurAPIState;
   options: ClientOptions;
+  tools: ClientTools;
 }
 
-const JSONUtils = (source: string) => {
-  const getArray = <T>(): T[] => Object.values(JSON.parse(source) || []);
-  const getObject = <T>(): T => JSON.parse(source) || {};
-  return { getArray, getObject };
+const getRawData = <T>(source: T, type: Datatype): T[] | T => {
+  try {
+    if (areObjects.includes(type)) return source || ({} as T);
+    else return Object.values(source || []);
+  } catch (error) {
+    console.error(source);
+  }
 };
 
-const getRawData = <T>(source: string, type: Datatype): T[] | T =>
-  areObjects.includes(type) ? JSONUtils(source).getObject() : JSONUtils(source).getArray();
-
 export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
-  const { events, state, options } = props;
-  const toolsStore = createToolsStore();
-  const versionHandler = createVersionHandler(toolsStore);
-  let cron: NodeJS.Timeout;
+  const { state, options } = props;
+  const { events, fileManager, fetch, localFiles } = props.tools;
+  const store = createToolsStore();
+  const versionHandler = createVersionHandler({ store, fileManager, fetch, localFiles });
+  let cron: any; // either number or NodeJS.Timeout;
 
   const updateAllModules = async () => {
     const modulesToUpdate = await versionHandler.getModulesToUpdate();
 
     await Promise.all(
       versionHandler.supportedModules.map(async (type: Datatype) => {
-        const fileExists = fs.existsSync(localDatabase[type]);
+        const fileExists = fileManager.exists(localFiles.localDatabaseFiles[type]);
         !fileExists && events.emit(Events.debug, `No local database for ${type} found, updating.`);
         if (modulesToUpdate.includes(type) || !fileExists) await updateModule(type);
         else loadModuleIntoStore(type);
@@ -63,7 +62,7 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
     const raw = getRawData(strData, type);
 
     state[type].dispatch(`set`, raw);
-    fs.writeFileSync(localDatabase[type], JSON.stringify(raw));
+    fileManager.write(localFiles.localDatabaseFiles[type], raw);
   };
 
   /**
@@ -92,11 +91,9 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
    * Check if folder and JSON files exist then load cache
    */
   const init = async () => {
-    if (!fs.existsSync(baseFolder)) fs.mkdirSync(baseFolder);
+    if (!fileManager.exists(localFiles.baseFolder)) fileManager.mkdir(localFiles.baseFolder);
     const isLatestVersion = await versionHandler.isLatestVersion();
-    const versionStateMsg = isLatestVersion
-      ? 'Latest version on local!'
-      : `New version detected, updating to new version`;
+    const versionStateMsg = isLatestVersion ? 'Latest version on local!' : `Updating to new version`;
     isLatestVersion && events.emit(Events.debug, versionStateMsg);
     if (!isLatestVersion) await versionHandler.updateLocalVersion();
 
@@ -110,7 +107,7 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
    */
   const loadModuleIntoStore = (type: Datatype) => {
     events.emit(Events.debug, `Loading store of ${type}`);
-    const raw = getRawData(fs.readFileSync(localDatabase[type]).toString(), type);
+    const raw = getRawData(fileManager.read(localFiles.localDatabaseFiles[type]), type);
     state[type].dispatch('set', raw);
   };
 

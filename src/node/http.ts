@@ -3,6 +3,7 @@ import https from 'https';
 /**
  * Fetch data
  * @param url URL
+ * @param parser Transformation to date after its received
  */
 export function fetch(url: string): Promise<string> {
   return new Promise((resolve, reject) =>

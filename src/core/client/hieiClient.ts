@@ -6,9 +6,7 @@ interface HieiOptions {
   auth: string;
 }
 
-export interface HieiClientOptions extends ClientOptions {
-  hiei: HieiOptions;
-}
+export type HieiClientOptions = Partial<ClientOptions> & HieiOptions;
 
 export interface CoreHieiAPI {
   ships: Hiei.ShipsAPI;
@@ -18,17 +16,15 @@ export interface CoreHieiAPI {
   barrages: Hiei.BarragesAPI;
 }
 
-const defaultOptions: HieiClientOptions = {
+const defaultOptions: ClientOptions = {
   autoupdate: true,
   rate: 3600000,
-  hiei: {
-    auth: '',
-    url: '',
-  },
 };
 
-export const createHieiClient = (options: HieiClientOptions = defaultOptions) => {
-  const clientOptions: ClientFactoryProps<HieiClientOptions, CoreHieiAPI> = {
+export const createHieiClient = (props: HieiClientOptions) => {
+  const options: Required<HieiClientOptions> = { ...defaultOptions, ...props };
+
+  const clientOptions = {
     defaultOptions: options,
     api: getHieiAPI(options),
     beforeCreate: () => checkHiei(options),
@@ -37,7 +33,7 @@ export const createHieiClient = (options: HieiClientOptions = defaultOptions) =>
   return createClientFactory(clientOptions)(options);
 };
 
-const checkHiei = ({ hiei: { url } }: HieiClientOptions): boolean => {
+const checkHiei = ({ url }: HieiClientOptions): boolean => {
   if (!url) throw new Error('Option "hieiUrl" cannot be undefined when "source" is set to "hiei"');
   return !!url;
 };

@@ -3,36 +3,41 @@
  * Check for updates and functions relating to updates
  * @packageDocumentation
  */
-import fs from 'fs';
-import { DatabaseURLs } from '../core/database';
-import { Datatype } from '../core/state';
-import { versionInfoFile } from './data';
-import { fetch } from './http';
-import { ToolsStore, VersionState } from './state';
+import { DatabaseURLs, LocalFiles } from '../database';
+import { Datatype } from '../state';
+import { FileManager } from '../../types/client';
+import { ToolsStore, VersionState } from '../state/tools';
 
-export const createVersionHandler = ({ versionSection }: ToolsStore) => {
-  const { state, dispatch } = versionSection;
+interface VersionHandlerProps {
+  store: ToolsStore;
+  fileManager: FileManager;
+  localFiles: LocalFiles;
+  fetch: <T>(url: string) => Promise<T>;
+}
+
+export const createVersionHandler = (props: VersionHandlerProps) => {
+  const { fileManager, fetch, localFiles } = props;
+  const { state, dispatch } = props.store.versionSection;
   const supportedModules: Datatype[] = ['ships', 'equipments', 'chapters', 'barrages', 'voicelines'];
 
-  const saveToFile = <T>(value: T, path: string) => {
-    fs.writeFileSync(path, JSON.stringify(value));
-  };
-
-  const getLatestVersion = async () => JSON.parse(await fetch(DatabaseURLs.version)) as VersionState;
+  const getLatestVersion = async () => await fetch<VersionState>(DatabaseURLs.version);
 
   const updateLocalVersion = async () => {
     const newVersion = await getLatestVersion();
 
     dispatch('setVersion', newVersion);
-    saveToFile(newVersion, versionInfoFile);
+    fileManager.write(localFiles.versionInfoFile, newVersion);
     return newVersion;
   };
 
-  const getLocalVersion = () =>
-    (fs.existsSync(versionInfoFile) && (JSON.parse(fs.readFileSync(versionInfoFile).toString()) as VersionState)) ||
-    (state.version['version-number'] && state.version) ||
-    null;
-
+  const getLocalVersion = () => {
+    if (fileManager.exists(localFiles.versionInfoFile)) {
+      return fileManager.read<VersionState>(localFiles.versionInfoFile);
+    } else if (state.version['version-number']) {
+      return state.version;
+    }
+    return null;
+  };
   /**
    * Check for updates
    */

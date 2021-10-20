@@ -16,3 +16,22 @@ export const DatabaseURLs = {
 };
 
 Object.freeze(DatabaseURLs);
+
+export type LocalFiles = ReturnType<typeof getLocalDatabase>;
+
+export const getLocalDatabase = (path: string = './') => {
+  const baseFolder = path + '.azurlane/';
+  const localDatabaseFiles = {
+    ships: baseFolder + 'ship.json',
+    equipments: baseFolder + 'equipment.json',
+    chapters: baseFolder + 'chapters.json',
+    voicelines: baseFolder + 'voice_lines.json',
+    barrages: baseFolder + 'barrage.json',
+    shipList: baseFolder + 'ship-list.json',
+    idMap: baseFolder + 'id-map.json',
+  };
+
+  const versionInfoFile = baseFolder + 'version.json';
+
+  return { localDatabaseFiles, baseFolder, versionInfoFile };
+};

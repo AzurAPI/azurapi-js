@@ -1,5 +1,5 @@
-import { Datatype } from '../../core/state';
-import { createSection, Section } from '../../core/state/stateManager';
+import { Datatype } from '.';
+import { createSection, Section } from './stateManager';
 
 export interface ToolsStore {
   versionSection: Section<VersionSection>;
