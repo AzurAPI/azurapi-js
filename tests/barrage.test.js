@@ -1,9 +1,12 @@
 const { AzurAPIInstance } = require('../build/index.js');
-const { events } = AzurAPIInstance;
+const {
+  tools: { events },
+  api,
+} = AzurAPIInstance;
 
 test('Get Barrage', () => {
-  events.on('ready', async () => {
-    let result = api.barrages.get('Full_Barrage_-_22_II');
+  events.on('ready', () => {
+    let result = api.barrages.findItem('Full_Barrage_-_22_II');
     expect(result.name).toBe('Full Barrage - 22 II');
   });
 });

@@ -1,9 +1,12 @@
 const { AzurAPIInstance } = require('../build/index.js');
-const { events, api } = AzurAPIInstance;
+const {
+  tools: { events },
+  api,
+} = AzurAPIInstance;
 
 events.on('ready', async () => {
   console.log(' >>> Client Loaded!');
-  let result = await api.ships.get('Abukuma', {
+  let result = await api.ships.findItem('Abukuma', {
     nameOnly: true,
     language: 'en',
   });
@@ -14,7 +17,7 @@ events.on('ready', async () => {
 
  >   Result: ${result.names.en}
 `);
-  let result2 = await api.barrages.get('Full_Barrage_-_22_II');
+  let result2 = await api.barrages.findItem('Full_Barrage_-_22_II');
   console.log(` 
  >>  Test: Get Barrage by Name
  >>  Expected Result: Full Barrage - 22 II

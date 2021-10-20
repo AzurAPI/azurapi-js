@@ -44,5 +44,5 @@ export const createEquipmentsAPI = ({ equipments }: AzurAPIState) => {
 
   const { findAll, findItem } = SharedAPI.search(equipments.state.array, fuze);
 
-  return { name, category, nationality, id, get: findItem, all: findAll };
+  return { name, category, nationality, id, findItem, findAll };
 };
