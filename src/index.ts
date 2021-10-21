@@ -5,4 +5,3 @@
  */
 
 export * from './core/Client';
-export * from './http/server_v2';

@@ -5,7 +5,6 @@ import { Equipments } from './api/api_equipment';
 import { Barrages } from './api/api_barrage';
 import { Chapters } from './api/api_chapter';
 import { Voicelines } from './api/api_voiceline';
-import * as Hiei from './api/hiei';
 import { datatype } from './Data';
 
 export type Source = 'uncached' | 'local' | 'hiei'
@@ -29,18 +28,18 @@ export class AzurAPI extends EventEmitter {
   public autoupdate: boolean;
   public rate: number;
   public updater: Updater;
-  public ships: Ships | Hiei.Ships/* = new Ships(this)*/;
-  public equipments: Equipments | Hiei.Equipments/* = new Equipments(this)*/;
-  public chapters: Chapters | Hiei.Chapters/* = new Chapters(this)*/;
-  public voicelines: Voicelines | Hiei.Voicelines/* = new Voicelines(this)*/;
-  public barrages: Barrages | Hiei.Barrages/* = new Barrages(this)*/;
-  public apis: object/* = {
+  public ships: Ships = new Ships(this);
+  public equipments: Equipments = new Equipments(this);
+  public chapters: Chapters = new Chapters(this);
+  public voicelines: Voicelines = new Voicelines(this);
+  public barrages: Barrages = new Barrages(this);
+  public apis = {
     ships: this.ships,
     equipments: this.equipments,
     chapters: this.chapters,
     voicelines: this.voicelines,
     barrages: this.barrages
-  }*/;
+  };
 
   /**
    * Cache client
@@ -54,20 +53,6 @@ export class AzurAPI extends EventEmitter {
     this.source = this.options.source ? this.options.source : 'local';
     this.autoupdate = this.options.autoupdate ? this.options.autoupdate : true;
     this.rate = this.options.rate ? this.options.rate : 3600000;
-    if (this.source === 'hiei' && !this.options.hieiUrl) throw new Error('Option "hieiUrl" cannot be undefined when "source" is set to "hiei"');
-    if (this.source === 'hiei') {
-      this.ships = new Hiei.Ships(this);
-      this.equipments = new Hiei.Equipments(this);
-      this.chapters = new Hiei.Chapters(this);
-      this.voicelines = new Hiei.Voicelines(this);
-      this.barrages = new Hiei.Barrages(this);
-    } else {
-      this.ships = new Ships(this);
-      this.equipments = new Equipments(this);
-      this.chapters = new Chapters(this);
-      this.voicelines = new Voicelines(this);
-      this.barrages = new Barrages(this);
-    }
     this.apis = {
       ships: this.ships,
       equipments: this.equipments,
