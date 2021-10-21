@@ -1,21 +1,8 @@
-/* global window self */
-export const platformChecker = () => {
+export const isNodeEnvironment = () => {
   try {
-    const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
-
-    const isWebWorker =
-      typeof self === 'object' && self.constructor && self.constructor.name === 'DedicatedWorkerGlobalScope';
-
-    const isNode = typeof process !== 'undefined' && process.versions !== null && process.versions.node !== null;
-
-    const isJsDom = () =>
-      (typeof window !== 'undefined' && window.name === 'nodejs') ||
-      navigator.userAgent.includes('Node.js') ||
-      navigator.userAgent.includes('jsdom');
-
-    return { isBrowser, isWebWorker, isNode, isJsDom };
+    return typeof process !== 'undefined' && process.versions !== null && process.versions.node !== null;
   } catch (error) {
-    console.debug('Platform Checker:', error);
+    return false;
   }
 };
 

@@ -1,4 +1,4 @@
-import { platformChecker } from '../../node/utils';
+import { isNodeEnvironment } from '../../node/utils';
 import { ClientTools, EventsTemplate, Fetch } from '../../types/client';
 import { GeneratedClientProps } from '../client/clientFactory';
 import { getLocalDatabase } from '../database';
@@ -19,7 +19,7 @@ export interface ClientToolsProps {
  */
 export const getClientTools = (props: ClientToolsProps, customImpl?: ClientTools) => {
   if (customImpl) return customImpl;
-  const isNode = platformChecker().isNode;
+  const isNode = isNodeEnvironment();
   if (isNode) return getToolsOnNode(props);
   else return getToolsOnBrowser(props);
 };
