@@ -1,4 +1,4 @@
-const { AzurAPI } = require('../build/Client.js');
+const { AzurAPI } = require('../build/index.js');
 const client = new AzurAPI();
 
 test('Get Equipment', async () => {

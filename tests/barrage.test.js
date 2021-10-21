@@ -1,5 +1,5 @@
-const { instance } = require('../build/Client.js');
-const client = instance;
+const { AzurAPI } = require('../build/index.js');
+const client = new AzurAPI();
 
 test('Get Barrage', () => {
   client.on('ready', async () => {
