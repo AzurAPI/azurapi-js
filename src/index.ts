@@ -5,10 +5,8 @@
  */
 
 export { AzurAPI } from './core/client/localClass';
-export { HieiAzurAPI } from './core/client/hieiClass';
 export { AzurAPIClient, GeneratedClientProps, createClientFactory } from './core/client/clientFactory';
 export { createLocalClient, CoreAPI } from './core/client/localClient';
-export { createHieiClient, CoreHieiAPI } from './core/client/hieiClient';
 export { EventsTemplate, UpdaterTemplate } from './types/client';
 export { Events } from './core/events';
 export { createUpdater, UpdaterProps } from './core/tools/updater';
