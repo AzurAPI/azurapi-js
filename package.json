@@ -5,7 +5,8 @@
   "main": "./build/azurapi.umd.bundle.js",
   "exports": {
     ".": {
-      "require": "./build/index.js"
+      "require": "./build/index.js",
+      "import": "./build/azurapi.umd.bundle.js"
     }
   },
   "types": "./build/index.d.ts",

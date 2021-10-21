@@ -1,19 +1,22 @@
-import https from 'https';
+import https, { RequestOptions } from 'https';
 
 /**
  * Fetch data
  * @param url URL
- * @param parser Transformation to date after its received
+ * @param options RequestOptions
  */
-export function fetch(url: string): Promise<string> {
-  return new Promise((resolve, reject) =>
-    https
-      .get(url, resp => {
-        //console.debug('fetch', url);
-        let data = '';
-        resp.on('data', chunk => (data += chunk));
-        resp.on('end', () => resolve(data));
-      })
-      .on('error', err => reject(err))
-  );
-}
+export const fetch = (options?: RequestOptions): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const onResponse = resp => {
+      let data = '';
+      resp.on('data', chunk => (data += chunk));
+      resp.on('end', () => resolve(data));
+    };
+
+    const req = https.request(options, onResponse);
+
+    req.on('error', error => {
+      console.error(error);
+    });
+  });
+};

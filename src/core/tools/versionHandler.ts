@@ -7,20 +7,21 @@ import { DatabaseURLs, LocalFiles } from '../database';
 import { Datatype } from '../state';
 import { FileManager } from '../../types/client';
 import { ToolsStore, VersionState } from '../state/tools';
+import { FetchAPI } from '../utils/api';
 
 interface VersionHandlerProps {
   store: ToolsStore;
   fileManager: FileManager;
   localFiles: LocalFiles;
-  fetch: <T>(url: string) => Promise<T>;
+  fetchAPI: FetchAPI;
 }
 
 export const createVersionHandler = (props: VersionHandlerProps) => {
-  const { fileManager, fetch, localFiles } = props;
+  const { fileManager, fetchAPI, localFiles } = props;
   const { state, dispatch } = props.store.versionSection;
   const supportedModules: Datatype[] = ['ships', 'equipments', 'chapters', 'barrages', 'voicelines'];
 
-  const getLatestVersion = async () => await fetch<VersionState>(DatabaseURLs.version);
+  const getLatestVersion = async () => await fetchAPI.get<VersionState>({ path: DatabaseURLs.version });
 
   const updateLocalVersion = async () => {
     const newVersion = await getLatestVersion();

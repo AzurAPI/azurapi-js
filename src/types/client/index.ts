@@ -24,10 +24,20 @@ export interface FileManager {
   mkdir: (path: string) => void;
 }
 
-export type Fetch = <T = Record<string | number | symbol, unknown>>(url: string) => Promise<T>;
+export interface RequestOptionsTemplate {
+  serverUrl: string;
+  method?: 'GET' | 'POST';
+  path?: string;
+  headers?: Record<string, string>;
+  body?: string;
+}
+
+export type FetchTemplate = <Response = Record<string | number | symbol, unknown>>(
+  options: RequestOptionsTemplate
+) => Promise<Response>;
 
 export interface ClientTools {
-  fetch: Fetch;
+  fetch: FetchTemplate;
   fileManager: FileManager;
   events: EventsTemplate;
   updater: UpdaterTemplate;

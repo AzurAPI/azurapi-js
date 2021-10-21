@@ -3,13 +3,14 @@
  * Functions relating to updating the cache
  * @packageDocumentation
  */
-import { DatabaseURLs } from '../database';
+import { DatabaseURLs, ServerURL } from '../database';
 import { ClientTools, UpdaterTemplate } from '../../types/client';
 import { AzurAPIState, Datatype } from '../state';
 import { ClientOptions } from '../client/clientFactory';
 import { createToolsStore } from '../state/tools';
 import { createVersionHandler } from './versionHandler';
 import { Events } from '../events';
+import { useFetchAPI } from '../utils/api';
 
 export type ClientUpdater = ReturnType<typeof createUpdater>;
 
@@ -33,7 +34,9 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
   const { state, options } = props;
   const { events, fileManager, fetch, localFiles } = props.tools;
   const store = createToolsStore();
-  const versionHandler = createVersionHandler({ store, fileManager, fetch, localFiles });
+  const sharedOptions = { serverUrl: ServerURL, path: '/' };
+  const fetchAPI = useFetchAPI({ sharedOptions, fetch });
+  const versionHandler = createVersionHandler({ store, fileManager, fetchAPI, localFiles });
   let cron: any; // either number or NodeJS.Timeout;
 
   const updateAllModules = async () => {
@@ -58,7 +61,7 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
     events.emit(Events.updateAvailable, type);
     events.emit(Events.debug, `Downloading updated ${type} data`);
 
-    const strData = await fetch(DatabaseURLs[type]);
+    const strData = await fetchAPI.get({ path: DatabaseURLs[type] });
     const raw = getRawData(strData, type);
 
     state[type].dispatch(`set`, raw);

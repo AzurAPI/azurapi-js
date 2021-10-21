@@ -7,6 +7,7 @@ import { AzurAPIState, createDispatcher, createStateManager } from '../state';
 import { AzurAPIClient, createClientFactory, GeneratedClientProps } from './clientFactory';
 import { getClientTools } from '../tools/toolsHandler';
 import { ClientTools } from '../../types/client';
+import { createUpdater } from '../tools/updater';
 
 export interface CoreAPI {
   ships: ShipsAPI;
@@ -53,6 +54,7 @@ export const createLocalClient = (options: GeneratedClientProps = {}): LocalAzur
   const azurApiClient = createClientFactory<Required<GeneratedClientProps>, CoreAPI>(clientOptions)(options);
   if (azurApiClient.options.useTools) {
     const tools = getClientTools({ state, options: azurApiClient.options }, azurApiClient.options.customToolsImpl);
+    tools.updater = createUpdater({ tools, state, options: azurApiClient.options });
     return { ...azurApiClient, state, dispatch, tools };
   }
   return { ...azurApiClient, state, dispatch };
