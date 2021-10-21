@@ -8,9 +8,10 @@
         "compile": "tsc",
         "test": "jest --config jest.config.js",
         "lint": "eslint src --ext .ts --fix",
-        "build": "npm run lint && npm run compile && npm run build:docs && npm run build:docs.json && npm run test",
+        "build": "npm run lint && npm run compile && npm run build:browser && npm run build:docs && npm run build:docs.json && npm run test",
         "build:docs": "npx typedoc --theme typedoc/theme/minami --readme readme.md --out docs/ src/.",
-        "build:docs.json": "typedoc --json typedoc/docs.json src/.",
+        "build:docs.json": "npx typedoc --json typedoc/docs.json src/.",
+        "build:browser": "npx browserify build/index.js -o bundles/azurapi.js && npx terser bundles/azurapi.js --compress --mangle --output bundles/azurapi.min.js",
         "prepare": "npm run compile"
     },
     "author": "XhacKX#0001, 彩雲#5778, August#5820",
