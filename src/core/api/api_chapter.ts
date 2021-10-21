@@ -4,7 +4,7 @@
  * @packageDocumentation
  */
 import { Chapter, SubChapter } from '../../types/chapter';
-import API, { Language, normalize, NATIONS, advancedOptions } from './api';
+import API, { Language, normalize } from './api';
 import { AzurAPI } from '../Client';
 
 /**

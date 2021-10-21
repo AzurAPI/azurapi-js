@@ -4,7 +4,7 @@
  * @packageDocumentation
  */
 import { Barrage, Hull, Ships } from '../../types/barrage';
-import API, { Language, normalize, NATIONS, advancedOptions } from './api';
+import API, { normalize } from './api';
 import { AzurAPI } from '../Client';
 
 /**

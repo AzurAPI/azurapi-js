@@ -23,17 +23,16 @@ export default class Updater {
     /**
      * Check for updates then update and load cache
      */
-    update() {
-      return check().then(updates => {
-        if (updates.length > 0) {
-          this.client.emit('updateAvalible', updates);
-          return Promise.all(updates.map(async type => {
-            let raw = Object.values(JSON.parse(await fetch(data[type])) || []);
-            this.client.set(type, raw);
-            fs.writeFileSync(local[type], JSON.stringify(raw));
-          }));
-        }
-      });
+    async update() {
+      const updates = await check();
+      if (updates.length > 0) {
+        this.client.emit('updateAvalible', updates);
+        return Promise.all(updates.map(async (type) => {
+          let raw = Object.values(JSON.parse(await fetch(data[type])) || []);
+          this.client.set(type, raw);
+          fs.writeFileSync(local[type], JSON.stringify(raw));
+        }));
+      }
     }
 
     /**
