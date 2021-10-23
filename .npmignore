@@ -8,3 +8,5 @@ tests
 package-lock.json
 yarn.lock
 .github
+docs
+bundles
