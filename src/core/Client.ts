@@ -7,14 +7,12 @@ import { Chapters } from './api/api_chapter';
 import { Voicelines } from './api/api_voiceline';
 import { datatype } from './Data';
 
-export type Source = 'uncached' | 'local' | 'hiei'
+export type Source = 'uncached' | 'local'
 
 export interface CacheOptions {
   source?: Source;
   autoupdate?: boolean;
   rate?: number;
-  hieiUrl?: string;
-  hieiAuth?: string;
 }
 
 export let instance: AzurAPI;
