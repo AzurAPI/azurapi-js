@@ -3,9 +3,9 @@
  * Check for updates and functions relating to updates
  * @packageDocumentation
  */
+import { FileManager } from '@atsu/multi-env-impl';
 import { DatabaseURLs, LocalFiles } from '../database';
 import { Datatype } from '../state';
-import { FileManager } from '../../types/client';
 import { ToolsStore, VersionState } from '../state/tools';
 import { FetchAPI } from '../utils/api';
 

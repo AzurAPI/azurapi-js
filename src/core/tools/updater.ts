@@ -6,7 +6,7 @@
 import { DatabaseURLs, ServerURL } from '../database';
 import { ClientTools, UpdaterTemplate } from '../../types/client';
 import { AzurAPIState, Datatype } from '../state';
-import { ClientOptions } from '../client/clientFactory';
+import { ClientOptions } from '../../types/client/client';
 import { createToolsStore } from '../state/tools';
 import { createVersionHandler } from './versionHandler';
 import { Events } from '../events';
@@ -35,7 +35,7 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
   const { events, fileManager, fetch, localFiles } = props.tools;
   const store = createToolsStore();
   const sharedOptions = { serverUrl: ServerURL, path: '/' };
-  const fetchAPI = useFetchAPI({ sharedOptions, fetch });
+  const fetchAPI = useFetchAPI({ sharedOptions, fetch, logger: events.emit });
   const versionHandler = createVersionHandler({ store, fileManager, fetchAPI, localFiles });
   let cron: any; // either number or NodeJS.Timeout;
 

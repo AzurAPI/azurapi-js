@@ -4,10 +4,10 @@ import { BarragesAPI, createBarragesAPI } from '../api/barrage';
 import { ChaptersAPI, createChaptersAPI } from '../api/chapter';
 import { createVoicelinesAPI, VoicelinesAPI } from '../api/voiceline';
 import { AzurAPIState, createDispatcher, createStateManager } from '../state';
-import { AzurAPIClient, createClientFactory, GeneratedClientProps } from './clientFactory';
-import { getClientTools } from '../tools/toolsHandler';
 import { ClientTools } from '../../types/client';
 import { createUpdater } from '../tools/updater';
+import { Client, CreateClientProps } from '../../types/client/client';
+import { getClientTools } from '../tools/toolsHandler';
 
 export interface CoreAPI {
   ships: ShipsAPI;
@@ -25,37 +25,41 @@ const getLocalAPI = (state: AzurAPIState): CoreAPI => ({
   barrages: createBarragesAPI(state),
 });
 
-export interface LocalAzurAPIClient extends AzurAPIClient<Required<GeneratedClientProps>, CoreAPI> {
+export interface LocalAzurAPIClient extends Client<CreateClientProps, CoreAPI> {
   state: AzurAPIState;
   dispatch: ReturnType<typeof createDispatcher>;
   tools?: ClientTools;
 }
 
+const defaultOptions: CreateClientProps = {
+  autoupdate: true,
+  rate: 3600000,
+  useTools: true,
+  localPath: './',
+  customToolsImpl: undefined,
+};
+
 /**
  * Local client
  * @param props Configuration options
  */
-export const createLocalClient = (options: GeneratedClientProps = {}): LocalAzurAPIClient => {
+export const createLocalClient = (props: Partial<CreateClientProps> = {}): LocalAzurAPIClient => {
+  const options: CreateClientProps = { ...defaultOptions, ...props };
   const state: AzurAPIState = createStateManager();
   const dispatch = createDispatcher(state);
-  const defaultOptions: Required<GeneratedClientProps> = {
-    autoupdate: true,
-    rate: 3600000,
-    useTools: true,
-    localPath: './',
-    customToolsImpl: undefined,
-  };
 
-  const clientOptions = {
-    defaultOptions,
+  const azurApiClient: LocalAzurAPIClient = {
+    options,
     api: getLocalAPI(state),
+    state,
+    dispatch,
   };
 
-  const azurApiClient = createClientFactory<Required<GeneratedClientProps>, CoreAPI>(clientOptions)(options);
   if (azurApiClient.options.useTools) {
-    const tools = getClientTools({ state, options: azurApiClient.options }, azurApiClient.options.customToolsImpl);
-    tools.updater = createUpdater({ tools, state, options: azurApiClient.options });
-    return { ...azurApiClient, state, dispatch, tools };
+    const tools: ClientTools = getClientTools(options.customToolsImpl);
+    tools.updater = createUpdater({ tools, state, options });
+    azurApiClient.tools = tools;
   }
-  return { ...azurApiClient, state, dispatch };
+
+  return azurApiClient;
 };

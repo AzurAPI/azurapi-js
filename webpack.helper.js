@@ -16,36 +16,8 @@ const mergeDeep = (target, source) => {
   return output;
 };
 
-const defaultConfig = {
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: [
-          {
-            loader: 'ts-loader',
-          },
-        ],
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.ts'],
-  },
-};
-
 const getCustomTsLoaderOptions = options => {
-  return {
-    test: /\.tsx?$/,
-    use: [
-      {
-        loader: 'ts-loader',
-        options,
-      },
-    ],
-    exclude: /node_modules/,
-  };
+  return { ...tsLoader, use: [{ ...tsLoader.use[0], options }] };
 };
 
 const getConfigTemplate = config => {
@@ -57,12 +29,32 @@ const getConfigTemplate = config => {
 const getOutput = ({ type, name }) => ({
   path: path.resolve(__dirname, 'build'),
   filename: `azurapi.${name || type}.bundle.js`,
-  library: { name: `azurapi.${name || type}`, type },
+  library: { type },
 });
 
 const getResolveFallback = () => ({
   fallback: { fs: false, http: false, https: false, url: false, path: false },
 });
+
+const tsLoader = {
+  test: /\.tsx?$/,
+  use: [
+    {
+      loader: 'ts-loader',
+    },
+  ],
+  exclude: [/node_modules/],
+};
+
+const defaultConfig = {
+  module: {
+    rules: [tsLoader],
+  },
+  resolve: {
+    extensions: ['.ts'],
+  },
+  ignoreWarnings: [/module has no exports/],
+};
 
 module.exports = {
   isObject,

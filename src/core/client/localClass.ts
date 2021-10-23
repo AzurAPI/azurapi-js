@@ -5,14 +5,14 @@ import { ShipsAPI } from '../api/ship';
 import { VoicelinesAPI } from '../api/voiceline';
 import { AzurAPIState, ClientStateDispatcher } from '../state';
 import { CoreAPI, createLocalClient } from './localClient';
-import { GeneratedClientProps } from './clientFactory';
+import { CreateClientProps } from '../../types/client/client';
 import { ClientTools } from '../../types/client';
 
 /**
  * Legacy class, similar as v2
  */
 export class AzurAPI {
-  public options: Required<GeneratedClientProps>;
+  public options: CreateClientProps;
   public ships: ShipsAPI;
   public equipments: EquipmentsAPI;
   public chapters: ChaptersAPI;
@@ -23,7 +23,7 @@ export class AzurAPI {
   public dispatch: ClientStateDispatcher;
   public tools: ClientTools;
 
-  constructor(options: Partial<GeneratedClientProps> = {}) {
+  constructor(options: Partial<CreateClientProps> = {}) {
     const client = createLocalClient(options);
     this.options = client.options;
     this.ships = client.api.ships;
