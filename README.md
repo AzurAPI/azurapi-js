@@ -39,7 +39,7 @@ This package needs Node version `14.0.0` or newer.
 Get stable package from npm by running `npm install --save @azurapi/azurapi` in the command line.
 
 ## Usage / Documentation
-To use the Library, Please refer to the [Docs](https://azurapi.github.io/v2/)
+To use the Library, Please refer to the [Docs](https://azurapi.github.io/v2/) or [Latest "Master" Docs](https://azurapi.github.io/azurapi-js/)
 
 ## Support Server
 
