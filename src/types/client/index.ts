@@ -1,6 +1,8 @@
-import { EventsTemplate, FetchTemplate, FileManager } from '@atsu/multi-env-impl';
+import { EventsTemplate, FileManager } from '@atsu/multi-env-impl';
 import { LocalFiles } from '../../core/database';
 import { Datatype } from '../../core/state';
+import { VersionHandler } from '../../core/tools/versionHandler';
+import { FetchAPI } from '../../core/utils/api';
 
 export interface UpdaterTemplate {
   updateAllModules: () => Promise<void>;
@@ -11,9 +13,13 @@ export interface UpdaterTemplate {
 }
 
 export interface ClientTools {
-  fetch: FetchTemplate;
+  fetchAPI: FetchAPI;
   fileManager: FileManager;
   events: EventsTemplate;
-  updater: UpdaterTemplate;
   localFiles: LocalFiles;
+}
+
+export interface ClientModules {
+  updater: UpdaterTemplate;
+  versionHandler: VersionHandler;
 }

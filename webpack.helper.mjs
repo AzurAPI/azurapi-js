@@ -1,6 +1,9 @@
-const path = require('path');
+import { resolve } from 'path';
+import nodeExternals from 'webpack-node-externals';
 
 const isObject = item => item && typeof item === 'object' && !Array.isArray(item);
+
+/* To deep merge a custom config with the default */
 const mergeDeep = (target, source) => {
   let output = Object.assign({}, target);
   if (isObject(target) && isObject(source)) {
@@ -16,8 +19,37 @@ const mergeDeep = (target, source) => {
   return output;
 };
 
+const defaultConfig = {
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.ts'],
+  },
+  externals: [nodeExternals()],
+};
+
 const getCustomTsLoaderOptions = options => {
-  return { ...tsLoader, use: [{ ...tsLoader.use[0], options }] };
+  return {
+    test: /\.tsx?$/,
+    use: [
+      {
+        loader: 'ts-loader',
+        options,
+      },
+    ],
+    exclude: /node_modules/,
+  };
 };
 
 const getConfigTemplate = config => {
@@ -26,37 +58,22 @@ const getConfigTemplate = config => {
   return mergedConfig;
 };
 
-const getOutput = ({ type, name }) => ({
-  path: path.resolve(__dirname, 'build'),
-  filename: `azurapi.${name || type}.bundle.js`,
-  library: { type },
-});
+const cjsModules = ['commonjs', 'commonjs2'];
+const getOutput = ({ type, name }) => {
+  const ext = cjsModules.includes(type) ? 'cjs' : 'js';
+
+  return {
+    path: resolve('build'),
+    filename: `azurapi.${name || type}.bundle.${ext}`,
+    library: { type },
+  };
+};
 
 const getResolveFallback = () => ({
   fallback: { fs: false, http: false, https: false, url: false, path: false },
 });
 
-const tsLoader = {
-  test: /\.tsx?$/,
-  use: [
-    {
-      loader: 'ts-loader',
-    },
-  ],
-  exclude: [/node_modules/],
-};
-
-const defaultConfig = {
-  module: {
-    rules: [tsLoader],
-  },
-  resolve: {
-    extensions: ['.ts'],
-  },
-  ignoreWarnings: [/module has no exports/],
-};
-
-module.exports = {
+export {
   isObject,
   mergeDeep,
   getResolveFallback,

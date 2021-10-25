@@ -1,6 +1,7 @@
 import { ClientTools } from '../../types/client';
-import { getLocalDatabase } from '../database';
+import { getLocalDatabase, ServerURL } from '../database';
 import { ImplHandler, EnvChecker } from '@atsu/multi-env-impl';
+import { useFetchAPI } from '../utils/api';
 
 /**
  * We return the clientTools depending on the environment used (browser | node)
@@ -11,18 +12,18 @@ import { ImplHandler, EnvChecker } from '@atsu/multi-env-impl';
 export const getClientTools = (customImpl?: ClientTools) => {
   if (customImpl) return customImpl;
 
+  const sharedOptions = { serverUrl: ServerURL, path: '/' };
   const tools: ClientTools = {
     fileManager: ImplHandler.fileManager,
     events: ImplHandler.events,
-    fetch: ImplHandler.fetch,
+    fetchAPI: useFetchAPI({ sharedOptions, fetch: ImplHandler.fetch }),
     localFiles: getLocalDatabase(getPath()),
-    updater: undefined,
   };
 
   return tools;
 };
 
 const getPath = () => {
-  if (EnvChecker.isNode()) return require('path').join(__dirname, '../../');
+  if (EnvChecker.isNode()) return require('path').join(__dirname, './../');
   return undefined;
 };

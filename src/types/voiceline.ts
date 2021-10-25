@@ -15,6 +15,4 @@ export interface Voiceline extends Identifiable {
   audio?: string;
 }
 
-export interface VoicelineResponse {
-  [id: string]: { [skin: string]: Voiceline[] };
-}
+export type VoicelineResponse = Record<string, Record<string, Voiceline[]>>;

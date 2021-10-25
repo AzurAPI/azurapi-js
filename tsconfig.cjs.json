@@ -1,15 +1,13 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "esnext",
-    "lib": ["ESNext", "dom", "ES2019"],
+    "module": "es6",
+    "target": "es6",
     "moduleResolution": "node",
     "outDir": "./build",
     "rootDir": "./src",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "sourceMap": true
+    "declaration": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/tests", "node_modules"]

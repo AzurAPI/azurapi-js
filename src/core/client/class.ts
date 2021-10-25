@@ -3,8 +3,8 @@ import { ChaptersAPI } from '../api/chapter';
 import { EquipmentsAPI } from '../api/equipment';
 import { ShipsAPI } from '../api/ship';
 import { VoicelinesAPI } from '../api/voiceline';
-import { AzurAPIState, ClientStateDispatcher } from '../state';
-import { CoreAPI, createLocalClient } from './localClient';
+import { AzurAPIState } from '../state';
+import { CoreAPI, createLocalClient } from './client';
 import { CreateClientProps } from '../../types/client/client';
 import { ClientTools } from '../../types/client';
 
@@ -20,7 +20,6 @@ export class AzurAPI {
   public barrages: BarragesAPI;
   public api: CoreAPI;
   public state: AzurAPIState;
-  public dispatch: ClientStateDispatcher;
   public tools: ClientTools;
 
   constructor(options: Partial<CreateClientProps> = {}) {
@@ -33,7 +32,6 @@ export class AzurAPI {
     this.voicelines = client.api.voicelines;
     this.barrages = client.api.barrages;
     this.state = client.state;
-    this.dispatch = client.dispatch;
     this.tools = client.tools;
   }
 }

@@ -1,4 +1,4 @@
-import { ClientTools } from '.';
+import { ClientModules, ClientTools } from '.';
 
 export interface ClientOptions {
   autoupdate: boolean;
@@ -13,7 +13,11 @@ export interface ClientToolsProps {
 
 export type CreateClientProps = ClientOptions & ClientToolsProps;
 
-export interface Client<Options, Api> {
+export interface Client<Options, Api, State> {
   options: Options;
   api: Api;
+  state: State;
+
+  tools?: ClientTools;
+  modules?: ClientModules;
 }

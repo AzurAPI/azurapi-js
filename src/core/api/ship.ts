@@ -7,20 +7,19 @@ import { Ship } from '../../types/ship';
 import { searchAPI } from '../search';
 import { fuse } from '../search/fuse';
 import { normalize } from '../search/normalize';
-import { AzurAPIState } from '../state';
 import { FuseInstance, SharedAPI } from './shared';
 
 export type ShipsAPI = ReturnType<typeof createShipsAPI>;
 /**
  * Special ships class for extended functionality
  */
-export const createShipsAPI = ({ ships }: AzurAPIState) => {
+export const createShipsAPI = (ships: Ship[]) => {
   const keys = ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id'];
-  const fuze: FuseInstance<Ship> = (query: string) => fuse(query, ships.state.array, keys);
-  const id = searchAPI(ships.state.array).id;
+  const fuze: FuseInstance<Ship> = (query: string) => fuse(query, ships, keys);
+  const id = searchAPI(ships).id;
 
-  const getName = SharedAPI.getByNames(ships.state.array);
-  const getNationality = SharedAPI.getByNationality(ships.state.array);
+  const getName = SharedAPI.getByNames(ships);
+  const getNationality = SharedAPI.getByNationality(ships);
 
   /**
    * Get ship by name
@@ -34,7 +33,7 @@ export const createShipsAPI = ({ ships }: AzurAPIState) => {
    * @param hull Hull name
    */
   const hull = (hull: string): Ship[] => {
-    return ships.state.array.filter(
+    return ships.filter(
       ship =>
         (ship.hullType && normalize(ship.hullType.toUpperCase()) === normalize(hull.toUpperCase())) ||
         (ship.retrofitHullType && normalize(ship.retrofitHullType.toUpperCase()) === normalize(hull.toUpperCase()))
@@ -47,7 +46,7 @@ export const createShipsAPI = ({ ships }: AzurAPIState) => {
    */
   const nationality = getNationality.matchFilter;
 
-  const { findAll, findItem } = SharedAPI.search(ships.state.array, fuze);
+  const { findAll, findItem } = SharedAPI.search(ships, fuze);
 
   return { name, hull, nationality, id, findAll, findItem };
 };
