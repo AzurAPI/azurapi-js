@@ -13,7 +13,9 @@ export { createUpdater, UpdaterProps } from './core/tools/updater';
 export { getClientTools } from './core/tools/toolsHandler';
 export { DataSetUtils } from './core/utils/dataset';
 export { DataSet } from './types/utils/dataset';
-export { FetchAPI, useFetchAPI } from './core/utils/api';
+export { FetchAPI, useFetchAPI, FetchAPIProps } from './core/utils/api';
+export { SharedAPI, isIdentifiable, hasNames } from './core/api/shared';
+export { Identifiable, WithNames } from './types/identifiable';
 
 import { AzurAPI } from './core/client/class';
 export const AzurAPIInstance = new AzurAPI();
