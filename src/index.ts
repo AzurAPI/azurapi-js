@@ -4,16 +4,16 @@
  * @packageDocumentation
  */
 
-export { AzurAPI } from './core/client/localClass';
-export { HieiAzurAPI } from './core/client/hieiClass';
-export { AzurAPIClient, GeneratedClientProps } from './core/client/clientFactory';
-export { createLocalClient, CoreAPI } from './core/client/localClient';
-export { createHieiClient, CoreHieiAPI } from './core/client/hieiClient';
-export { EventsTemplate, UpdaterTemplate } from './types/client';
+export { AzurAPI } from './core/client/class';
+export { Client, CreateClientProps } from './types/client/client';
+export { createLocalClient, CoreAPI } from './core/client/client';
+export { ClientTools, UpdaterTemplate } from './types/client';
 export { Events } from './core/events';
 export { createUpdater, UpdaterProps } from './core/tools/updater';
 export { getClientTools } from './core/tools/toolsHandler';
-export { ClientTools } from './types/client';
+export { FetchAPI, useFetchAPI, FetchAPIProps } from './core/utils/api';
+export { SharedAPI, isIdentifiable, hasNames } from './core/api/shared';
+export { Identifiable, WithNames } from './types/identifiable';
 
-import { AzurAPI } from './core/client/localClass';
+import { AzurAPI } from './core/client/class';
 export const AzurAPIInstance = new AzurAPI();

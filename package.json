@@ -4,24 +4,24 @@
   "description": "Open Source Azur Lane Local Database",
   "main": "./build/azurapi.umd.bundle.js",
   "exports": {
-    ".": {
-      "require": "./build/index.js"
-    }
+    "require": "./build/azurapi.commonjs.bundle.cjs",
+    "default": "./build/azurapi.umd.bundle.js"
   },
   "types": "./build/index.d.ts",
   "scripts": {
     "compile": "tsc",
     "test": "jest --config jest.config.js",
     "lint": "eslint src --ext .ts --fix",
+    "watch": "tsc -w",
     "prettier:check": "npx prettier --check .",
     "prettier:write": "npx prettier --write .",
     "webpack:build": "npx webpack --mode=production",
     "webpack:watch": "npx webpack --mode=development --watch",
-    "build": "npm run webpack:build && npm run compile",
-    "build:dev": "npm run prettier:write && npm run lint && npm run compile && npm run webpack:build && npm run build:docs && npm run build:docs.json && npm run test",
+    "build": "npm run webpack:build",
+    "build:prod": "npm run prettier:write && npm run lint && npm run webpack:build && npm run build:docs && npm run build:docs.json && npm run test",
     "build:docs": "npx typedoc --theme typedoc/theme/minami --readme readme.md --out docs/ src/.",
     "build:docs.json": "typedoc --json typedoc/docs.json src/.",
-    "prepare": "npm run webpack:build && npm run compile"
+    "prepare": "npm run webpack:build"
   },
   "author": "XhacKX#0001, 彩雲#5778, August#5820, Tsukugi",
   "license": "GPL-3.0",
@@ -43,6 +43,8 @@
   },
   "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
   "dependencies": {
+    "@atsu/multi-env-impl": "^1.0.3",
+    "@atsu/taihou": "^0.1.4",
     "fuse.js": "^6.4.6"
   },
   "devDependencies": {
@@ -62,6 +64,7 @@
     "typedoc": "^0.20.25",
     "typescript": "4.1.5",
     "webpack": "^5.58.1",
-    "webpack-cli": "^4.9.0"
+    "webpack-cli": "^4.9.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

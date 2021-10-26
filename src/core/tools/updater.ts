@@ -3,37 +3,42 @@
  * Functions relating to updating the cache
  * @packageDocumentation
  */
-import { DatabaseURLs } from '../database';
-import { ClientTools, UpdaterTemplate } from '../../types/client';
-import { AzurAPIState, Datatype } from '../state';
-import { ClientOptions } from '../client/clientFactory';
-import { createToolsStore } from '../state/tools';
-import { createVersionHandler } from './versionHandler';
+import { DatabaseURLs, LocalFiles } from '../database';
+import { UpdaterTemplate } from '../../types/client';
+import { Datatype } from '../state';
+import { VersionHandler } from './versionHandler';
 import { Events } from '../events';
+import { Voiceline, VoicelineResponse } from '../../types/voiceline';
+import { EventsTemplate, FileManager } from '@atsu/multi-env-impl';
+import { FetchAPI } from '../..';
+import { ClientOptions } from '../../types/client/client';
 
 export type ClientUpdater = ReturnType<typeof createUpdater>;
-
-const areObjects: Datatype[] = ['voicelines'];
 export interface UpdaterProps {
-  state: AzurAPIState;
+  fileManager: FileManager;
+  versionHandler: VersionHandler;
+  localFiles: LocalFiles;
+  events: EventsTemplate;
+  fetchAPI: FetchAPI;
   options: ClientOptions;
-  tools: ClientTools;
+  onUpdate: <T>(type: Datatype, value: T[]) => void;
 }
 
-const getRawData = <T>(source: T, type: Datatype): T[] | T => {
-  try {
-    if (areObjects.includes(type)) return source || ({} as T);
-    else return Object.values(source || []);
-  } catch (error) {
-    console.error(source);
+// ! Voiceline flattening to achieve Voiceline[], maybe we should export VoicelineResponse already on this state.
+const getVoicelinesAsArray = (source: VoicelineResponse): Voiceline[] => {
+  let acc: Voiceline[] = [];
+  for (let id in source) {
+    for (let skin in source[id]) {
+      for (let voicelineId in source[id][skin]) {
+        acc.push({ id, skin, ...source[id][skin][voicelineId] });
+      }
+    }
   }
+  return acc;
 };
 
 export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
-  const { state, options } = props;
-  const { events, fileManager, fetch, localFiles } = props.tools;
-  const store = createToolsStore();
-  const versionHandler = createVersionHandler({ store, fileManager, fetch, localFiles });
+  const { versionHandler, fileManager, localFiles, events, fetchAPI, options, onUpdate } = props;
   let cron: any; // either number or NodeJS.Timeout;
 
   const updateAllModules = async () => {
@@ -54,14 +59,15 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
   /**
    * Check for updates then update and load cache
    */
-  const updateModule = async (type: Datatype) => {
+  const updateModule = async <T>(type: Datatype) => {
     events.emit(Events.updateAvailable, type);
     events.emit(Events.debug, `Downloading updated ${type} data`);
 
-    const strData = await fetch(DatabaseURLs[type]);
-    const raw = getRawData(strData, type);
+    const res = await fetchAPI.get({ path: DatabaseURLs[type] });
+    const raw = (type === 'voicelines' ? getVoicelinesAsArray(res as VoicelineResponse) : res) as T[];
 
-    state[type].dispatch(`set`, raw);
+    onUpdate(type, raw);
+    events.emit(Events.debug, `Writing ${type} onto ${localFiles.localDatabaseFiles[type]}`);
     fileManager.write(localFiles.localDatabaseFiles[type], raw);
   };
 
@@ -105,10 +111,10 @@ export const createUpdater = (props: UpdaterProps): UpdaterTemplate => {
   /**
    * Load the state fron json database
    */
-  const loadModuleIntoStore = (type: Datatype) => {
+  const loadModuleIntoStore = <T>(type: Datatype) => {
     events.emit(Events.debug, `Loading store of ${type}`);
-    const raw = getRawData(fileManager.read(localFiles.localDatabaseFiles[type]), type);
-    state[type].dispatch('set', raw);
+    const raw = fileManager.read(localFiles.localDatabaseFiles[type]) as T[];
+    onUpdate(type, raw);
   };
 
   init().then(() => options.autoupdate && startUpdateInterval());

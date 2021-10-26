@@ -6,20 +6,19 @@
 import { Equipment } from '../../types/equipment';
 import { searchAPI } from '../search';
 import { fuse } from '../search/fuse';
-import { AzurAPIState } from '../state';
 import { FuseInstance, SharedAPI } from './shared';
 
 export type EquipmentsAPI = ReturnType<typeof createEquipmentsAPI>;
 /**
  * Special equipments class for extended functionality
  */
-export const createEquipmentsAPI = ({ equipments }: AzurAPIState) => {
+export const createEquipmentsAPI = (equipments: Equipment[]) => {
   const keys = ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id'];
-  const fuze: FuseInstance<Equipment> = (query: string) => fuse(query, equipments.state.array, keys);
-  const id = searchAPI(equipments.state.array).id;
+  const fuze: FuseInstance<Equipment> = (query: string) => fuse(query, equipments, keys);
+  const id = searchAPI(equipments).id;
 
-  const getName = SharedAPI.getByNames(equipments.state.array);
-  const getNationality = SharedAPI.getByNationality(equipments.state.array);
+  const getName = SharedAPI.getByNames(equipments);
+  const getNationality = SharedAPI.getByNationality(equipments);
 
   /**
    * Get equipment by name
@@ -33,7 +32,7 @@ export const createEquipmentsAPI = ({ equipments }: AzurAPIState) => {
    * @param category name of the category you want to search for
    */
   const category = (category: string): Equipment[] => {
-    return equipments.state.array.filter(equip => SharedAPI.matchNormalized(equip.category, category));
+    return equipments.filter(equip => SharedAPI.matchNormalized(equip.category, category));
   };
 
   /**
@@ -42,7 +41,7 @@ export const createEquipmentsAPI = ({ equipments }: AzurAPIState) => {
    */
   const nationality = getNationality.matchFilter;
 
-  const { findAll, findItem } = SharedAPI.search(equipments.state.array, fuze);
+  const { findAll, findItem } = SharedAPI.search(equipments, fuze);
 
   return { name, category, nationality, id, findItem, findAll };
 };

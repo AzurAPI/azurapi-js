@@ -1,5 +1,4 @@
-import { Identifiable } from '../../types/identifiable';
-import { Dictionary } from '../../types/utils/dataSet';
+import { Identifiable, WithNames } from '../../types/identifiable';
 import { searchAPI } from '../search';
 import { advancedOptions, Language, NATIONS } from '../search/definitions';
 import { normalize } from '../search/normalize';
@@ -7,9 +6,6 @@ import Fuse from 'fuse.js';
 
 const defaultLanguages: Language[] = ['en', 'cn', 'jp', 'kr'];
 
-interface WithNames {
-  names: Dictionary<string>;
-}
 type SearchItem = Identifiable | WithNames;
 
 const matchNormalized = (a: string, b: string): boolean => normalize(a).toUpperCase() === normalize(b.toUpperCase());
@@ -91,12 +87,12 @@ export const SharedAPI = {
   search,
 };
 
-const isIdentifiable = (arr: SearchItem[]): arr is Identifiable[] => {
+export const isIdentifiable = (arr: SearchItem[]): arr is Identifiable[] => {
   if (Array.isArray(arr)) return false;
   return !!(arr[0] as Identifiable).id;
 };
 
-const hasNames = (arr: SearchItem[]): arr is WithNames[] => {
+export const hasNames = (arr: SearchItem[]): arr is WithNames[] => {
   if (Array.isArray(arr)) return false;
   return !!(arr[0] as WithNames).names;
 };

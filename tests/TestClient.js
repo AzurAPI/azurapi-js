@@ -1,4 +1,4 @@
-const { AzurAPIInstance } = require('../build/index.js');
+const { AzurAPIInstance } = require('@commonjs');
 const {
   tools: { events },
   api,

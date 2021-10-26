@@ -1,6 +1,8 @@
+import { EventsTemplate, FileManager } from '@atsu/multi-env-impl';
 import { LocalFiles } from '../../core/database';
-import { Events } from '../../core/events';
 import { Datatype } from '../../core/state';
+import { VersionHandler } from '../../core/tools/versionHandler';
+import { FetchAPI } from '../../core/utils/api';
 
 export interface UpdaterTemplate {
   updateAllModules: () => Promise<void>;
@@ -10,26 +12,14 @@ export interface UpdaterTemplate {
   loadModuleIntoStore: (type: Datatype) => void;
 }
 
-export type EventHandler = (event: Events, listener: any) => EventsTemplate;
-export interface EventsTemplate {
-  emit: <Action>(event: Events, action?: Action) => boolean;
-  on: EventHandler;
-  off: EventHandler;
-}
-
-export interface FileManager {
-  read: <T>(path: string) => T;
-  write: <T>(path: string, data: T) => void;
-  exists: (path: string) => boolean;
-  mkdir: (path: string) => void;
-}
-
-export type Fetch = <T = Record<string | number | symbol, unknown>>(url: string) => Promise<T>;
-
 export interface ClientTools {
-  fetch: Fetch;
+  fetchAPI: FetchAPI;
   fileManager: FileManager;
   events: EventsTemplate;
-  updater: UpdaterTemplate;
   localFiles: LocalFiles;
+}
+
+export interface ClientModules {
+  updater: UpdaterTemplate;
+  versionHandler: VersionHandler;
 }

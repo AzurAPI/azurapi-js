@@ -4,15 +4,16 @@
  * @packageDocumentation
  */
 
+export const ServerURL = 'https://raw.githubusercontent.com';
 export const DatabaseURLs = {
-  version: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/version.json',
-  ships: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/ships.json',
-  equipments: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/equipments.json',
-  chapters: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/chapters.min.json',
-  voicelines: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/voice_lines.json',
-  barrages: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/barrage.json',
-  shipList: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/ship-list.json',
-  idMap: 'https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/dist/id-map.json',
+  version: '/AzurAPI/azurapi-js-setup/master/dist/version.json',
+  ships: '/AzurAPI/azurapi-js-setup/master/dist/ships.json',
+  equipments: '/AzurAPI/azurapi-js-setup/master/dist/equipments.json',
+  chapters: '/AzurAPI/azurapi-js-setup/master/dist/chapters.min.json',
+  voicelines: '/AzurAPI/azurapi-js-setup/master/voice_lines.json',
+  barrages: '/AzurAPI/azurapi-js-setup/master/dist/barrage.json',
+  shipList: '/AzurAPI/azurapi-js-setup/master/dist/ship-list.json',
+  idMap: '/AzurAPI/azurapi-js-setup/master/dist/id-map.json',
 };
 
 Object.freeze(DatabaseURLs);

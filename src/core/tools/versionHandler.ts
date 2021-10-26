@@ -3,29 +3,31 @@
  * Check for updates and functions relating to updates
  * @packageDocumentation
  */
+import { FileManager } from '@atsu/multi-env-impl';
 import { DatabaseURLs, LocalFiles } from '../database';
-import { Datatype } from '../state';
-import { FileManager } from '../../types/client';
-import { ToolsStore, VersionState } from '../state/tools';
+import { Datatype, VersionState } from '../state';
+import { FetchAPI } from '../utils/api';
 
 interface VersionHandlerProps {
-  store: ToolsStore;
   fileManager: FileManager;
   localFiles: LocalFiles;
-  fetch: <T>(url: string) => Promise<T>;
+  fetchAPI: FetchAPI;
+  version: VersionState;
+  onUpdate: (version: VersionState) => void;
 }
 
+export type VersionHandler = ReturnType<typeof createVersionHandler>;
+
 export const createVersionHandler = (props: VersionHandlerProps) => {
-  const { fileManager, fetch, localFiles } = props;
-  const { state, dispatch } = props.store.versionSection;
+  const { fileManager, fetchAPI, localFiles, version, onUpdate } = props;
   const supportedModules: Datatype[] = ['ships', 'equipments', 'chapters', 'barrages', 'voicelines'];
 
-  const getLatestVersion = async () => await fetch<VersionState>(DatabaseURLs.version);
+  const getLatestVersion = async () => await fetchAPI.get<VersionState>({ path: DatabaseURLs.version });
 
   const updateLocalVersion = async () => {
     const newVersion = await getLatestVersion();
 
-    dispatch('setVersion', newVersion);
+    onUpdate(newVersion);
     fileManager.write(localFiles.versionInfoFile, newVersion);
     return newVersion;
   };
@@ -33,8 +35,8 @@ export const createVersionHandler = (props: VersionHandlerProps) => {
   const getLocalVersion = () => {
     if (fileManager.exists(localFiles.versionInfoFile)) {
       return fileManager.read<VersionState>(localFiles.versionInfoFile);
-    } else if (state.version['version-number']) {
-      return state.version;
+    } else if (version['version-number']) {
+      return version;
     }
     return null;
   };
