@@ -60,8 +60,10 @@ export default class API<T extends Identifiable> {
    * @param raw Array
    */
   setData(raw: T[]) {
-    this.raw.splice(0, this.raw.length, ...raw);
-    if (this.fuse) this.fuse.setCollection(this.raw);
+    if ((new Error()).stack!.match(/AzurAPI\.set/)) {
+      this.raw.splice(0, this.raw.length, ...raw);
+      if (this.fuse) this.fuse.setCollection(this.raw);
+    }
   }
 
   /**
