@@ -10,8 +10,8 @@
         <a href="https://www.npmjs.com/package/@azurapi/azurapi">
             <img src="https://img.shields.io/npm/v/@azurapi/azurapi.svg?maxAge=3600" alt="NPM version" />
         </a>
-        <a href="https://david-dm.org/AzurAPI/azur-json.svg">
-            <img src="https://img.shields.io/david/AzurAPI/azur-json.svg?maxAge=3600" alt="Dependencies" />
+        <a href="https://starbuck.gabrielcsapo.com/github/azurapi/azurapi-js/">
+            <img src="https://starbuck.gabrielcsapo.com/badge/github/azurapi/azurapi-js/status.svg?maxAge=3600" alt="Dependencies" />
         </a>
     </p>
     <p>
