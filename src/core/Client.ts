@@ -49,7 +49,10 @@ export class AzurAPI extends EventEmitter {
     if (parseFloat(process.version.replace('v', '')) <= 14) throw new Error('AzurAPI requires Node v14 or above, if you would like to use an older Node version, please use any version of this package below v0.2.13 (Not Recommended)');
     this.options = options ? options : { source: 'local', autoupdate: true, rate: 3600000 };
     this.source = this.options.source ? this.options.source : 'local';
-    this.autoupdate = this.options.autoupdate ? this.options.autoupdate : true;
+    this.autoupdate = true;
+    if (typeof this.options.autoupdate === 'boolean') {
+      this.autoupdate = this.options.autoupdate;
+    }
     this.rate = this.options.rate ? this.options.rate : 3600000;
     this.apis = {
       ships: this.ships,
