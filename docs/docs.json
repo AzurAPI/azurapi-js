@@ -1,0 +1,2347 @@
+{
+	"id": 0,
+	"name": "@azurapi/azurapi",
+	"kind": 1,
+	"kindString": "Project",
+	"flags": {},
+	"comment": {
+		"shortText": "Exporting everything for package"
+	},
+	"originalName": "",
+	"children": [
+		{
+			"id": 7,
+			"name": "AzurAPI",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {},
+			"comment": {
+				"shortText": "The main AzurAPI class"
+			},
+			"children": [
+				{
+					"id": 27,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 46,
+							"character": 2
+						}
+					],
+					"signatures": [
+						{
+							"id": 28,
+							"name": "new AzurAPI",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Cache client"
+							},
+							"parameters": [
+								{
+									"id": 29,
+									"name": "options",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"shortText": "options for the cache\n"
+									},
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "CacheOptions"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"overwrites": {
+								"type": "reference",
+								"name": "EventEmitter.constructor"
+							}
+						}
+					],
+					"overwrites": {
+						"type": "reference",
+						"name": "EventEmitter.constructor"
+					}
+				},
+				{
+					"id": 40,
+					"name": "apis",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 34,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 41,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 46,
+									"name": "barrages",
+									"kind": 1024,
+									"kindString": "Property",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Barrages"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 44,
+									"name": "chapters",
+									"kind": 1024,
+									"kindString": "Property",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Chapters"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 43,
+									"name": "equipments",
+									"kind": 1024,
+									"kindString": "Property",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Equipments"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 42,
+									"name": "ships",
+									"kind": 1024,
+									"kindString": "Property",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Ships"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 45,
+									"name": "voicelines",
+									"kind": 1024,
+									"kindString": "Property",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Voicelines"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"kind": 1024,
+									"children": [
+										46,
+										44,
+										43,
+										42,
+										45
+									]
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 32,
+					"name": "autoupdate",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 26,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 39,
+					"name": "barrages",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 33,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Barrages"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 37,
+					"name": "chapters",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 31,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Chapters"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 36,
+					"name": "equipments",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 30,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Equipments"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 30,
+					"name": "options",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 24,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 2,
+						"name": "CacheOptions"
+					}
+				},
+				{
+					"id": 33,
+					"name": "rate",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 27,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 35,
+					"name": "ships",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 29,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Ships"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 31,
+					"name": "source",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 25,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 34,
+					"name": "updater",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 28,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "default"
+					}
+				},
+				{
+					"id": 38,
+					"name": "voicelines",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 32,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Voicelines"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 24,
+					"name": "captureRejectionSymbol",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isStatic": true,
+						"isExternal": true,
+						"isReadonly": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 38,
+							"character": 24
+						}
+					],
+					"type": {
+						"type": "query",
+						"queryType": {
+							"type": "reference",
+							"id": 24,
+							"name": "captureRejectionSymbol"
+						}
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.captureRejectionSymbol"
+					}
+				},
+				{
+					"id": 25,
+					"name": "captureRejections",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isStatic": true,
+						"isExternal": true
+					},
+					"comment": {
+						"shortText": "Sets or gets the default captureRejection value for all emitters."
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 44,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.captureRejections"
+					}
+				},
+				{
+					"id": 26,
+					"name": "defaultMaxListeners",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isStatic": true,
+						"isExternal": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 45,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.defaultMaxListeners"
+					}
+				},
+				{
+					"id": 23,
+					"name": "errorMonitor",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isStatic": true,
+						"isExternal": true,
+						"isReadonly": true
+					},
+					"comment": {
+						"shortText": "This symbol shall be used to install a listener for only monitoring `'error'`\nevents. Listeners installed using this symbol are called before the regular\n`'error'` listeners are called.",
+						"text": "Installing a listener using this symbol does not change the behavior once an\n`'error'` event is emitted, therefore the process will still crash if no\nregular `'error'` listener is installed.\n"
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 37,
+							"character": 24
+						}
+					],
+					"type": {
+						"type": "query",
+						"queryType": {
+							"type": "reference",
+							"id": 23,
+							"name": "errorMonitor"
+						}
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.errorMonitor"
+					}
+				},
+				{
+					"id": 51,
+					"name": "addListener",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 52,
+							"name": "addListener",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 53,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								},
+								{
+									"id": 54,
+									"name": "listener",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 55,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExternal": true
+											},
+											"signatures": [
+												{
+													"id": 56,
+													"name": "__type",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExternal": true
+													},
+													"parameters": [
+														{
+															"id": 57,
+															"name": "args",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExternal": true,
+																"isRest": true
+															},
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "intrinsic",
+																	"name": "any"
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.addListener"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.addListener"
+					}
+				},
+				{
+					"id": 100,
+					"name": "emit",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 101,
+							"name": "emit",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 102,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								},
+								{
+									"id": 103,
+									"name": "args",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true,
+										"isRest": true
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.emit"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.emit"
+					}
+				},
+				{
+					"id": 121,
+					"name": "eventNames",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 122,
+							"name": "eventNames",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "union",
+									"types": [
+										{
+											"type": "intrinsic",
+											"name": "string"
+										},
+										{
+											"type": "intrinsic",
+											"name": "symbol"
+										}
+									]
+								}
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.eventNames"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.eventNames"
+					}
+				},
+				{
+					"id": 92,
+					"name": "getMaxListeners",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 93,
+							"name": "getMaxListeners",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.getMaxListeners"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.getMaxListeners"
+					}
+				},
+				{
+					"id": 104,
+					"name": "listenerCount",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 105,
+							"name": "listenerCount",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 106,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.listenerCount"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.listenerCount"
+					}
+				},
+				{
+					"id": 94,
+					"name": "listeners",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 95,
+							"name": "listeners",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 96,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"name": "Function"
+								}
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.listeners"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.listeners"
+					}
+				},
+				{
+					"id": 79,
+					"name": "off",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 80,
+							"name": "off",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 81,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								},
+								{
+									"id": 82,
+									"name": "listener",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 83,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExternal": true
+											},
+											"signatures": [
+												{
+													"id": 84,
+													"name": "__type",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExternal": true
+													},
+													"parameters": [
+														{
+															"id": 85,
+															"name": "args",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExternal": true,
+																"isRest": true
+															},
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "intrinsic",
+																	"name": "any"
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.off"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.off"
+					}
+				},
+				{
+					"id": 58,
+					"name": "on",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 59,
+							"name": "on",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 60,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								},
+								{
+									"id": 61,
+									"name": "listener",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 62,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExternal": true
+											},
+											"signatures": [
+												{
+													"id": 63,
+													"name": "__type",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExternal": true
+													},
+													"parameters": [
+														{
+															"id": 64,
+															"name": "args",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExternal": true,
+																"isRest": true
+															},
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "intrinsic",
+																	"name": "any"
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.on"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.on"
+					}
+				},
+				{
+					"id": 65,
+					"name": "once",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 66,
+							"name": "once",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 67,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								},
+								{
+									"id": 68,
+									"name": "listener",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 69,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExternal": true
+											},
+											"signatures": [
+												{
+													"id": 70,
+													"name": "__type",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExternal": true
+													},
+													"parameters": [
+														{
+															"id": 71,
+															"name": "args",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExternal": true,
+																"isRest": true
+															},
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "intrinsic",
+																	"name": "any"
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.once"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.once"
+					}
+				},
+				{
+					"id": 107,
+					"name": "prependListener",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 108,
+							"name": "prependListener",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 109,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								},
+								{
+									"id": 110,
+									"name": "listener",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 111,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExternal": true
+											},
+											"signatures": [
+												{
+													"id": 112,
+													"name": "__type",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExternal": true
+													},
+													"parameters": [
+														{
+															"id": 113,
+															"name": "args",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExternal": true,
+																"isRest": true
+															},
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "intrinsic",
+																	"name": "any"
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.prependListener"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.prependListener"
+					}
+				},
+				{
+					"id": 114,
+					"name": "prependOnceListener",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 115,
+							"name": "prependOnceListener",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 116,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								},
+								{
+									"id": 117,
+									"name": "listener",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 118,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExternal": true
+											},
+											"signatures": [
+												{
+													"id": 119,
+													"name": "__type",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExternal": true
+													},
+													"parameters": [
+														{
+															"id": 120,
+															"name": "args",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExternal": true,
+																"isRest": true
+															},
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "intrinsic",
+																	"name": "any"
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.prependOnceListener"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.prependOnceListener"
+					}
+				},
+				{
+					"id": 97,
+					"name": "rawListeners",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 98,
+							"name": "rawListeners",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 99,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"name": "Function"
+								}
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.rawListeners"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.rawListeners"
+					}
+				},
+				{
+					"id": 86,
+					"name": "removeAllListeners",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 87,
+							"name": "removeAllListeners",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 88,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true,
+										"isOptional": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.removeAllListeners"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.removeAllListeners"
+					}
+				},
+				{
+					"id": 72,
+					"name": "removeListener",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 73,
+							"name": "removeListener",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 74,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								},
+								{
+									"id": 75,
+									"name": "listener",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 76,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExternal": true
+											},
+											"signatures": [
+												{
+													"id": 77,
+													"name": "__type",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {
+														"isExternal": true
+													},
+													"parameters": [
+														{
+															"id": 78,
+															"name": "args",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExternal": true,
+																"isRest": true
+															},
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "intrinsic",
+																	"name": "any"
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.removeListener"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.removeListener"
+					}
+				},
+				{
+					"id": 47,
+					"name": "set",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 76,
+							"character": 2
+						}
+					],
+					"signatures": [
+						{
+							"id": 48,
+							"name": "set",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Set data in cache"
+							},
+							"parameters": [
+								{
+									"id": 49,
+									"name": "type",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"shortText": "A type of data (ship, equipment, voiceline, chapter, or barrage)"
+									},
+									"type": {
+										"type": "reference",
+										"name": "datatype"
+									}
+								},
+								{
+									"id": 50,
+									"name": "raw",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"shortText": "Raw data in array\n"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "reference",
+										"name": "Ships"
+									},
+									{
+										"type": "reference",
+										"name": "Equipments"
+									},
+									{
+										"type": "reference",
+										"name": "Chapters"
+									},
+									{
+										"type": "reference",
+										"name": "Voicelines"
+									},
+									{
+										"type": "reference",
+										"name": "Barrages"
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"id": 89,
+					"name": "setMaxListeners",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isExternal": true
+					},
+					"signatures": [
+						{
+							"id": 90,
+							"name": "setMaxListeners",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 91,
+									"name": "n",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "AzurAPI"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.setMaxListeners"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.setMaxListeners"
+					}
+				},
+				{
+					"id": 19,
+					"name": "listenerCount",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isStatic": true,
+						"isExternal": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 26,
+							"character": 15
+						}
+					],
+					"signatures": [
+						{
+							"id": 20,
+							"name": "listenerCount",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"comment": {
+								"tags": [
+									{
+										"tag": "deprecated",
+										"text": "since v4.0.0"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 21,
+									"name": "emitter",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "EventEmitter"
+									}
+								},
+								{
+									"id": 22,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.listenerCount"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.listenerCount"
+					}
+				},
+				{
+					"id": 15,
+					"name": "on",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isStatic": true,
+						"isExternal": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 23,
+							"character": 15
+						}
+					],
+					"signatures": [
+						{
+							"id": 16,
+							"name": "on",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 17,
+									"name": "emitter",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "EventEmitter"
+									}
+								},
+								{
+									"id": 18,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "AsyncIterableIterator"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.on"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.on"
+					}
+				},
+				{
+					"id": 8,
+					"name": "once",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isStatic": true,
+						"isExternal": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 21,
+							"character": 15
+						}
+					],
+					"signatures": [
+						{
+							"id": 9,
+							"name": "once",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 10,
+									"name": "emitter",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "NodeEventTarget"
+									}
+								},
+								{
+									"id": 11,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "symbol"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								],
+								"name": "Promise"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.once"
+							}
+						},
+						{
+							"id": 12,
+							"name": "once",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExternal": true
+							},
+							"parameters": [
+								{
+									"id": 13,
+									"name": "emitter",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "DOMEventTarget"
+									}
+								},
+								{
+									"id": 14,
+									"name": "event",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExternal": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								],
+								"name": "Promise"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "EventEmitter.once"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "EventEmitter.once"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [
+						27
+					]
+				},
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						40,
+						32,
+						39,
+						37,
+						36,
+						30,
+						33,
+						35,
+						31,
+						34,
+						38,
+						24,
+						25,
+						26,
+						23
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						51,
+						100,
+						121,
+						92,
+						104,
+						94,
+						79,
+						58,
+						65,
+						107,
+						114,
+						97,
+						86,
+						72,
+						47,
+						89,
+						19,
+						15,
+						8
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/Client.ts",
+					"line": 23,
+					"character": 13
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"name": "EventEmitter"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "CacheOptions",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {},
+			"children": [
+				{
+					"id": 4,
+					"name": "autoupdate",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 14,
+							"character": 2
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 5,
+					"name": "rate",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 15,
+							"character": 2
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 3,
+					"name": "source",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 13,
+							"character": 2
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 1,
+						"name": "Source"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						4,
+						5,
+						3
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/Client.ts",
+					"line": 12,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "Source",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/core/Client.ts",
+					"line": 10,
+					"character": 12
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "literal",
+						"value": "uncached"
+					},
+					{
+						"type": "literal",
+						"value": "local"
+					}
+				]
+			}
+		},
+		{
+			"id": 6,
+			"name": "instance",
+			"kind": 32,
+			"kindString": "Variable",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/core/Client.ts",
+					"line": 18,
+					"character": 11
+				}
+			],
+			"type": {
+				"type": "reference",
+				"id": 7,
+				"name": "AzurAPI"
+			}
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"kind": 128,
+			"children": [
+				7
+			]
+		},
+		{
+			"title": "Interfaces",
+			"kind": 256,
+			"children": [
+				2
+			]
+		},
+		{
+			"title": "Type aliases",
+			"kind": 4194304,
+			"children": [
+				1
+			]
+		},
+		{
+			"title": "Variables",
+			"kind": 32,
+			"children": [
+				6
+			]
+		}
+	],
+	"sources": [
+		{
+			"fileName": "src/index.ts",
+			"line": 7,
+			"character": 0
+		}
+	]
+}

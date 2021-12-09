@@ -9,8 +9,8 @@
         "test": "jest --config jest.config.js",
         "lint": "eslint src --ext .ts --fix",
         "build": "npm run lint && npm run compile && npm run build:browser && npm run build:docs && npm run build:docs.json && npm run test",
-        "build:docs": "npx typedoc --theme typedoc/theme/minami --readme readme.md --out docs/ src/.",
-        "build:docs.json": "npx typedoc --json typedoc/docs.json src/.",
+        "build:docs": "npx typedoc --theme default --readme readme.md --out docs/ src/.",
+        "build:docs.json": "npx typedoc --json docs/docs.json src/.",
         "build:browser": "npx browserify build/index.js -d true -o bundles/azurapi.js && npx browserify build/index.js -s AzurAPI -d true -o bundles/azurapi.umd.js && npx terser bundles/azurapi.js --compress --mangle --output bundles/azurapi.min.js && npx terser bundles/azurapi.umd.js --compress --mangle --output bundles/azurapi.umd.js",
         "prepare": "npm run compile"
     },
@@ -50,7 +50,7 @@
         "jest": "^26.4.2",
         "jest-teamcity": "^1.9.0",
         "ts-jest": "^26.4.0",
-        "typedoc": "^0.20.25",
+        "typedoc": "^0.22.10",
         "typescript": "^4.1.5"
     }
 }
