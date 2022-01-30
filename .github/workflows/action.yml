@@ -26,6 +26,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with: 
         name: AzurAPI Pre-Release
-        path: /build/*
+        path: /home/runner/work/azurapi-js/azurapi-js/build/*
       env:
         CI: true
