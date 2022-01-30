@@ -16,7 +16,7 @@
     </p>
     <p>
         <a href="https://github.com/AzurAPI/azurapi-js/actions">
-            <img src="https://github.com/AzurAPI/azurapi-js/workflows/Github%20Actions/badge.svg?branch=v2-array-cache" alt="Github Actions" />
+            <img src="https://github.com/AzurAPI/azurapi-js/workflows/Github%20Actions/badge.svg?branch=master" alt="Github Actions" />
         </a>
         <a href="https://ci.nekos.cloud/buildConfiguration/AzurapiJs_Build?guest=1"><img src="https://ci.nekos.cloud/app/rest/builds/buildType:id:AzurapiJs_Build/statusIcon.svg"></a>
     </p>
