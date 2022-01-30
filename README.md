@@ -20,7 +20,7 @@
         </a>
         <a href="https://ci.nekos.cloud/buildConfiguration/AzurapiJs_Build?guest=1"><img src="https://ci.nekos.cloud/app/rest/builds/buildType:id:AzurapiJs_Build/statusIcon.svg"></a>
     </p>
-    <p><a href="https://npmjs.com/package/@azurapi/azurapi"><img src="https://nodeico.herokuapp.com/@azurapi/azurapi.svg"></a>
+    <p><a href="https://npmjs.com/package/@azurapi/azurapi"><img src="https://nodei.co/npm/@azurapi/azurapi.png?downloads=true&downloadRank=true&stars=true"></a>
     </p>
 </div>
 
