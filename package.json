@@ -9,7 +9,7 @@
         "test": "jest --config jest.config.js",
         "lint": "eslint src --ext .ts --fix",
         "build": "npm run lint && npm run compile && npm run build:browser && npm run build:docs && npm run build:docs.json && npm run test",
-        "build:docs": "npx typedoc --theme default --readme readme.md --out docs/ src/.",
+        "build:docs": "npx typedoc --theme default --readme readme.md --out docs/ --entryPointStrategy expand src/.",
         "build:docs.json": "npx typedoc --json docs/docs.json src/.",
         "build:browser": "npx browserify build/index.js -d true -o bundles/azurapi.js && npx browserify build/index.js -s AzurAPI -d true -o bundles/azurapi.umd.js && npx terser bundles/azurapi.js --compress --mangle --output bundles/azurapi.min.js && npx terser bundles/azurapi.umd.js --compress --mangle --output bundles/azurapi.umd.js",
         "prepare": "npm run compile"

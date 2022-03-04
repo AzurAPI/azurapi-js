@@ -407,6 +407,8 @@
 						"queryType": {
 							"type": "reference",
 							"id": 24,
+							"qualifiedName": "EventEmitter.captureRejectionSymbol",
+							"package": "@types/node",
 							"name": "captureRejectionSymbol"
 						}
 					},
@@ -494,6 +496,8 @@
 						"queryType": {
 							"type": "reference",
 							"id": 23,
+							"qualifiedName": "EventEmitter.errorMonitor",
+							"package": "@types/node",
 							"name": "errorMonitor"
 						}
 					},
@@ -864,6 +868,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
+									"qualifiedName": "Function",
+									"package": "typescript",
 									"name": "Function"
 								}
 							},
@@ -1483,6 +1489,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
+									"qualifiedName": "Function",
+									"package": "typescript",
 									"name": "Function"
 								}
 							},
@@ -1847,6 +1855,8 @@
 									},
 									"type": {
 										"type": "reference",
+										"qualifiedName": "global.NodeJS.EventEmitter",
+										"package": "@types/node",
 										"name": "EventEmitter"
 									}
 								},
@@ -1924,6 +1934,8 @@
 									},
 									"type": {
 										"type": "reference",
+										"qualifiedName": "global.NodeJS.EventEmitter",
+										"package": "@types/node",
 										"name": "EventEmitter"
 									}
 								},
@@ -1949,6 +1961,8 @@
 										"name": "any"
 									}
 								],
+								"qualifiedName": "AsyncIterableIterator",
+								"package": "typescript",
 								"name": "AsyncIterableIterator"
 							},
 							"inheritedFrom": {
@@ -1998,6 +2012,8 @@
 									},
 									"type": {
 										"type": "reference",
+										"qualifiedName": "NodeEventTarget",
+										"package": "@types/node",
 										"name": "NodeEventTarget"
 									}
 								},
@@ -2035,6 +2051,8 @@
 										}
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							},
 							"inheritedFrom": {
@@ -2061,6 +2079,8 @@
 									},
 									"type": {
 										"type": "reference",
+										"qualifiedName": "DOMEventTarget",
+										"package": "@types/node",
 										"name": "DOMEventTarget"
 									}
 								},
@@ -2089,6 +2109,8 @@
 										}
 									}
 								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
 								"name": "Promise"
 							},
 							"inheritedFrom": {
@@ -2168,6 +2190,8 @@
 			"extendedTypes": [
 				{
 					"type": "reference",
+					"qualifiedName": "EventEmitter",
+					"package": "@types/node",
 					"name": "EventEmitter"
 				}
 			]
