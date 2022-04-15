@@ -22,16 +22,15 @@ export class Barrages extends API<Barrage> {
    * Get barrage by name
    * @param name Barrage name
    */
-  name(name: string): Barrage | undefined {
-    for (let barrage of this.raw) if (normalize(barrage.name.toUpperCase()) === normalize(name.toUpperCase())) return barrage;
-    return undefined;
+  name(name: string): Barrage[] | [] {
+    return this.raw.filter(barrage => normalize(barrage.name.toUpperCase()) === normalize(name.toUpperCase()));
   }
 
   /**
    * Get barrage by type
    * @param type Barrage type
    */
-  type(type: 'ship' | 'class' | 'skill'): Barrage[] | void[] {
+  type(type: 'ship' | 'class' | 'skill'): Barrage[] | [] {
     return this.raw.filter(barrage => normalize(barrage.type.toUpperCase()) === normalize(type.toUpperCase()));
   }
 
@@ -39,7 +38,7 @@ export class Barrages extends API<Barrage> {
    * Get barrage by hull type
    * @param hull Hull type
    */
-  hull(hull: Hull): Barrage[] | void[] {
+  hull(hull: Hull): Barrage[] | [] {
     return this.raw.filter(barrage => normalize(barrage.hull.toUpperCase()) === normalize(hull.toUpperCase()));
   }
 
@@ -47,7 +46,7 @@ export class Barrages extends API<Barrage> {
    * Sort barrages by compatable ship
    * @param ship A ship name
    */
-  ships(ship: Ships): Barrage[] | void[] {
+  ships(ship: Ships): Barrage[] | [] {
     return this.raw.filter(barrage => barrage.ships.map(ship => normalize(ship.toUpperCase())).includes(normalize(ship.toUpperCase())));
   }
 }

@@ -48,7 +48,13 @@ To use the Library, Please refer to the [Docs](https://azurapi.github.io/v2/).
 
 For advanced users or package developers, please refer to [TSDoc](https://azurapi.github.io/azurapi-js/).
 
-## Support Server
+## Breaking Changes
+
+### 1.1.0
+ - All functions from accessors after verion 1.1.0 return arrays.
+ - Bundles are now built with typescript version 4.5.5
+
+## Discord Support Server
 
 [![](https://discordapp.com/api/guilds/648206344729526272/widget.png?style=banner2)](https://discord.gg/aAEdys8)
 

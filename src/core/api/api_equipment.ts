@@ -24,63 +24,44 @@ export class Equipments extends API<Equipment> {
    * @param name Equipment name
    * @param languages Language to search
    */
-  name(name: string, languages: Language[] = ['en', 'cn', 'jp', 'kr']): Equipment | undefined {
-    for (let equipment of this.raw) if (languages.some(lang => equipment.names[lang] && normalize(equipment.names[lang].toUpperCase()) === normalize(name.toUpperCase()))) return equipment;
-    return undefined;
+  name(name: string, languages: Language[] = ['en', 'cn', 'jp', 'kr']): Equipment[] | [] {
+    return this.raw.filter(equipment => languages.some(lang => equipment.names[lang] && normalize(equipment.names[lang].toUpperCase()) === normalize(name.toUpperCase())));
   }
 
   /**
    * Lists the equipments by category
    * @param category name of the category you want to search for
    */
-  category(category: string): Equipment[] {
-    let results: Equipment[] = [];
-    for (let equipment of this.raw) if (normalize(equipment.category.toUpperCase() === normalize(category.toUpperCase()))) results.push(equipment);
-    return results;
+  category(category: string): Equipment[] | [] {
+    return this.raw.filter(equipment => normalize(equipment.category.toUpperCase() === normalize(category.toUpperCase())));
   }
 
   /**
    * Lists the equipments by nationality
    * @param nationality naitionality name of the equipments you want to search for
    */
-  nationality(nationality: string): Equipment[] {
-    let results: Equipment[] = [];
+  nationality(nationality: string): Equipment[] | [] {
     nationality = Object.keys(NATIONS).find(key => NATIONS[key].includes(nationality.toLowerCase())) || nationality;
-    for (let equipment of this.raw) if (normalize(equipment.nationality.toUpperCase()) === normalize(nationality.toUpperCase())) results.push(equipment);
-    return results;
-  }
-
-  private _nameAll(name: string, languages: Language[] = ['en', 'cn', 'jp', 'kr']): Equipment[] {
-    return this.raw.filter(equipment => languages.some(lang => equipment.names[lang] && normalize(equipment.names[lang].toUpperCase()) === normalize(name.toUpperCase())));
+    return this.raw.filter(equipment => normalize(equipment.nationality.toUpperCase()) === normalize(nationality.toUpperCase()));
   }
 
   /**
    * Get equipment using name in any language or id
    * @param query Equipment name in any language or equipment id
    */
-  get(query: string, adv?: advancedOptions): Equipment | undefined {
-    if (adv) {
-      if (adv.idOnly) {
-        return this.id(query);
-      } else if (adv.nameOnly || adv.nameOnly && !adv.language) {
-        return this.name(query);
-      } else if (adv.nameOnly && adv.language) {
-        return this.name(query, [adv.language]);
-      }
-    } else {
-      let fuzeResult = this.fuze(query).sort((a, b) => (b.score || 0) - (a.score || 0))[0];
-      return this.id(query) || this.name(query) || (fuzeResult ? fuzeResult.item : undefined);
-    }
+  get(query: string): Equipment | Equipment[] {
+    let fuzeResult = this.fuze(query).sort((a, b) => (b.score || 0) - (a.score || 0))[0];
+    return this.id(query) || this.name(query) || (fuzeResult ? fuzeResult.item : undefined);
   }
 
   /**
    * Get equipment using everything
    * @param query basically anyting i guess
    */
-  all(query: string): Equipment[] {
+  all(query: string): Equipment[] | [] {
     let results: (Equipment | undefined)[] = [];
     results.push(this.id(query));
-    results.push(...this._nameAll(query).filter(i => i));
+    results.push(...this.name(query).filter(i => i));
     results.push(...this.fuze(query).map(i => i.item));
     return results
       .filter((value: Equipment | undefined): value is Equipment => value !== null && value !== undefined)

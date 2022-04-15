@@ -87,9 +87,10 @@ export default class API<T extends Identifiable> {
   /**
    * Get by any
    * @param query Any
+   * @returns Array
    */
-  get(query: string): T | undefined {
-    return this.id(query) || this.fuze(query)?.map(s => s.item)[0];
+  get(query: string): T | T[] {
+    return this.id(query) || this.fuze(query)?.map(s => s.item);
   }
 
   /**

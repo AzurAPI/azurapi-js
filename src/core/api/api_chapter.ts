@@ -24,11 +24,16 @@ export class Chapters extends API<Chapter> {
    * @param name Chapter name
    * @param languages Language to search
    */
-  name(name: string, languages: Language[] = ['en', 'cn', 'jp']): Chapter | SubChapter | undefined {
-    for (let chapter of this.raw) if (languages.some(lang => chapter.names[lang] && normalize(chapter.names[lang].toUpperCase()) === normalize(name.toUpperCase()))) return chapter;
-    /*for (let chapter of this.raw) {
-      for (let sub of chapter) if (languages.some(lang => sub.names[lang] && normalize(sub.names[lang].toUpperCase()) === normalize(name.toUpperCase()))) return sub;
-    }*/
-    return undefined;
+  name(name: string, languages: Language[] = ['en', 'cn', 'jp']): (Chapter | SubChapter)[] | [] {
+    let result: (Chapter | SubChapter)[] = [];
+    for (let chapter of this.raw) {
+      if (languages.some(lang => chapter.names[lang] && normalize(chapter.names[lang].toUpperCase()) === normalize(name.toUpperCase()))) result.push(chapter);
+      for (let sub of Object.values(chapter)) {
+        if (sub.names !== undefined) {
+          if (languages.some(lang => sub.names[lang] && normalize(sub.names[lang].toUpperCase()) === normalize(name.toUpperCase()))) result.push(sub);
+        }
+      }
+    }
+    return result;
   }
 }
