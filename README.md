@@ -1,3 +1,4 @@
+<img src="https://github.com/AzurAPI/Media/blob/master/AzurAPI-JS/RepoBanner/RepoBanner.png" />
 <div align="center">
     <br />
     <p>
