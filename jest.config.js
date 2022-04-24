@@ -4,7 +4,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   testMatch: ['<rootDir>/tests/*.test.js'],
-  testTimeout: 5000,
+  testTimeout: 10000,
   reporters: ['default', 'jest-teamcity'],
   forceExit: true
 };
