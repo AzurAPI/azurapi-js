@@ -4,9 +4,13 @@
  * @packageDocumentation
  */
 
-import { Identifiable } from './identifiable';
+export interface Voiceline {
+    Default: Line[];
+    Retrofit: Line[];
+    [key: string]: Line[]
+}
 
-export interface Voiceline extends Identifiable {
+interface Line {
     event: string;
     en?: string;
     zh?: string;

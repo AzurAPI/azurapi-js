@@ -39,7 +39,7 @@ export const NATIONS = {
 /**
  * The Main API class
  */
-export default class API<T extends Identifiable> {
+export default class API<T> {
   raw: T[];
   fuse?: Fuse<T>;
   private client: AzurAPI;
@@ -75,14 +75,14 @@ export default class API<T extends Identifiable> {
     return this.fuse.search(name, { limit: 10 }).sort((a, b) => (b.score || 0) - (a.score || 0));
   }
 
-  /**
-   * Get by id
-   * @param id String of number
-   */
-  id(id: string): T | undefined {
-    for (let item of this.raw) if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
-    return undefined;
-  }
+  // /**
+  //  * Get by id
+  //  * @param id String of number
+  //  */
+  // id(id: string): T | undefined {
+  //   for (let item of this.raw) if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
+  //   return undefined;
+  // }
 
   /**
    * Get by any
@@ -90,7 +90,7 @@ export default class API<T extends Identifiable> {
    * @returns Array
    */
   get(query: string): T | T[] {
-    return this.id(query) || this.fuze(query)?.map(s => s.item);
+    return this.fuze(query)?.map(s => s.item);
   }
 
   /**

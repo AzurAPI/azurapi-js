@@ -18,6 +18,16 @@ export class Barrages extends API<Barrage> {
   constructor(client: AzurAPI) {
     super(client, ['id', 'name']);
   }
+
+  /**
+   * Get by id
+   * @param id String of number
+   */
+  id(id: string): Barrage | undefined {
+    for (let item of this.raw) if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
+    return undefined;
+  }
+
   /**
    * Get barrage by name
    * @param name Barrage name

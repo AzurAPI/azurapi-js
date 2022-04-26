@@ -4,11 +4,11 @@ test('Get Equipment EN', async () => {
   const client = new AzurAPI();
   const data = new Promise((resolve, reject) => {
     client.on('ready', async () => {
-      let result = client.equipments.get('Quadruple 130mm (Mle 1932)');
+      let result = client.equipments.get('Quadruple 130mm Mle 1932 Secondary Gun Mount');
       resolve(result.names.en);
     });
   });
-  return expect(data).resolves.toBe('Quadruple 130mm (Mle 1932)');
+  return expect(data).resolves.toBe('Quadruple 130mm Mle 1932 Secondary Gun Mount');
 });
 
 test('Get Equipment CN', async () => {
@@ -19,7 +19,7 @@ test('Get Equipment CN', async () => {
       resolve(result.names.en);
     });
   });
-  return expect(data).resolves.toBe('Quadruple 130mm (Mle 1932)');
+  return expect(data).resolves.toBe('Quadruple 130mm Mle 1932 Secondary Gun Mount');
 });
 
 test('Get Equipment JP', async () => {
@@ -30,7 +30,7 @@ test('Get Equipment JP', async () => {
       resolve(result.names.en);
     });
   });
-  return expect(data).resolves.toBe('Quadruple 130mm (Mle 1932)');
+  return expect(data).resolves.toBe('Quadruple 130mm Mle 1932 Secondary Gun Mount');
 });
 
 test('Get Equipment KR', async () => {
@@ -41,5 +41,5 @@ test('Get Equipment KR', async () => {
       resolve(result.names.en);
     });
   });
-  return expect(data).resolves.toBe('Quadruple 130mm (Mle 1932)');
+  return expect(data).resolves.toBe('Quadruple 130mm Mle 1932 Secondary Gun Mount');
 });

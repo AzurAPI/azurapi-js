@@ -20,6 +20,15 @@ export class Ships extends API<Ship> {
   }
 
   /**
+   * Get by id
+   * @param id String of number
+   */
+  id(id: string): Ship | undefined {
+    for (let item of this.raw) if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
+    return undefined;
+  }
+
+  /**
    * Get ship by name
    * @param name Ship name
    * @param languages Language to search

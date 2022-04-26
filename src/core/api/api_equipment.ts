@@ -20,6 +20,15 @@ export class Equipments extends API<Equipment> {
   }
 
   /**
+   * Get by id
+   * @param id String of number
+   */
+  id(id: string): Equipment | undefined {
+    for (let item of this.raw) if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
+    return undefined;
+  }
+
+  /**
    * Get equipment by name
    * @param name Equipment name
    * @param languages Language to search
