@@ -12,9 +12,9 @@ import { AzurAPI } from '../Client';
   */
 export class Barrages extends API<Barrage> {
   /**
-    * Constructor
-    * @param client An AzurAPI instance
-    */
+   * Constructor
+   * @param client An AzurAPI instance
+   */
   constructor(client: AzurAPI) {
     super(client, ['id', 'name']);
   }
@@ -35,7 +35,6 @@ export class Barrages extends API<Barrage> {
   name(name: string): Barrage[] | [] {
     return this.raw.filter(barrage => normalize(barrage.name.toUpperCase()) === normalize(name.toUpperCase()));
   }
-
   /**
    * Get barrage by type
    * @param type Barrage type
@@ -58,5 +57,20 @@ export class Barrages extends API<Barrage> {
    */
   ships(ship: Ships): Barrage[] | [] {
     return this.raw.filter(barrage => barrage.ships.map(ship => normalize(ship.toUpperCase())).includes(normalize(ship.toUpperCase())));
+  }
+
+  get(query: string) {
+    if (this.client.queryIsShipName(query)) {
+      // Get barrages with this ship in it's `ships` array.
+      return this.raw.filter(r => {
+        // TODO: On api initialization, pre-uppercase and normalize ship names and overwrite (or store as memoized) so every search doesnt loop over the array
+        const comparisonArr = r.ships.map(s => s.toUpperCase());
+        if (comparisonArr.indexOf(query.toUpperCase()) !== -1) { // Faster than `.includes`
+          return true;
+        }
+        return false;
+      });
+    }
+    return this.fuze(query).map(s => s.item);
   }
 }
