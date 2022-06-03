@@ -42,7 +42,7 @@ export const NATIONS = {
 export default class API<T> {
   raw: T[];
   fuse?: Fuse<T>;
-  private client: AzurAPI;
+  protected client: AzurAPI;
 
   /**
    * Constructor
