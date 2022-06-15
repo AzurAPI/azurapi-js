@@ -27,7 +27,28 @@ export class Voicelines extends API<Voiceline> {
   //   }
   //   return undefined;
   // }
-  line(line: string, languages: Language[] = ['en', 'cn', 'jp', 'kr']): Voiceline[] | [] {
-    return this.raw.filter(ship => languages.some(lang => ship.names[lang] && normalize(ship.names[lang].toUpperCase()) === normalize(line.toUpperCase())));
+
+  get(shipName: string) {
+    if (!this.client.queryIsShipName(shipName)) {
+      throw new Error('Must use ship name to get voice lines.');
+    }
+    const id = this.client.getShipIdByName(shipName);
+    // console.log(this.raw);
+    // const reverse = [...this.raw].reverse();
+    // console.log(reverse[id]);
+    return this.raw.filter((vl) => vl.id === id);
   }
+  // line(
+  //   line: string,
+  //   languages: Language[] = ["en", "cn", "jp", "kr"]
+  // ): Voiceline[] | [] {
+  //   return this.raw.filter((ship) =>
+  //     languages.some(
+  //       (lang) =>
+  //         ship.names[lang] &&
+  //         normalize(ship.names[lang].toUpperCase()) ===
+  //           normalize(line.toUpperCase())
+  //     )
+  //   );
+  // }
 }
