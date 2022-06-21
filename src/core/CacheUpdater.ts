@@ -28,8 +28,26 @@ export default class Updater {
       if (updates.length > 0) {
         this.client.emit('updateAvalible', updates);
         return Promise.all(updates.map(async (type) => {
-          let raw = Object.values(JSON.parse(await fetch(data[type])) || []);
-          this.client.set(type, raw);
+
+          const raw = JSON.parse(await fetch(data[type])) ?? [];
+
+          if (type === 'voicelines') {
+            /**
+             * Voice lines have to be massaged.
+             * We set the ship's ID as a property of each Voiceline.
+             */
+            let mappedVls: Record<string, any>[] = [];
+            for (const [shipId, voicelines] of Object.entries(raw)) {
+              //@ts-ignore
+              voicelines['id'] = shipId;
+              //@ts-ignore
+              mappedVls.push(voicelines);
+            }
+
+            this.client.set('voicelines', mappedVls);
+          } else {
+            this.client.set(type, raw);
+          }
           fs.writeFileSync(local[type], JSON.stringify(raw));
         }));
       }

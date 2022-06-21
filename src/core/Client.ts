@@ -84,6 +84,12 @@ export class AzurAPI extends EventEmitter {
    * query string matches a ship's name.
    */
   queryIsShipName(query: string) {
-    return this.ships.name(query.toUpperCase()).length !== 0;
+    return this.ships.name(query).length !== 0;
+  }
+  /**
+   * Another bodge...
+   */
+  getShipIdByName(name: string){
+    return this.ships.getShipIdByName(name);
   }
 }
