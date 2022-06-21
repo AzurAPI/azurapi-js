@@ -29,11 +29,15 @@ export default class Updater {
         this.client.emit('updateAvalible', updates);
         return Promise.all(updates.map(async (type) => {
 
-          let raw = JSON.parse(await fetch(data[type])) ?? [];
+          const raw = JSON.parse(await fetch(data[type])) ?? [];
 
           if (type === 'voicelines') {
+            /**
+             * Voice lines have to be massaged.
+             * We set the ship's ID as a property of each Voiceline.
+             */
             let mappedVls: Record<string, any>[] = [];
-            for (const [shipId, voicelines] of Object.entries(raw)) { // loop through Voiceline[]
+            for (const [shipId, voicelines] of Object.entries(raw)) {
               //@ts-ignore
               voicelines['id'] = shipId;
               //@ts-ignore
@@ -42,7 +46,6 @@ export default class Updater {
 
             this.client.set('voicelines', mappedVls);
           } else {
-
             this.client.set(type, raw);
           }
           fs.writeFileSync(local[type], JSON.stringify(raw));

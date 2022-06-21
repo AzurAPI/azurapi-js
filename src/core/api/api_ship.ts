@@ -4,7 +4,7 @@
  * @packageDocumentation
  */
 import { Ship } from '../../types/ship';
-import API, { Language, normalize, NATIONS, advancedOptions, normalizeCompare } from './api';
+import API, { Language, normalize, NATIONS, advancedOptions } from './api';
 import { AzurAPI } from '../Client';
 
 /**
