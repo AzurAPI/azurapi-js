@@ -19,12 +19,16 @@ export class Voicelines extends API<Voiceline> {
     super(client);
   }
 
-  get(shipName: string) {
-    if (!this.client.queryIsShipName(shipName)) {
-      throw new Error("Must use ship name to get voice lines.");
+  get(shipNameOrId: string) {
+    if (this.client.queryIsShipName(shipNameOrId)) {
+      const id = this.client.getShipIdByName(shipNameOrId);
+      return this.raw.filter((vl) => vl.id === id)[0];
     }
-    const id = this.client.getShipIdByName(shipName);
+    const vlsForId = this.raw.filter((vl) => vl.id === shipNameOrId);
+    if (vlsForId.length === 0) {
+      throw new Error("Must use ship name or ID to get voice lines.");
+    }
 
-    return this.raw.filter((vl) => vl.id === id);
+    return vlsForId[0];
   }
 }
