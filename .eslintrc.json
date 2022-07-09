@@ -1,3 +1,4 @@
 {
-  "extends": "@augu/eslint-config/ts.js"
+  "plugins": ["prettier"],
+  "extends": ["@augu/eslint-config/ts.js", "plugin:prettier/recommended"]
 }
