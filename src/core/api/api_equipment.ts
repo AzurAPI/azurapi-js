@@ -24,7 +24,8 @@ export class Equipments extends API<Equipment> {
    * @param id String of number
    */
   id(id: string): Equipment | undefined {
-    for (let item of this.raw) if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
+    for (let item of this.raw)
+      if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
     return undefined;
   }
 
@@ -34,7 +35,13 @@ export class Equipments extends API<Equipment> {
    * @param languages Language to search
    */
   name(name: string, languages: Language[] = ['en', 'cn', 'jp', 'kr']): Equipment[] | [] {
-    return this.raw.filter(equipment => languages.some(lang => equipment.names[lang] && normalize(equipment.names[lang].toUpperCase()) === normalize(name.toUpperCase())));
+    return this.raw.filter((equipment) =>
+      languages.some(
+        (lang) =>
+          equipment.names[lang] &&
+          normalize(equipment.names[lang].toUpperCase()) === normalize(name.toUpperCase())
+      )
+    );
   }
 
   /**
@@ -42,7 +49,9 @@ export class Equipments extends API<Equipment> {
    * @param category name of the category you want to search for
    */
   category(category: string): Equipment[] | [] {
-    return this.raw.filter(equipment => normalize(equipment.category.toUpperCase() === normalize(category.toUpperCase())));
+    return this.raw.filter((equipment) =>
+      normalize(equipment.category.toUpperCase() === normalize(category.toUpperCase()))
+    );
   }
 
   /**
@@ -50,8 +59,13 @@ export class Equipments extends API<Equipment> {
    * @param nationality naitionality name of the equipments you want to search for
    */
   nationality(nationality: string): Equipment[] | [] {
-    nationality = Object.keys(NATIONS).find(key => NATIONS[key].includes(nationality.toLowerCase())) || nationality;
-    return this.raw.filter(equipment => normalize(equipment.nationality.toUpperCase()) === normalize(nationality.toUpperCase()));
+    nationality =
+      Object.keys(NATIONS).find((key) => NATIONS[key].includes(nationality.toLowerCase())) ||
+      nationality;
+    return this.raw.filter(
+      (equipment) =>
+        normalize(equipment.nationality.toUpperCase()) === normalize(nationality.toUpperCase())
+    );
   }
 
   /**
@@ -70,10 +84,12 @@ export class Equipments extends API<Equipment> {
   all(query: string): Equipment[] | [] {
     let results: (Equipment | undefined)[] = [];
     results.push(this.id(query));
-    results.push(...this.name(query).filter(i => i));
-    results.push(...this.fuze(query).map(i => i.item));
+    results.push(...this.name(query).filter((i) => i));
+    results.push(...this.fuze(query).map((i) => i.item));
     return results
-      .filter((value: Equipment | undefined): value is Equipment => value !== null && value !== undefined)
-      .filter((elem, index, self) => index === self.findIndex(el => el.id === elem.id));
+      .filter(
+        (value: Equipment | undefined): value is Equipment => value !== null && value !== undefined
+      )
+      .filter((elem, index, self) => index === self.findIndex((el) => el.id === elem.id));
   }
 }

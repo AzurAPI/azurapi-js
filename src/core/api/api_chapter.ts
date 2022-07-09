@@ -8,13 +8,13 @@ import API, { Language, normalize } from './api';
 import { AzurAPI } from '../Client';
 
 /**
-   * Special chapter class for extended functionality
-   */
+ * Special chapter class for extended functionality
+ */
 export class Chapters extends API<Chapter> {
   /**
-     * Constructor
-     * @param client An AzurAPI instance
-     */
+   * Constructor
+   * @param client An AzurAPI instance
+   */
   constructor(client: AzurAPI) {
     super(client);
   }
@@ -27,10 +27,24 @@ export class Chapters extends API<Chapter> {
   name(name: string, languages: Language[] = ['en', 'cn', 'jp']): (Chapter | SubChapter)[] | [] {
     let result: (Chapter | SubChapter)[] = [];
     for (let chapter of this.raw) {
-      if (languages.some(lang => chapter.names[lang] && normalize(chapter.names[lang].toUpperCase()) === normalize(name.toUpperCase()))) result.push(chapter);
+      if (
+        languages.some(
+          (lang) =>
+            chapter.names[lang] &&
+            normalize(chapter.names[lang].toUpperCase()) === normalize(name.toUpperCase())
+        )
+      )
+        result.push(chapter);
       for (let sub of Object.values(chapter)) {
         if (sub.names !== undefined) {
-          if (languages.some(lang => sub.names[lang] && normalize(sub.names[lang].toUpperCase()) === normalize(name.toUpperCase()))) result.push(sub);
+          if (
+            languages.some(
+              (lang) =>
+                sub.names[lang] &&
+                normalize(sub.names[lang].toUpperCase()) === normalize(name.toUpperCase())
+            )
+          )
+            result.push(sub);
         }
       }
     }

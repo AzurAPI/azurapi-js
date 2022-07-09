@@ -16,14 +16,7 @@ export class Ships extends API<Ship> {
    * @param client An AzurAPI instance
    */
   constructor(client: AzurAPI) {
-    super(client, [
-      'names.en',
-      'names.cn',
-      'names.jp',
-      'names.kr',
-      'names.code',
-      'id',
-    ]);
+    super(client, ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id']);
   }
 
   /**
@@ -32,8 +25,7 @@ export class Ships extends API<Ship> {
    */
   id(id: string): Ship | undefined {
     for (let item of this.raw)
-      if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase()))
-        return item;
+      if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
     return undefined;
   }
 
@@ -42,16 +34,12 @@ export class Ships extends API<Ship> {
    * @param name Ship name
    * @param languages Language to search
    */
-  name(
-    name: string,
-    languages: Language[] = ['en', 'cn', 'jp', 'kr']
-  ): Ship[] | [] {
+  name(name: string, languages: Language[] = ['en', 'cn', 'jp', 'kr']): Ship[] | [] {
     return this.raw.filter((ship) =>
       languages.some(
         (lang) =>
           ship.names[lang] &&
-          normalize(ship.names[lang].toUpperCase()) ===
-            normalize(name.toUpperCase())
+          normalize(ship.names[lang].toUpperCase()) === normalize(name.toUpperCase())
       )
     );
   }
@@ -64,11 +52,9 @@ export class Ships extends API<Ship> {
     return this.raw.filter(
       (ship) =>
         (ship.hullType &&
-          normalize(ship.hullType.toUpperCase()) ===
-            normalize(hull.toUpperCase())) ||
+          normalize(ship.hullType.toUpperCase()) === normalize(hull.toUpperCase())) ||
         (ship.retrofitHullType &&
-          normalize(ship.retrofitHullType.toUpperCase()) ===
-            normalize(hull.toUpperCase()))
+          normalize(ship.retrofitHullType.toUpperCase()) === normalize(hull.toUpperCase()))
     );
   }
 
@@ -79,14 +65,10 @@ export class Ships extends API<Ship> {
   nationality(nationality: string): Ship[] | [] {
     let results: Ship[] = [];
     nationality =
-      Object.keys(NATIONS).find((key) =>
-        NATIONS[key].includes(nationality.toLowerCase())
-      ) || nationality;
+      Object.keys(NATIONS).find((key) => NATIONS[key].includes(nationality.toLowerCase())) ||
+      nationality;
     for (let ship of this.raw)
-      if (
-        normalize(ship.nationality.toUpperCase()) ===
-        normalize(nationality.toUpperCase())
-      )
+      if (normalize(ship.nationality.toUpperCase()) === normalize(nationality.toUpperCase()))
         results.push(ship);
     return results;
   }
@@ -96,14 +78,8 @@ export class Ships extends API<Ship> {
    * @param query Ship name in any language or ship id
    */
   get(query: string): Ship | Ship[] {
-    let fuzeResult = this.fuze(query).sort(
-      (a, b) => (b.score || 0) - (a.score || 0)
-    )[0];
-    return (
-      this.id(query) ||
-      this.name(query)[0] ||
-      (fuzeResult ? fuzeResult.item : undefined)
-    );
+    let fuzeResult = this.fuze(query).sort((a, b) => (b.score || 0) - (a.score || 0))[0];
+    return this.id(query) || this.name(query)[0] || (fuzeResult ? fuzeResult.item : undefined);
   }
 
   /**
@@ -116,18 +92,10 @@ export class Ships extends API<Ship> {
     results.push(...this.name(query).filter((i) => i));
     results.push(...this.fuze(query).map((i) => i.item));
     return results
-      .filter(
-        (value: Ship | undefined): value is Ship =>
-          value !== null && value !== undefined
-      )
-      .filter(
-        (elem, index, self) =>
-          index === self.findIndex((el) => el.id === elem.id)
-      );
+      .filter((value: Ship | undefined): value is Ship => value !== null && value !== undefined)
+      .filter((elem, index, self) => index === self.findIndex((el) => el.id === elem.id));
   }
   getShipIdByName(name: string, language = 'en') {
     return this.name(name)[0].id;
   }
-
 }
-

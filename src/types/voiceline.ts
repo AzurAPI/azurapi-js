@@ -6,12 +6,12 @@
 
 export type Voiceline = VoicelineData & {
   id: string;
-}
+};
 
 interface VoicelineData {
   Default: Line[];
   Retrofit: Line[];
-  [key: string]: Line[]
+  [key: string]: Line[];
 }
 interface Line {
   event: string;

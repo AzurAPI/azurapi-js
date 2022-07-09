@@ -1,56 +1,61 @@
 {
-    "name": "@azurapi/azurapi",
-    "version": "1.1.2",
-    "description": "Open Source Azur Lane Local Database",
-    "main": "./build/index.js",
-    "types": "./build/index.d.ts",
-    "scripts": {
-        "compile": "tsc",
-        "test": "jest --config jest.config.js",
-        "lint": "eslint src --ext .ts --fix",
-        "build": "npm run lint && npm run compile && npm run build:browser && npm run build:docs && npm run build:docs.json && npm run test",
-        "build:docs": "npx typedoc --theme default --readme readme.md --out docs/ --entryPointStrategy expand src/.",
-        "build:docs.json": "npx typedoc --json docs/docs.json src/.",
-        "build:browser": "npx browserify build/index.js -d true -o bundles/azurapi.js && npx browserify build/index.js -s AzurAPI -d true -o bundles/azurapi.umd.js && npx terser bundles/azurapi.js --compress --mangle --output bundles/azurapi.min.js && npx terser bundles/azurapi.umd.js --compress --mangle --output bundles/azurapi.umd.js",
-        "prepare": "npm run compile"
-    },
-    "author": "XhacKX#0001, 彩雲#5778, August#5820",
-    "license": "GPL-3.0",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/AzurAPI/azurapi-js.git"
-    },
-    "files": [
-        "build",
-        "types"
-    ],
-    "keywords": [
-        "azurlane",
-        "azur",
-        "lane",
-        "api",
-        "azur-lane",
-        "shipgirls",
-        "waifu"
-    ],
-    "bugs": {
-        "url": "https://github.com/AzurAPI/azurapi-js/issues"
-    },
-    "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
-    "dependencies": {
-        "fuse.js": "^6.4.6"
-    },
-    "devDependencies": {
-        "@augu/eslint-config": "^1.8.2",
-        "@types/jest": "^26.0.14",
-        "@types/node": "^14.14.45",
-        "@typescript-eslint/eslint-plugin": "^4.2.0",
-        "@typescript-eslint/parser": "^4.2.0",
-        "eslint": "^7.17.0",
-        "jest": "^26.4.2",
-        "jest-teamcity": "^1.9.0",
-        "ts-jest": "^26.4.0",
-        "typedoc": "^0.22.10",
-        "typescript": "^4.1.5"
-    }
+  "name": "@azurapi/azurapi",
+  "version": "1.1.2",
+  "description": "Open Source Azur Lane Local Database",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "compile": "tsc",
+    "test": "jest --config jest.config.js",
+    "lint": "eslint src --ext .ts --fix",
+    "build": "npm run lint && npm run compile && npm run build:browser && npm run build:docs && npm run build:docs.json && npm run test",
+    "build:docs": "npx typedoc --theme default --readme readme.md --out docs/ --entryPointStrategy expand src/.",
+    "build:docs.json": "npx typedoc --json docs/docs.json src/.",
+    "build:browser": "npx browserify build/index.js -d true -o bundles/azurapi.js && npx browserify build/index.js -s AzurAPI -d true -o bundles/azurapi.umd.js && npx terser bundles/azurapi.js --compress --mangle --output bundles/azurapi.min.js && npx terser bundles/azurapi.umd.js --compress --mangle --output bundles/azurapi.umd.js",
+    "prepare": "npm run compile"
+  },
+  "author": "XhacKX#0001, 彩雲#5778, August#5820",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AzurAPI/azurapi-js.git"
+  },
+  "files": [
+    "build",
+    "types"
+  ],
+  "keywords": [
+    "azurlane",
+    "azur",
+    "lane",
+    "api",
+    "azur-lane",
+    "shipgirls",
+    "waifu"
+  ],
+  "bugs": {
+    "url": "https://github.com/AzurAPI/azurapi-js/issues"
+  },
+  "homepage": "https://github.com/AzurAPI/azurapi-js#readme",
+  "dependencies": {
+    "fuse.js": "^6.4.6"
+  },
+  "devDependencies": {
+    "@augu/eslint-config": "^2.2.0",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.14.45",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "jest": "^26.4.2",
+    "jest-teamcity": "^1.9.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "ts-jest": "^26.4.0",
+    "typedoc": "^0.22.10",
+    "typescript": "^4.1.5"
+  }
 }
