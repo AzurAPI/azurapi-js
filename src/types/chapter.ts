@@ -78,7 +78,7 @@ export interface SubChapter extends Identifiable {
             nodes: Node[]
         }
     },
-    hard:{
+    hard: {
         title: string,
         code: string,
         introduction: string,
@@ -118,7 +118,7 @@ export interface SubChapter extends Identifiable {
         mapDrops: string[],
         equipmentBlueprintDrops: string[],
         shipDrops: string[],
-        nodeMap:{
+        nodeMap: {
             width: number,
             height: number,
             map: any[],

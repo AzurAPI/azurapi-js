@@ -65,7 +65,7 @@ export class AzurAPI extends EventEmitter {
     this.updater.init();
     if (this.autoupdate && this.source === 'local') this.updater.start();
     this.emit('ready');
-    instance = this;
+
   }
 
   /**

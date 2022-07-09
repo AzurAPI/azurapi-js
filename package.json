@@ -41,12 +41,12 @@
         "fuse.js": "^6.4.6"
     },
     "devDependencies": {
-        "@augu/eslint-config": "^1.8.2",
+        "@augu/eslint-config": "^2.2.0",
         "@types/jest": "^26.0.14",
         "@types/node": "^14.14.45",
-        "@typescript-eslint/eslint-plugin": "^4.2.0",
-        "@typescript-eslint/parser": "^4.2.0",
-        "eslint": "^7.17.0",
+        "@typescript-eslint/eslint-plugin": "^5.30.5",
+        "@typescript-eslint/parser": "^5.30.5",
+        "eslint": "^8.19.0",
         "jest": "^26.4.2",
         "jest-teamcity": "^1.9.0",
         "ts-jest": "^26.4.0",
