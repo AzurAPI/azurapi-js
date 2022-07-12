@@ -40,9 +40,9 @@ This package needs Node version `14.0.0` or newer.
 Get stable package from npm by running `npm install --save @azurapi/azurapi` in the command line.
 Alternatively, use the web builds:
 
-Minified: https://git.io/azurapi.min.js
+Minified: https://raw.githubusercontent.com/AzurAPI/azurapi-js/master/bundles/azurapi.min.js
 
-UMD Module: https://git.io/azurapi.umd.js
+UMD Module: https://raw.githubusercontent.com/AzurAPI/azurapi-js/master/bundles/azurapi.umd.js
 
 ## Usage / Documentation
 To use the Library, Please refer to the [Docs](https://azurapi.github.io/v2/).
@@ -57,6 +57,6 @@ For advanced users or package developers, please refer to [TSDoc](https://azurap
 
 ## Discord Support Server
 
-[![](https://discordapp.com/api/guilds/648206344729526272/widget.png?style=banner2)](https://discord.gg/aAEdys8)
+[![](https://discord.com/api/guilds/648206344729526272/widget.png?style=banner2)](https://discord.com/invite/aAEdys8)
 
 Discord Link: https://discord.gg/aAEdys8
