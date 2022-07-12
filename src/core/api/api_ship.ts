@@ -78,8 +78,11 @@ export class Ships extends API<Ship> {
    * @param query Ship name in any language or ship id
    */
   get(query: string): Ship | Ship[] {
+    if (this.client.queryIsShipName(query)) {
+      return this.name(query);
+    }
     let fuzeResult = this.fuze(query).sort((a, b) => (b.score || 0) - (a.score || 0))[0];
-    return this.id(query) || this.name(query)[0] || (fuzeResult ? fuzeResult.item : undefined);
+    return this.id(query) || (fuzeResult ? fuzeResult.item : []);
   }
 
   /**

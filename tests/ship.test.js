@@ -1,23 +1,22 @@
 const { AzurAPI } = require('../build/index.js');
+const { Ships } = require('../build/core/api/api_ship');
+const testShips = require('./test_ships.json');
 
 test('Ship by Name/ID', async () => {
-  const client = new AzurAPI();
-  const data = new Promise((resolve, reject) => {
-    client.on('ready', async () => {
-      let result = client.ships.get('Abukuma');
-      resolve(result.names.en);
-    });
-  });
-  return expect(data).resolves.toBe('Abukuma');
+  const mockApi = { queryIsShipName: () => true };
+  const client = new Ships(mockApi);
+  client.raw = testShips;
+
+  let result = client.get('Abukuma');
+
+  return expect(result[0].names.en).toBe('Abukuma');
 });
 
 test('Ships by Faction', async () => {
-  const client = new AzurAPI();
-  const data = new Promise((resolve, reject) => {
-    client.on('ready', async () => {
-      let result = client.ships.nationality('IJN');
-      resolve(result[0].nationality);
-    });
-  });
-  return expect(data).resolves.toBe('IJN');
+  const client = new Ships();
+  client.raw = testShips;
+
+  let result = client.nationality('IJN');
+
+  return expect(result[0].nationality).toBe('Sakura Empire');
 });
