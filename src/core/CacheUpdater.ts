@@ -3,10 +3,11 @@
  * Functions relating to updating the cache
  * @packageDocumentation
  */
-import { baseFolder, data, datatype, local } from './Data';
+import { baseFolder, datatype, local, getDataUrl } from './Data';
 import fs from 'fs';
-import { check, fetch } from './UpdateChecker';
+import { check } from './UpdateChecker';
 import { AzurAPI } from './Client';
+import fetch from 'node-fetch';
 
 export default class Updater {
   public cron?: NodeJS.Timeout;
@@ -29,7 +30,22 @@ export default class Updater {
       this.client.emit('updateAvalible', updates);
       return Promise.all(
         updates.map(async (type) => {
-          const raw = JSON.parse(await fetch(data[type])) ?? [];
+          let raw: any = [];
+          try {
+            let response = await fetch(getDataUrl(type));
+            if (response.status === 404) {
+              response = await fetch(getDataUrl(type, { internal: true }));
+            }
+            raw = await response.json();
+
+            if (raw?.length === undefined) {
+              raw = Object.values(raw);
+            }
+          } catch (e) {
+            console.log(`Error while fetching data for ${type} (${getDataUrl(type)})`);
+            console.log(e);
+            return;
+          }
 
           if (type === 'voicelines') {
             /**
