@@ -1,0 +1,1348 @@
+[
+  {
+    "wikiUrl": "https://azurlane.koumakan.jp/wiki/Abukuma",
+    "id": "187",
+    "_gid": 30209,
+    "_sid": [302091, 302092, 302093, 302094],
+    "_code": 187,
+    "names": {
+      "en": "Abukuma",
+      "code": "IJN Abukuma",
+      "cn": "阿武隈",
+      "jp": "阿武隈",
+      "kr": "아부쿠마",
+      "tw": "阿武隈"
+    },
+    "exists": { "en": true, "cn": true, "jp": true, "kr": true },
+    "hexagon": [2, 3, 0, 3, 3, 2],
+    "class": "Nagara",
+    "nationality": "Sakura Empire",
+    "hullType": "Light Cruiser",
+    "thumbnail": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/187/thumbnail.png",
+    "rarity": "Normal",
+    "stars": 4,
+    "stats": {
+      "baseStats": {
+        "health": "493",
+        "armor": "Light",
+        "reload": "64",
+        "luck": "43",
+        "firepower": "26",
+        "torpedo": "52",
+        "evasion": "31",
+        "speed": "36",
+        "antiair": "52",
+        "aviation": "0",
+        "oilConsumption": "2",
+        "accuracy": "50",
+        "antisubmarineWarfare": "22"
+      },
+      "level100": {
+        "health": "2621",
+        "armor": "Light",
+        "reload": "164",
+        "luck": "43",
+        "firepower": "133",
+        "torpedo": "264",
+        "evasion": "112",
+        "speed": "36",
+        "antiair": "254",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "129",
+        "antisubmarineWarfare": "87"
+      },
+      "level120": {
+        "health": "2891",
+        "armor": "Light",
+        "reload": "173",
+        "luck": "43",
+        "firepower": "140",
+        "torpedo": "279",
+        "evasion": "128",
+        "speed": "36",
+        "antiair": "278",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "145",
+        "antisubmarineWarfare": "92"
+      },
+      "level125Retrofit": {
+        "health": "3199",
+        "armor": "Light",
+        "reload": "180",
+        "luck": "43",
+        "firepower": "162",
+        "torpedo": "347",
+        "evasion": "132",
+        "speed": "36",
+        "antiair": "284",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "149",
+        "antisubmarineWarfare": "94"
+      },
+      "level125": {
+        "health": "2959",
+        "armor": "Light",
+        "reload": "175",
+        "luck": "43",
+        "firepower": "142",
+        "torpedo": "282",
+        "evasion": "132",
+        "speed": "36",
+        "antiair": "284",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "149",
+        "antisubmarineWarfare": "94"
+      },
+      "level120Retrofit": {
+        "health": "3131",
+        "armor": "Light",
+        "reload": "178",
+        "luck": "43",
+        "firepower": "160",
+        "torpedo": "344",
+        "evasion": "128",
+        "speed": "36",
+        "antiair": "278",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "145",
+        "antisubmarineWarfare": "92"
+      },
+      "level100Retrofit": {
+        "health": "2861",
+        "armor": "Light",
+        "reload": "169",
+        "luck": "43",
+        "firepower": "153",
+        "torpedo": "329",
+        "evasion": "112",
+        "speed": "36",
+        "antiair": "254",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "129",
+        "antisubmarineWarfare": "87"
+      }
+    },
+    "slots": [
+      {
+        "maxEfficiency": 110,
+        "minEfficiency": 110,
+        "type": "CL Guns",
+        "max": 1,
+        "kaiEfficiency": 115
+      },
+      {
+        "maxEfficiency": 160,
+        "minEfficiency": 135,
+        "type": "Torpedoes",
+        "max": 2,
+        "kaiEfficiency": 175
+      },
+      {
+        "maxEfficiency": 125,
+        "minEfficiency": 120,
+        "type": "Anti-Air Guns",
+        "max": 1,
+        "kaiEfficiency": 125
+      }
+    ],
+    "enhanceValue": { "firepower": 11, "torpedo": 17, "aviation": 0, "reload": 12 },
+    "scrapValue": null,
+    "skills": [
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/187/torpedo_command_destroyers.png",
+        "names": {
+          "en": "Torpedo Command: Destroyers",
+          "cn": "雷击指挥·驱逐舰",
+          "jp": "雷撃指揮・駆逐艦"
+        },
+        "description": "Increase Torpedo stat of Destroyers in the fleet by 5% (15%). Does not stack with other command skills that have similar effect.",
+        "color": "gold"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/187/double_torpedokai.png",
+        "names": { "en": "(Retrofit) Double Torpedo", "cn": "鱼雷连射", "jp": "次発装填" },
+        "description": "When this ship fires its Torpedoes: 15% (30%) chance to launch a second wave of Torpedoes. (10s cooldown, starts on cooldown)",
+        "color": "pink"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/187/all_out_assault.png",
+        "names": { "en": "All Out Assault", "cn": "全弹发射", "jp": "全弾発射-長良型" },
+        "description": "Every 12 (8) times the main gun is fired, triggers All Out Assault - Nagara Class I (II)",
+        "color": "pink"
+      }
+    ],
+    "limitBreaks": [
+      ["Gains All Out Assault I", "Anti-Air Efficiency +5%"],
+      ["Max Torpedo Capacity +1", "Pre-Loaded Torpedo +1", "Torpedo Efficiency +10%"],
+      ["Upgrades All Out Assault I→II", "Torpedo Efficiency +15%"]
+    ],
+    "fleetTech": {
+      "statsBonus": {
+        "collection": { "applicable": ["Light cruiser"], "bonus": "+1", "stat": "health" },
+        "maxLevel": { "applicable": ["Light cruiser"], "bonus": "+1", "stat": "torpedo" }
+      },
+      "techPoints": { "collection": 3, "maxLimitBreak": 7, "maxLevel": 5, "total": 15 }
+    },
+    "retrofit": true,
+    "retrofitId": "3187",
+    "retrofitProjects": {
+      "A": {
+        "id": "Hull Improvement Ⅰ",
+        "attributes": ["\"Health\" +70"],
+        "materials": ["1x \"CruiserT1BP\""],
+        "coins": 200,
+        "level": 1,
+        "levelBreakLevel": 0,
+        "levelBreakStars": "★☆☆☆",
+        "recurrence": 1,
+        "require": []
+      },
+      "B": {
+        "id": "Reload Enhancement Ⅰ",
+        "attributes": ["\"Reload\" +5"],
+        "materials": ["2x \"CruiserT1BP\""],
+        "coins": 300,
+        "level": 5,
+        "levelBreakLevel": 0,
+        "levelBreakStars": "★☆☆☆",
+        "recurrence": 1,
+        "require": ["A"]
+      },
+      "C": {
+        "id": "Torpedo Improvement Ⅰ",
+        "attributes": ["Equip 2 Efficiency +5.0%"],
+        "materials": ["2x \"CruiserT1BP\""],
+        "coins": 400,
+        "level": 20,
+        "levelBreakLevel": 1,
+        "levelBreakStars": "★★☆☆",
+        "recurrence": 1,
+        "require": ["A"]
+      },
+      "D": {
+        "id": "Torpedo Enhancement Ⅰ",
+        "attributes": ["\"Torpedo\" +10"],
+        "materials": ["2x \"CruiserT1BP\""],
+        "coins": 500,
+        "level": 25,
+        "levelBreakLevel": 1,
+        "levelBreakStars": "★★☆☆",
+        "recurrence": 1,
+        "require": ["C"]
+      },
+      "E": {
+        "id": "Main Gun Improvement Ⅰ",
+        "attributes": ["Equip 1 Efficiency +5.0%"],
+        "materials": ["3x \"CruiserT1BP\""],
+        "coins": 600,
+        "level": 35,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★☆",
+        "recurrence": 1,
+        "require": ["C"]
+      },
+      "F": {
+        "id": "Firepower Enhancement Ⅰ",
+        "attributes": ["\"Firepower\" +10"],
+        "materials": ["3x \"CruiserT1BP\""],
+        "coins": 800,
+        "level": 40,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★☆",
+        "recurrence": 1,
+        "require": ["E"]
+      },
+      "G": {
+        "id": "Hull Improvement Ⅱ",
+        "attributes": ["\"Health\" +70 / \"Health\" +100"],
+        "materials": ["1 / 1x \"CruiserT2BP\""],
+        "coins": 1000,
+        "level": 50,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★☆",
+        "recurrence": 2,
+        "require": ["E"]
+      },
+      "H": {
+        "id": "Tactical Learning",
+        "attributes": ["Unlock Skill \"Double Torpedo\""],
+        "materials": ["3x \"CruiserT2BP\""],
+        "coins": 1200,
+        "level": 55,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★☆",
+        "recurrence": 1,
+        "require": ["G"]
+      },
+      "I": {
+        "id": "Torpedo Improvement Ⅱ",
+        "attributes": ["Equip 2 Efficiency +5.0% / Equip 2 Efficiency +5.0%"],
+        "materials": ["1 / 2x \"CruiserT2BP\""],
+        "coins": 1400,
+        "level": 70,
+        "levelBreakLevel": 3,
+        "levelBreakStars": "★★★★",
+        "recurrence": 2,
+        "require": ["G", "H"]
+      },
+      "J": {
+        "id": "Torpedo Enhancement Ⅱ",
+        "attributes": ["\"Torpedo\" +5 / \"Torpedo\" +15"],
+        "materials": ["2 / 2x \"CruiserT2BP\""],
+        "coins": 1600,
+        "level": 75,
+        "levelBreakLevel": 3,
+        "levelBreakStars": "★★★★",
+        "recurrence": 2,
+        "require": ["D", "I"]
+      },
+      "K": {
+        "id": "Modernization",
+        "attributes": ["\"Firepower\" +10", "\"Torpedo\" +35"],
+        "materials": ["6x \"CruiserT2BP\"", "1x \"Abukuma\" or \"Universal Bulin\""],
+        "coins": 2000,
+        "level": 80,
+        "levelBreakLevel": 3,
+        "levelBreakStars": "★★★★",
+        "recurrence": 1,
+        "require": ["I", "J"]
+      }
+    },
+    "retrofitHullType": "Light Cruiser",
+    "construction": {
+      "constructionTime": "Drop Only",
+      "availableIn": {
+        "light": false,
+        "heavy": false,
+        "aviation": false,
+        "limited": false,
+        "exchange": false
+      }
+    },
+    "obtainedFrom": {
+      "obtainedFrom": "Visitors Dyed in Red All Maps\nDivergent Chessboard A3, C3\nFallen Wings A1, A2, A3, C1, C2, C3\nPassionate Polaris SP2, SP3, SP5",
+      "fromMaps": ["8-1", "8-2", "8-3", "8-4"]
+    },
+    "misc": {
+      "artist": {
+        "name": "大月紅葉",
+        "urls": {
+          "Wiki": "https://azurlane.koumakan.jp/wiki/Artists#大月紅葉",
+          "Pixiv": "https://www.pixiv.net/member.php?id=591937",
+          "Twitter": "https://twitter.com/ootsukimomiji",
+          "Link": "http://weibo.com/ootsukimomiji"
+        }
+      },
+      "voice": { "name": "Akari Kitou", "url": "https://en.wikipedia.org/wiki/Akari_Kit%C5%8D" }
+    },
+    "skins": [
+      {
+        "name": "Default",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/187/Default/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/187/Default/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Default", "category": "Default" }
+      },
+      {
+        "name": "Retrofit",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/187/Retrofit/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/187/Retrofit/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Retrofit", "category": "Retrofit" }
+      }
+    ],
+    "gallery": []
+  },
+  {
+    "wikiUrl": "https://azurlane.koumakan.jp/wiki/Acasta",
+    "id": "082",
+    "_gid": 20102,
+    "_sid": [201021, 201022, 201023, 201024],
+    "_code": 82,
+    "names": {
+      "en": "Acasta",
+      "code": "HMS Acasta",
+      "cn": "阿卡司塔",
+      "jp": "アカスタ",
+      "kr": "아카스타",
+      "tw": "阿卡司塔"
+    },
+    "exists": { "en": true, "cn": true, "jp": true, "kr": true },
+    "hexagon": [1, 4, 0, 4, 1, 1],
+    "class": "A and B (A subclass)",
+    "nationality": "Royal Navy",
+    "hullType": "Destroyer",
+    "thumbnail": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/thumbnail.png",
+    "rarity": "Rare",
+    "stars": 4,
+    "stats": {
+      "baseStats": {
+        "health": "221",
+        "armor": "Light",
+        "reload": "71",
+        "luck": "43",
+        "firepower": "13",
+        "torpedo": "68",
+        "evasion": "78",
+        "speed": "42",
+        "antiair": "29",
+        "aviation": "0",
+        "oilConsumption": "2",
+        "accuracy": "63",
+        "antisubmarineWarfare": "42"
+      },
+      "level100": {
+        "health": "1237",
+        "armor": "Light",
+        "reload": "183",
+        "luck": "43",
+        "firepower": "64",
+        "torpedo": "342",
+        "evasion": "232",
+        "speed": "42",
+        "antiair": "140",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "168",
+        "antisubmarineWarfare": "163"
+      },
+      "level120": {
+        "health": "1370",
+        "armor": "Light",
+        "reload": "193",
+        "luck": "43",
+        "firepower": "68",
+        "torpedo": "360",
+        "evasion": "262",
+        "speed": "42",
+        "antiair": "154",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "189",
+        "antisubmarineWarfare": "173"
+      },
+      "level125Retrofit": {
+        "health": "1569",
+        "armor": "Light",
+        "reload": "196",
+        "luck": "43",
+        "firepower": "69",
+        "torpedo": "405",
+        "evasion": "304",
+        "speed": "45",
+        "antiair": "172",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "194",
+        "antisubmarineWarfare": "176"
+      },
+      "level125": {
+        "health": "1404",
+        "armor": "Light",
+        "reload": "196",
+        "luck": "43",
+        "firepower": "69",
+        "torpedo": "365",
+        "evasion": "269",
+        "speed": "42",
+        "antiair": "157",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "194",
+        "antisubmarineWarfare": "176"
+      },
+      "level120Retrofit": {
+        "health": "1535",
+        "armor": "Light",
+        "reload": "193",
+        "luck": "43",
+        "firepower": "68",
+        "torpedo": "400",
+        "evasion": "297",
+        "speed": "45",
+        "antiair": "169",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "189",
+        "antisubmarineWarfare": "173"
+      },
+      "level100Retrofit": {
+        "health": "1402",
+        "armor": "Light",
+        "reload": "183",
+        "luck": "43",
+        "firepower": "64",
+        "torpedo": "382",
+        "evasion": "267",
+        "speed": "45",
+        "antiair": "155",
+        "aviation": "0",
+        "oilConsumption": "8",
+        "accuracy": "168",
+        "antisubmarineWarfare": "163"
+      }
+    },
+    "slots": [
+      {
+        "maxEfficiency": 115,
+        "minEfficiency": 105,
+        "type": "DD Guns",
+        "max": 1,
+        "kaiEfficiency": 115
+      },
+      {
+        "maxEfficiency": 145,
+        "minEfficiency": 130,
+        "type": "Torpedoes",
+        "max": 2,
+        "kaiEfficiency": 150
+      },
+      {
+        "maxEfficiency": 105,
+        "minEfficiency": 100,
+        "type": "Anti-Air Guns",
+        "max": 1,
+        "kaiEfficiency": 110
+      }
+    ],
+    "enhanceValue": { "firepower": 4, "torpedo": 22, "aviation": 0, "reload": 13 },
+    "scrapValue": { "coin": 12, "oil": 1, "medal": null },
+    "skills": [
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/082/death_raid.png",
+        "names": { "en": "Death Raid", "cn": "决死突袭", "jp": "捨て身の突貫" },
+        "description": "When another ship in your fleet sinksIn-game does not state this, but another ship does have to sink, it will not trigger on fight startsinks[b] in combat, if this ship is the only ship remaining in your vanguardThe ship that sinks does not have to be in the vanguardvanguard[c], increase this ship's damage dealt by 20% (50%) and increaseAt level 10 only, changes to decrease, possible bugincrease[d] this ship's damage received by 8% (20%) until the end of the battle. (This skill cannot trigger more than once per battle.)",
+        "color": "pink"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/082/smokescreen.png",
+        "names": { "en": "Smokescreen", "cn": "烟雾弹", "jp": "煙幕散布" },
+        "description": "When the battle begins, and 15% (30%) chance every 15s after that, deploy a smokescreen that lasts for 5s. Allied ships inside the smokescreen gain 20% (40%) evasion rate. (This skill does not stack with any other smokescreen skill.)",
+        "color": "deepskyblue"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/082/flagship_coverkai.png",
+        "names": { "en": "(Retrofit) Flagship Cover", "cn": "旗舰掩护", "jp": "旗艦随伴" },
+        "description": "While this ship is afloat: decreases the DMG your Flagship takes by 15% (25%).",
+        "color": "gold"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/082/all_out_assault.png",
+        "names": { "en": "All Out Assault", "cn": "全弹发射", "jp": "全弾発射-A級" },
+        "description": "Every 15 (10) times the main gun is fired, triggers All Out Assault - A-Class I (II).",
+        "color": "pink"
+      }
+    ],
+    "limitBreaks": [
+      ["Gains All Out Assault I", "Main Gun Efficiency +5%"],
+      ["Max Torpedo Capacity +1", "Pre-Loaded Torpedo +1", "Torpedo Efficiency +10%"],
+      [
+        "Upgrades All Out Assault I→II",
+        "All Weapon Efficiency +5%",
+        "Boosts stats given by Aux Gear by 30%"
+      ]
+    ],
+    "fleetTech": {
+      "statsBonus": {
+        "collection": {
+          "applicable": ["Destroyer", "Guided-missile destroyer"],
+          "bonus": "+1",
+          "stat": "health"
+        },
+        "maxLevel": {
+          "applicable": ["Destroyer", "Guided-missile destroyer"],
+          "bonus": "+1",
+          "stat": "antisubmarineWarfare"
+        }
+      },
+      "techPoints": { "collection": 3, "maxLimitBreak": 7, "maxLevel": 5, "total": 15 }
+    },
+    "retrofit": true,
+    "retrofitId": "3082",
+    "retrofitProjects": {
+      "A": {
+        "id": "Hull Improvement Ⅰ",
+        "attributes": ["\"Health\" +45"],
+        "materials": ["2x \"DestroyerT1BP\""],
+        "coins": 300,
+        "level": 1,
+        "levelBreakLevel": 0,
+        "levelBreakStars": "★★☆☆☆",
+        "recurrence": 1,
+        "require": []
+      },
+      "B": {
+        "id": "Evasion Enhancement Ⅰ",
+        "attributes": ["\"Evasion\" +5"],
+        "materials": ["2x \"DestroyerT1BP\""],
+        "coins": 400,
+        "level": 5,
+        "levelBreakLevel": 0,
+        "levelBreakStars": "★★☆☆☆",
+        "recurrence": 1,
+        "require": ["A"]
+      },
+      "C": {
+        "id": "Anti-Air Gun Improvement Ⅰ",
+        "attributes": ["Equip 3 Efficiency +5.0%"],
+        "materials": ["3x \"DestroyerT1BP\""],
+        "coins": 600,
+        "level": 20,
+        "levelBreakLevel": 1,
+        "levelBreakStars": "★★★☆☆",
+        "recurrence": 1,
+        "require": ["A"]
+      },
+      "D": {
+        "id": "Anti-Air Enhancement Ⅰ",
+        "attributes": ["\"Anti-air\" +15"],
+        "materials": ["3x \"DestroyerT1BP\""],
+        "coins": 800,
+        "level": 25,
+        "levelBreakLevel": 1,
+        "levelBreakStars": "★★★☆☆",
+        "recurrence": 1,
+        "require": ["C"]
+      },
+      "E": {
+        "id": "Torpedo Improvement Ⅰ",
+        "attributes": ["Equip 2 Efficiency +5.0%"],
+        "materials": ["3x \"DestroyerT1BP\""],
+        "coins": 1000,
+        "level": 35,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★★☆",
+        "recurrence": 1,
+        "require": ["C"]
+      },
+      "F": {
+        "id": "Torpedo Enhancement Ⅰ",
+        "attributes": ["\"Torpedo\" +10"],
+        "materials": ["4x \"DestroyerT1BP\""],
+        "coins": 1200,
+        "level": 40,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★★☆",
+        "recurrence": 1,
+        "require": ["E"]
+      },
+      "G": {
+        "id": "Hull Improvement Ⅱ",
+        "attributes": ["\"Health\" +45 / \"Health\" +75"],
+        "materials": ["1 / 2x \"DestroyerT2BP\""],
+        "coins": 1500,
+        "level": 50,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★★☆",
+        "recurrence": 2,
+        "require": ["E"]
+      },
+      "H": {
+        "id": "Tactical Learning",
+        "attributes": ["Unlock Skill \"Flagship Cover\""],
+        "materials": ["3x \"DestroyerT2BP\""],
+        "coins": 1800,
+        "level": 55,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★★☆",
+        "recurrence": 1,
+        "require": ["G"]
+      },
+      "I": {
+        "id": "Motor Enhancement",
+        "attributes": ["Spd +3"],
+        "materials": ["3x \"DestroyerT2BP\""],
+        "coins": 2000,
+        "level": 70,
+        "levelBreakLevel": 3,
+        "levelBreakStars": "★★★★★",
+        "recurrence": 1,
+        "require": ["G", "J"]
+      },
+      "J": {
+        "id": "Evasion Enhancement Ⅱ",
+        "attributes": ["\"Evasion\" +5 / \"Evasion\" +10"],
+        "materials": ["2 / 2x \"DestroyerT2BP\""],
+        "coins": 2500,
+        "level": 75,
+        "levelBreakLevel": 3,
+        "levelBreakStars": "★★★★★",
+        "recurrence": 2,
+        "require": ["B"]
+      },
+      "K": {
+        "id": "Modernization",
+        "attributes": ["\"Torpedo\" +30", "\"Evasion\" +15"],
+        "materials": ["1x \"DestroyerT3BP\"", "1x \"Acasta\" or \"Universal Bulin\""],
+        "coins": 3000,
+        "level": 85,
+        "levelBreakLevel": 3,
+        "levelBreakStars": "★★★★★",
+        "recurrence": 1,
+        "require": ["H", "I", "J"]
+      }
+    },
+    "retrofitHullType": "Destroyer",
+    "construction": {
+      "constructionTime": "00:19:00",
+      "availableIn": {
+        "light": true,
+        "heavy": false,
+        "aviation": false,
+        "limited": false,
+        "exchange": false
+      }
+    },
+    "obtainedFrom": {
+      "obtainedFrom": "Available as map clear reward during Glorious Battle Event",
+      "fromMaps": []
+    },
+    "misc": {
+      "artist": {
+        "name": "ALLENES",
+        "urls": {
+          "Wiki": "https://azurlane.koumakan.jp/wiki/Artists#ALLENES",
+          "Pixiv": "https://www.pixiv.net/member.php?id=8217405",
+          "Twitter": "https://twitter.com/CN_ALLENES",
+          "Link": "https://weibo.com/u/3818062182"
+        }
+      },
+      "voice": { "name": "Kaya Okuno", "url": "https://en.wikipedia.org/wiki/Kaya_Okuno" }
+    },
+    "skins": [
+      {
+        "name": "Default",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Default/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Default/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Default", "category": "Default" }
+      },
+      {
+        "name": "Retrofit",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Retrofit/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Retrofit/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Retrofit", "category": "Retrofit" }
+      },
+      {
+        "name": "Fashionable Outing",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Fashionable_Outing/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Fashionable_Outing/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Skin Shop",
+          "category": "Miscellaneous",
+          "enClient": "Fashionable Outing",
+          "enLimited": "Permanently Available",
+          "cnClient": "外出模式",
+          "cnLimited": "Permanently Available",
+          "jpClient": "お出かけスタイル",
+          "jpLimited": "Permanently Available",
+          "cost": 700
+        }
+      },
+      {
+        "name": "Lights of the Lantern Festival",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Lights_of_the_Lantern_Festival/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_102.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Lights_of_the_Lantern_Festival/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Skin Shop",
+          "category": "Miscellaneous",
+          "enClient": "Lights of the Lantern Festival",
+          "enLimited": "Limited",
+          "cnClient": "元宵灯会",
+          "cnLimited": "Limited",
+          "jpClient": "元宵の灯籠祭",
+          "jpLimited": "Limited",
+          "cost": 780
+        }
+      },
+      {
+        "name": "Monochromatic Marvel",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Monochromatic_Marvel/image.nobg.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_145.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Monochromatic_Marvel/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Skin Shop",
+          "category": "Bunny",
+          "enClient": "Monochromatic Marvel",
+          "enLimited": "Limited",
+          "cnClient": "「白」与「黑���",
+          "cnLimited": "Limited",
+          "jpClient": "ラブリー・モノクロミック",
+          "jpLimited": "Limited",
+          "cost": 780
+        },
+        "bg": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/082/Monochromatic_Marvel/image.png"
+      }
+    ],
+    "gallery": []
+  },
+  {
+    "wikiUrl": "https://azurlane.koumakan.jp/wiki/Achilles",
+    "id": "105",
+    "_gid": 20202,
+    "_sid": [202021, 202022, 202023, 202024],
+    "_code": 105,
+    "names": {
+      "en": "Achilles",
+      "code": "HMS Achilles",
+      "cn": "阿基里斯",
+      "jp": "アキリーズ",
+      "kr": "아킬레스",
+      "tw": "阿基里斯"
+    },
+    "exists": { "en": true, "cn": true, "jp": true, "kr": true },
+    "hexagon": [3, 3, 0, 3, 2, 2],
+    "class": "Leander",
+    "nationality": "Royal Navy",
+    "hullType": "Light Cruiser",
+    "thumbnail": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/105/thumbnail.png",
+    "rarity": "Rare",
+    "stars": 4,
+    "stats": {
+      "baseStats": {
+        "health": "509",
+        "armor": "Light",
+        "reload": "64",
+        "luck": "54",
+        "firepower": "30",
+        "torpedo": "61",
+        "evasion": "28",
+        "speed": "32",
+        "antiair": "55",
+        "aviation": "0",
+        "oilConsumption": "2",
+        "accuracy": "51",
+        "antisubmarineWarfare": "31"
+      },
+      "level100": {
+        "health": "2698",
+        "armor": "Light",
+        "reload": "165",
+        "luck": "54",
+        "firepower": "155",
+        "torpedo": "307",
+        "evasion": "97",
+        "speed": "32",
+        "antiair": "270",
+        "aviation": "0",
+        "oilConsumption": "9",
+        "accuracy": "132",
+        "antisubmarineWarfare": "120"
+      },
+      "level120": {
+        "health": "2974",
+        "armor": "Light",
+        "reload": "175",
+        "luck": "54",
+        "firepower": "163",
+        "torpedo": "324",
+        "evasion": "111",
+        "speed": "32",
+        "antiair": "295",
+        "aviation": "0",
+        "oilConsumption": "9",
+        "accuracy": "148",
+        "antisubmarineWarfare": "128"
+      },
+      "level125Retrofit": {
+        "health": "3284",
+        "armor": "Light",
+        "reload": "182",
+        "luck": "54",
+        "firepower": "216",
+        "torpedo": "363",
+        "evasion": "114",
+        "speed": "32",
+        "antiair": "301",
+        "aviation": "0",
+        "oilConsumption": "9",
+        "accuracy": "152",
+        "antisubmarineWarfare": "130"
+      },
+      "level125": {
+        "health": "3044",
+        "armor": "Light",
+        "reload": "177",
+        "luck": "54",
+        "firepower": "166",
+        "torpedo": "328",
+        "evasion": "114",
+        "speed": "32",
+        "antiair": "301",
+        "aviation": "0",
+        "oilConsumption": "9",
+        "accuracy": "152",
+        "antisubmarineWarfare": "130"
+      },
+      "level120Retrofit": {
+        "health": "3214",
+        "armor": "Light",
+        "reload": "180",
+        "luck": "54",
+        "firepower": "213",
+        "torpedo": "359",
+        "evasion": "111",
+        "speed": "32",
+        "antiair": "295",
+        "aviation": "0",
+        "oilConsumption": "9",
+        "accuracy": "148",
+        "antisubmarineWarfare": "128"
+      },
+      "level100Retrofit": {
+        "health": "2938",
+        "armor": "Light",
+        "reload": "170",
+        "luck": "54",
+        "firepower": "205",
+        "torpedo": "342",
+        "evasion": "97",
+        "speed": "32",
+        "antiair": "270",
+        "aviation": "0",
+        "oilConsumption": "9",
+        "accuracy": "132",
+        "antisubmarineWarfare": "120"
+      }
+    },
+    "slots": [
+      {
+        "maxEfficiency": 145,
+        "minEfficiency": 130,
+        "type": "CL Guns",
+        "max": 1,
+        "kaiEfficiency": 160
+      },
+      {
+        "maxEfficiency": 155,
+        "minEfficiency": 140,
+        "type": "Torpedoes",
+        "max": 2,
+        "kaiEfficiency": 160
+      },
+      {
+        "maxEfficiency": 100,
+        "minEfficiency": 100,
+        "type": "Anti-Air Guns",
+        "max": 1,
+        "kaiEfficiency": 100
+      }
+    ],
+    "enhanceValue": { "firepower": 13, "torpedo": 20, "aviation": 0, "reload": 12 },
+    "scrapValue": { "coin": 14, "oil": 1, "medal": null },
+    "skills": [
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/105/full_firepower.png",
+        "names": { "en": "Full Firepower", "cn": "火力全开", "jp": "火力全開" },
+        "description": "Every 20s, 30% (60%) chance to increase own Firepower by 20% (40%) for 10s.",
+        "color": "pink"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/105/giant_hunterkai.png",
+        "names": { "en": "(Retrofit) Giant Hunter", "cn": "巨兽猎手", "jp": "大物狩り" },
+        "description": "At the start of battle: Increases Eva and TorpIn game description incorrectly says torpedo DMGTorp[b] by 5% (15%), increases own armor modifierIn game description incorrectly states damagearmor modifier[c] against Medium Armor enemies by 15% (25%). Slows enemy Heavy Cruisers by 15% (30%) for 5s after hitting them 4 times.",
+        "color": "pink"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/105/all_out_assault.png",
+        "names": { "en": "All Out Assault", "cn": "全弹发射", "jp": "全弾発射-リアンダー級" },
+        "description": "Every 12 (8) times the main gun is fired, triggers All Out Assault - Leander Class I (II).",
+        "color": "pink"
+      }
+    ],
+    "limitBreaks": [
+      ["Gains All Out Assault I", "Main Gun Efficiency +5%"],
+      ["Max Torpedo Capacity +1", "Pre-Loaded Torpedo +1", "Main Gun Efficiency +10%"],
+      ["Upgrades All Out Assault I→II", "Torpedo Efficiency +15%"]
+    ],
+    "fleetTech": {
+      "statsBonus": {
+        "collection": { "applicable": ["Light cruiser"], "bonus": "+1", "stat": "health" },
+        "maxLevel": {
+          "applicable": ["Light cruiser"],
+          "bonus": "+1",
+          "stat": "antisubmarineWarfare"
+        }
+      },
+      "techPoints": { "collection": 6, "maxLimitBreak": 12, "maxLevel": 9, "total": 27 }
+    },
+    "retrofit": true,
+    "retrofitId": "3105",
+    "retrofitProjects": {
+      "A": {
+        "id": "Hull Improvement",
+        "grade": "I",
+        "attributes": ["\"Health\" +70"],
+        "materials": ["2x \"CruiserT1BP\""],
+        "coins": 300,
+        "level": 1,
+        "levelBreakLevel": 0,
+        "levelBreakStars": "★★☆☆☆",
+        "recurrence": 1,
+        "require": []
+      },
+      "B": {
+        "id": "Reload Enhancement",
+        "grade": "I",
+        "attributes": ["\"Reload\" +5"],
+        "materials": ["2x \"CruiserT1BP\""],
+        "coins": 400,
+        "level": 5,
+        "levelBreakLevel": 0,
+        "levelBreakStars": "★★☆☆☆",
+        "recurrence": 1,
+        "require": ["A"]
+      },
+      "C": {
+        "id": "Main Gun Improvement",
+        "grade": "I",
+        "attributes": ["Main Gun Efficiency +5%"],
+        "materials": ["3x \"CruiserT1BP\""],
+        "coins": 600,
+        "level": 20,
+        "levelBreakLevel": 1,
+        "levelBreakStars": "★★★☆☆",
+        "recurrence": 1,
+        "require": ["A"]
+      },
+      "D": {
+        "id": "Firepower Enhancement",
+        "grade": "I",
+        "attributes": ["\"Firepower\" +10"],
+        "materials": ["3x \"CruiserT1BP\""],
+        "coins": 800,
+        "level": 25,
+        "levelBreakLevel": 1,
+        "levelBreakStars": "★★★☆☆",
+        "recurrence": 1,
+        "require": ["C"]
+      },
+      "E": {
+        "id": "Torpedo Improvement",
+        "grade": "I",
+        "attributes": ["Torpedo Efficiency +5%"],
+        "materials": ["3x \"CruiserT1BP\""],
+        "coins": 1000,
+        "level": 35,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★★☆",
+        "recurrence": 1,
+        "require": ["C"]
+      },
+      "F": {
+        "id": "Torpedo Enhancement",
+        "grade": "I",
+        "attributes": ["\"Torpedo\" +10"],
+        "materials": ["4x \"CruiserT1BP\""],
+        "coins": 1200,
+        "level": 40,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★★☆",
+        "recurrence": 1,
+        "require": ["E"]
+      },
+      "G": {
+        "id": "Hull Improvement",
+        "grade": "II",
+        "attributes": ["\"Health\" +70 / +100"],
+        "materials": ["1 / 2x \"CruiserT2BP\""],
+        "coins": 1500,
+        "level": 50,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★★☆",
+        "recurrence": 2,
+        "require": ["E"]
+      },
+      "H": {
+        "id": "Tactical Learning",
+        "attributes": ["Unlock Skill \"Giant Hunter\""],
+        "materials": ["3x \"CruiserT2BP\""],
+        "coins": 1800,
+        "level": 55,
+        "levelBreakLevel": 2,
+        "levelBreakStars": "★★★★☆",
+        "recurrence": 1,
+        "require": ["G"]
+      },
+      "I": {
+        "id": "Main Gun Improvement",
+        "grade": "I",
+        "attributes": ["Main Gun Efficiency +5% / +5%"],
+        "materials": ["2 / 2x \"CruiserT2BP\""],
+        "coins": 2000,
+        "level": 70,
+        "levelBreakLevel": 3,
+        "levelBreakStars": "★★★★★",
+        "recurrence": 2,
+        "require": ["G", "H"]
+      },
+      "J": {
+        "id": "Firepower Enhancement",
+        "grade": "II",
+        "attributes": ["\"Firepower\" +5 / +15"],
+        "materials": ["2 / 2x \"CruiserT2BP\""],
+        "coins": 2500,
+        "level": 75,
+        "levelBreakLevel": 3,
+        "levelBreakStars": "★★★★★",
+        "recurrence": 2,
+        "require": ["D", "I"]
+      },
+      "K": {
+        "id": "Modernization",
+        "attributes": ["\"Firepower\" +20", "\"Torpedo\" +25"],
+        "materials": ["1x \"CruiserT3BP\"", "1x \"Achilles\" or \"Universal Bulin\""],
+        "coins": 3000,
+        "level": 85,
+        "levelBreakLevel": 3,
+        "levelBreakStars": "★★★★★",
+        "recurrence": 1,
+        "require": ["I", "J"]
+      }
+    },
+    "retrofitHullType": "Light Cruiser",
+    "construction": {
+      "constructionTime": "01:15:00",
+      "availableIn": {
+        "light": true,
+        "heavy": false,
+        "aviation": false,
+        "limited": false,
+        "exchange": "Requisition"
+      }
+    },
+    "obtainedFrom": {
+      "obtainedFrom": "Available from Requisition for \"Medal of Honor\" Medal of Honor",
+      "fromMaps": ["9-1", "8-2", "3-3", "5-3", "11-3", "12-3", "2-4"]
+    },
+    "misc": {
+      "artist": {
+        "name": "梦咲枫",
+        "urls": {
+          "Wiki": "https://azurlane.koumakan.jp/wiki/Artists#梦咲枫",
+          "Pixiv": "https://www.pixiv.net/member.php?id=1023957",
+          "Twitter": "https://twitter.com/yumesaki_kaede/",
+          "Link": "https://weibo.com/u/3558369570"
+        }
+      },
+      "voice": { "name": "Yuri Yamaoka", "url": "https://en.wikipedia.org/wiki/Yuri_Yamaoka" }
+    },
+    "skins": [
+      {
+        "name": "Default",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/105/Default/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/105/Default/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Default", "category": "Default" }
+      },
+      {
+        "name": "Retrofit",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/105/Retrofit/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/105/Retrofit/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Retrofit", "category": "Retrofit" }
+      }
+    ],
+    "gallery": []
+  },
+  {
+    "wikiUrl": "https://azurlane.koumakan.jp/wiki/Abercrombie",
+    "id": "336",
+    "_gid": 21304,
+    "_sid": [213041, 213042, 213043, 213044],
+    "_code": 336,
+    "names": {
+      "en": "Abercrombie",
+      "code": "HMS Abercrombie",
+      "cn": "阿贝克隆比",
+      "jp": "アバークロンビー",
+      "kr": "애버크롬비",
+      "tw": "阿貝克隆比"
+    },
+    "exists": { "en": true, "cn": true, "jp": true, "kr": true },
+    "hexagon": [3, 0, 0, 0, 1, 2],
+    "class": "Roberts",
+    "nationality": "Royal Navy",
+    "hullType": "Monitor",
+    "thumbnail": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/336/thumbnail.png",
+    "rarity": "Elite",
+    "stars": 5,
+    "stats": {
+      "baseStats": {
+        "health": "609",
+        "armor": "Light",
+        "reload": "54",
+        "luck": "38",
+        "firepower": "53",
+        "torpedo": "0",
+        "evasion": "11",
+        "speed": "12",
+        "antiair": "34",
+        "aviation": "0",
+        "oilConsumption": "3",
+        "accuracy": "28",
+        "antisubmarineWarfare": "0"
+      },
+      "level100": {
+        "health": "3410",
+        "armor": "Light",
+        "reload": "140",
+        "luck": "38",
+        "firepower": "271",
+        "torpedo": "0",
+        "evasion": "53",
+        "speed": "12",
+        "antiair": "166",
+        "aviation": "0",
+        "oilConsumption": "10",
+        "accuracy": "73",
+        "antisubmarineWarfare": "0"
+      },
+      "level120": {
+        "health": "3778",
+        "armor": "Light",
+        "reload": "148",
+        "luck": "38",
+        "firepower": "286",
+        "torpedo": "0",
+        "evasion": "61",
+        "speed": "12",
+        "antiair": "182",
+        "aviation": "0",
+        "oilConsumption": "10",
+        "accuracy": "81",
+        "antisubmarineWarfare": "0"
+      },
+      "level125": {
+        "health": "3869",
+        "armor": "Light",
+        "reload": "150",
+        "luck": "38",
+        "firepower": "290",
+        "torpedo": "0",
+        "evasion": "63",
+        "speed": "12",
+        "antiair": "186",
+        "aviation": "0",
+        "oilConsumption": "10",
+        "accuracy": "83",
+        "antisubmarineWarfare": "0"
+      }
+    },
+    "slots": [
+      { "maxEfficiency": 120, "minEfficiency": 90, "type": "BB Guns", "max": 2 },
+      { "maxEfficiency": 205, "minEfficiency": 205, "type": "DD Guns", "max": 3 },
+      { "maxEfficiency": 100, "minEfficiency": 100, "type": "Anti-Air Guns", "max": 1 }
+    ],
+    "enhanceValue": { "firepower": 35, "torpedo": 0, "aviation": 0, "reload": 10 },
+    "scrapValue": { "coin": 13, "oil": 4, "medal": null },
+    "skills": [
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/336/artillery_volley.png",
+        "names": { "en": "Artillery Volley", "cn": "压制炮击", "jp": "重砲斉射" },
+        "description": "15s after battle starts and every 20s after that: 30% (60%) chance to fire a special barrage (DMG is based on skill's level). Barrage preview (gif)",
+        "color": "pink"
+      }
+    ],
+    "limitBreaks": [
+      ["Secondary Gun Mount +1", "Main Gun Efficiency +5%"],
+      ["Main Gun Mount +1", "Main Gun Efficiency +10%"],
+      ["Secondary Gun Mount +1", "Main Gun Efficiency +15%"]
+    ],
+    "fleetTech": {
+      "statsBonus": {
+        "collection": {
+          "applicable": ["Heavy cruiser", "Large cruiser", "Monitor"],
+          "bonus": "+1",
+          "stat": "health"
+        },
+        "maxLevel": {
+          "applicable": ["Heavy cruiser", "Large cruiser", "Monitor"],
+          "bonus": "+1",
+          "stat": "reload"
+        }
+      },
+      "techPoints": { "collection": 7, "maxLimitBreak": 14, "maxLevel": 10, "total": 31 }
+    },
+    "construction": {
+      "constructionTime": "01:05:00",
+      "availableIn": {
+        "light": false,
+        "heavy": true,
+        "aviation": false,
+        "limited": false,
+        "exchange": false
+      }
+    },
+    "obtainedFrom": { "fromMaps": [] },
+    "misc": {
+      "artist": {
+        "name": "黑猫",
+        "urls": {
+          "Wiki": "https://azurlane.koumakan.jp/wiki/Artists#黑猫",
+          "Pixiv": "https://www.pixiv.net/member.php?id=2331978",
+          "Link": "http://weibo.com/u/2959771544"
+        }
+      },
+      "voice": { "name": "Juri Nagatsuma", "url": "https://en.wikipedia.org/wiki/Juri_Nagatsuma" }
+    },
+    "skins": [
+      {
+        "name": "Default",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/336/Default/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/336/Default/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Default", "category": "Default" }
+      },
+      {
+        "name": "Pumpkin Blast!",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/336/Pumpkin_Blast/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_119.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/336/Pumpkin_Blast/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Skin Shop",
+          "category": "Halloween",
+          "enClient": "Pumpkin Blast!",
+          "enLimited": "Permanently Available",
+          "cnClient": "惊叫南瓜！",
+          "cnLimited": "Permanently Available",
+          "jpClient": "ドッキリカボチャ！",
+          "jpLimited": "Permanently Available",
+          "cost": 780
+        }
+      },
+      {
+        "name": "Mischief on the Rocks",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/336/Mischief_on_the_Rocks/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_145.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/336/Mischief_on_the_Rocks/chibi.png",
+        "info": {
+          "live2dModel": true,
+          "obtainedFrom": "Skin Shop",
+          "category": "Bunny",
+          "enClient": "Mischief on the Rocks",
+          "enLimited": "Limited",
+          "cnClient": "坏坏兔的恶作剧！",
+          "cnLimited": "Limited",
+          "jpClient": "ミスチーフ・レッド",
+          "jpLimited": "Limited",
+          "cost": 1080
+        }
+      }
+    ],
+    "gallery": []
+  }
+]

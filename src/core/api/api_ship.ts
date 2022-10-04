@@ -16,7 +16,7 @@ export class Ships extends API<Ship> {
    * @param client An AzurAPI instance
    */
   constructor(client: AzurAPI) {
-    super(client, ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id']);
+    super(client, ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code']);
   }
 
   /**
@@ -24,6 +24,7 @@ export class Ships extends API<Ship> {
    * @param id String of number
    */
   id(id: string): Ship | undefined {
+    this.queryIsString(id);
     for (let item of this.raw)
       if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
     return undefined;
@@ -35,6 +36,7 @@ export class Ships extends API<Ship> {
    * @param languages Language to search
    */
   name(name: string, languages: Language[] = ['en', 'cn', 'jp', 'kr']): Ship[] | [] {
+    this.queryIsString(name);
     return this.raw.filter((ship) =>
       languages.some(
         (lang) =>
@@ -49,6 +51,7 @@ export class Ships extends API<Ship> {
    * @param hull Hull name
    */
   hull(hull: string): Ship[] | [] {
+    this.queryIsString(hull);
     return this.raw.filter(
       (ship) =>
         (ship.hullType &&
@@ -63,6 +66,7 @@ export class Ships extends API<Ship> {
    * @param nationality Nationality name
    */
   nationality(nationality: string): Ship[] | [] {
+    this.queryIsString(nationality);
     let results: Ship[] = [];
     nationality =
       Object.keys(NATIONS).find((key) => NATIONS[key].includes(nationality.toLowerCase())) ||
@@ -74,12 +78,20 @@ export class Ships extends API<Ship> {
   }
 
   /**
-   * Get ship using name in any language or id
+   * Get ship using name in any language or id. Returns an array if an exact match isn't found.
    * @param query Ship name in any language or ship id
    */
-  get(query: string): Ship | Ship[] {
-    let fuzeResult = this.fuze(query).sort((a, b) => (b.score || 0) - (a.score || 0))[0];
-    return this.id(query) || this.name(query)[0] || (fuzeResult ? fuzeResult.item : undefined);
+  get(query: string): Ship[] {
+    this.queryIsString(query);
+    if (this.client.queryIsShipName(query)) {
+      return this.name(query);
+    }
+    const isId = this.id(query);
+    if (isId) {
+      return [isId];
+    }
+    const fuzeResult = this.fuze(query).map((x) => x.item);
+    return fuzeResult.length > 0 ? (fuzeResult as Ship[]) : [];
   }
 
   /**
@@ -87,6 +99,7 @@ export class Ships extends API<Ship> {
    * @param query basically anyting i guess
    */
   all(query: string): Ship[] | [] {
+    this.queryIsString(query);
     let results: (Ship | undefined)[] = [];
     results.push(this.id(query));
     results.push(...this.name(query).filter((i) => i));
@@ -97,5 +110,14 @@ export class Ships extends API<Ship> {
   }
   getShipIdByName(name: string, language = 'en') {
     return this.name(name)[0].id;
+  }
+  /**
+   * Throws is query is `undefined` or an object or something – anything not a string.
+   */
+  private queryIsString(query: unknown): query is string {
+    if (typeof query === 'string' && query.trim().length !== 0) {
+      return true;
+    }
+    throw new Error('AzurAPI query string must be string');
   }
 }

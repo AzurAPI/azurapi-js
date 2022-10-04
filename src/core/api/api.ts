@@ -71,7 +71,9 @@ export default class API<T> {
    * @param name Any
    */
   fuze(name: string): FuseResult<T>[] {
-    if (!this.fuse) return [];
+    if (!this.fuse) {
+      throw new Error("Fuze not set.")
+    }
     return this.fuse.search(name, { limit: 10 }).sort((a, b) => (b.score || 0) - (a.score || 0));
   }
 
