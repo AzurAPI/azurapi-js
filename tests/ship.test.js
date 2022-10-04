@@ -31,13 +31,35 @@ describe('get', () => {
     }
   });
 
-  it('Ship by Name/ID', async () => {
-    const mockApi = { queryIsShipName: () => true };
-    const client = new Ships(mockApi);
-    client.raw = testShips;
+  describe('Ship Searching', () => {
+    test('By name', () => {
+      const mockApi = { queryIsShipName: () => true };
+      const client = new Ships(mockApi);
+      client.raw = testShips;
 
-    let result = client.get('Abukuma');
+      const result = client.get('Abukuma');
+      expect(result[0].names.en).toBe('Abukuma');
+    });
 
-    return expect(result[0].names.en).toBe('Abukuma');
+    test('By ID', () => {
+      const mockApi = { queryIsShipName: () => false };
+      const client = new Ships(mockApi);
+      client.raw = testShips;
+
+      const resultID = client.get('187');
+      expect(resultID[0].names.en).toBe('Abukuma');
+    });
+    
+    it('Fuzzy search ship by Name/ID', () => {
+      const mockApi = { queryIsShipName: () => false };
+      const client = new Ships(mockApi);
+      client.raw = testShips;
+      expect(client.fuse).toBeDefined();
+
+      client.fuse.setCollection(testShips);
+      const result = client.get('A');
+
+      return expect(result[0].names.en).toBe('Abukuma');
+    });
   });
 });

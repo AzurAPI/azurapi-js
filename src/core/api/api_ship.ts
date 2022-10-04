@@ -16,7 +16,7 @@ export class Ships extends API<Ship> {
    * @param client An AzurAPI instance
    */
   constructor(client: AzurAPI) {
-    super(client, ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code', 'id']);
+    super(client, ['names.en', 'names.cn', 'names.jp', 'names.kr', 'names.code']);
   }
 
   /**
@@ -78,16 +78,20 @@ export class Ships extends API<Ship> {
   }
 
   /**
-   * Get ship using name in any language or id
+   * Get ship using name in any language or id. Returns an array if an exact match isn't found.
    * @param query Ship name in any language or ship id
    */
-  get(query: string): Ship | Ship[] {
+  get(query: string): Ship[] {
     this.queryIsString(query);
     if (this.client.queryIsShipName(query)) {
       return this.name(query);
     }
-    let fuzeResult = this.fuze(query).sort((a, b) => (b.score || 0) - (a.score || 0))[0];
-    return this.id(query) || (fuzeResult ? fuzeResult.item : []);
+    const isId = this.id(query);
+    if (isId) {
+      return [isId];
+    }
+    const fuzeResult = this.fuze(query).map((x) => x.item);
+    return fuzeResult.length > 0 ? (fuzeResult as Ship[]) : [];
   }
 
   /**
