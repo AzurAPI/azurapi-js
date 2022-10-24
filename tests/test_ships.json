@@ -1344,5 +1344,156 @@
       }
     ],
     "gallery": []
+  },
+  {
+    "wikiUrl": "https://azurlane.koumakan.jp/wiki/Enterprise_(Royal_Navy)",
+    "id": "557",
+    "_gid": 20232,
+    "_sid": [202321, 202322, 202323, 202324],
+    "_code": 557,
+    "names": {
+      "en": "Enterprise",
+      "code": "HMS Enterprise",
+      "cn": "进取",
+      "jp": "エンタープライズ",
+      "kr": "엔터프라이즈"
+    },
+    "exists": { "en": true, "cn": true, "jp": true, "kr": true },
+    "hexagon": [3, 3, 0, 3, 2, 2],
+    "class": "Emerald",
+    "nationality": "Royal Navy",
+    "hullType": "Light Cruiser",
+    "thumbnail": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/557/thumbnail.png",
+    "rarity": "Elite",
+    "stars": 5,
+    "stats": {
+      "baseStats": {
+        "health": "603",
+        "armor": "Light",
+        "reload": "68",
+        "luck": "83",
+        "firepower": "28",
+        "torpedo": "53",
+        "evasion": "30",
+        "speed": "33",
+        "antiair": "65",
+        "aviation": "0",
+        "oilConsumption": "3",
+        "accuracy": "58",
+        "antisubmarineWarfare": "34"
+      },
+      "level100": {
+        "health": "3208",
+        "armor": "Light",
+        "reload": "175",
+        "luck": "83",
+        "firepower": "143",
+        "torpedo": "271",
+        "evasion": "102",
+        "speed": "33",
+        "antiair": "313",
+        "aviation": "0",
+        "oilConsumption": "10",
+        "accuracy": "152",
+        "antisubmarineWarfare": "133"
+      },
+      "level120": {
+        "health": "3538",
+        "armor": "Light",
+        "reload": "186",
+        "luck": "83",
+        "firepower": "151",
+        "torpedo": "286",
+        "evasion": "117",
+        "speed": "33",
+        "antiair": "342",
+        "aviation": "0",
+        "oilConsumption": "10",
+        "accuracy": "170",
+        "antisubmarineWarfare": "141"
+      },
+      "level125": {
+        "health": "3620",
+        "armor": "Light",
+        "reload": "188",
+        "luck": "83",
+        "firepower": "153",
+        "torpedo": "290",
+        "evasion": "120",
+        "speed": "33",
+        "antiair": "349",
+        "aviation": "0",
+        "oilConsumption": "10",
+        "accuracy": "175",
+        "antisubmarineWarfare": "143"
+      }
+    },
+    "slots": [
+      { "maxEfficiency": 135, "minEfficiency": 120, "type": "CL Guns", "max": 1 },
+      { "maxEfficiency": 155, "minEfficiency": 140, "type": "Torpedoes", "max": 2 },
+      { "maxEfficiency": 100, "minEfficiency": 100, "type": "Anti-Air Guns", "max": 1 }
+    ],
+    "enhanceValue": { "firepower": 12, "torpedo": 18, "aviation": 0, "reload": 13 },
+    "scrapValue": { "coin": 14, "medal": 4 },
+    "skills": [
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/557/time_to_clean.png",
+        "names": { "en": "Time to Clean", "cn": "清扫开始！", "jp": "お掃除��開始します" },
+        "description": "Increases this ship's equipped torpedo DMG dealt by 5% (15%) and increases her DMG dealt to DDs and Torpedo Ships by 5% (15%).",
+        "color": "pink"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/557/mobility_mastery.png",
+        "names": { "en": "Mobility Mastery", "cn": "机动制压", "jp": "機動制圧" },
+        "description": "Decreases this ship's DMG taken from enemy DD guns and torpedoes by 5% (10%). Every 20s: increases this ship's Speed by 5 and FP by 5% (20%) for 10s.",
+        "color": "deepskyblue"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/557/all_out_assault.png",
+        "names": { "en": "All Out Assault", "cn": "全弹发射", "jp": "全弾発射-エメラルド級" },
+        "description": "Activates All Out Assault I (II): Emerald-class once every 15 (10)Likely a bug.  In game description lists 12 (8) which is standard for torp cruisers15 (10)[b] times the Main Guns are fired.",
+        "color": "pink"
+      }
+    ],
+    "limitBreaks": [
+      ["Unlock All Out Assault Ⅰ", "Main gun efficiency +5%"],
+      ["Torpedo base +1", "Pre-Loaded Torpedo +1", "Main gun efficiency +10%"],
+      ["Improve All Out Assault", "Torpedo efficiency +15%"]
+    ],
+    "fleetTech": {
+      "statsBonus": {
+        "collection": { "applicable": ["Light cruiser"], "bonus": "+1", "stat": "health" },
+        "maxLevel": { "applicable": ["Light cruiser"], "bonus": "+1", "stat": "torpedo" }
+      },
+      "techPoints": { "collection": 6, "maxLimitBreak": 12, "maxLevel": 9, "total": 27 }
+    },
+    "construction": {
+      "constructionTime": "01:07:00",
+      "availableIn": {
+        "light": false,
+        "heavy": false,
+        "aviation": false,
+        "limited": "Only during the Angel of the Iris event",
+        "exchange": false
+      }
+    },
+    "obtainedFrom": {
+      "obtainedFrom": "Available in Limited Construction during the \"Angel of the Iris\" event",
+      "fromMaps": []
+    },
+    "misc": {
+      "artist": { "name": "Unknown", "urls": { "Link": "null" } },
+      "voice": { "name": "Yukiyo Fujii", "url": "https://en.wikipedia.org/wiki/Yukiyo_Fujii" }
+    },
+    "skins": [
+      {
+        "name": "Default",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/557/Default/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/557/Default/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Default", "category": "Default" }
+      }
+    ],
+    "gallery": []
   }
 ]

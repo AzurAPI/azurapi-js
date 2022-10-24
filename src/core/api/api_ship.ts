@@ -26,10 +26,29 @@ export class Ships extends API<Ship> {
   id(id: string): Ship | undefined {
     this.queryIsString(id);
     for (let item of this.raw)
-      if (normalize(item.id.toUpperCase()) === normalize(id.toUpperCase())) return item;
+      if (normalize(item.id.toUpperCase()) === id.toUpperCase()) return item;
     return undefined;
   }
-
+  /** Gets a ship by their Nationality + Name. This is to differentiate, for
+   * example: `HMS Enterprise` and `USS Enterprise`.
+   *
+   * Refer to [the wiki](https://azurlane.koumakan.jp/wiki/Nations) for nation abbreviations.
+   *
+   * @param shipCode Generally the ship's ${nationality} ${name}
+   * @example
+   *  client.code('HMS Enterprise')
+   * // –> {wikiUrl: "https://azurlane.koumakan.jp/wiki/Enterprise_(Royal_Navy)"...}
+   */
+  code(shipCode: string): Ship | undefined {
+    this.queryIsString(shipCode);
+    const ship = this.raw.find(({ names }) => {
+      return normalize(names.code.toUpperCase()) === shipCode.toUpperCase();
+    });
+    if (ship === undefined) {
+      return undefined;
+    }
+    return ship;
+  }
   /**
    * Get ship by name
    * @param name Ship name
@@ -40,8 +59,7 @@ export class Ships extends API<Ship> {
     return this.raw.filter((ship) =>
       languages.some(
         (lang) =>
-          ship.names[lang] &&
-          normalize(ship.names[lang].toUpperCase()) === normalize(name.toUpperCase())
+          ship.names[lang] && normalize(ship.names[lang].toUpperCase()) === name.toUpperCase()
       )
     );
   }
@@ -54,10 +72,9 @@ export class Ships extends API<Ship> {
     this.queryIsString(hull);
     return this.raw.filter(
       (ship) =>
-        (ship.hullType &&
-          normalize(ship.hullType.toUpperCase()) === normalize(hull.toUpperCase())) ||
+        (ship.hullType && normalize(ship.hullType.toUpperCase()) === hull.toUpperCase()) ||
         (ship.retrofitHullType &&
-          normalize(ship.retrofitHullType.toUpperCase()) === normalize(hull.toUpperCase()))
+          normalize(ship.retrofitHullType.toUpperCase()) === hull.toUpperCase())
     );
   }
 
@@ -72,7 +89,7 @@ export class Ships extends API<Ship> {
       Object.keys(NATIONS).find((key) => NATIONS[key].includes(nationality.toLowerCase())) ||
       nationality;
     for (let ship of this.raw)
-      if (normalize(ship.nationality.toUpperCase()) === normalize(nationality.toUpperCase()))
+      if (normalize(ship.nationality.toUpperCase()) === nationality.toUpperCase())
         results.push(ship);
     return results;
   }
@@ -116,7 +133,8 @@ export class Ships extends API<Ship> {
    */
   private queryIsString(query: unknown): query is string {
     if (typeof query === 'string' && query.trim().length !== 0) {
-      return true;
+      query = normalize(query);
+      return normalize(query);
     }
     throw new Error('AzurAPI query string must be string');
   }
