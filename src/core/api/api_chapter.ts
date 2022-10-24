@@ -25,8 +25,10 @@ export class Chapters extends API<Chapter> {
   id(id: string): (Chapter | SubChapter)[] | [] {
     let result: (Chapter | SubChapter)[] = [];
     for (let chapter of this.raw) {
-      if(chapter.normal.code && normalize(chapter.normal.code) === normalize(id.toUpperCase()))
-      result.push(chapter);
+      for (let sub of Object.values(chapter)) {
+      if(sub.normal.code && normalize(sub.normal.code) === normalize(id.toUpperCase()))
+      result.push(sub);
+      }
     }
     return result;
   }
