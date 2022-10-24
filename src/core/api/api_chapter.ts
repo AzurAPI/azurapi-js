@@ -18,7 +18,18 @@ export class Chapters extends API<Chapter> {
   constructor(client: AzurAPI) {
     super(client);
   }
-
+  /**
+   * Get by id
+   * @param id String of number
+   */
+  id(id: string): (Chapter | SubChapter)[] | [] {
+    let result: (Chapter | SubChapter)[] = [];
+    for (let chapter of this.raw) {
+      if(chapter.normal.code && normalize(chapter.normal.code) === normalize(id.toUpperCase()))
+      result.push(chapter);
+    }
+    return result;
+  }
   /**
    * Get chapter by name
    * @param name Chapter name

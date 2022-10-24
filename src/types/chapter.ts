@@ -27,6 +27,9 @@ export interface Chapter extends Identifiable {
     cn: string;
     jp: string;
   };
+  normal: {
+    code: string
+  }
 }
 
 export interface SubChapter extends Identifiable {
