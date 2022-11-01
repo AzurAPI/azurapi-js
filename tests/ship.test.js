@@ -58,7 +58,12 @@ describe('get', () => {
       const result = client.code('HMS Enterprise');
       expect(result.names.en).toBe('Enterprise');
       expect(result.names.code).toBe('HMS Enterprise');
+
+      const result2 = client.get('USS Enterprise');
+      expect(result2[0].names.en).toBe('Enterprise');
+      expect(result2[0].names.code).toBe('USS Enterprise');
     });
+
     it('Fuzzy search ship by Name/ID', () => {
       const mockApi = { queryIsShipName: () => false };
       const client = new Ships(mockApi);

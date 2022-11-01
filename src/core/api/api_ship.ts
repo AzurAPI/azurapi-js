@@ -4,7 +4,7 @@
  * @packageDocumentation
  */
 import { Ship } from '../../types/ship';
-import API, { Language, normalize, NATIONS, advancedOptions } from './api';
+import API, { Language, normalize, NATIONS, advancedOptions, NATION_CODE_ABBRS } from './api';
 import { AzurAPI } from '../Client';
 
 /**
@@ -40,9 +40,13 @@ export class Ships extends API<Ship> {
    * // –> {wikiUrl: "https://azurlane.koumakan.jp/wiki/Enterprise_(Royal_Navy)"...}
    */
   code(shipCode: string): Ship | undefined {
-    this.queryIsString(shipCode);
+    const query = this.queryIsString(shipCode).toUpperCase();
+    const isCode = NATION_CODE_ABBRS.includes(query.split(' ', 1)[0]);
+    if (!isCode) {
+      return undefined;
+    }
     const ship = this.raw.find(({ names }) => {
-      return normalize(names.code.toUpperCase()) === shipCode.toUpperCase();
+      return normalize(names.code.toUpperCase()) === query;
     });
     if (ship === undefined) {
       return undefined;
@@ -99,9 +103,13 @@ export class Ships extends API<Ship> {
    * @param query Ship name in any language or ship id
    */
   get(query: string): Ship[] {
-    this.queryIsString(query);
-    if (this.client.queryIsShipName(query)) {
-      return this.name(query);
+    const isName = this.name(query);
+    if (isName.length !== 0) {
+      return isName;
+    }
+    const isCode = this.code(query);
+    if (isCode) {
+      return [isCode];
     }
     const isId = this.id(query);
     if (isId) {
@@ -131,7 +139,7 @@ export class Ships extends API<Ship> {
   /**
    * Throws is query is `undefined` or an object or something – anything not a string.
    */
-  private queryIsString(query: unknown): query is string {
+  private queryIsString(query: unknown): string {
     if (typeof query === 'string' && query.trim().length !== 0) {
       query = normalize(query);
       return normalize(query);
