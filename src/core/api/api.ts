@@ -15,7 +15,10 @@ export interface advancedOptions {
   idOnly?: boolean;
   language?: Language;
 }
-
+/**
+ * First element of each array should be the nation abbrevation
+ * for `ship.code` to work properly.
+ */
 export const NATIONS = {
   'Eagle Union': ['uss', 'eagle union'],
   'Royal Navy': ['hms', 'royal navy'],
@@ -35,7 +38,7 @@ export const NATIONS = {
   META: ['meta'],
   Universal: ['universal', 'univ'],
 };
-
+export const NATION_CODE_ABBRS = Object.values(NATIONS).flatMap((c) => c[0].toUpperCase());
 /**
  * The Main API class
  */
@@ -72,7 +75,7 @@ export default class API<T> {
    */
   fuze(name: string): FuseResult<T>[] {
     if (!this.fuse) {
-      throw new Error("Fuze not set.")
+      throw new Error('Fuze not set.');
     }
     return this.fuse.search(name, { limit: 10 }).sort((a, b) => (b.score || 0) - (a.score || 0));
   }

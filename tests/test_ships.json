@@ -1344,5 +1344,549 @@
       }
     ],
     "gallery": []
+  },
+  {
+    "wikiUrl": "https://azurlane.koumakan.jp/wiki/Enterprise_(Royal_Navy)",
+    "id": "557",
+    "_gid": 20232,
+    "_sid": [202321, 202322, 202323, 202324],
+    "_code": 557,
+    "names": {
+      "en": "Enterprise",
+      "code": "HMS Enterprise",
+      "cn": "进取",
+      "jp": "エンタープライズ",
+      "kr": "엔터프라이즈"
+    },
+    "exists": { "en": true, "cn": true, "jp": true, "kr": true },
+    "hexagon": [3, 3, 0, 3, 2, 2],
+    "class": "Emerald",
+    "nationality": "Royal Navy",
+    "hullType": "Light Cruiser",
+    "thumbnail": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/557/thumbnail.png",
+    "rarity": "Elite",
+    "stars": 5,
+    "stats": {
+      "baseStats": {
+        "health": "603",
+        "armor": "Light",
+        "reload": "68",
+        "luck": "83",
+        "firepower": "28",
+        "torpedo": "53",
+        "evasion": "30",
+        "speed": "33",
+        "antiair": "65",
+        "aviation": "0",
+        "oilConsumption": "3",
+        "accuracy": "58",
+        "antisubmarineWarfare": "34"
+      },
+      "level100": {
+        "health": "3208",
+        "armor": "Light",
+        "reload": "175",
+        "luck": "83",
+        "firepower": "143",
+        "torpedo": "271",
+        "evasion": "102",
+        "speed": "33",
+        "antiair": "313",
+        "aviation": "0",
+        "oilConsumption": "10",
+        "accuracy": "152",
+        "antisubmarineWarfare": "133"
+      },
+      "level120": {
+        "health": "3538",
+        "armor": "Light",
+        "reload": "186",
+        "luck": "83",
+        "firepower": "151",
+        "torpedo": "286",
+        "evasion": "117",
+        "speed": "33",
+        "antiair": "342",
+        "aviation": "0",
+        "oilConsumption": "10",
+        "accuracy": "170",
+        "antisubmarineWarfare": "141"
+      },
+      "level125": {
+        "health": "3620",
+        "armor": "Light",
+        "reload": "188",
+        "luck": "83",
+        "firepower": "153",
+        "torpedo": "290",
+        "evasion": "120",
+        "speed": "33",
+        "antiair": "349",
+        "aviation": "0",
+        "oilConsumption": "10",
+        "accuracy": "175",
+        "antisubmarineWarfare": "143"
+      }
+    },
+    "slots": [
+      { "maxEfficiency": 135, "minEfficiency": 120, "type": "CL Guns", "max": 1 },
+      { "maxEfficiency": 155, "minEfficiency": 140, "type": "Torpedoes", "max": 2 },
+      { "maxEfficiency": 100, "minEfficiency": 100, "type": "Anti-Air Guns", "max": 1 }
+    ],
+    "enhanceValue": { "firepower": 12, "torpedo": 18, "aviation": 0, "reload": 13 },
+    "scrapValue": { "coin": 14, "medal": 4 },
+    "skills": [
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/557/time_to_clean.png",
+        "names": { "en": "Time to Clean", "cn": "清扫开始！", "jp": "お掃除��開始します" },
+        "description": "Increases this ship's equipped torpedo DMG dealt by 5% (15%) and increases her DMG dealt to DDs and Torpedo Ships by 5% (15%).",
+        "color": "pink"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/557/mobility_mastery.png",
+        "names": { "en": "Mobility Mastery", "cn": "机动制压", "jp": "機動制圧" },
+        "description": "Decreases this ship's DMG taken from enemy DD guns and torpedoes by 5% (10%). Every 20s: increases this ship's Speed by 5 and FP by 5% (20%) for 10s.",
+        "color": "deepskyblue"
+      },
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/557/all_out_assault.png",
+        "names": { "en": "All Out Assault", "cn": "全弹发射", "jp": "全弾発射-エメラルド級" },
+        "description": "Activates All Out Assault I (II): Emerald-class once every 15 (10)Likely a bug.  In game description lists 12 (8) which is standard for torp cruisers15 (10)[b] times the Main Guns are fired.",
+        "color": "pink"
+      }
+    ],
+    "limitBreaks": [
+      ["Unlock All Out Assault Ⅰ", "Main gun efficiency +5%"],
+      ["Torpedo base +1", "Pre-Loaded Torpedo +1", "Main gun efficiency +10%"],
+      ["Improve All Out Assault", "Torpedo efficiency +15%"]
+    ],
+    "fleetTech": {
+      "statsBonus": {
+        "collection": { "applicable": ["Light cruiser"], "bonus": "+1", "stat": "health" },
+        "maxLevel": { "applicable": ["Light cruiser"], "bonus": "+1", "stat": "torpedo" }
+      },
+      "techPoints": { "collection": 6, "maxLimitBreak": 12, "maxLevel": 9, "total": 27 }
+    },
+    "construction": {
+      "constructionTime": "01:07:00",
+      "availableIn": {
+        "light": false,
+        "heavy": false,
+        "aviation": false,
+        "limited": "Only during the Angel of the Iris event",
+        "exchange": false
+      }
+    },
+    "obtainedFrom": {
+      "obtainedFrom": "Available in Limited Construction during the \"Angel of the Iris\" event",
+      "fromMaps": []
+    },
+    "misc": {
+      "artist": { "name": "Unknown", "urls": { "Link": "null" } },
+      "voice": { "name": "Yukiyo Fujii", "url": "https://en.wikipedia.org/wiki/Yukiyo_Fujii" }
+    },
+    "skins": [
+      {
+        "name": "Default",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/557/Default/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/557/Default/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Default", "category": "Default" }
+      }
+    ],
+    "gallery": []
+  },
+  {
+    "wikiUrl": "https://azurlane.koumakan.jp/wiki/Enterprise",
+    "id": "077",
+    "_gid": 10706,
+    "_sid": [107061, 107062, 107063, 107064, 900184, 900252, 900335],
+    "_code": 77,
+    "names": {
+      "en": "Enterprise",
+      "code": "USS Enterprise",
+      "cn": "企业",
+      "jp": "エンタープライズ",
+      "kr": "엔터프라이즈",
+      "tw": "企業"
+    },
+    "exists": { "en": true, "cn": true, "jp": true, "kr": true },
+    "hexagon": [0, 0, 5, 3, 3, 3],
+    "class": "Yorktown",
+    "nationality": "Eagle Union",
+    "hullType": "Aircraft Carrier",
+    "thumbnail": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/thumbnail.png",
+    "rarity": "Super Rare",
+    "stars": 6,
+    "stats": {
+      "baseStats": {
+        "health": "1042",
+        "armor": "Medium",
+        "reload": "49",
+        "luck": "93",
+        "firepower": "0",
+        "torpedo": "0",
+        "evasion": "19",
+        "speed": "32",
+        "antiair": "62",
+        "aviation": "83",
+        "oilConsumption": "4",
+        "accuracy": "37",
+        "antisubmarineWarfare": "0"
+      },
+      "level100": {
+        "health": "5610",
+        "armor": "Medium",
+        "reload": "125",
+        "luck": "93",
+        "firepower": "0",
+        "torpedo": "0",
+        "evasion": "55",
+        "speed": "32",
+        "antiair": "301",
+        "aviation": "409",
+        "oilConsumption": "13",
+        "accuracy": "95",
+        "antisubmarineWarfare": "0"
+      },
+      "level120": {
+        "health": "6193",
+        "armor": "Medium",
+        "reload": "132",
+        "luck": "93",
+        "firepower": "0",
+        "torpedo": "0",
+        "evasion": "62",
+        "speed": "32",
+        "antiair": "329",
+        "aviation": "430",
+        "oilConsumption": "13",
+        "accuracy": "107",
+        "antisubmarineWarfare": "0"
+      },
+      "level125": {
+        "health": "6339",
+        "armor": "Medium",
+        "reload": "134",
+        "luck": "93",
+        "firepower": "0",
+        "torpedo": "0",
+        "evasion": "64",
+        "speed": "32",
+        "antiair": "337",
+        "aviation": "435",
+        "oilConsumption": "13",
+        "accuracy": "110",
+        "antisubmarineWarfare": "0"
+      }
+    },
+    "slots": [
+      { "maxEfficiency": 125, "minEfficiency": 110, "type": "Fighters", "max": 3 },
+      { "maxEfficiency": 125, "minEfficiency": 110, "type": "Dive Bombers", "max": 3 },
+      { "maxEfficiency": 125, "minEfficiency": 110, "type": "Torpedo Bombers", "max": 2 }
+    ],
+    "enhanceValue": { "firepower": 0, "torpedo": 0, "aviation": 69, "reload": 9 },
+    "scrapValue": { "coin": 16, "medal": 10 },
+    "skills": [
+      {
+        "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skills/077/lucky_e.png",
+        "names": { "en": "Lucky E", "cn": "LuckyE", "jp": "LuckyE" },
+        "description": "When launching an airstrike: 40% (70%) chance to deal double damage with that airstrike, and evade all incoming attacks for 8s.",
+        "color": "pink"
+      }
+    ],
+    "limitBreaks": [
+      ["All Fighters +1", "All Plane Efficiency +3%"],
+      ["Hangar Capacity +1", "All Dive Bombers +1", "All Plane Efficiency +5%"],
+      ["All Aircraft +1", "All Plane Efficiency +7%"]
+    ],
+    "fleetTech": {
+      "statsBonus": {
+        "collection": {
+          "applicable": ["Aircraft carrier", "Light aircraft carrier"],
+          "bonus": "+1",
+          "stat": "health"
+        },
+        "maxLevel": {
+          "applicable": ["Aircraft carrier", "Light aircraft carrier"],
+          "bonus": "+2",
+          "stat": "aviation"
+        }
+      },
+      "techPoints": { "collection": 12, "maxLimitBreak": 25, "maxLevel": 19, "total": 56 }
+    },
+    "construction": {
+      "constructionTime": "04:20:00",
+      "availableIn": {
+        "light": false,
+        "heavy": false,
+        "aviation": true,
+        "limited": false,
+        "exchange": "Medal Shop"
+      }
+    },
+    "obtainedFrom": {
+      "obtainedFrom": "Available in Medal Shop for \"Medal of Honor\" 80\nChoice from the Beginner Rewards Rookie Mission: \"Clear 7-1\"",
+      "fromMaps": []
+    },
+    "misc": {
+      "artist": {
+        "name": "八才提督",
+        "urls": {
+          "Wiki": "https://azurlane.koumakan.jp/wiki/Artists#八才提督",
+          "Pixiv": "https://www.pixiv.net/member.php?id=1393609",
+          "Twitter": "https://twitter.com/hao660a",
+          "Link": "http://weibo.com/vihao"
+        }
+      },
+      "voice": { "name": "Yui Ishikawa", "url": "https://en.wikipedia.org/wiki/Yui_Ishikawa" }
+    },
+    "skins": [
+      {
+        "name": "Default",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Default/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Default/chibi.png",
+        "info": { "live2dModel": false, "obtainedFrom": "Default", "category": "Default" }
+      },
+      {
+        "name": "Wedding",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Wedding/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Wedding/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Wedding",
+          "category": "Wedding",
+          "enClient": "Starlight Oath",
+          "enLimited": "Permanently Available",
+          "cnClient": "誓约的星光",
+          "cnLimited": "Permanently Available",
+          "jpClient": "マリースター",
+          "jpLimited": "Permanently Available"
+        }
+      },
+      {
+        "name": "Reindeer Master",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Reindeer_Master/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_100.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Reindeer_Master/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Skin Shop",
+          "category": "Christmas",
+          "enClient": "Reindeer Master",
+          "enLimited": "Permanently Available",
+          "cnClient": "驯鹿之主",
+          "cnLimited": "Permanently Available",
+          "jpClient": "トナカイ・マスター",
+          "jpLimited": "Permanently Available",
+          "cost": 880
+        }
+      },
+      {
+        "name": "Blooming Peony",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Blooming_Peony/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_102.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Blooming_Peony/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Skin Shop",
+          "category": "Spring",
+          "enClient": "Blooming Peony",
+          "enLimited": "Permanently Available",
+          "cnClient": "傲春之牡丹",
+          "cnLimited": "Permanently Available",
+          "jpClient": "ブライトピオニー",
+          "jpLimited": "Permanently Available",
+          "cost": 880
+        }
+      },
+      {
+        "name": "Anniversary Ride",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Anniversary_Ride/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_118.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Anniversary_Ride/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Skin Shop",
+          "category": "Casual",
+          "enClient": "Anniversary Ride",
+          "enLimited": "Permanently Available",
+          "cnClient": "Anniversary Drive！",
+          "cnLimited": "Permanently Available",
+          "jpClient": "アニバーサリードライブ！",
+          "jpLimited": "Permanently Available",
+          "cost": 880
+        }
+      },
+      {
+        "name": "Soaring Wings of Freedom",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Soaring_Wings_of_Freedom/image.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/MainDayBG.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Soaring_Wings_of_Freedom/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Anime Blu-Ray First Press Edition bonus",
+          "category": "Bluray",
+          "enClient": "Soaring Wings of Freedom",
+          "enLimited": "Event Limited",
+          "cnClient": "翱翔的自由之翼",
+          "cnLimited": "Event Limited",
+          "jpClient": "羽ばたける自由の翼",
+          "jpLimited": "Event Limited"
+        }
+      },
+      {
+        "name": "Heroic Finery",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Heroic_Finery/image.nobg.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_135.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Heroic_Finery/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Skin Shop",
+          "category": "Party",
+          "enClient": "Heroic Finery",
+          "enLimited": "Permanently Available",
+          "cnClient": "英雄的礼服",
+          "cnLimited": "Limited",
+          "jpClient": "英雄の儀典礼装",
+          "jpLimited": "Permanently Available",
+          "cost": 900
+        },
+        "bg": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Heroic_Finery/image.png"
+      },
+      {
+        "name": "Wind Catcher",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Wind_Catcher/image.nobg.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_132.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Wind_Catcher/chibi.png",
+        "info": {
+          "live2dModel": true,
+          "obtainedFrom": "Skin Shop",
+          "category": "Race Queen",
+          "enClient": "Wind Catcher",
+          "enLimited": "Limited",
+          "cnClient": "Wind Catcher",
+          "cnLimited": "Limited",
+          "jpClient": "ウィンド・キャッチャー",
+          "jpLimited": "Limited",
+          "cost": 1200
+        },
+        "bg": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Wind_Catcher/image.png"
+      },
+      {
+        "name": "Bon Voyage",
+        "image": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Bon_Voyage/image.nobg.png",
+        "background": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/backgrounds/Skin_BG_155.png",
+        "chibi": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Bon_Voyage/chibi.png",
+        "info": {
+          "live2dModel": false,
+          "obtainedFrom": "Fair Winds Cruise Pass - Season 4 - Buy the Season Pass and collect 3000  Battlepass Pts. during Season 4",
+          "category": "Cruise Mission",
+          "enClient": "Bon Voyage",
+          "enLimited": "Event Limited",
+          "cnClient": "旅行的启程",
+          "cnLimited": "Event Limited",
+          "jpClient": "Partons en voyage（いざ、旅へ）",
+          "jpLimited": "Event Limited"
+        },
+        "bg": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/skins/077/Bon_Voyage/image.png"
+      }
+    ],
+    "gallery": [
+      {
+        "description": "Enterprise and New Jersey",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_2022.01.06_4.png"
+      },
+      {
+        "description": "Enterprise, Akashi (as balloon), Prinz Heinrich, Sovetskaya Belorussiya, Essex, Ning Hai",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_2021.08.12_1.png"
+      },
+      {
+        "description": "Detectives Essex and Enterprise",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_2021.04.01_1.png"
+      },
+      {
+        "description": "Ping Hai, Unicorn, Monarch, Enterprise",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_2020.02.04_1.png"
+      },
+      {
+        "description": "Ping Hai, Ning Hai, Amagi, Laffey, Enterprise",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_2020.08.13_8.png"
+      },
+      {
+        "description": "Enterprise, Hood, Dunkerque",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_2019.12.19_3.png"
+      },
+      {
+        "description": "Enterprise in the winter holiday",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_2019.12.11_1.png"
+      },
+      {
+        "description": "Laffey, Javelin, Z23, Amagi, Friedrich der Große, Enterprise, Taihou, Dunkerque, Gascogne",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_2019.10.31_2.png"
+      },
+      {
+        "description": "Essex, Cleveland, Enterprise",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_union_riders.png"
+      },
+      {
+        "description": "Enterprise, Laffey, Cleveland, Z46, Washington, Honolulu, Admiral Hipper, St. Louis, and Admiral Graf Spee, San Diego",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_July4th_5.png"
+      },
+      {
+        "description": "Honolulu, St. Louis, Enterprise",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_July4th_3.png"
+      },
+      {
+        "description": "Enterprise, Yorktown, Indianapolis, Portland, Saratoga",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_July4th_1.png"
+      },
+      {
+        "description": "Loading screen depicting Enterprise with various Eagle Union ships",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_enterprise_3.png"
+      },
+      {
+        "description": "Enterprise in her Blooming Peony skin with Belfast and St. Louis",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_belfast_2.png"
+      },
+      {
+        "description": "Enterprise with her eagle",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_enterprise_2.png"
+      },
+      {
+        "description": "Yorktown and Enterprise",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_yorktown_1.png"
+      },
+      {
+        "description": "Loading screen depicting Enterprise with her sister Yorktown and Hornet",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_yorktown_class_1.png"
+      },
+      {
+        "description": "Loading screen depicting Enterprise holding her sister Yorktown in her final moments",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_yorktown_1.png"
+      },
+      {
+        "description": "Loading screen showing Enterprise launching aircraft",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Bg_enterprise_1.png"
+      },
+      {
+        "description": "Dive bomber that delivers the killing blow to Akagi replaced with a Bald Eagle",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Memory_Story_Background_9.png"
+      },
+      {
+        "description": "Three Douglas SBD Dauntless dive bombers overhead of Akagi",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Memory_Story_Background_8.png"
+      },
+      {
+        "description": "Enterprise protecting Hornet while the latter executes the Doolittle Raid",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Memory_Story_Background_7.png"
+      },
+      {
+        "description": "Enterprise in her update background",
+        "url": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/gallery/Updatebg_Eagle.png"
+      }
+    ]
   }
 ]
