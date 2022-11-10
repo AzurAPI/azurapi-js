@@ -27,8 +27,8 @@ export class Chapters extends API<Chapter> {
     for (let chapter of this.raw) {
       for (let sub of Object.values(chapter)) {
         // console.log(sub)
-      if(sub.normal && normalize(sub.normal["code"]) === normalize(id.toUpperCase()))
-      result.push(sub);
+        if (sub.normal && normalize(sub.normal['code']) === normalize(id.toUpperCase()))
+          result.push(sub);
       }
     }
     return result;
