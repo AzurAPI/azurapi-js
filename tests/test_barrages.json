@@ -1,0 +1,11 @@
+[
+  {
+    "id": "All_Out_Assault_-_22_II",
+    "type": "ship",
+    "icon": "https://raw.githubusercontent.com/AzurAPI/azurapi-js-setup/master/images/barrages/All_Out_Assault_-_22_II/icon.png",
+    "name": "All Out Assault - 22 II",
+    "ships": ["22"],
+    "hull": "DD",
+    "rounds": [{ "type": "Normal", "dmgL": 320, "dmgM": 256, "dmgH": 192, "note": null }]
+  }
+]

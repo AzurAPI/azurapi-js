@@ -41,7 +41,7 @@ export class Ships extends API<Ship> {
    */
   code(shipCode: string): Ship | undefined {
     const query = this.queryIsString(shipCode).toUpperCase();
-    // Is word before first space (i.e. the 'HMS' in 'HMS Ajax') is an abbreviation 
+    // Is word before first space (i.e. the 'HMS' in 'HMS Ajax') is an abbreviation
     const isCode = NATION_CODE_ABBRS.indexOf(query.split(' ', 1)[0]) !== -1;
     if (!isCode) {
       return undefined;

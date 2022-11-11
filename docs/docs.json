@@ -5,7 +5,12 @@
 	"kindString": "Project",
 	"flags": {},
 	"comment": {
-		"shortText": "Exporting everything for package"
+		"summary": [
+			{
+				"kind": "text",
+				"text": "Exporting everything for package"
+			}
+		]
 	},
 	"originalName": "",
 	"children": [
@@ -16,7 +21,12 @@
 			"kindString": "Class",
 			"flags": {},
 			"comment": {
-				"shortText": "The main AzurAPI class"
+				"summary": [
+					{
+						"kind": "text",
+						"text": "The main AzurAPI class"
+					}
+				]
 			},
 			"children": [
 				{
@@ -40,7 +50,12 @@
 							"kindString": "Constructor signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Cache client"
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Cache client"
+									}
+								]
 							},
 							"parameters": [
 								{
@@ -52,7 +67,12 @@
 										"isOptional": true
 									},
 									"comment": {
-										"shortText": "options for the cache\n"
+										"summary": [
+											{
+												"kind": "text",
+												"text": "options for the cache"
+											}
+										]
 									},
 									"type": {
 										"type": "reference",
@@ -107,6 +127,13 @@
 									"kind": 1024,
 									"kindString": "Property",
 									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/core/Client.ts",
+											"line": 39,
+											"character": 4
+										}
+									],
 									"type": {
 										"type": "reference",
 										"name": "Barrages"
@@ -119,6 +146,13 @@
 									"kind": 1024,
 									"kindString": "Property",
 									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/core/Client.ts",
+											"line": 37,
+											"character": 4
+										}
+									],
 									"type": {
 										"type": "reference",
 										"name": "Chapters"
@@ -131,6 +165,13 @@
 									"kind": 1024,
 									"kindString": "Property",
 									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/core/Client.ts",
+											"line": 36,
+											"character": 4
+										}
+									],
 									"type": {
 										"type": "reference",
 										"name": "Equipments"
@@ -143,6 +184,13 @@
 									"kind": 1024,
 									"kindString": "Property",
 									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/core/Client.ts",
+											"line": 35,
+											"character": 4
+										}
+									],
 									"type": {
 										"type": "reference",
 										"name": "Ships"
@@ -155,6 +203,13 @@
 									"kind": 1024,
 									"kindString": "Property",
 									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/core/Client.ts",
+											"line": 38,
+											"character": 4
+										}
+									],
 									"type": {
 										"type": "reference",
 										"name": "Voicelines"
@@ -165,7 +220,6 @@
 							"groups": [
 								{
 									"title": "Properties",
-									"kind": 1024,
 									"children": [
 										46,
 										44,
@@ -173,6 +227,13 @@
 										42,
 										45
 									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/core/Client.ts",
+									"line": 34,
+									"character": 16
 								}
 							]
 						}
@@ -407,9 +468,9 @@
 						"queryType": {
 							"type": "reference",
 							"id": 24,
+							"name": "captureRejectionSymbol",
 							"qualifiedName": "EventEmitter.captureRejectionSymbol",
-							"package": "@types/node",
-							"name": "captureRejectionSymbol"
+							"package": "@types/node"
 						}
 					},
 					"inheritedFrom": {
@@ -427,7 +488,12 @@
 						"isExternal": true
 					},
 					"comment": {
-						"shortText": "Sets or gets the default captureRejection value for all emitters."
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Sets or gets the default captureRejection value for all emitters."
+							}
+						]
 					},
 					"sources": [
 						{
@@ -481,8 +547,44 @@
 						"isReadonly": true
 					},
 					"comment": {
-						"shortText": "This symbol shall be used to install a listener for only monitoring `'error'`\nevents. Listeners installed using this symbol are called before the regular\n`'error'` listeners are called.",
-						"text": "Installing a listener using this symbol does not change the behavior once an\n`'error'` event is emitted, therefore the process will still crash if no\nregular `'error'` listener is installed.\n"
+						"summary": [
+							{
+								"kind": "text",
+								"text": "This symbol shall be used to install a listener for only monitoring "
+							},
+							{
+								"kind": "code",
+								"text": "`'error'`"
+							},
+							{
+								"kind": "text",
+								"text": "\nevents. Listeners installed using this symbol are called before the regular\n"
+							},
+							{
+								"kind": "code",
+								"text": "`'error'`"
+							},
+							{
+								"kind": "text",
+								"text": " listeners are called.\n\nInstalling a listener using this symbol does not change the behavior once an\n"
+							},
+							{
+								"kind": "code",
+								"text": "`'error'`"
+							},
+							{
+								"kind": "text",
+								"text": " event is emitted, therefore the process will still crash if no\nregular "
+							},
+							{
+								"kind": "code",
+								"text": "`'error'`"
+							},
+							{
+								"kind": "text",
+								"text": " listener is installed."
+							}
+						]
 					},
 					"sources": [
 						{
@@ -496,9 +598,9 @@
 						"queryType": {
 							"type": "reference",
 							"id": 23,
+							"name": "errorMonitor",
 							"qualifiedName": "EventEmitter.errorMonitor",
-							"package": "@types/node",
-							"name": "errorMonitor"
+							"package": "@types/node"
 						}
 					},
 					"inheritedFrom": {
@@ -507,16 +609,23 @@
 					}
 				},
 				{
-					"id": 51,
+					"id": 57,
 					"name": "addListener",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 57,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 52,
+							"id": 58,
 							"name": "addListener",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -525,7 +634,7 @@
 							},
 							"parameters": [
 								{
-									"id": 53,
+									"id": 59,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -547,7 +656,7 @@
 									}
 								},
 								{
-									"id": 54,
+									"id": 60,
 									"name": "listener",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -557,16 +666,23 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 55,
+											"id": 61,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {
 												"isExternal": true
 											},
+											"sources": [
+												{
+													"fileName": "node_modules/@types/node/events.d.ts",
+													"line": 57,
+													"character": 62
+												}
+											],
 											"signatures": [
 												{
-													"id": 56,
+													"id": 62,
 													"name": "__type",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -575,7 +691,7 @@
 													},
 													"parameters": [
 														{
-															"id": 57,
+															"id": 63,
 															"name": "args",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -619,16 +735,23 @@
 					}
 				},
 				{
-					"id": 100,
+					"id": 106,
 					"name": "emit",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 67,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 101,
+							"id": 107,
 							"name": "emit",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -637,7 +760,7 @@
 							},
 							"parameters": [
 								{
-									"id": 102,
+									"id": 108,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -659,7 +782,7 @@
 									}
 								},
 								{
-									"id": 103,
+									"id": 109,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -692,16 +815,23 @@
 					}
 				},
 				{
-					"id": 121,
+					"id": 127,
 					"name": "eventNames",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 72,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 122,
+							"id": 128,
 							"name": "eventNames",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -736,16 +866,23 @@
 					}
 				},
 				{
-					"id": 92,
+					"id": 98,
 					"name": "getMaxListeners",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 64,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 93,
+							"id": 99,
 							"name": "getMaxListeners",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -768,16 +905,71 @@
 					}
 				},
 				{
-					"id": 104,
+					"id": 54,
+					"name": "getShipIdByName",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 94,
+							"character": 2
+						}
+					],
+					"signatures": [
+						{
+							"id": 55,
+							"name": "getShipIdByName",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Another bodge..."
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 56,
+									"name": "name",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					]
+				},
+				{
+					"id": 110,
 					"name": "listenerCount",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 68,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 105,
+							"id": 111,
 							"name": "listenerCount",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -786,7 +978,7 @@
 							},
 							"parameters": [
 								{
-									"id": 106,
+									"id": 112,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -824,16 +1016,23 @@
 					}
 				},
 				{
-					"id": 94,
+					"id": 100,
 					"name": "listeners",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 65,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 95,
+							"id": 101,
 							"name": "listeners",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -842,7 +1041,7 @@
 							},
 							"parameters": [
 								{
-									"id": 96,
+									"id": 102,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -868,9 +1067,9 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
+									"name": "Function",
 									"qualifiedName": "Function",
-									"package": "typescript",
-									"name": "Function"
+									"package": "typescript"
 								}
 							},
 							"inheritedFrom": {
@@ -885,16 +1084,23 @@
 					}
 				},
 				{
-					"id": 79,
+					"id": 85,
 					"name": "off",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 61,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 80,
+							"id": 86,
 							"name": "off",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -903,7 +1109,7 @@
 							},
 							"parameters": [
 								{
-									"id": 81,
+									"id": 87,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -925,7 +1131,7 @@
 									}
 								},
 								{
-									"id": 82,
+									"id": 88,
 									"name": "listener",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -935,16 +1141,23 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 83,
+											"id": 89,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {
 												"isExternal": true
 											},
+											"sources": [
+												{
+													"fileName": "node_modules/@types/node/events.d.ts",
+													"line": 61,
+													"character": 54
+												}
+											],
 											"signatures": [
 												{
-													"id": 84,
+													"id": 90,
 													"name": "__type",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -953,7 +1166,7 @@
 													},
 													"parameters": [
 														{
-															"id": 85,
+															"id": 91,
 															"name": "args",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -997,16 +1210,23 @@
 					}
 				},
 				{
-					"id": 58,
+					"id": 64,
 					"name": "on",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 58,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 59,
+							"id": 65,
 							"name": "on",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1015,7 +1235,7 @@
 							},
 							"parameters": [
 								{
-									"id": 60,
+									"id": 66,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1037,7 +1257,7 @@
 									}
 								},
 								{
-									"id": 61,
+									"id": 67,
 									"name": "listener",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1047,16 +1267,23 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 62,
+											"id": 68,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {
 												"isExternal": true
 											},
+											"sources": [
+												{
+													"fileName": "node_modules/@types/node/events.d.ts",
+													"line": 58,
+													"character": 53
+												}
+											],
 											"signatures": [
 												{
-													"id": 63,
+													"id": 69,
 													"name": "__type",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -1065,7 +1292,7 @@
 													},
 													"parameters": [
 														{
-															"id": 64,
+															"id": 70,
 															"name": "args",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1109,16 +1336,23 @@
 					}
 				},
 				{
-					"id": 65,
+					"id": 71,
 					"name": "once",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 59,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 66,
+							"id": 72,
 							"name": "once",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1127,7 +1361,7 @@
 							},
 							"parameters": [
 								{
-									"id": 67,
+									"id": 73,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1149,7 +1383,7 @@
 									}
 								},
 								{
-									"id": 68,
+									"id": 74,
 									"name": "listener",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1159,16 +1393,23 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 69,
+											"id": 75,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {
 												"isExternal": true
 											},
+											"sources": [
+												{
+													"fileName": "node_modules/@types/node/events.d.ts",
+													"line": 59,
+													"character": 55
+												}
+											],
 											"signatures": [
 												{
-													"id": 70,
+													"id": 76,
 													"name": "__type",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -1177,7 +1418,7 @@
 													},
 													"parameters": [
 														{
-															"id": 71,
+															"id": 77,
 															"name": "args",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1221,16 +1462,23 @@
 					}
 				},
 				{
-					"id": 107,
+					"id": 113,
 					"name": "prependListener",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 70,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 108,
+							"id": 114,
 							"name": "prependListener",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1239,7 +1487,7 @@
 							},
 							"parameters": [
 								{
-									"id": 109,
+									"id": 115,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1261,7 +1509,7 @@
 									}
 								},
 								{
-									"id": 110,
+									"id": 116,
 									"name": "listener",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1271,16 +1519,23 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 111,
+											"id": 117,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {
 												"isExternal": true
 											},
+											"sources": [
+												{
+													"fileName": "node_modules/@types/node/events.d.ts",
+													"line": 70,
+													"character": 66
+												}
+											],
 											"signatures": [
 												{
-													"id": 112,
+													"id": 118,
 													"name": "__type",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -1289,7 +1544,7 @@
 													},
 													"parameters": [
 														{
-															"id": 113,
+															"id": 119,
 															"name": "args",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1333,16 +1588,23 @@
 					}
 				},
 				{
-					"id": 114,
+					"id": 120,
 					"name": "prependOnceListener",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 71,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 115,
+							"id": 121,
 							"name": "prependOnceListener",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1351,7 +1613,7 @@
 							},
 							"parameters": [
 								{
-									"id": 116,
+									"id": 122,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1373,7 +1635,7 @@
 									}
 								},
 								{
-									"id": 117,
+									"id": 123,
 									"name": "listener",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1383,16 +1645,23 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 118,
+											"id": 124,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {
 												"isExternal": true
 											},
+											"sources": [
+												{
+													"fileName": "node_modules/@types/node/events.d.ts",
+													"line": 71,
+													"character": 70
+												}
+											],
 											"signatures": [
 												{
-													"id": 119,
+													"id": 125,
 													"name": "__type",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -1401,7 +1670,7 @@
 													},
 													"parameters": [
 														{
-															"id": 120,
+															"id": 126,
 															"name": "args",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1445,16 +1714,71 @@
 					}
 				},
 				{
-					"id": 97,
+					"id": 51,
+					"name": "queryIsShipName",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/Client.ts",
+							"line": 88,
+							"character": 2
+						}
+					],
+					"signatures": [
+						{
+							"id": 52,
+							"name": "queryIsShipName",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Bodge until we can rewrite\nquery string matches a ship's name."
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 53,
+									"name": "query",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					]
+				},
+				{
+					"id": 103,
 					"name": "rawListeners",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 66,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 98,
+							"id": 104,
 							"name": "rawListeners",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1463,7 +1787,7 @@
 							},
 							"parameters": [
 								{
-									"id": 99,
+									"id": 105,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1489,9 +1813,9 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
+									"name": "Function",
 									"qualifiedName": "Function",
-									"package": "typescript",
-									"name": "Function"
+									"package": "typescript"
 								}
 							},
 							"inheritedFrom": {
@@ -1506,16 +1830,23 @@
 					}
 				},
 				{
-					"id": 86,
+					"id": 92,
 					"name": "removeAllListeners",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 62,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 87,
+							"id": 93,
 							"name": "removeAllListeners",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1524,7 +1855,7 @@
 							},
 							"parameters": [
 								{
-									"id": 88,
+									"id": 94,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1564,16 +1895,23 @@
 					}
 				},
 				{
-					"id": 72,
+					"id": 78,
 					"name": "removeListener",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 60,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 73,
+							"id": 79,
 							"name": "removeListener",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1582,7 +1920,7 @@
 							},
 							"parameters": [
 								{
-									"id": 74,
+									"id": 80,
 									"name": "event",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1604,7 +1942,7 @@
 									}
 								},
 								{
-									"id": 75,
+									"id": 81,
 									"name": "listener",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1614,16 +1952,23 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 76,
+											"id": 82,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {
 												"isExternal": true
 											},
+											"sources": [
+												{
+													"fileName": "node_modules/@types/node/events.d.ts",
+													"line": 60,
+													"character": 65
+												}
+											],
 											"signatures": [
 												{
-													"id": 77,
+													"id": 83,
 													"name": "__type",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -1632,7 +1977,7 @@
 													},
 													"parameters": [
 														{
-															"id": 78,
+															"id": 84,
 															"name": "args",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1684,7 +2029,7 @@
 					"sources": [
 						{
 							"fileName": "src/core/Client.ts",
-							"line": 76,
+							"line": 78,
 							"character": 2
 						}
 					],
@@ -1696,7 +2041,12 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Set data in cache"
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Set data in cache"
+									}
+								]
 							},
 							"parameters": [
 								{
@@ -1706,7 +2056,12 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"shortText": "A type of data (ship, equipment, voiceline, chapter, or barrage)"
+										"summary": [
+											{
+												"kind": "text",
+												"text": "A type of data (ship, equipment, voiceline, chapter, or barrage)"
+											}
+										]
 									},
 									"type": {
 										"type": "reference",
@@ -1720,7 +2075,12 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"shortText": "Raw data in array\n"
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Raw data in array"
+											}
+										]
 									},
 									"type": {
 										"type": "array",
@@ -1764,16 +2124,23 @@
 					]
 				},
 				{
-					"id": 89,
+					"id": 95,
 					"name": "setMaxListeners",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
 						"isExternal": true
 					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 63,
+							"character": 16
+						}
+					],
 					"signatures": [
 						{
-							"id": 90,
+							"id": 96,
 							"name": "setMaxListeners",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1782,7 +2149,7 @@
 							},
 							"parameters": [
 								{
-									"id": 91,
+									"id": 97,
 									"name": "n",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1837,10 +2204,16 @@
 								"isExternal": true
 							},
 							"comment": {
-								"tags": [
+								"summary": [],
+								"blockTags": [
 									{
-										"tag": "deprecated",
-										"text": "since v4.0.0"
+										"tag": "@deprecated",
+										"content": [
+											{
+												"kind": "text",
+												"text": "since v4.0.0"
+											}
+										]
 									}
 								]
 							},
@@ -1855,9 +2228,9 @@
 									},
 									"type": {
 										"type": "reference",
+										"name": "EventEmitter",
 										"qualifiedName": "global.NodeJS.EventEmitter",
-										"package": "@types/node",
-										"name": "EventEmitter"
+										"package": "@types/node"
 									}
 								},
 								{
@@ -1934,9 +2307,9 @@
 									},
 									"type": {
 										"type": "reference",
+										"name": "EventEmitter",
 										"qualifiedName": "global.NodeJS.EventEmitter",
-										"package": "@types/node",
-										"name": "EventEmitter"
+										"package": "@types/node"
 									}
 								},
 								{
@@ -1961,9 +2334,9 @@
 										"name": "any"
 									}
 								],
+								"name": "AsyncIterableIterator",
 								"qualifiedName": "AsyncIterableIterator",
-								"package": "typescript",
-								"name": "AsyncIterableIterator"
+								"package": "typescript"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -1990,6 +2363,11 @@
 							"fileName": "node_modules/@types/node/events.d.ts",
 							"line": 21,
 							"character": 15
+						},
+						{
+							"fileName": "node_modules/@types/node/events.d.ts",
+							"line": 22,
+							"character": 15
 						}
 					],
 					"signatures": [
@@ -2012,9 +2390,9 @@
 									},
 									"type": {
 										"type": "reference",
+										"name": "NodeEventTarget",
 										"qualifiedName": "NodeEventTarget",
-										"package": "@types/node",
-										"name": "NodeEventTarget"
+										"package": "@types/node"
 									}
 								},
 								{
@@ -2051,9 +2429,9 @@
 										}
 									}
 								],
+								"name": "Promise",
 								"qualifiedName": "Promise",
-								"package": "typescript",
-								"name": "Promise"
+								"package": "typescript"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -2079,9 +2457,9 @@
 									},
 									"type": {
 										"type": "reference",
+										"name": "DOMEventTarget",
 										"qualifiedName": "DOMEventTarget",
-										"package": "@types/node",
-										"name": "DOMEventTarget"
+										"package": "@types/node"
 									}
 								},
 								{
@@ -2109,9 +2487,9 @@
 										}
 									}
 								],
+								"name": "Promise",
 								"qualifiedName": "Promise",
-								"package": "typescript",
-								"name": "Promise"
+								"package": "typescript"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -2128,14 +2506,12 @@
 			"groups": [
 				{
 					"title": "Constructors",
-					"kind": 512,
 					"children": [
 						27
 					]
 				},
 				{
 					"title": "Properties",
-					"kind": 1024,
 					"children": [
 						40,
 						32,
@@ -2156,24 +2532,25 @@
 				},
 				{
 					"title": "Methods",
-					"kind": 2048,
 					"children": [
-						51,
+						57,
+						106,
+						127,
+						98,
+						54,
+						110,
 						100,
-						121,
+						85,
+						64,
+						71,
+						113,
+						120,
+						51,
+						103,
 						92,
-						104,
-						94,
-						79,
-						58,
-						65,
-						107,
-						114,
-						97,
-						86,
-						72,
+						78,
 						47,
-						89,
+						95,
 						19,
 						15,
 						8
@@ -2190,9 +2567,9 @@
 			"extendedTypes": [
 				{
 					"type": "reference",
+					"name": "EventEmitter",
 					"qualifiedName": "EventEmitter",
-					"package": "@types/node",
-					"name": "EventEmitter"
+					"package": "@types/node"
 				}
 			]
 		},
@@ -2268,7 +2645,6 @@
 			"groups": [
 				{
 					"title": "Properties",
-					"kind": 1024,
 					"children": [
 						4,
 						5,
@@ -2334,28 +2710,24 @@
 	"groups": [
 		{
 			"title": "Classes",
-			"kind": 128,
 			"children": [
 				7
 			]
 		},
 		{
 			"title": "Interfaces",
-			"kind": 256,
 			"children": [
 				2
 			]
 		},
 		{
-			"title": "Type aliases",
-			"kind": 4194304,
+			"title": "Type Aliases",
 			"children": [
 				1
 			]
 		},
 		{
 			"title": "Variables",
-			"kind": 32,
 			"children": [
 				6
 			]
